@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3315890}
   - 23: {fileID: 2380028}
   - 95: {fileID: 9551110}
-  - 64: {fileID: 6412716}
+  - 65: {fileID: 6536696}
   m_Layer: 0
   m_Name: PecaElevada_2
   m_TagString: Untagged
@@ -62,8 +62,8 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 142538}
   m_Mesh: {fileID: 4300000, guid: 709074c31328dd14cb664d3444450e8e, type: 3}
---- !u!64 &6412716
-MeshCollider:
+--- !u!65 &6536696
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -72,8 +72,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 4300000, guid: 709074c31328dd14cb664d3444450e8e, type: 3}
+  m_Size: {x: .0100000016, y: .00999992341, z: .00999999978}
+  m_Center: {x: 7.4505806e-09, y: -3.81842256e-08, z: 0}
 --- !u!95 &9551110
 Animator:
   serializedVersion: 3

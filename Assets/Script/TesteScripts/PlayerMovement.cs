@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour, ITarget
 	public ITarget Alvo;
     public TargetVision Direcao;
     public Item[] _Equipamentos = new Item[2];
+    bool IsRecover = false;
 	//Fim
 	public float Speed = 500f;
 	public float moveX = 0f;
@@ -79,6 +80,16 @@ public class PlayerMovement : MonoBehaviour, ITarget
 	//Fim
 	void FixedUpdate ()
 	{
+        if(IsRecover)
+        {
+            if(Amanus < AmanusTotal)
+            {
+                MP++;
+            }else
+            {
+                IsRecover = false;
+            }
+        }
         if (Application.loadedLevel == 0)
         {
             Destroy(gameObject);
@@ -94,11 +105,19 @@ public class PlayerMovement : MonoBehaviour, ITarget
         Direcao = visao;
         if (EstadoDoJogador != GameStates.CharacterState.DontMove)
         {
+            if(Jump())
+            {
+                return;
+            }
+            if (!IsInvoking("CheckRecoverAmanusAuto"))
+            {
+                Invoke("CheckRecoverAmanusAuto", 10f);
+            }
             if (EstadoDoJogador != GameStates.CharacterState.Defense)
             {
                 Attack();
             }
-            Jump();
+            
             if (!attack)
             {
 
@@ -108,6 +127,7 @@ public class PlayerMovement : MonoBehaviour, ITarget
                 moveZ = Input.GetAxis("Vertical");
 
             }
+            
         }
 	}
 
@@ -143,7 +163,7 @@ public class PlayerMovement : MonoBehaviour, ITarget
 		}
 	}
 
-	public void Jump ()
+	public bool Jump ()
 	{
 		
         Ray raio = new Ray(transform.position, -transform.up);
@@ -164,13 +184,20 @@ public class PlayerMovement : MonoBehaviour, ITarget
             rgd.AddForce(Vector3.up*5,ForceMode.Impulse);
             notJump = true;
             OnTheFloor = false;
+            return true;
             
         }
-        
+        return false;
 
 
 	}
-
+    void CheckRecoverAmanusAuto()
+    {
+        if(Amanus < AmanusTotal)
+        {
+            IsRecover = true;
+        }
+    }
 	public void Attack ()
 	{
 		if (Input.GetButtonDown ("Action") && !attack) {

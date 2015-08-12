@@ -312,7 +312,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 494094, guid: 03e927120f99074489984d4d56920417, type: 2}
       propertyPath: m_RootOrder
-      value: 25
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 494094, guid: 03e927120f99074489984d4d56920417, type: 2}
       propertyPath: m_LocalScale.x
@@ -772,10 +772,10 @@ Transform:
   - {fileID: 426157525}
   - {fileID: 753305641}
   - {fileID: 1339400459}
-  - {fileID: 773258394}
   - {fileID: 305480034}
-  - {fileID: 87077341}
+  - {fileID: 773258394}
   - {fileID: 1756169033}
+  - {fileID: 87077341}
   - {fileID: 1076573749}
   - {fileID: 1746798023}
   - {fileID: 64062128}
@@ -940,7 +940,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!20 &139167828
 Camera:
   m_ObjectHideFlags: 0
@@ -4418,7 +4418,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 469628, guid: 20ae15a25925d504c8b1f5e4499918cb, type: 2}
       propertyPath: m_RootOrder
-      value: 24
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 469628, guid: 20ae15a25925d504c8b1f5e4499918cb, type: 2}
       propertyPath: m_LocalScale.x
@@ -4728,7 +4728,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1713509638}
   m_HandleRect: {fileID: 1713509637}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 11
   m_OnValueChanged:
@@ -8713,7 +8713,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 494094, guid: 03e927120f99074489984d4d56920417, type: 2}
       propertyPath: m_RootOrder
-      value: 27
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 494094, guid: 03e927120f99074489984d4d56920417, type: 2}
       propertyPath: m_LocalScale.x
@@ -9619,18 +9619,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 22
       objectReference: {fileID: 0}
-    - target: {fileID: 469628, guid: 20ae15a25925d504c8b1f5e4499918cb, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 23.8977852
-      objectReference: {fileID: 0}
-    - target: {fileID: 469628, guid: 20ae15a25925d504c8b1f5e4499918cb, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 23.8977814
-      objectReference: {fileID: 0}
-    - target: {fileID: 469628, guid: 20ae15a25925d504c8b1f5e4499918cb, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 17.9526138
-      objectReference: {fileID: 0}
     - target: {fileID: 159296, guid: 20ae15a25925d504c8b1f5e4499918cb, type: 2}
       propertyPath: m_Name
       value: PecaElevada_1 (8)
@@ -10288,7 +10276,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 1.52587891e-05}
   m_SizeDelta: {x: 360.200012, y: 220}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1607133670
@@ -12749,7 +12737,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 469628, guid: 20ae15a25925d504c8b1f5e4499918cb, type: 2}
       propertyPath: m_RootOrder
-      value: 26
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 469628, guid: 20ae15a25925d504c8b1f5e4499918cb, type: 2}
       propertyPath: m_LocalScale.x
