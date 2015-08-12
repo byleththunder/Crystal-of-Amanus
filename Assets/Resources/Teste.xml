@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Falas>
+  <Fala>
+    <Nome>Lucas</Nome>
+    <Mensagem>oi</Mensagem>
+  </Fala>
+  <Fala>
+    <Nome>Lucas</Nome>
+    <Mensagem>Como vai?</Mensagem>
+  </Fala>
+</Falas>

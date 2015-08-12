@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Falas>
+  <Fala>
+    <Nome>Npc</Nome>
+    <Mensagem>Olá.</Mensagem>
+  </Fala>
+  <Fala>
+    <Nome>Npc</Nome>
+    <Mensagem>Veja as novas missões.</Mensagem>
+  </Fala>
+</Falas>

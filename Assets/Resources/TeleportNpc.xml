@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Falas>
+  <Fala>
+    <Nome>Npc</Nome>
+    <Mensagem>Vou lhe teleportar!</Mensagem>
+  </Fala>
+  <Fala>
+    <Nome>Npc</Nome>
+    <Mensagem>Prepare-se...</Mensagem>
+  </Fala>
+</Falas>
