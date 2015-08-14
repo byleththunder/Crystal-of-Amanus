@@ -44,6 +44,17 @@ public class InitialPositionCharacter : MonoBehaviour {
            
         }
     }
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position,transform.position+ new Vector3(1f,0,0));
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position, transform.position + new Vector3(0f, 1f, 0));
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(transform.position, transform.position + new Vector3(0f, 0, 1f));
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(transform.position, 0.5f);
+    }
 	
 	
 }

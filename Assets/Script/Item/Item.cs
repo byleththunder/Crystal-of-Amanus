@@ -14,7 +14,7 @@ public class Item : MonoBehaviour
     public int Vida { get; set; }
     public int Amanus { get; set; }
     //Propriedade de itens
-    public TipoDeItem Tipo { get; set; }
+    public TipoDeItem Tipo;
     public string Nome;
     public string Descricao;
     public Sprite Img;

@@ -8,7 +8,8 @@ public class UISkill : MonoBehaviour
     public Text[] CaixaDeTextos = new Text[4];
     public GameObject[] _Slots = new GameObject[4];
     public RectTransform Seletor;
-    ISkill[] Slots = new ISkill[4];
+    ISkill[] SlotSkill = new ISkill[4];
+    Item[] SlotsItem = new Item[4];
     int IndiceUniversal = 0;
     PlayerMovement Personagem;
     // Use this for initialization
@@ -19,7 +20,7 @@ public class UISkill : MonoBehaviour
         {
             if (_Slots[i] != null)
             {
-                Slots[i] = (ISkill)_Slots[i].GetComponent(typeof(ISkill));
+                SlotSkill[i] = (ISkill)_Slots[i].GetComponent(typeof(ISkill));
             }
         }
         AtualizarSlotInfo();
@@ -31,6 +32,10 @@ public class UISkill : MonoBehaviour
         if (Personagem.EstadoDoJogador != GameStates.CharacterState.DontMove)
         {
             Movimentar();
+            if (!IsInvoking("AddItensSlots"))
+            {
+                Invoke("AddItensSlots", 0.5f);
+            }
         }
     }
     void Movimentar()
@@ -39,49 +44,57 @@ public class UISkill : MonoBehaviour
         //Cima
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            IndiceUniversal = (IndiceUniversal + 1) % Slots.Length;
+            IndiceUniversal = (IndiceUniversal + 1) % SlotSkill.Length;
             OrganizarTextos(1);
         }
         //Baixo
         if (Input.GetKeyDown(KeyCode.E))
         {
-            IndiceUniversal = IndiceUniversal == 0 ? Slots.Length - 1 : IndiceUniversal - 1;
+            IndiceUniversal = IndiceUniversal == 0 ? SlotSkill.Length - 1 : IndiceUniversal - 1;
             OrganizarTextos(-1);
         }
         //Usar
         if (Input.GetButtonDown("Defense"))
         {
-            if (Slots[IndiceUniversal] != null)
+            if (SlotSkill[IndiceUniversal] != null)
             {
                 if (Personagem.EstadoDoJogador != GameStates.CharacterState.Defense)
                 {
-                    if (Slots[IndiceUniversal].Alvo == SkillTarget.Self)
+                    if (SlotSkill[IndiceUniversal].Alvo == SkillTarget.Self)
                     {
                         print("Personagem");
-                        Slots[IndiceUniversal].UsarSkill(Personagem);
+                        SlotSkill[IndiceUniversal].UsarSkill(Personagem);
                     }
-                    else if (Slots[IndiceUniversal].Alvo == SkillTarget.Other)
+                    else if (SlotSkill[IndiceUniversal].Alvo == SkillTarget.Other)
                     {
                         print("oTHER");
-                        Slots[IndiceUniversal].UsarSkill(Personagem.Alvo);
+                        SlotSkill[IndiceUniversal].UsarSkill(Personagem.Alvo);
 
                     }
                 }else
                 {
-                    if(Slots[IndiceUniversal].Nome =="Escudos")
+                    if(SlotSkill[IndiceUniversal].Nome =="Escudos")
                     {
-                        if (Slots[IndiceUniversal].Alvo == SkillTarget.Self)
+                        if (SlotSkill[IndiceUniversal].Alvo == SkillTarget.Self)
                         {
                             print("Personagem");
-                            Slots[IndiceUniversal].UsarSkill(Personagem);
+                            SlotSkill[IndiceUniversal].UsarSkill(Personagem);
                         }
-                        else if (Slots[IndiceUniversal].Alvo == SkillTarget.Other)
+                        else if (SlotSkill[IndiceUniversal].Alvo == SkillTarget.Other)
                         {
                             print("oTHER");
-                            Slots[IndiceUniversal].UsarSkill(Personagem.Alvo);
+                            SlotSkill[IndiceUniversal].UsarSkill(Personagem.Alvo);
 
                         }
                     }
+                }
+            }else
+            {
+                print("Item");
+                if(SlotsItem[IndiceUniversal] != null)
+                {
+                    print("Tem Item: "+ SlotsItem[IndiceUniversal].Nome);
+                    SlotsItem[IndiceUniversal].MetodoItem(Personagem);
                 }
             }
         }
@@ -89,9 +102,9 @@ public class UISkill : MonoBehaviour
     void OrganizarTextos(int sinal)
     {
         Paineis[IndiceUniversal].anchoredPosition = Seletor.anchoredPosition;
-        for (int i = 0; i < Slots.Length; i++)
+        for (int i = 0; i < SlotSkill.Length; i++)
         {
-            if(IndiceUniversal+1 >= Slots.Length && i == 0)
+            if(IndiceUniversal+1 >= SlotSkill.Length && i == 0)
             {
                 Paineis[0].anchoredPosition = new Vector2(Seletor.anchoredPosition.x, Seletor.sizeDelta.y * -1);
             }
@@ -99,9 +112,9 @@ public class UISkill : MonoBehaviour
             {
                 Paineis[IndiceUniversal+1].anchoredPosition = new Vector2(Seletor.anchoredPosition.x, Seletor.sizeDelta.y * -1);
             }
-            else if (IndiceUniversal - 1 < 0 && i == Slots.Length - 1)
+            else if (IndiceUniversal - 1 < 0 && i == SlotSkill.Length - 1)
             {
-                Paineis[Slots.Length - 1].anchoredPosition = new Vector2(Seletor.anchoredPosition.x, Seletor.sizeDelta.y * 1);
+                Paineis[SlotSkill.Length - 1].anchoredPosition = new Vector2(Seletor.anchoredPosition.x, Seletor.sizeDelta.y * 1);
             }
             else if (i == IndiceUniversal - 1)
             {
@@ -117,34 +130,96 @@ public class UISkill : MonoBehaviour
     }
     void AtualizarSlotInfo()
     {
-        for (int i = 0; i < Slots.Length; i++)
+        int indice = 0;
+        for (int i = 0; i < SlotSkill.Length; i++)
         {
-            if (Slots[i] != null)
+            if (SlotSkill[i] != null)
             {
-                if (Slots[i].Nome != CaixaDeTextos[i].text)
+                indice = i;
+                if (SlotSkill[i].Nome != CaixaDeTextos[i].text)
                 {
-                    CaixaDeTextos[i].text = Slots[i].Nome;
+                    CaixaDeTextos[i].text = SlotSkill[i].Nome;
                 }
-                if (Slots[i].OnCoolDown && CaixaDeTextos[i].color != Color.red)
+                if (SlotSkill[i].OnCoolDown && CaixaDeTextos[i].color != Color.red)
                 {
                     CaixaDeTextos[i].color = Color.red;
                 }
-                else if (!Slots[i].OnCoolDown && CaixaDeTextos[i].color != Color.black && Personagem.EstadoDoJogador != GameStates.CharacterState.Defense)
+                else if (!SlotSkill[i].OnCoolDown && CaixaDeTextos[i].color != Color.black && Personagem.EstadoDoJogador != GameStates.CharacterState.Defense)
                 {
                     CaixaDeTextos[i].color = Color.black;
                 }else if(Personagem.EstadoDoJogador == GameStates.CharacterState.Defense)
                 {
-                    if(Slots[i].Nome == "Escudos")
+                    if(SlotSkill[i].Nome == "Escudos")
                     {
                         CaixaDeTextos[i].color = Color.blue;
-                    }else if(Slots[i] == null || Slots[i].Nome != "Escudos")
+                    }else if(SlotSkill[i] == null || SlotSkill[i].Nome != "Escudos")
                     {
                         CaixaDeTextos[i].color = Color.red;
                     }
                 }
             }else
             {
-                CaixaDeTextos[i].text = "Slot Vázio";
+                break;
+            }
+        }
+        for (int i = 0; i < SlotsItem.Length; i++)
+        {
+            if(SlotsItem[i] != null)
+            {
+                indice++;
+                if (SlotsItem[i].Nome != CaixaDeTextos[indice].text)
+                {
+                    CaixaDeTextos[indice].text = SlotsItem[i].Nome;
+                }
+                if (Personagem.EstadoDoJogador != GameStates.CharacterState.Defense)
+                {
+                    CaixaDeTextos[indice].color = Color.black;
+                }
+                
+            }else
+            {
+                break;
+            }
+        }
+    }
+    void AddItensSlots()
+    {
+        int espacosLivres = 0;
+        foreach (ISkill skill in SlotSkill)
+        {
+            if (skill == null)
+            {
+                espacosLivres++;
+            }
+        }
+        Inventario _inv = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventario>();
+        if (_inv.MochilaLenght < espacosLivres)
+        {
+            for (int i = 0; i < _inv.MochilaLenght; i++)
+            {
+                if (_inv.MochilaRef[i].Tipo == Item.TipoDeItem.Potion)
+                {
+                    var indicetemp = (SlotsItem.Length - espacosLivres) + i;
+                    SlotsItem[indicetemp] = _inv.MochilaRef[i];
+                    print(SlotsItem[indicetemp].name);
+                    
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < espacosLivres; i++)
+            {
+
+                if (_inv.MochilaRef[i] != null)
+                {
+                    if (_inv.MochilaRef[i].Tipo == Item.TipoDeItem.Potion)
+                    {
+                        var indicetemp = (SlotsItem.Length - espacosLivres)+i;
+                        SlotsItem[indicetemp] = _inv.MochilaRef[i];
+                        print(SlotsItem[indicetemp].name);
+                    }
+                }
             }
         }
     }

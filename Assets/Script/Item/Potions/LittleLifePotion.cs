@@ -11,6 +11,7 @@ public class LittleLifePotion : Item {
         Nome = "Poção de Vida (Menor)";
         Descricao = "Recupera 10% da sua vida";
         MetodoItem = BeberPocao;
+        Tipo = TipoDeItem.Potion;
         
     }
 	// Update is called once per frame
