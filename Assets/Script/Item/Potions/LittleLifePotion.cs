@@ -15,14 +15,14 @@ public class LittleLifePotion : Item {
         
     }
 	// Update is called once per frame
-     bool BeberPocao(ITarget alvo)
+     bool BeberPocao(Target alvo)
     {
         
         if (alvo.Vida == alvo.VidaTotal)
         {
             return false;
         }
-        alvo.StatsChange(-((Vida * alvo.VidaTotal) / 100), 0);
+        alvo.HealOrDamage(-((Vida * alvo.VidaTotal) / 100), 0);
         return true;
     }
 }

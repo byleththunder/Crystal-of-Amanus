@@ -47,8 +47,8 @@ public class Fire : Projectile {
         {
             if (col.gameObject.tag == Tag)
             {
-                ITarget temp = col.gameObject.GetComponent<ITarget>();
-                temp.StatsChange(Damage, 0);
+                Target temp = col.gameObject.GetComponent<Target>();
+                temp.HealOrDamage(Damage, 0);
             }
             if (IsInvoking())
             {

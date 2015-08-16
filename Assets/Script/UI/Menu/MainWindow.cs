@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class MainWindow : MonoBehaviour
 {
 
-    ITarget Personagem;
+    Target Personagem;
     //UI = User Interface
     public Text _Nome;
     public Image Painel_HP, Painel_Amanus;
@@ -19,7 +19,7 @@ public class MainWindow : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         GameObject _pers = GameObject.FindGameObjectWithTag("Player");
         if (_pers != null)
-            Personagem = (ITarget)_pers.GetComponent(typeof(ITarget));
+            Personagem = (Target)_pers.GetComponent(typeof(Target));
     }
     void Start()
     {

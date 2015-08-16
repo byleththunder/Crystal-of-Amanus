@@ -11,7 +11,7 @@ public interface ISkill {
     float CoolDown { get; }
     bool OnCoolDown { get; }
     //Métodos
-    void UsarSkill(ITarget target);
+    void UsarSkill(Target target);
     void ResetCoolDown();
     
 }

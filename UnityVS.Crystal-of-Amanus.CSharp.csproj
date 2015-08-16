@@ -79,7 +79,6 @@
     <Compile Include="Assets\Script\CharacterTeste\EspelhoRefletir.cs" />
     <Compile Include="Assets\Script\CharacterTeste\GameTesteOver.cs" />
     <Compile Include="Assets\Script\CharacterTeste\LuzInicio.cs" />
-    <Compile Include="Assets\Script\CharacterTeste\MonsterTest.cs" />
     <Compile Include="Assets\Script\CharacterTeste\StopRoller.cs" />
     <Compile Include="Assets\Script\CommonScripts\InitialPositionCharacter.cs" />
     <Compile Include="Assets\Script\Delegates\Delegados.cs" />
@@ -92,7 +91,11 @@
     <Compile Include="Assets\Script\Item\Potions\LittleAmanusPotion.cs" />
     <Compile Include="Assets\Script\Item\Potions\LittleLifePotion.cs" />
     <Compile Include="Assets\Script\Loading\LoadingScreen.cs" />
-    <Compile Include="Assets\Script\Pers-Mons\ITarget.cs" />
+    <Compile Include="Assets\Script\Pers-Mons\Character.cs" />
+    <Compile Include="Assets\Script\Pers-Mons\Inimigos\MonsterTest.cs" />
+    <Compile Include="Assets\Script\Pers-Mons\Monster.cs" />
+    <Compile Include="Assets\Script\Pers-Mons\Personagens\Eran.cs" />
+    <Compile Include="Assets\Script\Pers-Mons\Target.cs" />
     <Compile Include="Assets\Script\Pranks\AssassinsRock.cs" />
     <Compile Include="Assets\Script\Pranks\DeadlyCylinder.cs" />
     <Compile Include="Assets\Script\Pranks\RockPrank.cs" />
@@ -118,7 +121,6 @@
     <Compile Include="Assets\Script\TesteScripts\Module.cs" />
     <Compile Include="Assets\Script\TesteScripts\ModuleConnector.cs" />
     <Compile Include="Assets\Script\TesteScripts\NPCQuest.cs" />
-    <Compile Include="Assets\Script\TesteScripts\PlayerMovement.cs" />
     <Compile Include="Assets\Script\TesteScripts\Quest.cs" />
     <Compile Include="Assets\Script\TesteScripts\QuestContent.cs" />
     <Compile Include="Assets\Script\TesteScripts\QuestList.cs" />
@@ -141,6 +143,9 @@
     <None Include="Assets\Resources\QuestNpc.xml" />
     <None Include="Assets\Resources\TeleportNpc.xml" />
     <None Include="Assets\Resources\Teste.xml" />
+    <None Include="Assets\Standard Assets\Effects\Projectors\Guidelines.txt" />
+    <None Include="Assets\Standard Assets\Effects\Projectors\Shaders\ProjectorLight.shader" />
+    <None Include="Assets\Standard Assets\Effects\Projectors\Shaders\ProjectorMultiply.shader" />
     <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
     <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
     <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CharacterMove :MonoBehaviour, ITarget
+public class CharacterMove :MonoBehaviour
 {
 
     public string Nome { get { return "Eran Airikina"; } }
@@ -16,7 +16,7 @@ public class CharacterMove :MonoBehaviour, ITarget
     public Item[] Equipamentos { get; set; }
     public int velocity = 5;
     public bool Inverse = false;
-    public ITarget Alvo;
+    //public Target Alvo;
 	public bool DontMove = true;
     int HP, MP;
     void Awake()
@@ -89,7 +89,7 @@ public class CharacterMove :MonoBehaviour, ITarget
         {
             try
             {
-                Alvo = (ITarget)col.gameObject.GetComponent(typeof(ITarget));
+               // Alvo = (Target)col.gameObject.GetComponent(typeof(Target));
             }
             catch
             {

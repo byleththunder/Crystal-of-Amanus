@@ -34,7 +34,7 @@ public class ItemContent : MonoBehaviour
             Painel.color = cor;
         }
     }
-    public bool UsarItem(ITarget alvo)
+    public bool UsarItem(Target alvo)
     {
         //Usado = false;
         print("Teste: " + (Usado == null));

@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System;
 public class InformationWindow : MonoBehaviour {
-    ITarget Persoangem;
+    Character Persoangem;
     
     //------
     public Text _Informacoes, _Nome, _Equip;
@@ -16,7 +16,7 @@ public class InformationWindow : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
         GameObject _pers = GameObject.FindGameObjectWithTag("Player");
         if (_pers != null)
-            Persoangem = (ITarget)_pers.GetComponent(typeof(ITarget));
+            Persoangem = _pers.GetComponent<Character>();
     }
     void OnEnable()
     {

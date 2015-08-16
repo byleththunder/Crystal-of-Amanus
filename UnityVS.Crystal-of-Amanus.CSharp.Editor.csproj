@@ -125,13 +125,15 @@
   <ItemGroup>
     <Compile Include="Assets\Editor\ChamarComponentEditor.cs" />
     <Compile Include="Assets\Editor\InventarioEditor.cs" />
-    <Compile Include="Assets\Editor\PlayerMovimentEditor.cs" />
     <Compile Include="Assets\Editor\SelectMenuEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\QuestNpc.xml" />
     <None Include="Assets\Resources\TeleportNpc.xml" />
     <None Include="Assets\Resources\Teste.xml" />
+    <None Include="Assets\Standard Assets\Effects\Projectors\Guidelines.txt" />
+    <None Include="Assets\Standard Assets\Effects\Projectors\Shaders\ProjectorLight.shader" />
+    <None Include="Assets\Standard Assets\Effects\Projectors\Shaders\ProjectorMultiply.shader" />
     <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
     <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
     <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />

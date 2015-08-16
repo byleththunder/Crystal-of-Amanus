@@ -19,14 +19,14 @@ public class FireMagic : MonoBehaviour,ISkill
 	bool IsOnCoolDown = false;
 	float Timer = 0;
 	float _dano = 0;
-	public ITarget Personagem;
+	public Target Personagem;
     int ID = 0;
 	// Use this for initialization
 	void Awake ()
 	{
 		DontDestroyOnLoad (gameObject);
 		Pers = GameObject.FindGameObjectWithTag ("Player");
-		Personagem = ((ITarget)Pers.GetComponent (typeof(ITarget)));
+		Personagem = ((Target)Pers.GetComponent (typeof(Target)));
        
 	}
     
@@ -38,7 +38,7 @@ public class FireMagic : MonoBehaviour,ISkill
 		}
 	}
 	//Métodos
-	public void UsarSkill (ITarget target)
+	public void UsarSkill (Target target)
 	{
 
 		if (!IsOnCoolDown) {
@@ -48,12 +48,12 @@ public class FireMagic : MonoBehaviour,ISkill
                 municao.WhoShoot = "Player";
 				municao.transform.eulerAngles = ConvertVisionToEuler(Personagem.visao);
                 municao.transform.position = Pers.transform.position + new Vector3(0, 0.5f, 0) + municao.transform.forward ;
-                float atk = ((ITarget)Pers.GetComponent(typeof(ITarget))).Ataque;
+                float atk = ((Target)Pers.GetComponent(typeof(Target))).Ataque;
                 municao.Damage = (int)(atk * 100) / 100;
                 municao.gameObject.SetActive(true);
 				if (Personagem != null) {
 				
-					Personagem.StatsChange (0, 10);
+					Personagem.HealOrDamage (0, 10);
 				}
 				IsOnCoolDown = true;
 				Invoke ("ResetCoolDown", CoolDown);

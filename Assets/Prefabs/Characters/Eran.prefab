@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &101410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 485518}
+  - 119: {fileID: 11952746}
+  m_Layer: 0
+  m_Name: BlobShadowProjector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &112186
 GameObject:
   m_ObjectHideFlags: 0
@@ -17,24 +33,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &133680
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 483420}
-  - 33: {fileID: 3376246}
-  - 64: {fileID: 6417940}
-  - 23: {fileID: 2376292}
-  m_Layer: 2
-  m_Name: Quad
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &157326
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,7 +41,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 494032}
-  - 114: {fileID: 11498076}
+  - 114: {fileID: 11468256}
   - 54: {fileID: 5468514}
   - 65: {fileID: 6524838}
   - 114: {fileID: 11467162}
@@ -98,14 +96,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 494032}
   m_RootOrder: 1
---- !u!4 &483420
+--- !u!4 &485518
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 133680}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: 0, y: -.953999996, z: 0}
+  m_GameObject: {fileID: 101410}
+  m_LocalRotation: {x: .75157696, y: 0, z: 0, w: .659645498}
+  m_LocalPosition: {x: 0, y: 2.6500001, z: -.195999995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 494032}
@@ -117,12 +115,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157326}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -69.5999985, y: 5.69999981, z: -32.7299995}
+  m_LocalPosition: {x: -69.5999985, y: 3.42000008, z: -33.9799995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 454688}
   - {fileID: 461852}
-  - {fileID: 483420}
+  - {fileID: 485518}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!23 &2319182
@@ -149,37 +147,6 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!23 &2376292
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 133680}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 6e363020265cea2489e3cc2630f53030, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!33 &3376246
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 133680}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &3387878
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -217,18 +184,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!64 &6417940
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 133680}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &6524838
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -293,7 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indice: 0
---- !u!114 &11498076
+--- !u!114 &11468256
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -301,29 +256,49 @@ MonoBehaviour:
   m_GameObject: {fileID: 157326}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b16524e4784bf234aa4970567ced9ebb, type: 3}
+  m_Script: {fileID: 11500000, guid: 0bf1d13bac92b8e4b8a2a185c970ac61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Ataque: 50
-  VidaMax: 200
-  AmanusMax: 100
-  _Nome: Eran Airikina
-  Direcao: 0
-  _Equipamentos:
+  Nome: Eran Airikina
+  Vida: 100
+  VidaTotal: 100
+  Amanus: 100
+  AmanusTotal: 100
+  Ataque: 10
+  visao: 0
+  obj: {fileID: 157326}
+  Equipamentos:
   - {fileID: 0}
   - {fileID: 0}
-  Speed: 3
+  Speed: 5
   moveX: 0
   moveZ: 0
-  jump: 0
-  notJump: 0
-  OnTheFloor: 0
-  left: 0
+  moveY: 6
   attack: 0
-  anim: {fileID: 9525940}
+  notJump: 1
   EstadoDoJogador: 0
-  Ini: {x: 0, y: 0, z: 0}
+  CheckPointPosition: {x: 0, y: 0, z: 0}
+  Alvo: {fileID: 0}
   Escudo: {fileID: 179114}
+  anim: {fileID: 9525940}
+--- !u!119 &11952746
+Projector:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101410}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_NearClipPlane: .100000001
+  m_FarClipPlane: 50
+  m_FieldOfView: 30
+  m_AspectRatio: 1
+  m_Orthographic: 0
+  m_OrthographicSize: 2
+  m_Material: {fileID: 2100000, guid: e30ff3588e719f34bbf0c66f22d97487, type: 2}
+  m_IgnoreLayers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!212 &21287886
 SpriteRenderer:
   m_ObjectHideFlags: 1

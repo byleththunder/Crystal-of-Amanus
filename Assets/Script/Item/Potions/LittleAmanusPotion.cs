@@ -10,14 +10,14 @@ public class LittleAmanusPotion : Item {
         Descricao = "Recupera 10% do seu Amanus";
         MetodoItem = BeberPocao;
     }
-    bool BeberPocao(ITarget alvo)
+    bool BeberPocao(Target alvo)
     {
 
         if (alvo.Amanus == alvo.AmanusTotal)
         {
             return false;
         }
-        alvo.StatsChange(0, -((Vida * alvo.AmanusTotal) / 100));
+        alvo.HealOrDamage(0, -((Vida * alvo.AmanusTotal) / 100));
         return true;
     }
 }

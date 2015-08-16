@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class ItenWindow : MonoBehaviour
 {
-    ITarget Persoangem;
+    Target Persoangem;
     List<ItemContent> Slots;
     public ItemContent Prefab;
     RectTransform PrefabValues;
@@ -50,7 +50,7 @@ public class ItenWindow : MonoBehaviour
         if (_pers != null)
         {
             Inv = _pers.GetComponent<Inventario>();
-            Persoangem = (ITarget)_pers.GetComponent(typeof(ITarget));
+            Persoangem = (Target)_pers.GetComponent(typeof(Target));
         }
         if (Slots == null)
         {

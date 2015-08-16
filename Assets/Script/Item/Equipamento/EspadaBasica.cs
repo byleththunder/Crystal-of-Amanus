@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EspadaBasica : Item {
+public class EspadaBasica : Item
+{
 
-	// Use this for initialization
+    // Use this for initialization
     public EspadaBasica()
     {
         Nome = "Espada Basica";
@@ -11,11 +12,11 @@ public class EspadaBasica : Item {
         Ataque = 10;
         MetodoItem = Equipar;
     }
-	bool Equipar(ITarget alvo)
+    bool Equipar(Target alvo)
     {
-        PlayerMovement player = alvo.obj.GetComponent<PlayerMovement>();
-        Item _temp = player.Equipar(this,0);
-        if(_temp != null)
+        Character player = alvo.obj.GetComponent<Character>();
+        Item _temp = player.Equipar(this);
+        if (_temp != null)
         {
             Inventario inv = alvo.obj.GetComponent<Inventario>();
             inv.PickItem(_temp, 1);

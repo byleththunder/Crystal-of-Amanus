@@ -5,7 +5,7 @@ public class InitialPositionCharacter : MonoBehaviour {
 
     public GameObject prefab;
     public GameObject obj;
-    public PlayerMovement player;
+    public Character player;
 	// Use this for initialization
 	void Awake () {
        obj = GameObject.FindGameObjectWithTag("Player");
@@ -17,10 +17,10 @@ public class InitialPositionCharacter : MonoBehaviour {
         {
           obj =(GameObject)Instantiate(prefab, transform.position,transform.rotation);
         }
-       player = obj.GetComponent<PlayerMovement>();
+       player = obj.GetComponent<Character>();
        if (player != null)
        {
-           player.Ini = transform.position;
+           player.CheckPointPosition = transform.position;
        }
 	}
     void Update()
@@ -31,7 +31,7 @@ public class InitialPositionCharacter : MonoBehaviour {
             {
                 try
                 {
-                    player.StatsChange(-(player.VidaTotal), -player.AmanusTotal);
+                    player.HealOrDamage(-(player.VidaTotal), -player.AmanusTotal);
                     Application.LoadLevel("GameOver");
                 }catch
                 {

@@ -15,11 +15,11 @@ public class Shield : MonoBehaviour,ISkill {
     float _dano = 0;
     public GameObject Escudos;
     bool On = false;
-    public PlayerMovement Jogador;
+    public Eran Jogador;
     //----------
 	// Use this for initialization
 	void Start () {
-        Jogador = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        Jogador = GameObject.FindGameObjectWithTag("Player").GetComponent<Eran>();
         Escudos = GameObject.FindGameObjectWithTag("Reflect");
         if(Escudos != null)
         {
@@ -30,21 +30,25 @@ public class Shield : MonoBehaviour,ISkill {
 	// Update is called once per frame
 	void Update () {
 
-        if (!Escudos.activeInHierarchy && On)
+        if (Escudos != null)
         {
-            Invoke("ResetCoolDown", CoolDown);
-            On = false;
-            IsOnCoolDown = true;
-        }
-        if (IsOnCoolDown)
-        {
-            Timer += Time.deltaTime;
-        }else
-        {
-            SetSheildPosition();
+            if (!Escudos.activeInHierarchy && On)
+            {
+                Invoke("ResetCoolDown", CoolDown);
+                On = false;
+                IsOnCoolDown = true;
+            }
+            if (IsOnCoolDown)
+            {
+                Timer += Time.deltaTime;
+            }
+            else
+            {
+                SetSheildPosition();
+            }
         }
 	}
-    public void UsarSkill(ITarget target)
+    public void UsarSkill(Target target)
     {
         if (!IsOnCoolDown)
         {

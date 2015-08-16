@@ -11,11 +11,11 @@ public class UISkill : MonoBehaviour
     ISkill[] SlotSkill = new ISkill[4];
     Item[] SlotsItem = new Item[4];
     int IndiceUniversal = 0;
-    PlayerMovement Personagem;
+    Character Personagem;
     // Use this for initialization
     void Start()
     {
-        Personagem = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        Personagem = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
         for (int i = 0; i < 4; i++)
         {
             if (_Slots[i] != null)
@@ -34,7 +34,7 @@ public class UISkill : MonoBehaviour
             Movimentar();
             if (!IsInvoking("AddItensSlots"))
             {
-                Invoke("AddItensSlots", 0.5f);
+                //Invoke("AddItensSlots", 0.5f);
             }
         }
     }
@@ -83,7 +83,7 @@ public class UISkill : MonoBehaviour
                         else if (SlotSkill[IndiceUniversal].Alvo == SkillTarget.Other)
                         {
                             print("oTHER");
-                            SlotSkill[IndiceUniversal].UsarSkill(Personagem.Alvo);
+                           SlotSkill[IndiceUniversal].UsarSkill(Personagem.Alvo);
 
                         }
                     }
@@ -95,6 +95,7 @@ public class UISkill : MonoBehaviour
                 {
                     print("Tem Item: "+ SlotsItem[IndiceUniversal].Nome);
                     SlotsItem[IndiceUniversal].MetodoItem(Personagem);
+                    return;
                 }
             }
         }
@@ -167,18 +168,19 @@ public class UISkill : MonoBehaviour
             if(SlotsItem[i] != null)
             {
                 indice++;
-                if (SlotsItem[i].Nome != CaixaDeTextos[indice].text)
+                print(string.Format("Indice: {0} || Nome do item: {1} || Caixa de Texto: {2} ", indice,SlotsItem[i].Nome,CaixaDeTextos[indice].text));
+                if (SlotsItem[i].Nome != CaixaDeTextos[i].text)
                 {
-                    CaixaDeTextos[indice].text = SlotsItem[i].Nome;
+                    CaixaDeTextos[i].text = SlotsItem[i].Nome;
                 }
                 if (Personagem.EstadoDoJogador != GameStates.CharacterState.Defense)
                 {
-                    CaixaDeTextos[indice].color = Color.black;
+                    CaixaDeTextos[i].color = Color.black;
                 }
                 
             }else
             {
-                break;
+                //break;
             }
         }
     }
@@ -192,35 +194,47 @@ public class UISkill : MonoBehaviour
                 espacosLivres++;
             }
         }
+        print(string.Format("Espaços Livres: {0}",espacosLivres));
         Inventario _inv = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventario>();
         if (_inv.MochilaLenght < espacosLivres)
         {
             for (int i = 0; i < _inv.MochilaLenght; i++)
             {
+                var indicetemp = (SlotsItem.Length - espacosLivres) + i;
                 if (_inv.MochilaRef[i].Tipo == Item.TipoDeItem.Potion)
                 {
-                    var indicetemp = (SlotsItem.Length - espacosLivres) + i;
+                    
+                    print(string.Format("Indice Temporário: {0}", indicetemp));
                     SlotsItem[indicetemp] = _inv.MochilaRef[i];
                     print(SlotsItem[indicetemp].name);
-                    
+                }else if(_inv.MochilaRef[i] != SlotsItem[indicetemp])
+                {
+                    SlotsItem[indicetemp] = null;
                 }
             }
+            return;
         }
         else
         {
             for (int i = 0; i < espacosLivres; i++)
             {
-
+                var indicetemp = (SlotsItem.Length - espacosLivres) + i;
                 if (_inv.MochilaRef[i] != null)
                 {
                     if (_inv.MochilaRef[i].Tipo == Item.TipoDeItem.Potion)
                     {
-                        var indicetemp = (SlotsItem.Length - espacosLivres)+i;
+                        
+                        print(string.Format("Indice Temporário: {0}",indicetemp));
                         SlotsItem[indicetemp] = _inv.MochilaRef[i];
                         print(SlotsItem[indicetemp].name);
                     }
+                }else
+                {
+                    SlotsItem[indicetemp] = null;
                 }
             }
+            return;
         }
+
     }
 }

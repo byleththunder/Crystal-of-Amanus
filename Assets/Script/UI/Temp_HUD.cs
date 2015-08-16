@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class Temp_HUD : MonoBehaviour {
-    ITarget Personagem;
+    Target Personagem;
     public Image X_Vida, X_Amanus;
 	// Use this for initialization
 	void Start () {
@@ -11,7 +11,7 @@ public class Temp_HUD : MonoBehaviour {
         if (obj != null)
         {
             print("OBJ: " + (obj.name));
-            Personagem = (ITarget)obj.GetComponent(typeof(ITarget));
+            Personagem = (Target)obj.GetComponent(typeof(Target));
             print("Personagem: " + (Personagem != null));
         }
 	}

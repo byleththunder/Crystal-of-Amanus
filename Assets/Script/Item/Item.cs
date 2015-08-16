@@ -5,9 +5,10 @@ using System;
 public class Item : MonoBehaviour
 {
     //CallBack
-    public Func<ITarget, bool> MetodoItem;
+    public Func<Target, bool> MetodoItem;
     //Enum
     public enum TipoDeItem { NaoConsumivel, Potion, Equipamento, Trigger};
+    public enum EquipmentTypes { Arma, Armadura}
     //Propriedades de Status
     public int Ataque { get; set; }
     public int Defesa { get; set; }
@@ -15,6 +16,7 @@ public class Item : MonoBehaviour
     public int Amanus { get; set; }
     //Propriedade de itens
     public TipoDeItem Tipo;
+    public EquipmentTypes TipoDeEquipamentos;
     public string Nome;
     public string Descricao;
     public Sprite Img;

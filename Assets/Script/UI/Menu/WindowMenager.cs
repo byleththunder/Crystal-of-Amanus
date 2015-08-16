@@ -12,7 +12,7 @@ public class WindowMenager : MonoBehaviour
     int Indice = 0;
     int IndiceAnterior = -1;
     int IndiceJanela = 0;
-    PlayerMovement pers;
+    Character pers;
     // Use this for initialization
     void Awake()
     {
@@ -20,7 +20,7 @@ public class WindowMenager : MonoBehaviour
     }
     void Start()
     {
-        pers = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        pers = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
         Anim.enabled = false;
         if (JanelaScript == null)
         {
