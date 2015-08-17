@@ -12,10 +12,12 @@ public class UISkill : MonoBehaviour
     Item[] SlotsItem = new Item[4];
     int IndiceUniversal = 0;
     Character Personagem;
+    Color Disablecolor;
     // Use this for initialization
     void Start()
     {
         Personagem = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
+        Disablecolor = CaixaDeTextos[0].color;
         for (int i = 0; i < 4; i++)
         {
             if (_Slots[i] != null)
@@ -24,6 +26,7 @@ public class UISkill : MonoBehaviour
             }
         }
         AtualizarSlotInfo();
+        
     }
 
     // Update is called once per frame
@@ -34,7 +37,7 @@ public class UISkill : MonoBehaviour
             Movimentar();
             if (!IsInvoking("AddItensSlots"))
             {
-                //Invoke("AddItensSlots", 0.5f);
+                Invoke("AddItensSlots", 0.5f);
             }
         }
     }
@@ -94,7 +97,9 @@ public class UISkill : MonoBehaviour
                 if(SlotsItem[IndiceUniversal] != null)
                 {
                     print("Tem Item: "+ SlotsItem[IndiceUniversal].Nome);
-                    SlotsItem[IndiceUniversal].MetodoItem(Personagem);
+                    Inventario _inv = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventario>();
+                    _inv.UsarItem(SlotsItem[IndiceUniversal], Personagem);
+                    CheckItens();
                     return;
                 }
             }
@@ -236,5 +241,32 @@ public class UISkill : MonoBehaviour
             return;
         }
 
+    }
+    void CheckItens()
+    {
+        Inventario _inv = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventario>();
+        for(int i =0; i <SlotsItem.Length; i ++)
+        {
+            if (SlotsItem[i] != null)
+            {
+                bool HasItem = false;
+                for (int j = 0; j < _inv.MochilaRef.Count; j++)
+                {
+                    if (SlotsItem[i] == _inv.MochilaRef[j])
+                    {
+                        HasItem = true;
+                        break;
+                    }
+                }
+                if (!HasItem)
+                {
+                    
+                        SlotsItem[i] = null;
+                        CaixaDeTextos[i].text = "Slot Vázio";
+                        CaixaDeTextos[i].color = Disablecolor;
+                    
+                }
+            }
+        }
     }
 }

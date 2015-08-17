@@ -99,4 +99,23 @@ public class Inventario : MonoBehaviour
             }
         }
     }
+    public void UsarItem(Item _iten, Target alvo)
+    {
+        for(int i = 0; i <_mochila.Count; i++)
+        {
+            if(_mochila[i] == _iten)
+            {
+                if(_mochila[i].MetodoItem(alvo))
+                {
+                    Quantidades[i]--;
+                    if(Quantidades[i]<=0)
+                    {
+                        _mochila.RemoveAt(i);
+                        Quantidades.RemoveAt(i);
+                        break;
+                    }
+                }
+            }
+        }
+    }
 }
