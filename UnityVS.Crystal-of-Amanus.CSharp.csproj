@@ -81,6 +81,7 @@
     <Compile Include="Assets\Script\CharacterTeste\LuzInicio.cs" />
     <Compile Include="Assets\Script\CharacterTeste\StopRoller.cs" />
     <Compile Include="Assets\Script\CommonScripts\InitialPositionCharacter.cs" />
+    <Compile Include="Assets\Script\CommonScripts\ResourceFind.cs" />
     <Compile Include="Assets\Script\Delegates\Delegados.cs" />
     <Compile Include="Assets\Script\HelperWindow\JanelaAjuda.cs" />
     <Compile Include="Assets\Script\Item\Equipamento\EspadaBasica.cs" />
@@ -100,6 +101,10 @@
     <Compile Include="Assets\Script\Pranks\DeadlyCylinder.cs" />
     <Compile Include="Assets\Script\Pranks\RockPrank.cs" />
     <Compile Include="Assets\Script\Prototipo\EndGame.cs" />
+    <Compile Include="Assets\Script\Quests\DataBase_Quests.cs" />
+    <Compile Include="Assets\Script\Quests\NPCQuest.cs" />
+    <Compile Include="Assets\Script\Quests\Quest.cs" />
+    <Compile Include="Assets\Script\Quests\QuestContent.cs" />
     <Compile Include="Assets\Script\Screens\GameOver\Continue.cs" />
     <Compile Include="Assets\Script\Screens\Title\ButtonAction.cs" />
     <Compile Include="Assets\Script\Skill\ISkill.cs" />
@@ -111,8 +116,6 @@
     <Compile Include="Assets\Script\States\GameStates.cs" />
     <Compile Include="Assets\Script\TesteScripts\CallMenu.cs" />
     <Compile Include="Assets\Script\TesteScripts\ChamarComponent.cs" />
-    <Compile Include="Assets\Script\TesteScripts\CharacterWorld.cs" />
-    <Compile Include="Assets\Script\TesteScripts\DataBase_Quests.cs" />
     <Compile Include="Assets\Script\TesteScripts\Interfaces.cs" />
     <Compile Include="Assets\Script\TesteScripts\Mensagem.cs" />
     <Compile Include="Assets\Script\TesteScripts\Menu.cs" />
@@ -120,10 +123,6 @@
     <Compile Include="Assets\Script\TesteScripts\ModularWorldGenerator.cs" />
     <Compile Include="Assets\Script\TesteScripts\Module.cs" />
     <Compile Include="Assets\Script\TesteScripts\ModuleConnector.cs" />
-    <Compile Include="Assets\Script\TesteScripts\NPCQuest.cs" />
-    <Compile Include="Assets\Script\TesteScripts\Quest.cs" />
-    <Compile Include="Assets\Script\TesteScripts\QuestContent.cs" />
-    <Compile Include="Assets\Script\TesteScripts\QuestList.cs" />
     <Compile Include="Assets\Script\TesteScripts\Respawn.cs" />
     <Compile Include="Assets\Script\TesteScripts\SelectConteiner.cs" />
     <Compile Include="Assets\Script\TesteScripts\SelectMenu.cs" />
@@ -138,6 +137,7 @@
     <Compile Include="Assets\Script\UI\Menu\WindowMenager.cs" />
     <Compile Include="Assets\Script\UI\Skill\UISkill.cs" />
     <Compile Include="Assets\Script\UI\Temp_HUD.cs" />
+    <Compile Include="Assets\Script\testes\ShowQuests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\QuestNpc.xml" />

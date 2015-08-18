@@ -152,8 +152,6 @@ public class ChamarComponent : MonoBehaviour
                 if (other.tag == "Player" && gameObject.tag == "NPC")
                 {
                     //Uma Conversa aconteceu
-                    CharacterWorld player = other.GetComponent<CharacterWorld>();
-                    player.ChecarQuestConversa(gameObject.name);
                 }
                 WorldVars.Freeze = true;
                 if (decisao == TipoDeAcao.SomenteScripts)
