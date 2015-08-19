@@ -112,7 +112,6 @@
      <Compile Include="Assets\Script\UI\Menu\WindowMenager.cs" />
      <Compile Include="Assets\Script\UI\Skill\UISkill.cs" />
      <Compile Include="Assets\Script\UI\Temp_HUD.cs" />
-     <Compile Include="Assets\Script\testes\ShowQuests.cs" />
      <None Include="Assets\Standard Assets\Effects\Projectors\Guidelines.txt" />
      <None Include="Assets\Resources\TeleportNpc.xml" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />

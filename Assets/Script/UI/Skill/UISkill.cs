@@ -93,10 +93,10 @@ public class UISkill : MonoBehaviour
                 }
             }else
             {
-                print("Item");
+                //print("Item");
                 if(SlotsItem[IndiceUniversal] != null)
                 {
-                    print("Tem Item: "+ SlotsItem[IndiceUniversal].Nome);
+                    //print("Tem Item: "+ SlotsItem[IndiceUniversal].Nome);
                     Inventario _inv = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventario>();
                     _inv.UsarItem(SlotsItem[IndiceUniversal], Personagem);
                     CheckItens();
@@ -173,7 +173,6 @@ public class UISkill : MonoBehaviour
             if(SlotsItem[i] != null)
             {
                 indice++;
-                print(string.Format("Indice: {0} || Nome do item: {1} || Caixa de Texto: {2} ", indice,SlotsItem[i].Nome,CaixaDeTextos[indice].text));
                 if (SlotsItem[i].Nome != CaixaDeTextos[i].text)
                 {
                     CaixaDeTextos[i].text = SlotsItem[i].Nome;
@@ -199,7 +198,7 @@ public class UISkill : MonoBehaviour
                 espacosLivres++;
             }
         }
-        print(string.Format("Espaços Livres: {0}",espacosLivres));
+        //print(string.Format("Espaços Livres: {0}",espacosLivres));
         Inventario _inv = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventario>();
         if (_inv.MochilaLenght < espacosLivres)
         {
@@ -209,7 +208,7 @@ public class UISkill : MonoBehaviour
                 if (_inv.MochilaRef[i].Tipo == Item.TipoDeItem.Potion)
                 {
                     
-                    print(string.Format("Indice Temporário: {0}", indicetemp));
+                   // print(string.Format("Indice Temporário: {0}", indicetemp));
                     SlotsItem[indicetemp] = _inv.MochilaRef[i];
                     print(SlotsItem[indicetemp].name);
                 }else if(_inv.MochilaRef[i] != SlotsItem[indicetemp])

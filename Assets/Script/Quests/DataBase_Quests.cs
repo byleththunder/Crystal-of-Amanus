@@ -22,7 +22,7 @@ public class DataBase_Quests : MonoBehaviour
     }
     public static List<Quest> OrganizarLista()
     {
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 3; i++)
         {
             Lista.Add(new Quest());
             Lista[i].GerarQuestAleatória();
@@ -42,12 +42,12 @@ public class DataBase_Quests : MonoBehaviour
     /* Protocolo de Save
      * @ - Começa
      * [Vareiavel]
-     * (Valor)
+     * {Valor}
      * | - Separa
      * !<Nome> - Array Inicio
      * /! - ArrayFim
      * /@ - Termina
-     * @[Nome](Lucas)[Idade](20)||[Nome](Fulano)[Idade](19)#
+     * @[Nome](Lucas)[Idade](20)||[Nome](Fulano)[Idade](19)/@
      */
     public static void Save(int indice)
     {
@@ -56,176 +56,20 @@ public class DataBase_Quests : MonoBehaviour
         {
             if (i == 0)
             {
-                _temp += string.Format("@[Nome]({0})[Descricao]({1})[Objetivo]({2})[Repete]({3})", Lista[i].Nome, Lista[i].Descricao, Lista[i].Objetivo, Lista[i].Repete);
-                #region Objetivos
-                if (Lista[i].Objetivo == ObjetivesType.Coleta)
-                {
-                    for (int j = 0; j < Lista[i].ItensColetaveis.Length; j++)
-                    {
-                        if (j == 0)
-                        {
-                            _temp += string.Format("!<Itens>[{0}]({1})", j, Lista[i].ItensColetaveis[j]);
-                        }
-                        else if (j == Lista[i].ItensColetaveis.Length - 1)
-                        {
-                            _temp += string.Format("[{0}]({1})/!", j, Lista[i].ItensColetaveis[j]);
-                        }
-                        else
-                        {
-                            _temp += string.Format("[{0}]({1})", j, Lista[i].ItensColetaveis[j]);
-                        }
-                    }
-                }
-                else
-                {
-                    for (int j = 0; j < Lista[i].Monstros.Length; j++)
-                    {
-                        if (j == 0)
-                        {
-                            _temp += string.Format("!<Monstros>[{0}]({1})", j, Lista[i].Monstros[j]);
-                        }
-                        else if (j == Lista[i].Monstros.Length - 1)
-                        {
-                            _temp += string.Format("[{0}]({1})/!", j, Lista[i].Monstros[j]);
-                        }
-                        else
-                        {
-                            _temp += string.Format("[{0}]({1})", j, Lista[i].Monstros[j]);
-                        }
-                    }
-                }
-                for (int j = 0; j < Lista[i].Quantidades.Length; j++)
-                {
-                    if (j == 0)
-                    {
-                        _temp += string.Format("!<Quantidades>[{0}]({1})", j, Lista[i].Quantidades[j]);
-                    }
-                    else if (j == Lista[i].Quantidades.Length - 1)
-                    {
-                        _temp += string.Format("[{0}]({1})/!", j, Lista[i].Quantidades[j]);
-                    }
-                    else
-                    {
-                        _temp += string.Format("[{0}]({1})", j, Lista[i].Quantidades[j]);
-                    }
-                }
-                #endregion
+                _temp += "@[Nome]{" + Lista[i].Nome + "}[Descricao]{" + Lista[i].Descricao + "}[Objetivo]{" + Lista[i].Objetivo + "}[Repete]{" + Lista[i].Repete + "}";
+                _temp += SaveArray(i);
                 _temp += "|";
             }
             else if (i == Lista.Count - 1)
             {
-                _temp += string.Format("[Nome]({0})[Descricao]({1})[Objetivo]({2})[Repete]({3})", Lista[i].Nome, Lista[i].Descricao, Lista[i].Objetivo, Lista[i].Repete);
-                #region Objetivos
-                if (Lista[i].Objetivo == ObjetivesType.Coleta)
-                {
-                    for (int j = 0; j < Lista[i].ItensColetaveis.Length; j++)
-                    {
-                        if (j == 0)
-                        {
-                            _temp += string.Format("!<Itens>[{0}]({1})", j, Lista[i].ItensColetaveis[j]);
-                        }
-                        else if (j == Lista[i].ItensColetaveis.Length - 1)
-                        {
-                            _temp += string.Format("[{0}]({1})/!", j, Lista[i].ItensColetaveis[j]);
-                        }
-                        else
-                        {
-                            _temp += string.Format("[{0}]({1})", j, Lista[i].ItensColetaveis[j]);
-                        }
-                    }
-                }
-                else
-                {
-                    for (int j = 0; j < Lista[i].Monstros.Length; j++)
-                    {
-                        if (j == 0)
-                        {
-                            _temp += string.Format("!<Monstros>[{0}]({1})", j, Lista[i].Monstros[j]);
-                        }
-                        else if (j == Lista[i].Monstros.Length - 1)
-                        {
-                            _temp += string.Format("[{0}]({1})/!", j, Lista[i].Monstros[j]);
-                        }
-                        else
-                        {
-                            _temp += string.Format("[{0}]({1})", j, Lista[i].Monstros[j]);
-                        }
-                    }
-                }
-                for (int j = 0; j < Lista[i].Quantidades.Length; j++)
-                {
-                    if (j == 0)
-                    {
-                        _temp += string.Format("!<Quantidades>[{0}]({1})", j, Lista[i].Quantidades[j]);
-                    }
-                    else if (j == Lista[i].Quantidades.Length - 1)
-                    {
-                        _temp += string.Format("[{0}]({1})/!", j, Lista[i].Quantidades[j]);
-                    }
-                    else
-                    {
-                        _temp += string.Format("[{0}]({1})", j, Lista[i].Quantidades[j]);
-                    }
-                }
-                #endregion
+                _temp += "[Nome]{" + Lista[i].Nome + "}[Descricao]{" + Lista[i].Descricao + "}[Objetivo]{" + Lista[i].Objetivo + "}[Repete]{" + Lista[i].Repete + "}";
+                _temp += SaveArray(i);
                 _temp += "/@";
             }
             else
             {
-                _temp += string.Format("[Nome]({0})[Descricao]({1})[Objetivo]({2})[Repete]({3})", Lista[i].Nome, Lista[i].Descricao, Lista[i].Objetivo, Lista[i].Repete);
-                #region Objetivos
-                if (Lista[i].Objetivo == ObjetivesType.Coleta)
-                {
-                    for (int j = 0; j < Lista[i].ItensColetaveis.Length; j++)
-                    {
-                        if (j == 0)
-                        {
-                            _temp += string.Format("!<Itens>[{0}]({1})", j, Lista[i].ItensColetaveis[j]);
-                        }
-                        else if (j == Lista[i].ItensColetaveis.Length - 1)
-                        {
-                            _temp += string.Format("[{0}]({1})/!", j, Lista[i].ItensColetaveis[j]);
-                        }
-                        else
-                        {
-                            _temp += string.Format("[{0}]({1})", j, Lista[i].ItensColetaveis[j]);
-                        }
-                    }
-                }
-                else
-                {
-                    for (int j = 0; j < Lista[i].Monstros.Length; j++)
-                    {
-                        if (j == 0)
-                        {
-                            _temp += string.Format("!<Monstros>[{0}]({1})", j, Lista[i].Monstros[j]);
-                        }
-                        else if (j == Lista[i].Monstros.Length - 1)
-                        {
-                            _temp += string.Format("[{0}]({1})/!", j, Lista[i].Monstros[j]);
-                        }
-                        else
-                        {
-                            _temp += string.Format("[{0}]({1})", j, Lista[i].Monstros[j]);
-                        }
-                    }
-                }
-                for (int j = 0; j < Lista[i].Quantidades.Length; j++)
-                {
-                    if (j == 0)
-                    {
-                        _temp += string.Format("!<Quantidades>[{0}]({1})", j, Lista[i].Quantidades[j]);
-                    }
-                    else if (j == Lista[i].Quantidades.Length - 1)
-                    {
-                        _temp += string.Format("[{0}]({1})/!", j, Lista[i].Quantidades[j]);
-                    }
-                    else
-                    {
-                        _temp += string.Format("[{0}]({1})", j, Lista[i].Quantidades[j]);
-                    }
-                }
-                #endregion
+                _temp += "[Nome]{" + Lista[i].Nome + "}[Descricao]{" + Lista[i].Descricao + "}[Objetivo]{" + Lista[i].Objetivo + "}[Repete]{" + Lista[i].Repete + "}";
+                _temp += SaveArray(i);
                 _temp += "|";
             }
 
@@ -233,6 +77,76 @@ public class DataBase_Quests : MonoBehaviour
         print(_temp);
         PlayerPrefs.SetString("Quests" + indice, _temp);
         print("SaveQuests OK");
+    }
+    static string SaveArray(int i)
+    {
+        string _temp = string.Empty;
+        #region Objetivos
+        if (Lista[i].Objetivo == ObjetivesType.Coleta)
+        {
+            for (int j = 0; j < Lista[i].ItensColetaveis.Length; j++)
+            {
+                if (Lista[i].ItensColetaveis.Length == 1)
+                {
+                    _temp += ("!<Itens>[" + j + "]{" + Lista[i].ItensColetaveis[j] + "}/!");
+                }
+                else if (j == 0)
+                {
+                    _temp += ("!<Itens>[" + j + "]{" + Lista[i].ItensColetaveis[j] + "}");
+                }
+                else if (j == Lista[i].ItensColetaveis.Length - 1)
+                {
+                    _temp += ("[" + j + "]{" + Lista[i].ItensColetaveis[j] + "}/!");
+                }
+                else
+                {
+                    _temp += ("[" + j + "]{" + Lista[i].ItensColetaveis[j] + "}");
+                }
+            }
+        }
+        else
+        {
+            for (int j = 0; j < Lista[i].Monstros.Length; j++)
+            {
+                if (Lista[i].Monstros.Length == 1)
+                {
+                    _temp += ("!<Monstros>[" + j + "]{" + Lista[i].Monstros[j] + "}/!");
+                }
+                else if (j == 0)
+                {
+                    _temp += ("!<Monstros>[" + j + "]{" + Lista[i].Monstros[j] + "}");
+                }
+                else if (j == Lista[i].Monstros.Length - 1)
+                {
+                    _temp += ("[" + j + "]{" + Lista[i].Monstros[j] + "}/!");
+                }
+                else
+                {
+                    _temp += ("[" + j + "]{" + Lista[i].Monstros[j] + "}");
+                }
+            }
+        }
+        for (int j = 0; j < Lista[i].Quantidades.Length; j++)
+        {
+            if (Lista[i].Quantidades.Length == 1)
+            {
+                _temp += ("!<Quantidades>[" + j + "]{" + Lista[i].Quantidades[j] + "}/!");
+            }
+            else if (j == 0)
+            {
+                _temp += ("!<Quantidades>[" + j + "]{" + Lista[i].Quantidades[j] + "}");
+            }
+            else if (j == Lista[i].Quantidades.Length - 1)
+            {
+                _temp += ("[" + j + "]{" + Lista[i].Quantidades[j] + "}/!");
+            }
+            else
+            {
+                _temp += ("[" + j + "]{" + Lista[i].Quantidades[j] + "}");
+            }
+        }
+        #endregion
+        return _temp;
     }
     public static bool Load(int indice)
     {
@@ -258,21 +172,20 @@ public class DataBase_Quests : MonoBehaviour
                     _Lista.Add(new Quest());
                     ListaIndice++;
                 }
-                
+
                 if (_temp[i] == ']')
                 {
                     bool_variavel = false;
                 }
-                
-                if (_temp[i] == ')')
+
+                if (_temp[i] == '}')
                 {
-                    print(variavel);
                     bool_valor = false;
                     #region Registrando
                     if (!bool_array)
                     {
                         if (variavel == "Nome") { _Lista[ListaIndice].Nome = valor; }
-                        if (variavel == "Descricao") { _Lista[ListaIndice].Descricao = valor; print(valor); }
+                        if (variavel == "Descricao") { _Lista[ListaIndice].Descricao = valor; }
                         if (variavel == "Objetivo") { _Lista[ListaIndice].Objetivo = (ObjetivesType)System.Enum.Parse(typeof(ObjetivesType), valor); }
                         if (variavel == "Repete") { _Lista[ListaIndice].Repete = System.Convert.ToBoolean(valor); }
                     }
@@ -302,7 +215,7 @@ public class DataBase_Quests : MonoBehaviour
                     valor += _temp[i];
                 }
                 //Detecta um valor no proximo elemento
-                if (_temp[i] == '(')
+                if (_temp[i] == '{')
                 {
                     bool_valor = true;
                 }
@@ -312,6 +225,11 @@ public class DataBase_Quests : MonoBehaviour
                     bool_array = true;
                     arrayindice = -1;
                     array = string.Empty;
+                }
+                //Detecta o termino do nome do array
+                if (_temp[i] == '>')
+                {
+                    bool_array_nome = false;
                 }
                 //Escreve o nome do array
                 if (bool_array_nome)
@@ -323,11 +241,7 @@ public class DataBase_Quests : MonoBehaviour
                 {
                     bool_array_nome = true;
                 }
-                //Detecta o termino do nome do array
-                if (_temp[i] == '>')
-                {
-                    bool_array_nome = false;
-                }
+               
                 //Detecta o termino de um array
                 if (_temp[i] == '/' && _temp[i + 1] == '!')
                 {
@@ -336,8 +250,8 @@ public class DataBase_Quests : MonoBehaviour
                     array = string.Empty;
                     i++;
                 }
-                
-                
+
+
                 if (_temp[i] == '/' && _temp[i + 1] == '@')
                 {
                     break;
@@ -360,7 +274,7 @@ public class DataBase_Quests : MonoBehaviour
             print("DeletouQuest" + indice);
             return;
         }
-        print("Não deletou Quest" + indice);
+        print("Não existe Quest" + indice);
 
     }
 

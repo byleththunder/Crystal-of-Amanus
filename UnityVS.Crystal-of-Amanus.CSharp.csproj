@@ -137,7 +137,6 @@
     <Compile Include="Assets\Script\UI\Menu\WindowMenager.cs" />
     <Compile Include="Assets\Script\UI\Skill\UISkill.cs" />
     <Compile Include="Assets\Script\UI\Temp_HUD.cs" />
-    <Compile Include="Assets\Script\testes\ShowQuests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\QuestNpc.xml" />

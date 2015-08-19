@@ -42,7 +42,7 @@ public class Quest
         Repete = true;
         //Peguei todos os itens já criados como prefabs
         Item[] ItensExistentes = Resources.LoadAll<Item>("ItemPrefabs");
-        Debug.Log("ItensExistentes na pasta: " + ItensExistentes.Length);
+        //Debug.Log("ItensExistentes na pasta: " + ItensExistentes.Length);
         if (ItensExistentes.Length > 0)
         {
             //Sortiei quantos itens terão que ser coletados
@@ -86,7 +86,7 @@ public class Quest
         Repete = true;
         //Peguei todos os itens já criados como prefabs
         Monster[] MonstrosExistentes = Resources.LoadAll<Monster>("Monsters");
-        Debug.Log("Monstros na pasta: " + MonstrosExistentes.Length);
+       // Debug.Log("Monstros na pasta: " + MonstrosExistentes.Length);
         //Sortiei quantos itens terão que ser coletados
         if (MonstrosExistentes.Length > 0)
         {
