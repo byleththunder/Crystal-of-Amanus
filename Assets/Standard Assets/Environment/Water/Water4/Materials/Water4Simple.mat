@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: e6f8288974c664a309d6c66de636978c, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -38,13 +38,6 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _WavesTex
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _RefractionTex
         second:
           m_Texture: {fileID: 0}
@@ -55,6 +48,13 @@ Material:
           name: _ShoreTex
         second:
           m_Texture: {fileID: 2800000, guid: 36dd0b22da8874ed38075789055ca664, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _WavesTex
+        second:
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -89,15 +89,15 @@ Material:
       data:
         first:
           name: _Shininess
-        second: 294
+        second: 349.137939
       data:
         first:
           name: _FresnelScale
-        second: .810000002
+        second: .389714301
       data:
         first:
           name: _GerstnerIntensity
-        second: -1.24000001
+        second: 1
       data:
         first:
           name: _HeightDisplacement
@@ -138,15 +138,15 @@ Material:
       data:
         first:
           name: _BaseColor
-        second: {r: .25, g: .25, b: .25, a: .505882382}
+        second: {r: .172755614, g: .224076003, b: .24626863, a: .505882382}
       data:
         first:
           name: _ReflectionColor
-        second: {r: 1, g: 1, b: 1, a: .470588237}
+        second: {r: .47582978, g: .606486499, b: .664179087, a: .470588237}
       data:
         first:
           name: _SpecularColor
-        second: {r: .823529422, g: .791855156, b: .720588267, a: 1}
+        second: {r: .820895553, g: .805815935, b: .771886885, a: 1}
       data:
         first:
           name: _WorldLightDir
@@ -158,11 +158,11 @@ Material:
       data:
         first:
           name: _GAmplitude
-        second: {r: .159999996, g: .200000003, b: .25, a: .25}
+        second: {r: .300000012, g: .200000003, b: .25, a: .25}
       data:
         first:
           name: _GFrequency
-        second: {r: 1.24000001, g: .25, b: .600000024, a: .245000005}
+        second: {r: .5, g: .25, b: .600000024, a: .245000005}
       data:
         first:
           name: _GSteepness
@@ -170,7 +170,7 @@ Material:
       data:
         first:
           name: _GSpeed
-        second: {r: 1, g: 2, b: 1, a: 1}
+        second: {r: 4, g: 2, b: 1, a: 1}
       data:
         first:
           name: _GDirectionAB

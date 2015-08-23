@@ -15,7 +15,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 1
     externalNormalMap: 1
-    heightScale: .233999997
+    heightScale: .131052643
     normalMapFilter: 1
   isReadable: 1
   grayScaleToAlpha: 0
@@ -50,4 +50,3 @@ TextureImporter:
   spritePackingTag: 
   userData: 
   assetBundleName: 
-  assetBundleVariant: 
