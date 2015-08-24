@@ -15,11 +15,12 @@ public class Shield : MonoBehaviour,ISkill {
     float _dano = 0;
     public GameObject Escudos;
     bool On = false;
-    public Eran Jogador;
+    public Character Jogador;
+   
     //----------
 	// Use this for initialization
 	void Start () {
-        Jogador = GameObject.FindGameObjectWithTag("Player").GetComponent<Eran>();
+        Jogador = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
         Escudos = GameObject.FindGameObjectWithTag("Reflect");
         if(Escudos != null)
         {
@@ -78,19 +79,19 @@ public class Shield : MonoBehaviour,ISkill {
         switch(Jogador.visao)
         {
             case TargetVision.Back:
-                Escudos.transform.localPosition = new Vector3(0, 0, 1);
+                Escudos.transform.localPosition = new Vector3(0, 0, 2);
                 Escudos.transform.localEulerAngles = new Vector3(0, 0, 0);
                 break;
             case TargetVision.Front:
-                Escudos.transform.localPosition = new Vector3(0, 0, -1);
+                Escudos.transform.localPosition = new Vector3(0, 0, -2);
                 Escudos.transform.localEulerAngles = new Vector3(0, 180, 0);
                 break;
             case TargetVision.Left:
-                Escudos.transform.localPosition = new Vector3(1, 0, 0);
+                Escudos.transform.localPosition = new Vector3(-2, 0, 0);
                 Escudos.transform.localEulerAngles = new Vector3(0, -90, 0);
                 break;
             case TargetVision.Right:
-                Escudos.transform.localPosition = new Vector3(1, 0, 0);
+                Escudos.transform.localPosition = new Vector3(2, 0, 0);
                 Escudos.transform.localEulerAngles = new Vector3(0, 90, 0);
                 break;
         }

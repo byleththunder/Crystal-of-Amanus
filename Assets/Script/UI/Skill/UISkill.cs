@@ -11,6 +11,7 @@ public class UISkill : MonoBehaviour
     ISkill[] SlotSkill = new ISkill[4];
     Item[] SlotsItem = new Item[4];
     int IndiceUniversal = 0;
+    public GameObject GameCharacter;
     Character Personagem;
     Color Disablecolor;
     // Use this for initialization

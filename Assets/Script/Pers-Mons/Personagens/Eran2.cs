@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Eran : Character {
+public class Eran2 : Character
+{
     //Variaveis
     public Animator anim;
     Rigidbody rgd;
@@ -9,7 +10,7 @@ public class Eran : Character {
     bool IsRecover = false;
     bool left = false;
     //
-    public Eran()
+    public Eran2()
     {
         Nome = "Eran Airikina";
         Ataque = 10;
@@ -24,11 +25,12 @@ public class Eran : Character {
         DontDestroyOnLoad(gameObject);
         obj = this.gameObject;
     }
-	void Start () {
+    void Start()
+    {
         rgd = GetComponent<Rigidbody>();
         rgd.freezeRotation = true;
         visao = TargetVision.Front;
-	}
+    }
     void FixedUpdate()
     {
         if (IsRecover)
@@ -82,40 +84,50 @@ public class Eran : Character {
     }
     public override void Movement()
     {
-        if (moveX < 0 && !left)
-        {
-            Flip();
-        }
-        else if ((moveX > 0) && left)
-        {
-            Flip();
-        }
+        //if (moveX < 0 && !left)
+        //{
+        //    Flip();
+        //}
+        //else if ((moveX > 0) && left)
+        //{
+        //    Flip();
+        //}
 
         if (moveZ == 0 && moveX == 0)
+        {
             anim.SetTrigger("Idle");
+        }
+        else
+        {
+            if (moveZ < 0 && Mathf.Abs(moveZ) > Mathf.Abs(moveX))
+            {
+                anim.SetTrigger("Down");
+                visao = TargetVision.Front;
+            }
+            else if (moveZ > 0 && Mathf.Abs(moveZ) > Mathf.Abs(moveX))
+            {
+                anim.SetTrigger("Up");
+                visao = TargetVision.Back;
+            }
 
-        if (moveZ < 0 && Mathf.Abs(moveZ) > Mathf.Abs(moveX))
-        {
-            anim.SetTrigger("Down");
-            visao = TargetVision.Front;
-        }
-        if ((moveX < 0 || moveX > 0) && (Mathf.Abs(moveZ) < Mathf.Abs(moveX) || Mathf.Abs(moveZ) == Mathf.Abs(moveX)))
-        {
-            anim.SetTrigger("Right");
-            if (moveX < 0)
+            else if ((moveX < 0 || moveX > 0) && (Mathf.Abs(moveZ) < Mathf.Abs(moveX) || Mathf.Abs(moveZ) == Mathf.Abs(moveX)))
             {
-                visao = TargetVision.Left;
+
+                if (moveX < 0)
+                {
+                    anim.SetTrigger("Left");
+                    visao = TargetVision.Left;
+                }
+                else
+                {
+                    anim.SetTrigger("Right");
+                    visao = TargetVision.Right;
+                }
             }
-            else
-            {
-                visao = TargetVision.Right;
-            }
+
         }
-        if (moveZ > 0 && Mathf.Abs(moveZ) > Mathf.Abs(moveX))
-        {
-            anim.SetTrigger("Up");
-            visao = TargetVision.Back;
-        }
+
+
     }
     public override bool Jump()
     {
@@ -134,8 +146,10 @@ public class Eran : Character {
         //Não está funcionando o raycast no terreno importado.
         if (OnTheFloor && Input.GetButtonDown("ControlCharacter"))
         {
+            rgd.velocity = new Vector3(rgd.velocity.x / 4, 1, rgd.velocity.z / 4);
+            anim.SetBool("Jump 0", true);
             rgd.AddForce(Vector3.up * moveY, ForceMode.Impulse);
-            notJump = true;
+            //notJump = true;
             OnTheFloor = false;
             return true;
 
@@ -148,12 +162,20 @@ public class Eran : Character {
         {
             moveX = 0;
             moveZ = 0;
+            if (visao == TargetVision.Left)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
             anim.SetTrigger("Attack");
             attack = true;
             StartCoroutine(Wait());
-            if(Alvo != null)
+            if (Alvo != null)
             {
-                Alvo.HealOrDamage(20,0);
+                Alvo.HealOrDamage(20, 0);
             }
         }
     }
@@ -198,6 +220,8 @@ public class Eran : Character {
         if (!OnTheFloor)
         {
             OnTheFloor = true;
+            anim.SetBool("Jump 0", false);
+            print("oi");
         }
         if (col.gameObject.tag == "Monsters")
         {

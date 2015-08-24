@@ -12,6 +12,7 @@ public class CameraRendering : MonoBehaviour
     void Start()
     {
         Personagem = GameObject.FindGameObjectWithTag("Player");
+        print(Personagem.name);
     }
 
     // Update is called once per frame
@@ -70,9 +71,12 @@ public class CameraRendering : MonoBehaviour
     }
 	void FollowCamera()
     {
-        Vector3 tempC = new Vector3(transform.position.x, Personagem.transform.position.y + 10,Personagem.transform.position.z - 8);
-        Vector3 tempP = new Vector3(Personagem.transform.position.x, Personagem.transform.position.y+10, Personagem.transform.position.z-8);
-        transform.position = Vector3.Lerp(tempC, tempP, Time.deltaTime*2 );
-        transform.eulerAngles = new Vector3(45,0, 0);
+        if (Personagem != null)
+        {
+            Vector3 tempC = new Vector3(transform.position.x, Personagem.transform.position.y + 10, Personagem.transform.position.z - 8);
+            Vector3 tempP = new Vector3(Personagem.transform.position.x, Personagem.transform.position.y + 10, Personagem.transform.position.z - 8);
+            transform.position = Vector3.Lerp(tempC, tempP, Time.deltaTime * 2);
+            transform.eulerAngles = new Vector3(45, 0, 0);
+        }
     }
 }
