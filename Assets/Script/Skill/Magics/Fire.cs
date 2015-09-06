@@ -8,7 +8,7 @@ public class Fire : Projectile {
     bool contdown = false;
     float Time = 2f;
     public int Damage = 0;
-    
+    Rigidbody rgd;
     public Fire()
     {
         Type = ProjectType.Fire;
@@ -21,6 +21,8 @@ public class Fire : Projectile {
         {
             Pool = GameObject.Find("Fogo").GetComponent<FireMagic>();
         }
+        rgd = GetComponent<Rigidbody>();
+        rgd.velocity = Vector3.zero ;
     }
     void Update()
     {
@@ -39,7 +41,11 @@ public class Fire : Projectile {
             Damage = (Pool.Personagem.Ataque * 100) / 100;
             Reflect = false;
         }
-        transform.position += transform.forward*0.1f;
+       
+    }
+    void FixedUpdate()
+    {
+        rgd.AddRelativeForce(Vector3.forward*2);
     }
 	void OnCollisionEnter(Collision col)
     {
@@ -49,6 +55,7 @@ public class Fire : Projectile {
             {
                 Target temp = col.gameObject.GetComponent<Target>();
                 temp.HealOrDamage(Damage, 0);
+                rgd.velocity = Vector3.zero;
             }
             if (IsInvoking())
             {
@@ -62,6 +69,7 @@ public class Fire : Projectile {
     void Fade()
     {
         contdown = false;
+        rgd.velocity = Vector3.zero;
         gameObject.SetActive(false);
     }
 }

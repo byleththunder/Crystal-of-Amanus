@@ -21,6 +21,7 @@ public class Item : MonoBehaviour
     public string Descricao;
     public Sprite Img;
     public bool IsEquip;
+    public int Preco;
     public Item ()
     {
 

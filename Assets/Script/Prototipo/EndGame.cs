@@ -13,7 +13,7 @@ public class EndGame : MonoBehaviour {
         var monstros = GameObject.FindGameObjectsWithTag("Monsters");
         if(monstros.Length == 0)
         {
-            Application.LoadLevel(0);
+            //Application.LoadLevel(0);
         }
 	}
 }

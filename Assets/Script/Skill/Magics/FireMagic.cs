@@ -47,7 +47,7 @@ public class FireMagic : MonoBehaviour,ISkill
                 municao.Tag = "Monsters";
                 municao.WhoShoot = "Player";
 				municao.transform.eulerAngles = ConvertVisionToEuler(Personagem.visao);
-                municao.transform.position = Pers.transform.position + new Vector3(0, 0.5f, 0) + municao.transform.forward ;
+                municao.transform.position = Pers.transform.position  + municao.transform.forward*2 ;
                 float atk = ((Target)Pers.GetComponent(typeof(Target))).Ataque;
                 municao.Damage = (int)(atk * 100) / 100;
                 municao.gameObject.SetActive(true);

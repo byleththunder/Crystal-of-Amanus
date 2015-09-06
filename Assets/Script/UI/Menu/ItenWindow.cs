@@ -177,7 +177,8 @@ public class ItenWindow : MonoBehaviour
         obj.transform.SetParent(Screen.transform, false);
         RectTransform rect = obj.GetComponent<RectTransform>();
         RectTransform _tempScreenRect = Screen.GetComponent<RectTransform>();
-        rect.anchoredPosition = new Vector2((X * (_tempScreenRect.sizeDelta.x/2))- (PrefabSize.x/2)-10, ((_tempScreenRect.sizeDelta.y/2)-0) - PrefabSize.y * (Y+1));
+        rect.anchoredPosition = new Vector2((X > 0 ? X * 150 : 0), -.5f * (Y > 0 ? Y * 50 : 1));
+        //rect.anchoredPosition = new Vector2((X * (_tempScreenRect.sizeDelta.x/2))- (PrefabSize.x/2)-10, ((_tempScreenRect.sizeDelta.y/2)-0) - PrefabSize.y * (Y+1));
         obj.name = "Slot " + X + " - " + Y;
         Slots.Add(obj);
         #endregion
@@ -203,7 +204,7 @@ public class ItenWindow : MonoBehaviour
             {
                 RectTransform rect = Slots[i*j].GetComponent<RectTransform>();
                 RectTransform _tempScreenRect = Screen.GetComponent<RectTransform>();
-                //rect.anchoredPosition = new Vector2((j * (_tempScreenRect.sizeDelta.x / 2)) - (PrefabSize.x / 2)-10, ((_tempScreenRect.sizeDelta.y / 2) - 0) - PrefabSize.y * (i));
+                rect.anchoredPosition = new Vector2((j==0?0:j*150),  -.5f * (i>0?i*10:1));
             }
         }
     }

@@ -19,6 +19,7 @@ public class Eran2 : Character
         AmanusTotal = 100;
         Amanus = AmanusTotal;
         EstadoDoJogador = GameStates.CharacterState.Playing;
+        Gold = 10000;
     }
     void Awake()
     {
@@ -80,6 +81,11 @@ public class Eran2 : Character
 
             }
 
+        }
+        else
+        {
+            anim.SetTrigger("Idle");
+            rgd.velocity = Vector3.zero;
         }
     }
     public override void Movement()
@@ -176,6 +182,7 @@ public class Eran2 : Character
             if (Alvo != null)
             {
                 Alvo.HealOrDamage(20, 0);
+                print(Alvo.Vida);
             }
         }
     }
@@ -204,7 +211,6 @@ public class Eran2 : Character
     {
         if (other.tag == "enemy")
         {
-
             if (attack)
             {
                 Destroy(other.gameObject);
@@ -221,14 +227,15 @@ public class Eran2 : Character
         {
             OnTheFloor = true;
             anim.SetBool("Jump 0", false);
-            print("oi");
+            print("Chao");
         }
         if (col.gameObject.tag == "Monsters")
         {
 
             Alvo = col.gameObject.GetComponent<Target>();
-
+            print(Alvo.Nome);
         }
 
     }
+    
 }

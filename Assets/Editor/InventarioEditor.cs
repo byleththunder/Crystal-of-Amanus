@@ -2,11 +2,12 @@
 using System.Collections;
 using UnityEditor;
 [CustomEditor(typeof(Inventario))]
-public class InventarioEditor : Editor {
+public class InventarioEditor : Editor
+{
 
     Inventario alvo;
     string[] Nomes;
-    
+
     SerializedProperty Indice;
     void OnEnable()
     {
@@ -19,8 +20,8 @@ public class InventarioEditor : Editor {
         EditorGUILayout.LabelField("Itens: ");
 
         Nomes = alvo.ItensNames();
-        
+
         EditorGUILayout.Popup(Indice.intValue, Nomes);
-            serializedObject.ApplyModifiedProperties();
+        serializedObject.ApplyModifiedProperties();
     }
 }

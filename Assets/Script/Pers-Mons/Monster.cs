@@ -1,9 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Monster : Target {
+public class Monster : Target
+{
 
-	public virtual Item Loot()
+    void FixedUpdate()
+    {
+        AI();
+        DamageCheck();
+    }
+    public virtual Item Loot()
     {
         return null;
     }
@@ -11,4 +17,12 @@ public class Monster : Target {
     {
 
     }
+    void DamageCheck()
+    {
+        if (Vida <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }

@@ -45,6 +45,7 @@ MonoBehaviour:
   Descricao: Recupera 10% da sua vida
   Img: {fileID: 21300000, guid: 10fe865dbeeaf5b4a90022e5890ec384, type: 3}
   IsEquip: 0
+  Preco: 100
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -63,6 +64,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Item
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Preco
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

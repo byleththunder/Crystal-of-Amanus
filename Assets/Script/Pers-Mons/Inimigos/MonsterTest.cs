@@ -74,7 +74,7 @@ public class MonsterTest : Monster
                     FireBalls[i].WhoShoot = "Monsters";
                     FireBalls[i].Damage = (Ataque * 100) / 100;
                     FireBalls[i].transform.position = transform.position;
-                    Vector3 _from = transform.position - PlayerLocation;
+                    Vector3 _from = transform.forward - PlayerLocation;
                     int direction = 1;
                     if (_from.x > 0)
                         direction = -1;
@@ -101,9 +101,10 @@ public class MonsterTest : Monster
                     FireBalls[i].Damage = (Ataque * 100) / 100;
                     FireBalls[i].transform.position = transform.position;
                     float angulo = 360f / (FireBalls.Length);
-                    FireBalls[i].transform.localEulerAngles = new Vector3(0, angulo * (i + 1), 0);
-                    FireBalls[i].transform.position += FireBalls[i].transform.forward;
+                    FireBalls[i].transform.eulerAngles = new Vector3(0, angulo * (i + 1), 0);
+                    FireBalls[i].transform.position += FireBalls[i].transform.forward*2;
                     FireBalls[i].gameObject.SetActive(true);
+                    FireBalls[i] = null;
                 }
             }
         }

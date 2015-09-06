@@ -6,13 +6,13 @@ public class WindowMenager : MonoBehaviour
 {
     public GameObject[] Janelas;
     public GameObject[] Botoes;
-    public Animator Anim;
     MonoBehaviour[] JanelaScript;
     bool start = false;
     int Indice = 0;
     int IndiceAnterior = -1;
     int IndiceJanela = 0;
     Character pers;
+    public GameObject JanelaPrincipal;
     // Use this for initialization
     void Awake()
     {
@@ -21,7 +21,6 @@ public class WindowMenager : MonoBehaviour
     void Start()
     {
         pers = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
-        Anim.enabled = false;
         if (JanelaScript == null)
         {
             JanelaScript = new MonoBehaviour[Janelas.Length];
@@ -37,56 +36,43 @@ public class WindowMenager : MonoBehaviour
     {
         if (Input.GetButtonDown("Submit"))
         {
-            if(!start)
+            if (!start)
             {
                 pers.EstadoDoJogador = GameStates.CharacterState.DontMove;
-                if(Anim.enabled)
-                {
-                    Anim.SetTrigger("StartMenu");
-                }else
-                {
-                    Anim.enabled = true;
-                }
+                JanelaPrincipal.SetActive(true);
                 start = !start;
                 if (!JanelaScript[0].enabled)
                 {
                     JanelaScript[0].enabled = true;
                 }
-                
-            }else
+
+            }
+            else
             {
                 pers.EstadoDoJogador = GameStates.CharacterState.Playing;
                 Time.timeScale = 1f;
-                Anim.SetTrigger("DisableMenu");
-                
+                JanelaPrincipal.SetActive(false);
                 start = !start;
             }
         }
-        if(start)
+        if (start)
         {
-            if (!Anim.GetCurrentAnimatorStateInfo(0).IsName("Show") && !Anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
-            {
-                Time.timeScale = 0.00000000000001f;
-            }
+            Time.timeScale = 0.0f;
+
             if (!Janelas[IndiceJanela].activeInHierarchy)
             {
                 Janelas[IndiceJanela].SetActive(true);
             }
             MovInMenu();
-            
-        }else
+
+        }
+        else
         {
-            if (!Anim.GetCurrentAnimatorStateInfo(0).IsName("Gone"))
+            foreach (GameObject m in Janelas)
             {
-               
-                foreach (GameObject m in Janelas)
-                {
-                    
-                        m.SetActive(false);
-                    
-                }
-                IndiceJanela = 0;
+                m.SetActive(false);
             }
+            IndiceJanela = 0;
         }
     }
     void MovInMenu()
@@ -100,7 +86,7 @@ public class WindowMenager : MonoBehaviour
                 Image _CorAnt = Botoes[IndiceAnterior].GetComponent<Image>();
                 _CorAnt.color = Color.red;
             }
-            
+
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 IndiceAnterior = Indice;
@@ -122,7 +108,7 @@ public class WindowMenager : MonoBehaviour
                 Janelas[IndiceJanela].SetActive(false);
                 if (Botoes[Indice].name == "Bt_Item")
                 {
-                    
+
                     IndiceJanela = 1;
                     Janelas[IndiceJanela].GetComponent<ItenWindow>().Att();
 

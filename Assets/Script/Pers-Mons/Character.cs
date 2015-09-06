@@ -14,6 +14,7 @@ public class Character : Target {
     public GameStates.CharacterState EstadoDoJogador = GameStates.CharacterState.Playing;
     public Vector3 CheckPointPosition;
     public Target Alvo;
+    public int Gold;
     //Temporario - Esperando animação 2D de defesa
     public GameObject Escudo;
     //Métodos
