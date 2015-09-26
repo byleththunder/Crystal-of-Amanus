@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using TeamUtility.IO;
 
 public class UISkill : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class UISkill : MonoBehaviour
     public GameObject GameCharacter;
     Character Personagem;
     Color Disablecolor;
+    bool press = false;
     // Use this for initialization
     void Start()
     {
@@ -41,24 +43,30 @@ public class UISkill : MonoBehaviour
                 Invoke("AddItensSlots", 0.5f);
             }
         }
+        if(InputManager.GetAxisRaw("ScrollSkill")==0)
+        {
+            press = false;
+        }
     }
     void Movimentar()
     {
         AtualizarSlotInfo();
         //Cima
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (InputManager.GetAxisRaw("ScrollSkill")==1 && !press)
         {
             IndiceUniversal = (IndiceUniversal + 1) % SlotSkill.Length;
             OrganizarTextos(1);
+            press = true;
         }
         //Baixo
-        if (Input.GetKeyDown(KeyCode.E))
+        if (InputManager.GetAxisRaw("ScrollSkill") == -1 && !press)
         {
             IndiceUniversal = IndiceUniversal == 0 ? SlotSkill.Length - 1 : IndiceUniversal - 1;
             OrganizarTextos(-1);
+            press = true;
         }
         //Usar
-        if (Input.GetButtonDown("Defense"))
+        if (InputManager.GetButtonDown("Magic"))
         {
             if (SlotSkill[IndiceUniversal] != null)
             {
@@ -211,7 +219,6 @@ public class UISkill : MonoBehaviour
                     
                    // print(string.Format("Indice Temporário: {0}", indicetemp));
                     SlotsItem[indicetemp] = _inv.MochilaRef[i];
-                    print(SlotsItem[indicetemp].name);
                 }else if(_inv.MochilaRef[i] != SlotsItem[indicetemp])
                 {
                     SlotsItem[indicetemp] = null;
@@ -262,7 +269,7 @@ public class UISkill : MonoBehaviour
                 {
                     
                         SlotsItem[i] = null;
-                        CaixaDeTextos[i].text = "Slot Vázio";
+                        CaixaDeTextos[i].text = "Slot Vazio";
                         CaixaDeTextos[i].color = Disablecolor;
                     
                 }

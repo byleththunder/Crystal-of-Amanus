@@ -2,8 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[System.Serializable]
 public enum TiposDeQuests { Principal, Repetitiva, Sub };
 public enum ObjetivesType { Coleta = 0, Eliminacao = 1 };
+
 public class Quest
 {
     //Padrão

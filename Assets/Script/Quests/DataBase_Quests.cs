@@ -12,9 +12,13 @@ public class DataBase_Quests : MonoBehaviour
     // Use this for initialization
     public DataBase_Quests()
     {
-
-
-
+        if(Game.current != null)
+        {
+            if(Game.current.Quests.Count > 0)
+            {
+                Lista = Game.current.Quests;
+            }
+        }
     }
     static void SetQuest()
     {

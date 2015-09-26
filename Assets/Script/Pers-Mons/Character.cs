@@ -6,11 +6,11 @@ public class Character : Target {
     //Variaveis
     public Item[] Equipamentos = new Item[2];
     public float Speed;
-    public float moveX;
-    public float moveZ;
+    protected float moveX;
+    protected float moveZ;
     public float moveY;
-    public bool attack;
-    public bool notJump = true;
+    protected bool attack;
+    protected bool notJump = true;
     public GameStates.CharacterState EstadoDoJogador = GameStates.CharacterState.Playing;
     public Vector3 CheckPointPosition;
     public Target Alvo;
@@ -61,6 +61,25 @@ public class Character : Target {
     public virtual void Attack()
     {
 
+    }
+    public virtual void DeathState()
+    {
+
+    }
+    public virtual void ReviveState()
+    {
+
+    }
+    void OnParticleCollision(GameObject other) 
+    {
+        try
+        {
+            HealOrDamage(other.GetComponentInParent<Monster>().Ataque, 0);
+        }
+        catch
+        {
+            HealOrDamage(1, 0);
+        }
     }
     
 }

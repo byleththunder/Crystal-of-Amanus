@@ -5,10 +5,10 @@ public class ButtonAction : MonoBehaviour {
     public string NomeDaFase;
     void Update()
     {
-        if (Input.GetButtonDown("Action"))
-        {
-            NovoJogo();
-        }
+        //if (Input.GetButtonDown("Action"))
+        //{
+        //    NovoJogo();
+        //}
     }
 	public void NovoJogo()
     {

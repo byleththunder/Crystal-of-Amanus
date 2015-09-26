@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+
 public class Inventario : MonoBehaviour
 {
 
+    public static Inventario Mochila;
+    public static string SaveInvent;
     //Item[] _mochila = new Item[12];
     List<Item> _mochila = new List<Item>();
     List<int> Quantidades = new List<int>();
-    public static Inventario Mochila;
+    
 
     public int indice = 0;
     public int MochilaLenght { get { return _mochila.Count; } }
@@ -17,20 +20,34 @@ public class Inventario : MonoBehaviour
     void Awake()
     {
         Mochila = this;
+       // SaveLoad.Load();
     }
     void Start()
     {
-
+        try
+        {
+            if (!string.IsNullOrEmpty(Game.current.Invent))
+            {
+                Inventario.SaveInvent = Game.current.Invent;
+                Load();
+                print(MochilaLenght);
+            }
+        }
+        catch
+        {
+            //Debug.LogError("invent é null");
+        }
+        
     }
     void FixedUpdate()
     {
-        if(Input.GetKeyDown(KeyCode.F2))
+        if (Input.GetKeyDown(KeyCode.F2))
         {
-            Save(1);
+            //Save(1);
         }
         if (Input.GetKeyDown(KeyCode.F3))
         {
-            Load(1);
+           // Load(1);
         }
         if (Input.GetKeyDown(KeyCode.F4))
         {
@@ -58,7 +75,7 @@ public class Inventario : MonoBehaviour
         }
         _mochila.Add(item);
         Quantidades.Add(Quantidade);
-
+        Save();
     }
     /*-------------------------------------------------------------------------------
     * Nesse método eu verifico se é possivel descartar um item. Primeiro eu vejo se eu tenho o item, se eu tiver, 
@@ -140,159 +157,30 @@ public class Inventario : MonoBehaviour
      * !<Nome> - Array Inicio
      * /! - ArrayFim
      * /@ - Termina
-     * @[Nome](Lucas)[Idade](20)||[Nome](Fulano)[Idade](19)/@
+     * @[Nome]{Lucas}[Idade]{20}|[Nome](Fulano)[Idade](19)/@
      */
-    public void Save(int indice)
+    public void Save()
     {
         string _temp = string.Empty;
-        for (int i = 0; i < _mochila.Count; i++)
-        {
-            if (_mochila.Count == 1)
-            {
-                _temp += "@!<Itens>[Nome]{" + _mochila[i].name + "}/!|";
-            }
-            else if (i == 0)
-            {
-                _temp += "@!<Itens>[Nome]{" + _mochila[i].name + "}";
-                _temp += "|";
-            }
-            else if (i == _mochila.Count - 1)
-            {
-                _temp += "[Nome]{" + _mochila[i].name + "}";
-                _temp += "/!";
-            }
-            else
-            {
-                _temp += "[Nome]{" + _mochila[i].name + "}";
-                _temp += "|";
-            }
-        }
-        for (int i = 0; i < Quantidades.Count; i++)
-        {
-            if (_mochila.Count == 1)
-            {
-                _temp += "!<Quantidades>[" + i + "]{" + Quantidades[i] + "}/!/@";
-            }
-            else if (i == 0)
-            {
-                _temp += "!<Quantidades>[" + i + "]{" + Quantidades[i] + "}";
-                _temp += "|";
-            }
-            else if (i == _mochila.Count - 1)
-            {
-                _temp += "[" + i + "]{" + Quantidades[i] + "}";
-                _temp += "/!/@";
-            }
-            else
-            {
-                _temp += "[" + i + "]{" + Quantidades[i] + "}";
-                _temp += "|";
-            }
-        }
-        print(_temp);
-        PlayerPrefs.SetString("Inventario" + indice, _temp);
+        _temp += SaveGameState.IniciarSave();
+        _temp += SaveGameState.SalvarLista<Item>(_mochila, "Itens", new string[1] { "Nome" }, true);
+        _temp += SaveGameState.SalvarLista<int>(Quantidades, "Quantidades");
+        _temp += SaveGameState.FinalizarSave();
+        SaveInvent = _temp;
+        //PlayerPrefs.SetString("Inventario" + indice, _temp);
         print("SaveQuests OK");
     }
-    public bool Load(int indice)
+    public bool Load()
     {
-        if (PlayerPrefs.HasKey("Inventario" + indice))
+        if(!string.IsNullOrEmpty(SaveInvent))
         {
-            List<Item> _Itens = new List<Item>();
-            List<int> _Quantidades = new List<int>();
-            string _temp = PlayerPrefs.GetString("Inventario" + indice);
-            print(_temp);
-            string variavel = string.Empty;
-            string valor = string.Empty;
-            string array = string.Empty;
-            bool bool_variavel = false;
-            bool bool_valor = false;
-            bool bool_array = false;
-            bool bool_array_nome = false;
-            int ListaIndice = -1;
-            //------------------------
-            #region Load
-            for (int i = 0; i < _temp.Length; i++)
+            List<string> _Itens = LoadGameState.LoadStringList(SaveInvent, "Itens");
+            for (int i = 0; i < _Itens.Count; i++)
             {
-                
-                if (_temp[i] == ']')
-                {
-                    bool_variavel = false;
-                }
-
-                if (_temp[i] == '}')
-                {
-                    bool_valor = false;
-                    #region Registrando
-                    print(array);
-                    if (array == "Itens") { _Itens.Add(ResourceFind.FindItem(valor)); print(valor); }
-                    if (array == "Quantidades") { _Quantidades.Add(System.Convert.ToInt32(valor)); print(valor); }
-
-                    #endregion
-                    variavel = string.Empty;
-                    valor = string.Empty;
-                }
-                //Escreve o nome da variavel
-                if (bool_variavel)
-                {
-                    variavel += _temp[i];
-                }
-                //Detectou uma variavel no proximo elemento
-                if (_temp[i] == '[')
-                {
-                    bool_variavel = true;
-                }
-                //Escreve o valor da variavel
-                if (bool_valor)
-                {
-                    valor += _temp[i];
-                }
-                //Detecta um valor no proximo elemento
-                if (_temp[i] == '{')
-                {
-                    bool_valor = true;
-                }
-                //Detecta o inicio de um array
-                if (_temp[i] == '!')
-                {
-                    bool_array = true;
-                    array = string.Empty;
-                }
-                if (_temp[i] == '>')
-                {
-                    bool_array_nome = false;
-                }
-                //Escreve o nome do array
-                if (bool_array_nome)
-                {
-                    array += _temp[i];
-                }
-                //Detecta um array no proximo elemento
-                if (_temp[i] == '<')
-                {
-                    bool_array_nome = true;
-                }
-                //Detecta o termino do nome do array
-                
-                //Detecta o termino de um array
-                if (_temp[i] == '/' && _temp[i + 1] == '!')
-                {
-                    bool_array = false;
-                    array = string.Empty;
-                    i++;
-                }
-
-
-                if (_temp[i] == '/' && _temp[i + 1] == '@')
-                {
-                    break;
-                }
+                _mochila.Add(ResourceFind.FindItem(_Itens[i]));
             }
-            #endregion
-            //-------------------------
-            _mochila = _Itens;
-            Quantidades = _Quantidades;
-            print("Mochila lenght = " + _mochila.Count);
-            print("LoadQuests OK");
+            Quantidades = LoadGameState.LoadIntList(SaveInvent, "Quantidades");
+            print("Mochila lenght = " + _mochila[0].Nome);
             return true;
         }
         print("LoadQuests Failed");

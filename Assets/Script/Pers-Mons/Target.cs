@@ -3,6 +3,8 @@ using System.Collections;
 using System;
 
 public enum TargetVision { Front, Back, Left, Right };
+[System.Serializable]
+
 public class Target : MonoBehaviour
 {
     //Variaveis
@@ -28,6 +30,7 @@ public class Target : MonoBehaviour
         {
             Amanus = 0;
         }
+        
     }
 
     

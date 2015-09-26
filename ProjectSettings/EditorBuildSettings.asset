@@ -6,10 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Cenas/TitleScreen.unity
+    path: Assets/Cenas/Importantes_Temp/Lv_Ruinas.unity
   - enabled: 1
-    path: Assets/Cenas/LoadingScene.unity
-  - enabled: 1
-    path: Assets/Cenas/CenaTestes.unity
-  - enabled: 1
-    path: Assets/Cenas/GameOver.unity
+    path: Assets/Cenas/Importantes_Temp/LoadingScene.unity

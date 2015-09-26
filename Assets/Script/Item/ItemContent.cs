@@ -37,7 +37,6 @@ public class ItemContent : MonoBehaviour
     public bool UsarItem(Target alvo)
     {
         //Usado = false;
-        print("Teste: " + (Usado == null));
         Usado = iten.MetodoItem(alvo);
         if (quantidade == 1 && Usado)
         {

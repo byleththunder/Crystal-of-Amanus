@@ -26,6 +26,8 @@
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
 
+# Save Game File
+*.sav
 
 /Assets/Image/*.meta
 /Assets/Library/metadata

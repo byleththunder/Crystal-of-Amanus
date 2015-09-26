@@ -8,11 +8,17 @@ public class CameraRendering : MonoBehaviour
     // Os GameObjects são para comparação, só.
     GameObject LastObject, NewObject;
 	public GameObject Personagem;
+    public float angle = 45f;
+    public Vector3 Ajustes = new Vector3(0, 10, -8);
     // Use this for initialization
     void Start()
     {
         Personagem = GameObject.FindGameObjectWithTag("Player");
-        transform.position = GameObject.Find("InitialPosition").transform.position;
+        try
+        {
+            transform.position = GameObject.Find("InitialPosition").transform.position;
+        }
+        catch { Debug.LogError("Não tem um GameObject de nome InitialPosition"); }
         print(Personagem.name);
         //FollowCamera();
     }
@@ -26,6 +32,11 @@ public class CameraRendering : MonoBehaviour
     void Update()
     {
 	    FollowCamera();
+        
+
+    }
+    void CameraTransparente()
+    {
         //raio = new Ray(transform.position, transform.forward);//O Raio vai ir na direção em que a câmera aponta.
         //RaycastHit hit;
         //if (Physics.Raycast(raio, out hit, 8f))
@@ -40,8 +51,8 @@ public class CameraRendering : MonoBehaviour
         //        {
         //            NewObject.GetComponent<Renderer>().material.color = new Color(_tempC.r, _tempC.g, _tempC.b, 0.5f);
         //        }
-                    
-                    
+
+
         //    }
         //    if (LastObject != null)
         //    {
@@ -53,7 +64,7 @@ public class CameraRendering : MonoBehaviour
         //            {
         //                NewObject.GetComponent<Renderer>().material.color = new Color(_tempC.r, _tempC.g, _tempC.b, 1f);
         //            }
-                    
+
         //        }
         //    }
         //    LastObject = NewObject;
@@ -63,27 +74,26 @@ public class CameraRendering : MonoBehaviour
         //    if (LastObject != null)
         //    {
         //        //print("Não Colidiu com nada");
-                
+
         //            Color _tempC = NewObject.GetComponent<Renderer>().material.color;
         //            if (_tempC.a == 0.5f)
         //            {
         //                NewObject.GetComponent<Renderer>().material.color = new Color(_tempC.r, _tempC.g, _tempC.b, 1f);
         //            }
         //            //Se o ultimo Objeto pertencer a Layer Paredes, eu reabilito(?) a mesh.
-                    
-               
+
+
         //    }
         //}
-
     }
 	void FollowCamera()
     {
         if (Personagem != null)
         {
-            Vector3 tempC = new Vector3(transform.position.x, Personagem.transform.position.y + 10, Personagem.transform.position.z - 8);
-            Vector3 tempP = new Vector3(Personagem.transform.position.x, Personagem.transform.position.y + 10, Personagem.transform.position.z - 8);
+            Vector3 tempC = new Vector3(transform.position.x+Ajustes.x, Personagem.transform.position.y + Ajustes.y, Personagem.transform.position.z + Ajustes.z);
+            Vector3 tempP = new Vector3(Personagem.transform.position.x + Ajustes.x, Personagem.transform.position.y + Ajustes.y, Personagem.transform.position.z +Ajustes.z);
             transform.position = Vector3.Lerp(tempC, tempP, Time.deltaTime * 2);
-            transform.eulerAngles = new Vector3(45, 0, 0);
+            transform.eulerAngles = new Vector3(angle, 0, 0);
         }else
         {
            

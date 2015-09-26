@@ -1,17 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
+using TeamUtility.IO;
+using System.Collections.Generic;
+using System.IO;
+
 
 public class Eran2 : Character
 {
+    public static string Player;
     //Variaveis
     public Animator anim;
     Rigidbody rgd;
-    bool OnTheFloor;
+    bool OnTheFloor = false;
     bool IsRecover = false;
     bool left = false;
+    List<float> Valores = new List<float>();
+    //
+    public float Reducao;
+    bool wait = false;
+    bool teste = false;
+    bool NaDar = false;
+    //
+    bool ShowDamage = false;
+    List<Vector3> posDamage = new List<Vector3>();
     //
     public Eran2()
     {
+        
         Nome = "Eran Airikina";
         Ataque = 10;
         VidaTotal = 100;
@@ -20,6 +35,8 @@ public class Eran2 : Character
         Amanus = AmanusTotal;
         EstadoDoJogador = GameStates.CharacterState.Playing;
         Gold = 10000;
+        
+        
     }
     void Awake()
     {
@@ -28,12 +45,16 @@ public class Eran2 : Character
     }
     void Start()
     {
+        
         rgd = GetComponent<Rigidbody>();
         rgd.freezeRotation = true;
         visao = TargetVision.Front;
+
     }
     void FixedUpdate()
     {
+
+
         if (IsRecover)
         {
             if (Amanus < AmanusTotal)
@@ -73,11 +94,17 @@ public class Eran2 : Character
             }
             if (!attack)
             {
-
+                Jump();
                 Movement();
-                rgd.velocity = new Vector3(moveX * Speed, rgd.velocity.y, moveZ * Speed);
-                moveX = Input.GetAxis("Horizontal");
-                moveZ = Input.GetAxis("Vertical");
+                if (OnTheFloor) { rgd.velocity = new Vector3(moveX * Speed, rgd.velocity.y, moveZ * Speed); }
+                else if(!wait) { rgd.velocity = new Vector3(moveX * Speed / Reducao, rgd.velocity.y, moveZ * Speed / Reducao); }
+
+
+                moveX = InputManager.GetAxis("Horizontal");
+                moveZ = InputManager.GetAxis("Vertical");
+
+                anim.SetFloat("Speed", Mathf.Abs(moveZ));
+                anim.SetFloat("SpeedX", Mathf.Abs(moveX));
 
             }
 
@@ -90,71 +117,73 @@ public class Eran2 : Character
     }
     public override void Movement()
     {
-        //if (moveX < 0 && !left)
-        //{
-        //    Flip();
-        //}
-        //else if ((moveX > 0) && left)
-        //{
-        //    Flip();
-        //}
 
-        if (moveZ == 0 && moveX == 0)
+        if (InputManager.GetAxisRaw("Vertical") == -1)
         {
-            anim.SetTrigger("Idle");
-        }
-        else
-        {
-            if (moveZ < 0 && Mathf.Abs(moveZ) > Mathf.Abs(moveX))
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Down"))
             {
+                #region ResetTrigers
+                anim.ResetTrigger("Up");
+                anim.ResetTrigger("Right");
+                anim.ResetTrigger("Left");
+                #endregion
                 anim.SetTrigger("Down");
                 visao = TargetVision.Front;
             }
-            else if (moveZ > 0 && Mathf.Abs(moveZ) > Mathf.Abs(moveX))
+        }
+        else if (InputManager.GetAxisRaw("Vertical") == 1)
+        {
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Up"))
             {
+                #region ResetTrigers
+                anim.ResetTrigger("Down");
+                anim.ResetTrigger("Right");
+                anim.ResetTrigger("Left");
+                #endregion
                 anim.SetTrigger("Up");
                 visao = TargetVision.Back;
             }
-
-            else if ((moveX < 0 || moveX > 0) && (Mathf.Abs(moveZ) < Mathf.Abs(moveX) || Mathf.Abs(moveZ) == Mathf.Abs(moveX)))
-            {
-
-                if (moveX < 0)
-                {
-                    anim.SetTrigger("Left");
-                    visao = TargetVision.Left;
-                }
-                else
-                {
-                    anim.SetTrigger("Right");
-                    visao = TargetVision.Right;
-                }
-            }
-
         }
-
+        else if (InputManager.GetAxisRaw("Horizontal") == -1)
+        {
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Left"))
+            {
+                #region ResetTrigers
+                anim.ResetTrigger("Up");
+                anim.ResetTrigger("Right");
+                anim.ResetTrigger("Down");
+                #endregion
+                anim.SetTrigger("Left");
+                visao = TargetVision.Left;
+            }
+        }
+        else if (InputManager.GetAxisRaw("Horizontal") == 1)
+        {
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Right"))
+            {
+                #region ResetTrigers
+                anim.ResetTrigger("Up");
+                anim.ResetTrigger("Down");
+                anim.ResetTrigger("Left");
+                #endregion
+                anim.SetTrigger("Right");
+                visao = TargetVision.Right;
+            }
+        }
 
     }
     public override bool Jump()
     {
-        Ray raio = new Ray(transform.position, -transform.up);
-        RaycastHit hit;
-        if (Physics.Raycast(raio, out hit, 2f))
+        if (OnTheFloor && InputManager.GetButtonDown("Jump"))
         {
-            Debug.DrawLine(raio.origin, hit.point);
-            GameObject obj = hit.collider.GetComponent<GameObject>();
-            if (notJump)
-            {
-                notJump = false;
-            }
-        }
-        //!notJump &&
-        //Não está funcionando o raycast no terreno importado.
-        if (OnTheFloor && Input.GetButtonDown("ControlCharacter"))
-        {
-            rgd.velocity = new Vector3(rgd.velocity.x / 4, 1, rgd.velocity.z / 4);
-            anim.SetBool("Jump 0", true);
-            rgd.AddForce(Vector3.up * moveY, ForceMode.Impulse);
+
+            Valores.Add(transform.position.z);
+            float Forca = rgd.mass * moveY;
+            anim.SetBool("Jump", true);
+            rgd.AddForce(Vector3.up * Forca, ForceMode.Impulse);
+            wait = true;
+            StartCoroutine(JumpWait());
+            teste = true;
             //notJump = true;
             OnTheFloor = false;
             return true;
@@ -162,34 +191,27 @@ public class Eran2 : Character
         }
         return false;
     }
+    IEnumerator JumpWait()
+    {
+        rgd.velocity = new Vector3(0, rgd.velocity.y, 0);
+        yield return new WaitForSeconds(0.1f);
+        rgd.velocity = new Vector3(moveX * Speed / Reducao, rgd.velocity.y, moveZ * Speed / Reducao);
+        wait = false;
+    }
     public override void Attack()
     {
-        if (Input.GetButtonDown("Action") && !attack)
+        if (InputManager.GetButtonDown("Action") && !attack)
         {
             moveX = 0;
             moveZ = 0;
-            if (visao == TargetVision.Left)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
-            else
-            {
-                transform.localScale = new Vector3(1, 1, 1);
-            }
             anim.SetTrigger("Attack");
             attack = true;
             StartCoroutine(Wait());
-            if (Alvo != null)
-            {
-                Alvo.HealOrDamage(20, 0);
-                print(Alvo.Vida);
-            }
         }
     }
     IEnumerator Wait()
     {
-        anim.SetTrigger("Idle");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         attack = false;
     }
     public Vector3 Flip()
@@ -207,35 +229,106 @@ public class Eran2 : Character
             IsRecover = true;
         }
     }
-    void OnTriggerStay(Collider other)
+
+    void OnTriggerStay(Collider col)
     {
-        if (other.tag == "enemy")
+        
+        if (col.gameObject.tag == "Monsters")
         {
+            if (Alvo == null)
+            {
+                Alvo = col.gameObject.GetComponent<Target>();
+            }
             if (attack)
             {
-                Destroy(other.gameObject);
+                col.gameObject.GetComponent<Target>().HealOrDamage(Ataque, 0);
+                try
+                {
+                    col.gameObject.GetComponent<Monster>().anim.SetTrigger("Dano");
+                }
+                catch
+                {
+
+                }
+                attack = false;
+                ShowDamage = true;
+                if (Alvo != null)
+                {
+                    var guiPosition = Camera.main.WorldToScreenPoint(Alvo.transform.position);
+                    guiPosition.y = Screen.height - guiPosition.y;
+                    posDamage.Add(guiPosition);
+                }
             }
         }
+       
     }
+    
     void OnCollisionEnter(Collision col)
     {
+
         if (col.gameObject.tag == "Restart")
         {
             transform.position = CheckPointPosition;
         }
         if (!OnTheFloor)
         {
+            if (teste)
+                Valores.Add(transform.position.z);
             OnTheFloor = true;
-            anim.SetBool("Jump 0", false);
-            print("Chao");
+            anim.SetBool("Jump", false);
         }
         if (col.gameObject.tag == "Monsters")
         {
 
-            Alvo = col.gameObject.GetComponent<Target>();
+            Alvo = col.gameObject.GetComponent<Monster>();
+            
             print(Alvo.Nome);
         }
 
     }
     
+    void OnGUI()
+    {
+      
+        if(ShowDamage && Alvo!=null)
+        {
+
+            for (int i = 0; i < posDamage.Count; i++)
+            {
+                posDamage[i] = new Vector3(posDamage[i].x, posDamage[i].y - 1, posDamage[i].z);
+                GUI.Label(new Rect(posDamage[i].x, posDamage[i].y, Screen.width / 5, Screen.height / 5), "-"+Ataque.ToString());
+                if (!IsInvoking("DesaparecerDano"))
+                {
+                    Invoke("DesaparecerDano", .5f);
+                }
+            }
+            
+        }else if (Alvo == null)
+        {
+            DesaparecerDano();
+            CancelInvoke("DesaparecerDano");
+        }
+    }
+    void DesaparecerDano()
+    {
+        for (int i = 0; i < posDamage.Count; i++)
+        {
+            posDamage.Remove(posDamage[i]);
+        }
+        ShowDamage = false;
+    }
+
+    public override void DeathState()
+    {
+        rgd.isKinematic = true;
+        anim.SetTrigger("Death");
+        
+    }
+    public override void ReviveState()
+    {
+        EstadoDoJogador = GameStates.CharacterState.Playing;
+        rgd.isKinematic = false;
+        anim.SetTrigger("Death");
+    }
+
 }

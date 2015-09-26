@@ -3,10 +3,10 @@ using System.Collections;
 
 public class Monster : Target
 {
-
-    void FixedUpdate()
+    public Animator anim;
+    void Update()
     {
-        AI();
+       
         DamageCheck();
     }
     public virtual Item Loot()

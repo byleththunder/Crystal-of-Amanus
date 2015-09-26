@@ -6,29 +6,43 @@ public class Chest : MonoBehaviour {
     public Animator anim;
     public Item loot;
     public int quantidade = 1;
+    public bool Open = false;
 	// Use this for initialization
 	void Start () {
         anim = GetComponent<Animator>();
-        
+        if (!Open)
+        {
             anim.SetFloat("speed", 0f);
+
+        }else
+        {
+            anim.SetFloat("speed", 1f);
+        }
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	void Update()
+    {
+        if(anim.GetFloat("speed") == 0 && Open)
+        {
+            anim.SetFloat("speed", 1f);
+        }
+    }
     void OnTriggerStay(Collider col)
     {
-        if(col.gameObject.tag == "Player")
+        if (!Open)
         {
-            if (anim.GetFloat("speed") == 0)
+            if (col.gameObject.tag == "Player")
             {
-                if (Input.GetButtonDown("Action"))
+                if (anim.GetFloat("speed") == 0)
                 {
-                    anim.SetFloat("speed", 4f);
-                    if(loot)
+                    if (Input.GetButtonDown("Action"))
                     {
-                        col.gameObject.GetComponent<Inventario>().PickItem(loot, quantidade);
+                        anim.SetFloat("speed", 1f);
+                        if (loot)
+                        {
+                            Open = true;
+                            col.gameObject.GetComponent<Inventario>().PickItem(loot, quantidade);
+                            //MessageBox.Instance.WriteMessage(loot.Nome + " x"+quantidade);
+                        }
                     }
                 }
             }

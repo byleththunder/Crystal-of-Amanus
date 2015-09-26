@@ -25,11 +25,14 @@ public class FireMagic : MonoBehaviour,ISkill
 	void Awake ()
 	{
 		DontDestroyOnLoad (gameObject);
-		Pers = GameObject.FindGameObjectWithTag ("Player");
-		Personagem = ((Target)Pers.GetComponent (typeof(Target)));
+		
        
 	}
-    
+    void Start()
+    {
+        Pers = GameObject.FindGameObjectWithTag("Player");
+        Personagem = ((Target)Pers.GetComponent(typeof(Target)));
+    }
 	// Update is called once per frame
 	void Update ()
 	{
@@ -50,7 +53,9 @@ public class FireMagic : MonoBehaviour,ISkill
                 municao.transform.position = Pers.transform.position  + municao.transform.forward*2 ;
                 float atk = ((Target)Pers.GetComponent(typeof(Target))).Ataque;
                 municao.Damage = (int)(atk * 100) / 100;
+                Pers.GetComponent<Eran2>().anim.SetTrigger("Magic");
                 municao.gameObject.SetActive(true);
+                
 				if (Personagem != null) {
 				
 					Personagem.HealOrDamage (0, 10);

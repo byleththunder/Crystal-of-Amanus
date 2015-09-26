@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using TeamUtility.IO;
 
 public class WindowMenager : MonoBehaviour
 {
@@ -87,7 +88,7 @@ public class WindowMenager : MonoBehaviour
                 _CorAnt.color = Color.red;
             }
 
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            if (InputManager.GetButtonDown("Vertical") && InputManager.GetAxisRaw("Vertical") < 0)
             {
                 IndiceAnterior = Indice;
                 if (Indice == 0)
@@ -97,13 +98,13 @@ public class WindowMenager : MonoBehaviour
                 Indice--;
 
             }
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (InputManager.GetButtonDown("Vertical") && InputManager.GetAxisRaw("Vertical") > 0)
             {
                 IndiceAnterior = Indice;
                 Indice = (Indice + 1) % Botoes.Length;
 
             }
-            if (Input.GetButtonDown("Action"))
+            if (InputManager.GetButtonDown("Action"))
             {
                 Janelas[IndiceJanela].SetActive(false);
                 if (Botoes[Indice].name == "Bt_Item")
@@ -121,7 +122,7 @@ public class WindowMenager : MonoBehaviour
         }
         else
         {
-            if (Input.GetButtonDown("Defense"))
+            if (InputManager.GetButtonDown("Magic"))
             {
                 Janelas[IndiceJanela].SetActive(false);
                 IndiceJanela = 0;

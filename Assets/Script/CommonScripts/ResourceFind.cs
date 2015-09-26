@@ -15,10 +15,10 @@ public class ResourceFind : MonoBehaviour {
     public static Item FindItem(string name)
     {
         Item[] ItensExistentes = Resources.LoadAll<Item>("ItemPrefabs");
-        Item _temp = new Item();
+        Item _temp = (Item)(new object());
         foreach(Item iten in ItensExistentes)
         {
-            if(iten.name == name)
+            if(iten.Nome == name)
             {
                 _temp = iten;
                 break;

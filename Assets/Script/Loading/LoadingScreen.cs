@@ -30,7 +30,7 @@ public class LoadingScreen : MonoBehaviour
             //Op.allowSceneActivation = true;
             if (!IsInvoking("ChangeStage"))
             {
-                Invoke("ChangeStage", 5);
+                Invoke("ChangeStage", 1);
             }
         }
     }

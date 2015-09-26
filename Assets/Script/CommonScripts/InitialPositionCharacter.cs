@@ -25,33 +25,16 @@ public class InitialPositionCharacter : MonoBehaviour {
 	}
     void Update()
     {
-        if (player != null)
-        {
-            if (player.Vida <= 0)
-            {
-                try
-                {
-                    player.HealOrDamage(-(player.VidaTotal), -player.AmanusTotal);
-                    Application.LoadLevel("GameOver");
-                }catch
-                {
-                    Debug.LogError("Não foi possivel fazer o GameOver");
-                }
-
-            }
-        }else
-        {
-           
-        }
+       
     }
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position,transform.position+ new Vector3(1f,0,0));
+        Gizmos.DrawLine(transform.position,transform.position+ new Vector3(2f,0,0));
         Gizmos.color = Color.green;
-        Gizmos.DrawLine(transform.position, transform.position + new Vector3(0f, 1f, 0));
+        Gizmos.DrawLine(transform.position, transform.position + new Vector3(0f, 2f, 0));
         Gizmos.color = Color.blue;
-        Gizmos.DrawLine(transform.position, transform.position + new Vector3(0f, 0, 1f));
+        Gizmos.DrawLine(transform.position, transform.position + new Vector3(0f, 0, 2f));
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(transform.position, 0.5f);
     }
