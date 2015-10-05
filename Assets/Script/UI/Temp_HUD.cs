@@ -61,13 +61,13 @@ public class Temp_HUD : MonoBehaviour
         switch(Calendar.ActualStage)
         {
             case Calendar.StageOfTheDay.Manha:
-                Ponteiro.rotation = Quaternion.Euler(new Vector3(0, 0, 65));
+                Ponteiro.localEulerAngles = (new Vector3(0, 0, 65));
                 break;
             case Calendar.StageOfTheDay.Tarde:
-                Ponteiro.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+                Ponteiro.localEulerAngles = (new Vector3(0, 0, 0));
                 break;
             case Calendar.StageOfTheDay.Noite:
-                Ponteiro.rotation = Quaternion.Euler(new Vector3(0, 0, -65));
+                Ponteiro.localEulerAngles = (new Vector3(0, 0, -65));
                 break;
         }
     }

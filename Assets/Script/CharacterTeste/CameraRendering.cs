@@ -13,6 +13,7 @@ public class CameraRendering : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        
         Personagem = GameObject.FindGameObjectWithTag("Player");
         try
         {

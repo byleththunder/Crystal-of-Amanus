@@ -30,8 +30,10 @@ public class Character : Target {
           case Item.EquipmentTypes.Armadura:
               if (Equipamentos[1] != null) { _temp = Equipamentos[1]; }
               Equipamentos[1] = _Equipamento;
+
               break;
       }
+      AttEquipInfo();
       return _temp;
     }
     public void AttEquipInfo()
