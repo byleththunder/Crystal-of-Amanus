@@ -14,7 +14,9 @@ public class Eran2 : Character
     bool OnTheFloor = false;
     bool IsRecover = false;
     bool left = false;
-    List<float> Valores = new List<float>();
+    //Velocidade da Fisica
+    public Vector3 velocity;
+    public float YOrigin;
     //
     public float Reducao;
     bool wait = false;
@@ -26,7 +28,7 @@ public class Eran2 : Character
     //
     public Eran2()
     {
-        
+
         Nome = "Eran Airikina";
         Ataque = 10;
         VidaTotal = 100;
@@ -35,8 +37,8 @@ public class Eran2 : Character
         Amanus = AmanusTotal;
         EstadoDoJogador = GameStates.CharacterState.Playing;
         Gold = 10000;
-        
-        
+
+
     }
     void Awake()
     {
@@ -45,10 +47,11 @@ public class Eran2 : Character
     }
     void Start()
     {
-        
+
         rgd = GetComponent<Rigidbody>();
         rgd.freezeRotation = true;
         visao = TargetVision.Front;
+        
 
     }
     void FixedUpdate()
@@ -80,10 +83,7 @@ public class Eran2 : Character
 
         if (EstadoDoJogador != GameStates.CharacterState.DontMove)
         {
-            if (Jump())
-            {
-                return;
-            }
+            Jump();
             if (!IsInvoking("CheckRecoverAmanusAuto"))
             {
                 Invoke("CheckRecoverAmanusAuto", 10f);
@@ -94,10 +94,11 @@ public class Eran2 : Character
             }
             if (!attack)
             {
-                Jump();
+                
                 Movement();
-                if (OnTheFloor) { rgd.velocity = new Vector3(moveX * Speed, rgd.velocity.y, moveZ * Speed); }
-                else if(!wait) { rgd.velocity = new Vector3(moveX * Speed / Reducao, rgd.velocity.y, moveZ * Speed / Reducao); }
+                Jump();
+                if (OnTheFloor) { velocity = new Vector3(moveX * Speed, rgd.velocity.y, moveZ * Speed); }
+                else if (!wait) { velocity = new Vector3(moveX * Speed / Reducao, velocity.y, moveZ * Speed / Reducao); }
 
 
                 moveX = InputManager.GetAxis("Horizontal");
@@ -107,6 +108,8 @@ public class Eran2 : Character
                 anim.SetFloat("SpeedX", Mathf.Abs(moveX));
 
             }
+            velocity.y = Mathf.Lerp(velocity.y, rgd.velocity.y, Time.deltaTime*20);
+            rgd.velocity = velocity;
 
         }
         else
@@ -177,10 +180,10 @@ public class Eran2 : Character
         if (OnTheFloor && InputManager.GetButtonDown("Jump"))
         {
 
-            Valores.Add(transform.position.z);
             float Forca = rgd.mass * moveY;
             anim.SetBool("Jump", true);
-            rgd.AddForce(Vector3.up * Forca, ForceMode.Impulse);
+            //rgd.AddForce(transform.up * moveY);
+            velocity.y = moveY;
             wait = true;
             StartCoroutine(JumpWait());
             teste = true;
@@ -193,9 +196,9 @@ public class Eran2 : Character
     }
     IEnumerator JumpWait()
     {
-        rgd.velocity = new Vector3(0, rgd.velocity.y, 0);
-        yield return new WaitForSeconds(0.1f);
-        rgd.velocity = new Vector3(moveX * Speed / Reducao, rgd.velocity.y, moveZ * Speed / Reducao);
+        velocity = new Vector3(0, velocity.y, 0);
+        yield return new WaitForSeconds(0.2f);
+        velocity = new Vector3(moveX * Speed / Reducao, velocity.y, moveZ * Speed / Reducao);
         wait = false;
     }
     public override void Attack()
@@ -232,7 +235,7 @@ public class Eran2 : Character
 
     void OnTriggerStay(Collider col)
     {
-        
+
         if (col.gameObject.tag == "Monsters")
         {
             if (Alvo == null)
@@ -260,9 +263,9 @@ public class Eran2 : Character
                 }
             }
         }
-       
+
     }
-    
+
     void OnCollisionEnter(Collision col)
     {
 
@@ -272,8 +275,6 @@ public class Eran2 : Character
         }
         if (!OnTheFloor)
         {
-            if (teste)
-                Valores.Add(transform.position.z);
             OnTheFloor = true;
             anim.SetBool("Jump", false);
         }
@@ -281,29 +282,30 @@ public class Eran2 : Character
         {
 
             Alvo = col.gameObject.GetComponent<Monster>();
-            
+
             print(Alvo.Nome);
         }
 
     }
-    
+
     void OnGUI()
     {
-      
-        if(ShowDamage && Alvo!=null)
+
+        if (ShowDamage && Alvo != null)
         {
 
             for (int i = 0; i < posDamage.Count; i++)
             {
                 posDamage[i] = new Vector3(posDamage[i].x, posDamage[i].y - 1, posDamage[i].z);
-                GUI.Label(new Rect(posDamage[i].x, posDamage[i].y, Screen.width / 5, Screen.height / 5), "-"+Ataque.ToString());
+                GUI.Label(new Rect(posDamage[i].x, posDamage[i].y, Screen.width / 5, Screen.height / 5), "-" + Ataque.ToString());
                 if (!IsInvoking("DesaparecerDano"))
                 {
                     Invoke("DesaparecerDano", .5f);
                 }
             }
-            
-        }else if (Alvo == null)
+
+        }
+        else if (Alvo == null)
         {
             DesaparecerDano();
             CancelInvoke("DesaparecerDano");
@@ -322,7 +324,7 @@ public class Eran2 : Character
     {
         rgd.isKinematic = true;
         anim.SetTrigger("Death");
-        
+
     }
     public override void ReviveState()
     {

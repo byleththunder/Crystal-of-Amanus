@@ -6,10 +6,11 @@ using TeamUtility.IO;
 public class UISkill : MonoBehaviour
 {
     public RectTransform[] Paineis = new RectTransform[4];
-    public Text[] CaixaDeTextos = new Text[4];
+    public Image[] Imagens = new Image[4];
+    public Image SkillImg;
     public GameObject[] _Slots = new GameObject[4];
     public RectTransform Seletor;
-    ISkill[] SlotSkill = new ISkill[4];
+    Skill[] SlotSkill = new Skill[4];
     Item[] SlotsItem = new Item[4];
     int IndiceUniversal = 0;
     public GameObject GameCharacter;
@@ -20,30 +21,22 @@ public class UISkill : MonoBehaviour
     void Start()
     {
         Personagem = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
-        Disablecolor = CaixaDeTextos[0].color;
-        for (int i = 0; i < 4; i++)
-        {
-            if (_Slots[i] != null)
-            {
-                SlotSkill[i] = (ISkill)_Slots[i].GetComponent(typeof(ISkill));
-            }
-        }
+        Disablecolor = Imagens[0].color;
+        SlotSkill = Personagem.GetComponent<CharacterSkills>().Slots;
         AtualizarSlotInfo();
-        
+
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Personagem.EstadoDoJogador != GameStates.CharacterState.DontMove)
         {
             Movimentar();
-            if (!IsInvoking("AddItensSlots"))
-            {
-                Invoke("AddItensSlots", 0.5f);
-            }
+            AddItensSlots();
+            
         }
-        if(InputManager.GetAxisRaw("ScrollSkill")==0)
+        if (InputManager.GetAxisRaw("ScrollSkill") == 0)
         {
             press = false;
         }
@@ -51,18 +44,34 @@ public class UISkill : MonoBehaviour
     void Movimentar()
     {
         AtualizarSlotInfo();
+        OrganizarTextos();
+        if (SlotSkill[IndiceUniversal] != null)
+        {
+            SkillImg.color = Color.white;
+            SkillImg.sprite = SlotSkill[IndiceUniversal].Img;
+        }
+        else if (SlotsItem[IndiceUniversal] != null)
+        {
+            SkillImg.color = Color.white;
+            SkillImg.sprite = SlotsItem[IndiceUniversal].Img;
+        }
+        else
+        {
+            SkillImg.color = new Color(1, 1, 1, 0);
+            SkillImg.sprite = null;
+        }
         //Cima
-        if (InputManager.GetAxisRaw("ScrollSkill")==1 && !press)
+        if (InputManager.GetAxisRaw("ScrollSkill") == 1 && !press)
         {
             IndiceUniversal = (IndiceUniversal + 1) % SlotSkill.Length;
-            OrganizarTextos(1);
+            OrganizarTextos();
             press = true;
         }
         //Baixo
         if (InputManager.GetAxisRaw("ScrollSkill") == -1 && !press)
         {
             IndiceUniversal = IndiceUniversal == 0 ? SlotSkill.Length - 1 : IndiceUniversal - 1;
-            OrganizarTextos(-1);
+            OrganizarTextos();
             press = true;
         }
         //Usar
@@ -83,9 +92,10 @@ public class UISkill : MonoBehaviour
                         SlotSkill[IndiceUniversal].UsarSkill(Personagem.Alvo);
 
                     }
-                }else
+                }
+                else
                 {
-                    if(SlotSkill[IndiceUniversal].Nome =="Escudos")
+                    if (SlotSkill[IndiceUniversal].Nome == "Escudos")
                     {
                         if (SlotSkill[IndiceUniversal].Alvo == SkillTarget.Self)
                         {
@@ -95,15 +105,16 @@ public class UISkill : MonoBehaviour
                         else if (SlotSkill[IndiceUniversal].Alvo == SkillTarget.Other)
                         {
                             print("oTHER");
-                           SlotSkill[IndiceUniversal].UsarSkill(Personagem.Alvo);
+                            SlotSkill[IndiceUniversal].UsarSkill(Personagem.Alvo);
 
                         }
                     }
                 }
-            }else
+            }
+            else
             {
                 //print("Item");
-                if(SlotsItem[IndiceUniversal] != null)
+                if (SlotsItem[IndiceUniversal] != null)
                 {
                     //print("Tem Item: "+ SlotsItem[IndiceUniversal].Nome);
                     Inventario _inv = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventario>();
@@ -114,34 +125,47 @@ public class UISkill : MonoBehaviour
             }
         }
     }
-    void OrganizarTextos(int sinal)
+    void OrganizarTextos()
     {
         Paineis[IndiceUniversal].anchoredPosition = Seletor.anchoredPosition;
+        if (SlotSkill[IndiceUniversal] != null || SlotsItem[IndiceUniversal] != null)
+            Imagens[IndiceUniversal].color = new Color(Imagens[IndiceUniversal].color.r, Imagens[IndiceUniversal].color.g, Imagens[IndiceUniversal].color.b, 1);
         for (int i = 0; i < SlotSkill.Length; i++)
         {
-            if(IndiceUniversal+1 >= SlotSkill.Length && i == 0)
+            if (IndiceUniversal + 1 >= SlotSkill.Length && i == 0)
             {
                 Paineis[0].anchoredPosition = new Vector2(Seletor.anchoredPosition.x, Seletor.sizeDelta.y * -1);
+                if (SlotSkill[0] != null || SlotsItem[0] != null)
+                    Imagens[0].color = new Color(Imagens[0].color.r, Imagens[0].color.g, Imagens[0].color.b, 0.3f);
             }
             else if (i == IndiceUniversal + 1)
             {
-                Paineis[IndiceUniversal+1].anchoredPosition = new Vector2(Seletor.anchoredPosition.x, Seletor.sizeDelta.y * -1);
+                Paineis[IndiceUniversal + 1].anchoredPosition = new Vector2(Seletor.anchoredPosition.x, Seletor.sizeDelta.y * -1);
+                if (SlotSkill[IndiceUniversal + 1] != null || SlotsItem[IndiceUniversal + 1] != null)
+                    Imagens[IndiceUniversal + 1].color = new Color(Imagens[IndiceUniversal + 1].color.r, Imagens[IndiceUniversal + 1].color.g, Imagens[IndiceUniversal + 1].color.b, 0.3f);
             }
             else if (IndiceUniversal - 1 < 0 && i == SlotSkill.Length - 1)
             {
                 Paineis[SlotSkill.Length - 1].anchoredPosition = new Vector2(Seletor.anchoredPosition.x, Seletor.sizeDelta.y * 1);
+                if (SlotSkill[SlotSkill.Length - 1] != null || SlotsItem[SlotSkill.Length - 1] != null)
+                    Imagens[SlotSkill.Length - 1].color = new Color(Imagens[SlotSkill.Length - 1].color.r, Imagens[SlotSkill.Length - 1].color.g, Imagens[SlotSkill.Length - 1].color.b, 0.3f);
             }
             else if (i == IndiceUniversal - 1)
             {
                 Paineis[IndiceUniversal - 1].anchoredPosition = new Vector2(Seletor.anchoredPosition.x, Seletor.sizeDelta.y * 1);
-            }else if(i != IndiceUniversal)
+                if (SlotSkill[IndiceUniversal - 1] != null || SlotsItem[IndiceUniversal - 1] != null)
+                    Imagens[IndiceUniversal - 1].color = new Color(Imagens[IndiceUniversal - 1].color.r, Imagens[IndiceUniversal - 1].color.g, Imagens[IndiceUniversal - 1].color.b, 0.3f);
+            }
+            else if (i != IndiceUniversal)
             {
                 Paineis[i].anchoredPosition = new Vector2(Seletor.anchoredPosition.x, Seletor.sizeDelta.y * 2);
+                if (SlotSkill[i] != null || SlotsItem[i] != null)
+                    Imagens[i].color = new Color(Imagens[i].color.r, Imagens[i].color.g, Imagens[i].color.b, 0.3f);
             }
         }
 
-        
-       
+
+
     }
     void AtualizarSlotInfo()
     {
@@ -151,63 +175,66 @@ public class UISkill : MonoBehaviour
             if (SlotSkill[i] != null)
             {
                 indice = i;
-                if (SlotSkill[i].Nome != CaixaDeTextos[i].text)
+                if (SlotSkill[i].NameImg != Imagens[i].sprite)
                 {
-                    CaixaDeTextos[i].text = SlotSkill[i].Nome;
+                    Imagens[i].sprite = SlotSkill[i].NameImg;
                 }
-                if (SlotSkill[i].OnCoolDown && CaixaDeTextos[i].color != Color.red)
+                if (SlotSkill[i].OnCoolDown && Imagens[i].color != (new Color(Color.red.r, Color.red.g, Color.red.b, Imagens[i].color.a)))
                 {
-                    CaixaDeTextos[i].color = Color.red;
+                    Imagens[i].color = new Color(Color.red.r, Color.red.g, Color.red.b, Imagens[i].color.a);
                 }
-                else if (!SlotSkill[i].OnCoolDown && CaixaDeTextos[i].color != Color.black && Personagem.EstadoDoJogador != GameStates.CharacterState.Defense)
+                else if (!SlotSkill[i].OnCoolDown && Imagens[i].color != (new Color(Color.white.r, Color.white.g, Color.white.b, Imagens[i].color.a)) && Personagem.EstadoDoJogador != GameStates.CharacterState.Defense)
                 {
-                    CaixaDeTextos[i].color = Color.black;
-                }else if(Personagem.EstadoDoJogador == GameStates.CharacterState.Defense)
+                    Imagens[i].color = new Color(Color.white.r, Color.white.g, Color.white.b, Imagens[i].color.a);
+                }
+                else if (Personagem.EstadoDoJogador == GameStates.CharacterState.Defense)
                 {
-                    if(SlotSkill[i].Nome == "Escudos")
+                    if (SlotSkill[i].Nome == "Escudos")
                     {
-                        CaixaDeTextos[i].color = Color.blue;
-                    }else if(SlotSkill[i] == null || SlotSkill[i].Nome != "Escudos")
+                        Imagens[i].color = new Color(Color.blue.r, Color.blue.g, Color.blue.b, Imagens[i].color.a);
+                    }
+                    else if (SlotSkill[i] == null || SlotSkill[i].Nome != "Escudos")
                     {
-                        CaixaDeTextos[i].color = Color.red;
+                        Imagens[i].color = new Color(Color.red.r, Color.red.g, Color.red.b, Imagens[i].color.a);
                     }
                 }
-            }else
+            }
+            else
             {
                 break;
             }
         }
         for (int i = 0; i < SlotsItem.Length; i++)
         {
-            if(SlotsItem[i] != null)
+            if (SlotsItem[i] != null)
             {
                 indice++;
-                if (SlotsItem[i].Nome != CaixaDeTextos[i].text)
+                if (SlotsItem[i].NameImg != Imagens[i].sprite)
                 {
-                    CaixaDeTextos[i].text = SlotsItem[i].Nome;
+                    Imagens[i].sprite = SlotsItem[i].NameImg;
                 }
                 if (Personagem.EstadoDoJogador != GameStates.CharacterState.Defense)
                 {
-                    CaixaDeTextos[i].color = Color.black;
+                    Imagens[i].color = new Color(Color.white.r, Color.white.g, Color.white.b, Imagens[i].color.a);
                 }
-                
-            }else
+
+            }
+            else if(SlotsItem[i] == null && SlotSkill[i] == null)
             {
-                //break;
+                Imagens[i].color = new Color(Color.white.r, Color.white.g, Color.white.b, 0);
             }
         }
     }
     void AddItensSlots()
     {
         int espacosLivres = 0;
-        foreach (ISkill skill in SlotSkill)
+        foreach (Skill skill in SlotSkill)
         {
             if (skill == null)
             {
                 espacosLivres++;
             }
         }
-        //print(string.Format("Espaços Livres: {0}",espacosLivres));
         Inventario _inv = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventario>();
         if (_inv.MochilaLenght < espacosLivres)
         {
@@ -216,10 +243,9 @@ public class UISkill : MonoBehaviour
                 var indicetemp = (SlotsItem.Length - espacosLivres) + i;
                 if (_inv.MochilaRef[i].Tipo == Item.TipoDeItem.Potion)
                 {
-                    
-                   // print(string.Format("Indice Temporário: {0}", indicetemp));
                     SlotsItem[indicetemp] = _inv.MochilaRef[i];
-                }else if(_inv.MochilaRef[i] != SlotsItem[indicetemp])
+                }
+                else if (_inv.MochilaRef[i] != SlotsItem[indicetemp])
                 {
                     SlotsItem[indicetemp] = null;
                 }
@@ -235,12 +261,13 @@ public class UISkill : MonoBehaviour
                 {
                     if (_inv.MochilaRef[i].Tipo == Item.TipoDeItem.Potion)
                     {
-                        
-                        print(string.Format("Indice Temporário: {0}",indicetemp));
+
+                        print(string.Format("Indice Temporário: {0}", indicetemp));
                         SlotsItem[indicetemp] = _inv.MochilaRef[i];
                         print(SlotsItem[indicetemp].name);
                     }
-                }else
+                }
+                else
                 {
                     SlotsItem[indicetemp] = null;
                 }
@@ -252,7 +279,7 @@ public class UISkill : MonoBehaviour
     void CheckItens()
     {
         Inventario _inv = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventario>();
-        for(int i =0; i <SlotsItem.Length; i ++)
+        for (int i = 0; i < SlotsItem.Length; i++)
         {
             if (SlotsItem[i] != null)
             {
@@ -267,11 +294,11 @@ public class UISkill : MonoBehaviour
                 }
                 if (!HasItem)
                 {
-                    
-                        SlotsItem[i] = null;
-                        CaixaDeTextos[i].text = "Slot Vazio";
-                        CaixaDeTextos[i].color = Disablecolor;
-                    
+
+                    SlotsItem[i] = null;
+                    Imagens[i].sprite = null;
+                    Imagens[i].color = new Color(1, 1, 1, 0);
+
                 }
             }
         }

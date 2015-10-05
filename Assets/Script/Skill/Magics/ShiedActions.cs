@@ -12,15 +12,11 @@ public class ShiedActions : MonoBehaviour {
 	void Update () {
 	
 	}
-    void OnCollisionEnter(Collision col)
+    
+    void OnParticleCollision(GameObject obj)
     {
-        if(col.gameObject.tag == "Projetil")
+        if(obj.layer == 11)//Monster Layer
         {
-            col.transform.forward = transform.forward;
-            Projectile _missle = col.gameObject.GetComponent<Projectile>();
-            _missle.Reflect = true;
-            _missle.Tag = "Monsters";
-            _missle.WhoShoot = "Player";
             
         }
     }

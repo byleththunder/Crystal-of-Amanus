@@ -1,18 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Shield : MonoBehaviour,ISkill {
+public class Shield : Skill {
     //Propriedades
-    public string Nome { get { return "Escudos"; } }
-    public string Descricao { get { return "Invoca quatro escudos"; } }
-    public SkillTarget Alvo { get { return SkillTarget.Other; } }
-    public float Dano { get { return _dano; } }
-    public float CoolDown { get { return 5f; } }
-    public bool OnCoolDown { get { return IsOnCoolDown; } }
+   
     //Variaveis
-    bool IsOnCoolDown = false;
     float Timer = 0;
-    float _dano = 0;
     public GameObject Escudos;
     bool On = false;
     public Character Jogador;
@@ -20,6 +13,11 @@ public class Shield : MonoBehaviour,ISkill {
     //----------
 	// Use this for initialization
 	void Start () {
+        Nome = "Escudos";
+        Descricao = "Invoca um escudos";
+        Alvo = SkillTarget.Other;
+        
+        CoolDown = 5f;
         Jogador = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
         Escudos = GameObject.FindGameObjectWithTag("Reflect");
         if(Escudos != null)
@@ -37,9 +35,9 @@ public class Shield : MonoBehaviour,ISkill {
             {
                 Invoke("ResetCoolDown", CoolDown);
                 On = false;
-                IsOnCoolDown = true;
+                OnCoolDown = true;
             }
-            if (IsOnCoolDown)
+            if (OnCoolDown)
             {
                 Timer += Time.deltaTime;
             }
@@ -49,9 +47,9 @@ public class Shield : MonoBehaviour,ISkill {
             }
         }
 	}
-    public void UsarSkill(Target target)
+    public override void UsarSkill(Target target)
     {
-        if (!IsOnCoolDown)
+        if (!OnCoolDown)
         {
             if(!Escudos.activeInHierarchy)
             {
@@ -62,7 +60,7 @@ public class Shield : MonoBehaviour,ISkill {
             {
                 Escudos.SetActive(false);
                 Jogador.EstadoDoJogador = GameStates.CharacterState.Playing;
-                IsOnCoolDown = true;
+                OnCoolDown = true;
             }
             if (!Escudos.activeInHierarchy && On )
             {
@@ -96,9 +94,9 @@ public class Shield : MonoBehaviour,ISkill {
                 break;
         }
     }
-    public void ResetCoolDown()
+    public override void ResetCoolDown()
     {
-        IsOnCoolDown = false;
+        OnCoolDown = false;
         Timer = 0;
         On = false;
     }

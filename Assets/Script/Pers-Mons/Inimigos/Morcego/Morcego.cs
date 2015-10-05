@@ -244,7 +244,7 @@ public class Morcego : Monster
         float angulx = Vector3.Angle(transform.position, TargetPos);
         poison.transform.localRotation = Quaternion.Euler(ConvertVisaoToAngle(visao)+ new Vector3(angulo,angulx,0));
         poison.transform.localPosition = ConvertVisao(visao)/2;
-        poison.Emit(5);
+        poison.Emit(1);
         Behavior = MorcegoBehavior.Idle;
     }
     public void Idle()

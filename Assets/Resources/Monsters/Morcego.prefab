@@ -75,7 +75,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0670457631, y: .381999999, z: -.487087011}
+  m_LocalPosition: {x: .125335321, y: .364093482, z: -.452062339}
   m_LocalScale: {x: .0050907922, y: .0814526752, z: .0050907922}
   m_Children:
   - {fileID: 426558}
@@ -179,10 +179,11 @@ MonoBehaviour:
   VidaTotal: 100
   Amanus: 0
   AmanusTotal: 0
-  Ataque: 10
+  Ataque: 50
   visao: 0
   obj: {fileID: 0}
   anim: {fileID: 0}
+  Morte: {fileID: 185530, guid: 5739df4192616a146b304a531e7d4876, type: 2}
   rdb: {fileID: 5462630}
   distance: 1
   AfterAtk: {x: 0, y: 0, z: 0}
@@ -256,7 +257,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: 10
+      scalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -662,20 +663,15 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 1
   UVModule:
-    enabled: 0
+    enabled: 1
     frameOverTime:
       scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 0
-          inSlope: 0
-          outSlope: 1
-          tangentMode: 0
-        - time: 1
           value: 1
-          inSlope: 1
+          inSlope: 0
           outSlope: 0
           tangentMode: 0
         m_PreInfinity: 2
@@ -695,9 +691,9 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-      minMaxState: 1
-    tilesX: 1
-    tilesY: 1
+      minMaxState: 0
+    tilesX: 4
+    tilesY: 2
     animationType: 0
     rowIndex: 0
     cycles: 1
@@ -1232,7 +1228,7 @@ ParticleSystem:
     particleRadius: .00999999978
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 4294965247
     quality: 0
     voxelSize: .5
     collisionMessages: 1
@@ -1268,7 +1264,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_RenderMode: 4
+  m_RenderMode: 0
   m_MaxParticleSize: .5
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
@@ -1312,7 +1308,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: Morte
+      value: 
+      objectReference: {fileID: 185530, guid: 5739df4192616a146b304a531e7d4876, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 136696}

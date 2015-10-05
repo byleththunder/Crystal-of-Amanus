@@ -126,6 +126,34 @@ MonoBehaviour:
       type: 2
       axis: 0
       joystick: 0
+    - name: Start
+      description: 
+      positive: 13
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 0
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 0
+    - name: Select
+      description: 
+      positive: 8
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 0
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 0
     isExpanded: 0
   - name: Windows_Gamepad
     axes:
@@ -211,6 +239,34 @@ MonoBehaviour:
       snap: 0
       invert: 0
       type: 3
+      axis: 4
+      joystick: 0
+    - name: Start
+      description: 
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 0
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 4
+      joystick: 0
+    - name: Select
+      description: 
+      positive: 0
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 0
+      snap: 0
+      invert: 0
+      type: 0
       axis: 4
       joystick: 0
     isExpanded: 0

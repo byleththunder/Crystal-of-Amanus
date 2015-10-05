@@ -31,9 +31,9 @@ TagManager:
   - Mensagem
   - MapPoints
   - Monster
-  - 
-  - 
-  - 
+  - Personagem
+  - Menu
+  - HUD
   - 
   - 
   - 
@@ -54,4 +54,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: HUD
+    uniqueID: 2063921589
+    locked: 0
+  - name: Menu
+    uniqueID: 2180645733
     locked: 0

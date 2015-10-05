@@ -16,7 +16,7 @@ public class Target : MonoBehaviour
     public int Ataque;
     public TargetVision visao;
     public GameObject obj;
-    public ISkill[] Habilidades;
+    public Skill[] Habilidades;
     //Métodos
     public void HealOrDamage(int _vida, int _amanus)
     {

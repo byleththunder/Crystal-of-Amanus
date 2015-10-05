@@ -82,6 +82,7 @@
     <None Include="Assets\EranPulando_Distancia.txt" />
     <None Include="Assets\Resources\QuestNpc.xml" />
     <None Include="Assets\Resources\TeleportNpc.xml" />
+    <None Include="Assets\Shaders\Crystal.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\EdgeDetectNormals.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\GrayscaleEffect.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\DLAA.shader" />

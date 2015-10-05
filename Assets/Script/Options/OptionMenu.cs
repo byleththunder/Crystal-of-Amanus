@@ -8,6 +8,9 @@ public class OptionMenu : MonoBehaviour {
     public GameObject bt_Prefab;
     public GameObject Painel;
     public Text QualityText;
+    public Toggle[] TG = new Toggle[2];
+    public Slider[] SD = new Slider[2];
+    
 	// Use this for initialization
 	void Start () {
         if (PlayerPrefs.HasKey("FullScreen")) FullScreen = (PlayerPrefs.GetString("FullScreen") == "true"?true:false);
@@ -15,7 +18,12 @@ public class OptionMenu : MonoBehaviour {
         else { Screen.SetResolution(1024, 768, FullScreen); }
         if (PlayerPrefs.HasKey("QualityLevel")) { QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("QualityLevel")); }
         QualityText.text = QualitySettings.names[QualitySettings.GetQualityLevel()];
+        if (PlayerPrefs.HasKey("VolumeBGM")) { SD[0].value = PlayerPrefs.GetInt("VolumeBGM"); }
+        if (PlayerPrefs.HasKey("VolumeSE")) { SD[1].value = PlayerPrefs.GetInt("VolumeSE"); }
+        TG[0].isOn = FullScreen;
+        TG[1].isOn = !FullScreen;
         CreateBt();
+
         
 	}
 	
@@ -31,7 +39,7 @@ public class OptionMenu : MonoBehaviour {
            GameObject temp = (GameObject) Instantiate(bt_Prefab);
            temp.transform.SetParent(Painel.transform, false);
            RectTransform rct = temp.GetComponent<RectTransform>();
-           rct.anchoredPosition -= new Vector2(0, rct.sizeDelta.y * (i));
+           rct.anchoredPosition -= new Vector2(0, rct.sizeDelta.y * (i-1));
            ResolutionContent reso = temp.GetComponent<ResolutionContent>();
            reso.Indice = i;
            reso.Nome.text = Screen.resolutions[i].width + " X " + Screen.resolutions[i].height;
@@ -39,6 +47,7 @@ public class OptionMenu : MonoBehaviour {
     }
     public void IsFullScreen(bool swtch)
     {
+        print(swtch);
         if (!Application.isPlaying) return;
         PlayerPrefs.SetString("FullScreen", swtch.ToString());
         FullScreen = swtch;
@@ -57,6 +66,16 @@ public class OptionMenu : MonoBehaviour {
         QualitySettings.IncreaseLevel();
         QualityText.text = QualitySettings.names[QualitySettings.GetQualityLevel()];
         PlayerPrefs.SetInt("QualityLevel", QualitySettings.GetQualityLevel());
+    }
+    public void VolumeBGM(int i)
+    {
+        if (!Application.isPlaying) return;
+        PlayerPrefs.SetInt("VolumeBGM", i);
+    }
+    public void VolumeSE(int i)
+    {
+        if (!Application.isPlaying) return;
+        PlayerPrefs.SetInt("VolumeSE", i);
     }
     public void DecreaseQuality()
     {

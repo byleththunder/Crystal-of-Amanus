@@ -7,9 +7,12 @@ public class Chest : MonoBehaviour {
     public Item loot;
     public int quantidade = 1;
     public bool Open = false;
+    public SpriteRenderer Imagens;
 	// Use this for initialization
 	void Start () {
+        Imagens = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        Imagens.sprite = loot.Img;
         if (!Open)
         {
             anim.SetFloat("speed", 0f);

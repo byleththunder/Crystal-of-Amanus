@@ -70,6 +70,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\2D\HUD\Menu\Habilidades\VCHabilidade.cs" />
     <Compile Include="Assets\DesativarAnimator.cs" />
     <Compile Include="Assets\InputManager\Addons\InputAdapter\Runtime\InputAdapter.cs" />
     <Compile Include="Assets\InputManager\Addons\InputEvents\Runtime\InputEvent.cs" />
@@ -130,6 +131,7 @@
     <Compile Include="Assets\Script\DungeonScript\InicioLevel.cs" />
     <Compile Include="Assets\Script\DungeonScript\RuinasLevelScript.cs" />
     <Compile Include="Assets\Script\Game.cs" />
+    <Compile Include="Assets\Script\GameEvents\Ruinas\Arresting.cs" />
     <Compile Include="Assets\Script\GameOver.cs" />
     <Compile Include="Assets\Script\HelperWindow\JanelaAjuda.cs" />
     <Compile Include="Assets\Script\Interacoes\Chest.cs" />
@@ -148,9 +150,9 @@
     <Compile Include="Assets\Script\Mapa\Destination.cs" />
     <Compile Include="Assets\Script\Mensagens\MessageBox.cs" />
     <Compile Include="Assets\Script\MiniMap.cs" />
+    <Compile Include="Assets\Script\NPC_Behavior\Guarda_Ruinas.cs" />
     <Compile Include="Assets\Script\Options\OptionMenu.cs" />
     <Compile Include="Assets\Script\Pers-Mons\Character.cs" />
-    <Compile Include="Assets\Script\Pers-Mons\Inimigos\MonsterTest.cs" />
     <Compile Include="Assets\Script\Pers-Mons\Inimigos\Morcego\Morcego.cs" />
     <Compile Include="Assets\Script\Pers-Mons\Monster.cs" />
     <Compile Include="Assets\Script\Pers-Mons\Personagens\Eran2.cs" />
@@ -162,6 +164,7 @@
     <Compile Include="Assets\Script\Pranks\RockPrank.cs" />
     <Compile Include="Assets\Script\Prototipo\EndGame.cs" />
     <Compile Include="Assets\Script\Quests\DataBase_Quests.cs" />
+    <Compile Include="Assets\Script\Quests\MyQuest.cs" />
     <Compile Include="Assets\Script\Quests\NPCQuest.cs" />
     <Compile Include="Assets\Script\Quests\Quest.cs" />
     <Compile Include="Assets\Script\Quests\QuestContent.cs" />
@@ -173,14 +176,16 @@
     <Compile Include="Assets\Script\Save&amp;Load\SaveLoad.cs" />
     <Compile Include="Assets\Script\Screens\GameOver\Continue.cs" />
     <Compile Include="Assets\Script\Screens\Title\ButtonAction.cs" />
+    <Compile Include="Assets\Script\Script4Particle\DestroyParticleAfterStop.cs" />
     <Compile Include="Assets\Script\Singleton\Singleton.cs" />
     <Compile Include="Assets\Script\Situacao\Ruinas\RuinasTestes.cs" />
-    <Compile Include="Assets\Script\Skill\ISkill.cs" />
+    <Compile Include="Assets\Script\Skill\CharacterSkills.cs" />
     <Compile Include="Assets\Script\Skill\Magics\Fire.cs" />
     <Compile Include="Assets\Script\Skill\Magics\FireMagic.cs" />
     <Compile Include="Assets\Script\Skill\Magics\ShiedActions.cs" />
     <Compile Include="Assets\Script\Skill\Magics\Shield.cs" />
     <Compile Include="Assets\Script\Skill\Magics\Tipos\Projectile.cs" />
+    <Compile Include="Assets\Script\Skill\Skill.cs" />
     <Compile Include="Assets\Script\States\GameStates.cs" />
     <Compile Include="Assets\Script\TesteMontagem\MenuItensBuilds.cs" />
     <Compile Include="Assets\Script\TesteSave.cs" />
@@ -204,12 +209,20 @@
     <Compile Include="Assets\Script\UI\Menu\WindowMenager.cs" />
     <Compile Include="Assets\Script\UI\Skill\UISkill.cs" />
     <Compile Include="Assets\Script\UI\Temp_HUD.cs" />
+    <Compile Include="Assets\Script\Visual Scripts\Content Scripts\VCQuest.cs" />
+    <Compile Include="Assets\Script\Visual Scripts\Content Scripts\VCitem.cs" />
+    <Compile Include="Assets\Script\Visual Scripts\VHabilidades.cs" />
+    <Compile Include="Assets\Script\Visual Scripts\VIformacao.cs" />
+    <Compile Include="Assets\Script\Visual Scripts\VInventario.cs" />
+    <Compile Include="Assets\Script\Visual Scripts\VMenu.cs" />
+    <Compile Include="Assets\Script\Visual Scripts\VQuest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\EranPulando.txt" />
     <None Include="Assets\EranPulando_Distancia.txt" />
     <None Include="Assets\Resources\QuestNpc.xml" />
     <None Include="Assets\Resources\TeleportNpc.xml" />
+    <None Include="Assets\Shaders\Crystal.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\EdgeDetectNormals.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\GrayscaleEffect.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\DLAA.shader" />

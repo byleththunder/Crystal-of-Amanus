@@ -9,10 +9,11 @@ public class MessageBox : Singleton<MessageBox>
     protected MessageBox() { }
     //Texto
     public Text Texto;
+    public Text Nome;
     //Painel aonde o texto vai ficar
     public GameObject painel;
     //Variaveis e propriedades
-    public  bool IsFinishAll { get { return FinishiAll; } }
+    public bool IsFinishAll { get { return FinishiAll; } }
     //Armazena todas as mensagens requisitadas
     List<string> mensagens = new List<string>();
     List<string> Nomes = new List<string>();
@@ -43,7 +44,19 @@ public class MessageBox : Singleton<MessageBox>
         if (!painel)
         {
             painel = gameObject;
-            Texto = painel.GetComponentInChildren<Text>();
+            var temp = GetComponentsInChildren<Text>();
+            for (int i = 0; i < temp.Length; i++)
+            {
+                if (temp[i].name == "Texto")
+                {
+                    Texto = temp[i];
+                }
+                if (temp[i].name == "Nome")
+                {
+                    Nome = temp[i];
+                }
+            }
+            Nome.text = string.Empty;
             Texto.text = string.Empty;
         }
         int NumLinhas = ((int)(Texto.GetComponent<RectTransform>().sizeDelta.y / Texto.fontSize)) - 1;
@@ -64,7 +77,7 @@ public class MessageBox : Singleton<MessageBox>
         }
 
 
-        
+
 
         Show();
     }
@@ -73,20 +86,32 @@ public class MessageBox : Singleton<MessageBox>
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         try { pers = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>(); }
         catch { Debug.LogWarning("Não tem nenhum player nessa cena."); }
-        
+
         FinishiAll = false;
         if (mensagens.Count == 0) { Finish = false; indice = 0; }
         if (!painel)
         {
             painel = gameObject;
-            Texto = painel.GetComponentInChildren<Text>();
+            var temp = GetComponentsInChildren<Text>();
+            for (int i = 0; i < temp.Length; i++)
+            {
+                if (temp[i].name == "Texto")
+                {
+                    Texto = temp[i];
+                }
+                if (temp[i].name == "Nome")
+                {
+                    Nome = temp[i];
+                }
+            }
+            Nome.text = string.Empty;
             Texto.text = string.Empty;
         }
-        float NumLinhas = ((int)(Texto.GetComponent<RectTransform>().sizeDelta.y / Texto.fontSize)) - 1;
+        float NumLinhas = ((int)(Texto.GetComponent<RectTransform>().sizeDelta.y / Texto.fontSize));
         float PalaporLinha = ((int)(Texto.GetComponent<RectTransform>().sizeDelta.x / Texto.fontSize));
         int _indicetemp = 0;
         int paltotal = (int)(NumLinhas * PalaporLinha);
-        if(paltotal == 0)
+        if (paltotal == 0)
         {
             paltotal *= 5;
         }
@@ -104,9 +129,9 @@ public class MessageBox : Singleton<MessageBox>
             }
             mensagens[mensagens.Count - 1] += text[i];
         }
-        
 
-        
+
+
         Show();
     }
     void Update()
@@ -143,11 +168,11 @@ public class MessageBox : Singleton<MessageBox>
             FinishiAll = true;
             if (pers)
                 if (pers.EstadoDoJogador == GameStates.CharacterState.DontMove) { pers.EstadoDoJogador = GameStates.CharacterState.Playing; }
-            
+
         }
-        if(FinishiAll && painel.activeInHierarchy)
+        if (FinishiAll && painel.activeInHierarchy)
         {
-           painel.SetActive(false);
+            painel.SetActive(false);
         }
 
     }
@@ -162,16 +187,18 @@ public class MessageBox : Singleton<MessageBox>
             if (indice < mensagens[0].Length)
             {
 
-                Timer += (Time.deltaTime);
+                Timer += (Time.deltaTime*2);
                 if (InputManager.GetButtonDown("Action") && !Finish && indice > 0)
                 {
                     if (Nomes[0] == string.Empty)
                     {
-                        Texto.text = "\n" + mensagens[0];
+                        Nome.text = string.Empty;
+                        Texto.text = mensagens[0];
                     }
                     else
                     {
-                        Texto.text = Nomes[0] + ":\n" + mensagens[0];
+                        Nome.text = Nomes[0];
+                        Texto.text = mensagens[0];
                     }
                     Finish = true;
                     Timer = 0;
@@ -183,11 +210,13 @@ public class MessageBox : Singleton<MessageBox>
                     {
                         if (Nomes[0] == string.Empty)
                         {
-                            Texto.text = "\n";
+                            Nome.text = string.Empty;
+                            Texto.text = string.Empty;
                         }
                         else
                         {
-                            Texto.text = Nomes[0] + ":\n";
+                            Nome.text = Nomes[0];
+                            Texto.text = string.Empty;
                         }
                     }
                     Texto.text += mensagens[0][indice];

@@ -26,7 +26,7 @@ public class DataBase_Quests : MonoBehaviour
     }
     public static List<Quest> OrganizarLista()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 6; i++)
         {
             Lista.Add(new Quest());
             Lista[i].GerarQuestAleatória();

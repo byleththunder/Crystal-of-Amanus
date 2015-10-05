@@ -12,6 +12,9 @@ public class Calendar : MonoBehaviour {
     public static int TotalDaysInAMonth { get { return 30; } }
     public static int TotalDaysInAYear { get { return 360; } }
     public static int ActualDay { get { return Days; } }
+    //Semana
+    static int Week = 1;
+    public static int ActualWeek { get { return Week; } }
     //Mês
     static int Mounth = 1;
     public static int TotalMonthInAYear { get { return 12; } }
@@ -42,6 +45,7 @@ public class Calendar : MonoBehaviour {
             switch (diferenca) { case 0: Stage = StageOfTheDay.Manha; break; case 1: Stage = StageOfTheDay.Tarde; break; case 2: Stage = StageOfTheDay.Noite; break; }
             int aumentarDias = (estagio + HowMuch) / 2;
             Days += aumentarDias;
+            Week = (Days+10) /10;
             if(Days >30)
             {
                 Days = 1;

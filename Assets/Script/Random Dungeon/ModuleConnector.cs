@@ -3,9 +3,8 @@
 
 public class ModuleConnector : MonoBehaviour
 {
-	public string[] Tags;
 	public bool IsDefault;
-
+    public ModulesTypes[] Tipos;
 	void OnDrawGizmos()
 	{
 		var scale = 1.0f;

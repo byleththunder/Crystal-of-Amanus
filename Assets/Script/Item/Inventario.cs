@@ -10,7 +10,7 @@ public class Inventario : MonoBehaviour
     //Item[] _mochila = new Item[12];
     List<Item> _mochila = new List<Item>();
     List<int> Quantidades = new List<int>();
-    
+
 
     public int indice = 0;
     public int MochilaLenght { get { return _mochila.Count; } }
@@ -20,7 +20,7 @@ public class Inventario : MonoBehaviour
     void Awake()
     {
         Mochila = this;
-       // SaveLoad.Load();
+        // SaveLoad.Load();
     }
     void Start()
     {
@@ -37,26 +37,55 @@ public class Inventario : MonoBehaviour
         {
             //Debug.LogError("invent é null");
         }
-        
+
     }
-    void FixedUpdate()
+    void LateUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.F2))
+        ChecarMochila();
+    }
+
+    ///<summary "Visual Content Item Behavior">
+    /// O VCitem vai se comunicar diretamente com o inventario do jogador.
+    /// Ele vai pegar, a partir de métodos, informações do item que eles tem. Usando somente o indice.
+    ///<!---->
+    public Item ItemInformations(int indice)
+    {
+        return _mochila[indice];
+    }
+    public int QuantityInformations(int indice)
+    {
+        return Quantidades[indice];
+    }
+    public int QuantityInformations(Item iten)
+    {
+        return Quantidades[_mochila.FindIndex(x => x == iten)];
+    }
+    public bool UsarItem(Item _iten, Target alvo)
+    {
+        bool HasItem = true;
+        for (int i = 0; i < _mochila.Count; i++)
         {
-            //Save(1);
+            if (_mochila[i] == _iten)
+            {
+                if (_mochila[i].MetodoItem(alvo))
+                {
+                    Quantidades[i]--;
+                    if (Quantidades[i] <= 0)
+                    {
+                        _mochila.RemoveAt(i);
+                        Quantidades.RemoveAt(i);
+                        HasItem = false;
+                        break;
+                    }
+                    break;
+                }
+            }
         }
-        if (Input.GetKeyDown(KeyCode.F3))
-        {
-           // Load(1);
-        }
-        if (Input.GetKeyDown(KeyCode.F4))
-        {
-            Delete(1);
-        }
-        if (!IsInvoking())
-        {
-            Invoke("ChecarMochila", 2f);
-        }
+        return HasItem;
+    }
+    public int ComprimentoDaMochila()
+    {
+        return _mochila.Count;
     }
     /*-------------------------------------------------------------------------------
      * Nesse método eu verifico, de duas formas, se é possivel pegar o item. Primeiro eu verifico se o mesmo já existe no inventário, caso exista, eu só adiciono mais um na quantidade.
@@ -64,6 +93,7 @@ public class Inventario : MonoBehaviour
      --------------------------------------------------------------------------------*/
     public void PickItem(Item item, int Quantidade)
     {
+        
         for (int i = 0; i < MochilaLenght; i++)
         {
             if (_mochila[i] == item)
@@ -75,6 +105,7 @@ public class Inventario : MonoBehaviour
         }
         _mochila.Add(item);
         Quantidades.Add(Quantidade);
+        gameObject.SendMessage("ChecarQuestItem", item);
         Save();
     }
     /*-------------------------------------------------------------------------------
@@ -128,37 +159,11 @@ public class Inventario : MonoBehaviour
             }
         }
     }
-    public void UsarItem(Item _iten, Target alvo)
-    {
-        for (int i = 0; i < _mochila.Count; i++)
-        {
-            if (_mochila[i] == _iten)
-            {
-                if (_mochila[i].MetodoItem(alvo))
-                {
-                    Quantidades[i]--;
-                    if (Quantidades[i] <= 0)
-                    {
-                        _mochila.RemoveAt(i);
-                        Quantidades.RemoveAt(i);
-                        break;
-                    }
-                }
-            }
-        }
-    }
-    /*
-     *Salvando e Carregando itens no inventário. 
-     *Protocolo de Save
-     * @ - Começa
-     * [Vareiavel]
-     * {Valor}
-     * | - Separa
-     * !<Nome> - Array Inicio
-     * /! - ArrayFim
-     * /@ - Termina
-     * @[Nome]{Lucas}[Idade]{20}|[Nome](Fulano)[Idade](19)/@
-     */
+
+    /// <summary"Save & Load Methods">
+    /// Salvo em formato de string as informações importantes dessa classe e mando para a classe Game.
+    /// O Load pega a string na classe Game e converte para Members.
+    /// </summary>
     public void Save()
     {
         string _temp = string.Empty;
@@ -168,11 +173,10 @@ public class Inventario : MonoBehaviour
         _temp += SaveGameState.FinalizarSave();
         SaveInvent = _temp;
         //PlayerPrefs.SetString("Inventario" + indice, _temp);
-        print("SaveQuests OK");
     }
     public bool Load()
     {
-        if(!string.IsNullOrEmpty(SaveInvent))
+        if (!string.IsNullOrEmpty(SaveInvent))
         {
             List<string> _Itens = LoadGameState.LoadStringList(SaveInvent, "Itens");
             for (int i = 0; i < _Itens.Count; i++)
@@ -183,17 +187,7 @@ public class Inventario : MonoBehaviour
             print("Mochila lenght = " + _mochila[0].Nome);
             return true;
         }
-        print("LoadQuests Failed");
         return false;
     }
-    public void Delete(int indice)
-    {
-        if (PlayerPrefs.HasKey("Inventario" + indice))
-        {
-            PlayerPrefs.DeleteKey("Inventario" + indice);
-            print("DeletouQuest" + indice);
-            return;
-        }
-        print("Não existe Quest" + indice);
-    }
+
 }

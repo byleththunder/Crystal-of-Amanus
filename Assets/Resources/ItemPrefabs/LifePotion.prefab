@@ -43,7 +43,8 @@ MonoBehaviour:
   TipoDeEquipamentos: 0
   Nome: "Po\xE7\xE3o de Vida (Menor)"
   Descricao: Recupera 10% da sua vida
-  Img: {fileID: 21300000, guid: 10fe865dbeeaf5b4a90022e5890ec384, type: 3}
+  Img: {fileID: 21300000, guid: 327f76949bba20b458ca108c2fd3604d, type: 3}
+  NameImg: {fileID: 21300000, guid: ba38ca3f01a26a94dbfcc13f5f158baf, type: 3}
   IsEquip: 0
   Preco: 100
 --- !u!1001 &100100000
@@ -69,6 +70,16 @@ Prefab:
       propertyPath: Preco
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Img
+      value: 
+      objectReference: {fileID: 21300000, guid: 327f76949bba20b458ca108c2fd3604d,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: NameImg
+      value: 
+      objectReference: {fileID: 21300000, guid: ba38ca3f01a26a94dbfcc13f5f158baf,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 123918}
