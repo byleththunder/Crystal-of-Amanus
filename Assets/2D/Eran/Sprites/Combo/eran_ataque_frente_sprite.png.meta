@@ -1,0 +1,319 @@
+fileFormatVersion: 2
+guid: 9effd833d439ce6499bc2fe4e4ee609c
+timeCreated: 1443562351
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: eran_ataque_frente_sprite_0
+    21300002: eran_ataque_frente_sprite_1
+    21300004: eran_ataque_frente_sprite_2
+    21300006: eran_ataque_frente_sprite_3
+    21300008: eran_ataque_frente_sprite_4
+    21300010: eran_ataque_frente_sprite_5
+    21300012: eran_ataque_frente_sprite_6
+    21300014: eran_ataque_frente_sprite_7
+    21300016: eran_ataque_frente_sprite_8
+    21300018: eran_ataque_frente_sprite_9
+    21300020: eran_ataque_frente_sprite_10
+    21300022: eran_ataque_frente_sprite_11
+    21300024: eran_ataque_frente_sprite_12
+    21300026: eran_ataque_frente_sprite_13
+    21300028: eran_ataque_frente_sprite_14
+    21300030: eran_ataque_frente_sprite_15
+    21300032: eran_ataque_frente_sprite_16
+    21300034: eran_ataque_frente_sprite_17
+    21300036: eran_ataque_frente_sprite_18
+    21300038: eran_ataque_frente_sprite_19
+    21300040: eran_ataque_frente_sprite_20
+    21300042: eran_ataque_frente_sprite_21
+    21300044: eran_ataque_frente_sprite_22
+    21300046: eran_ataque_frente_sprite_23
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: eran_ataque_frente_sprite_0
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 1020
+        width: 116
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_frente_sprite_1
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 1018
+        width: 116
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_frente_sprite_2
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 1029
+        width: 166
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_frente_sprite_3
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 1028
+        width: 166
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_frente_sprite_4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 836
+        width: 166
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_frente_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 837
+        width: 166
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_frente_sprite_6
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 835
+        width: 166
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_frente_sprite_7
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 817
+        width: 114
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_frente_sprite_8
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 628
+        width: 114
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_frente_sprite_9
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 628
+        width: 114
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_frente_sprite_10
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 646
+        width: 167
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_frente_sprite_11
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 637
+        width: 167
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_frente_sprite_12
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 440
+        width: 167
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_frente_sprite_13
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 434
+        width: 167
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_frente_sprite_14
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 424
+        width: 167
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_frente_sprite_15
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 426
+        width: 110
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_frente_sprite_16
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 233
+        width: 110
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_frente_sprite_17
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 238
+        width: 110
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_frente_sprite_18
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 205
+        width: 84
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_frente_sprite_19
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 207
+        width: 84
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_frente_sprite_20
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 5
+        width: 84
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_frente_sprite_21
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 5
+        width: 84
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_frente_sprite_22
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 6
+        width: 84
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_frente_sprite_23
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 6
+        width: 84
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

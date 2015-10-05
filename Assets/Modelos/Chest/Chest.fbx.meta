@@ -1,0 +1,177 @@
+fileFormatVersion: 2
+guid: 3704d97b37c01b446b7e17d88a43c4cd
+timeCreated: 1441569624
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: group
+    100004: pasted__pCube3
+    100006: pasted__pCylinder1
+    100008: pasted__pCylinder2
+    100010: pasted__pCylinder3
+    100012: pasted__transform5
+    100014: pasted__transform6
+    100016: pasted__transform7
+    100018: pasted__transform8
+    100020: pCube1
+    100022: pCube10
+    100024: pCube2
+    100026: pCube3
+    100028: pCube4
+    100030: pCube5
+    100032: pCube6
+    100034: pCube7
+    100036: pCube8
+    100038: pCube9
+    100040: pCylinder2
+    100042: pCylinder3
+    100044: pCylinder4
+    100046: pCylinder5
+    100048: pPlane1
+    100050: pTorus1
+    100052: pTorus2
+    100054: pTorus3
+    100056: pTorus4
+    100058: transform1
+    100060: transform10
+    100062: transform11
+    100064: transform12
+    100066: transform13
+    100068: transform14
+    100070: transform2
+    100072: transform3
+    100074: transform4
+    100076: transform5
+    100078: transform6
+    100080: transform7
+    100082: transform8
+    100084: transform9
+    400000: //RootNode
+    400002: group
+    400004: pasted__pCube3
+    400006: pasted__pCylinder1
+    400008: pasted__pCylinder2
+    400010: pasted__pCylinder3
+    400012: pasted__transform5
+    400014: pasted__transform6
+    400016: pasted__transform7
+    400018: pasted__transform8
+    400020: pCube1
+    400022: pCube10
+    400024: pCube2
+    400026: pCube3
+    400028: pCube4
+    400030: pCube5
+    400032: pCube6
+    400034: pCube7
+    400036: pCube8
+    400038: pCube9
+    400040: pCylinder2
+    400042: pCylinder3
+    400044: pCylinder4
+    400046: pCylinder5
+    400048: pPlane1
+    400050: pTorus1
+    400052: pTorus2
+    400054: pTorus3
+    400056: pTorus4
+    400058: transform1
+    400060: transform10
+    400062: transform11
+    400064: transform12
+    400066: transform13
+    400068: transform14
+    400070: transform2
+    400072: transform3
+    400074: transform4
+    400076: transform5
+    400078: transform6
+    400080: transform7
+    400082: transform8
+    400084: transform9
+    2300000: pCube10
+    2300002: pCube8
+    2300004: pPlane1
+    2300006: pTorus3
+    2300008: pTorus4
+    3300000: pCube10
+    3300002: pCube8
+    3300004: pPlane1
+    3300006: pTorus3
+    3300008: pTorus4
+    4300000: pCube8
+    4300002: pTorus3
+    4300004: pPlane1
+    4300006: pTorus4
+    4300008: pCube10
+    6400000: pCube10
+    6400002: pCube8
+    6400004: pPlane1
+    6400006: pTorus3
+    6400008: pTorus4
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 50
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

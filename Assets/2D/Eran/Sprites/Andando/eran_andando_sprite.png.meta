@@ -1,0 +1,231 @@
+fileFormatVersion: 2
+guid: 842b8c1e56d1deb4a91f935c5fe46fa3
+timeCreated: 1441659306
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: eran_andando_sprite_0
+    21300002: eran_andando_sprite_1
+    21300004: eran_andando_sprite_2
+    21300006: eran_andando_sprite_3
+    21300008: eran_andando_sprite_4
+    21300010: eran_andando_sprite_5
+    21300012: eran_andando_sprite_6
+    21300014: eran_andando_sprite_7
+    21300016: eran_andando_sprite_8
+    21300018: eran_andando_sprite_9
+    21300020: eran_andando_sprite_10
+    21300022: eran_andando_sprite_11
+    21300024: eran_andando_sprite_12
+    21300026: eran_andando_sprite_13
+    21300028: eran_andando_sprite_14
+    21300030: eran_andando_sprite_15
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: eran_andando_sprite_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 430
+        width: 88
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_andando_sprite_1
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 431
+        width: 89
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_andando_sprite_2
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 430
+        width: 83
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_andando_sprite_3
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 431
+        width: 89
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_andando_sprite_4
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 314
+        width: 105
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_andando_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 315
+        width: 93
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_andando_sprite_6
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 333
+        width: 109
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_andando_sprite_7
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 314
+        width: 95
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_andando_sprite_8
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 170
+        width: 105
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_andando_sprite_9
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 170
+        width: 93
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_andando_sprite_10
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 186
+        width: 109
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_andando_sprite_11
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 167
+        width: 95
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_andando_sprite_12
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 24
+        width: 83
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_andando_sprite_13
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 23
+        width: 79
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_andando_sprite_14
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 24
+        width: 88
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_andando_sprite_15
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 24
+        width: 79
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

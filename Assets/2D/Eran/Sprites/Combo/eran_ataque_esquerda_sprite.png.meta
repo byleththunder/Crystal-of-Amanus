@@ -1,0 +1,319 @@
+fileFormatVersion: 2
+guid: 132cd3dad27040f4a8c620b64c670fdd
+timeCreated: 1443562600
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: eran_ataque_esquerda_sprite_0
+    21300002: eran_ataque_esquerda_sprite_1
+    21300004: eran_ataque_esquerda_sprite_2
+    21300006: eran_ataque_esquerda_sprite_3
+    21300008: eran_ataque_esquerda_sprite_4
+    21300010: eran_ataque_esquerda_sprite_5
+    21300012: eran_ataque_esquerda_sprite_6
+    21300014: eran_ataque_esquerda_sprite_7
+    21300016: eran_ataque_esquerda_sprite_8
+    21300018: eran_ataque_esquerda_sprite_9
+    21300020: eran_ataque_esquerda_sprite_10
+    21300022: eran_ataque_esquerda_sprite_11
+    21300024: eran_ataque_esquerda_sprite_12
+    21300026: eran_ataque_esquerda_sprite_13
+    21300028: eran_ataque_esquerda_sprite_14
+    21300030: eran_ataque_esquerda_sprite_15
+    21300032: eran_ataque_esquerda_sprite_16
+    21300034: eran_ataque_esquerda_sprite_17
+    21300036: eran_ataque_esquerda_sprite_18
+    21300038: eran_ataque_esquerda_sprite_19
+    21300040: eran_ataque_esquerda_sprite_20
+    21300042: eran_ataque_esquerda_sprite_21
+    21300044: eran_ataque_esquerda_sprite_22
+    21300046: eran_ataque_esquerda_sprite_23
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 120
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: eran_ataque_esquerda_sprite_0
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 951
+        width: 134
+        height: 137
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_esquerda_sprite_1
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 951
+        width: 134
+        height: 137
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_esquerda_sprite_2
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 928
+        width: 145
+        height: 179
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_esquerda_sprite_3
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 928
+        width: 145
+        height: 179
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_esquerda_sprite_4
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 744
+        width: 145
+        height: 179
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_esquerda_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 744
+        width: 145
+        height: 179
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_esquerda_sprite_6
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 744
+        width: 188
+        height: 179
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_esquerda_sprite_7
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 763
+        width: 183
+        height: 144
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_esquerda_sprite_8
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 584
+        width: 195
+        height: 144
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_esquerda_sprite_9
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 582
+        width: 190
+        height: 144
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_esquerda_sprite_10
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 569
+        width: 179
+        height: 142
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_esquerda_sprite_11
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 573
+        width: 179
+        height: 142
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_esquerda_sprite_12
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 396
+        width: 179
+        height: 142
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_esquerda_sprite_13
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 397
+        width: 179
+        height: 142
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_esquerda_sprite_14
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 393
+        width: 179
+        height: 142
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_esquerda_sprite_15
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 396
+        width: 119
+        height: 143
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_esquerda_sprite_16
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 204
+        width: 141
+        height: 143
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_esquerda_sprite_17
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 198
+        width: 115
+        height: 143
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_esquerda_sprite_18
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 211
+        width: 232
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_esquerda_sprite_19
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 217
+        width: 232
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_esquerda_sprite_20
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 25
+        width: 232
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_esquerda_sprite_21
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 27
+        width: 232
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_esquerda_sprite_22
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 35
+        width: 232
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_esquerda_sprite_23
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 35
+        width: 232
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

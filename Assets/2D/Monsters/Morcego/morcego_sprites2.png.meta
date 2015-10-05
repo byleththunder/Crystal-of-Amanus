@@ -1,0 +1,232 @@
+fileFormatVersion: 2
+guid: cd269aedd8937a34792933d6e8d4e9d0
+timeCreated: 1441675893
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: morcego_sprites2_0
+    21300002: morcego_sprites2_1
+    21300004: morcego_sprites2_2
+    21300006: morcego_sprites2_3
+    21300008: morcego_sprites2_4
+    21300010: morcego_sprites2_5
+    21300012: morcego_sprites2_6
+    21300014: morcego_sprites2_7
+    21300016: morcego_sprites2_8
+    21300018: morcego_sprites2_9
+    21300020: morcego_sprites2_11
+    21300022: morcego_sprites2_13
+    21300024: morcego_sprites2_15
+    21300026: morcego_sprites2_24
+    21300028: morcego_sprites2_25
+    21300030: morcego_sprites2_27
+    21300032: morcego_sprites2_29
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: morcego_sprites2_0
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 429
+        width: 97
+        height: 66
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: morcego_sprites2_1
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 430
+        width: 172
+        height: 56
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: morcego_sprites2_2
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 429
+        width: 150
+        height: 56
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: morcego_sprites2_4
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 404
+        width: 96
+        height: 74
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: morcego_sprites2_5
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 300
+        width: 95
+        height: 69
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: morcego_sprites2_6
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 301
+        width: 137
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: morcego_sprites2_7
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 275
+        width: 94
+        height: 76
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: morcego_sprites2_8
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 301
+        width: 137
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: morcego_sprites2_9
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 172
+        width: 77
+        height: 66
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: morcego_sprites2_11
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 173
+        width: 127
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: morcego_sprites2_13
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 153
+        width: 88
+        height: 79
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: morcego_sprites2_15
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 173
+        width: 127
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: morcego_sprites2_24
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 49
+        width: 77
+        height: 66
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: morcego_sprites2_25
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 50
+        width: 127
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: morcego_sprites2_27
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 30
+        width: 88
+        height: 79
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: morcego_sprites2_29
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 50
+        width: 127
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

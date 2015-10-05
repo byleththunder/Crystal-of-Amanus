@@ -1,0 +1,319 @@
+fileFormatVersion: 2
+guid: 4b02061d31a9da1408e414eebcf315eb
+timeCreated: 1443562441
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: eran_ataque_direita_sprite_0
+    21300002: eran_ataque_direita_sprite_1
+    21300004: eran_ataque_direita_sprite_2
+    21300006: eran_ataque_direita_sprite_3
+    21300008: eran_ataque_direita_sprite_4
+    21300010: eran_ataque_direita_sprite_5
+    21300012: eran_ataque_direita_sprite_6
+    21300014: eran_ataque_direita_sprite_7
+    21300016: eran_ataque_direita_sprite_8
+    21300018: eran_ataque_direita_sprite_9
+    21300020: eran_ataque_direita_sprite_10
+    21300022: eran_ataque_direita_sprite_11
+    21300024: eran_ataque_direita_sprite_12
+    21300026: eran_ataque_direita_sprite_13
+    21300028: eran_ataque_direita_sprite_14
+    21300030: eran_ataque_direita_sprite_15
+    21300032: eran_ataque_direita_sprite_16
+    21300034: eran_ataque_direita_sprite_17
+    21300036: eran_ataque_direita_sprite_18
+    21300038: eran_ataque_direita_sprite_19
+    21300040: eran_ataque_direita_sprite_20
+    21300042: eran_ataque_direita_sprite_21
+    21300044: eran_ataque_direita_sprite_22
+    21300046: eran_ataque_direita_sprite_23
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 120
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: eran_ataque_direita_sprite_0
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 950
+        width: 134
+        height: 136
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_direita_sprite_1
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 952
+        width: 134
+        height: 136
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_direita_sprite_2
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 930
+        width: 151
+        height: 176
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_direita_sprite_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 929
+        width: 151
+        height: 176
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_direita_sprite_4
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 745
+        width: 151
+        height: 176
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_direita_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 743
+        width: 151
+        height: 176
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_direita_sprite_6
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 745
+        width: 172
+        height: 176
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_direita_sprite_7
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 758
+        width: 125
+        height: 143
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_direita_sprite_8
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 571
+        width: 125
+        height: 143
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_direita_sprite_9
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 576
+        width: 125
+        height: 143
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_direita_sprite_10
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 571
+        width: 245
+        height: 145
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_direita_sprite_11
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 569
+        width: 157
+        height: 145
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_direita_sprite_12
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 388
+        width: 157
+        height: 145
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_direita_sprite_13
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 385
+        width: 157
+        height: 145
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_direita_sprite_14
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 387
+        width: 157
+        height: 145
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_direita_sprite_15
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 390
+        width: 128
+        height: 143
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_direita_sprite_16
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 210
+        width: 118
+        height: 143
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_direita_sprite_17
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 201
+        width: 117
+        height: 143
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_direita_sprite_18
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 199
+        width: 231
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_direita_sprite_19
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 201
+        width: 231
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_direita_sprite_20
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 19
+        width: 231
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_direita_sprite_21
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 24
+        width: 231
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_direita_sprite_22
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 33
+        width: 231
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_ataque_direita_sprite_23
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 35
+        width: 231
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

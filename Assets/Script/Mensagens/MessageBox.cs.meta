@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 185eee03fc8dab6418e7640c974c7871
+timeCreated: 1443661605
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - Texto: {fileID: 11490678, guid: e0f6026e9a821124a8814b4bd16c9e12, type: 2}
+  - Nome: {fileID: 11489846, guid: e0f6026e9a821124a8814b4bd16c9e12, type: 2}
+  - painel: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

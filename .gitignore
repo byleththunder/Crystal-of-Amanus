@@ -18,10 +18,8 @@
 *.booproj
 
 # Unity3D generated meta files
-*.pidb.meta
-*.meta
-*.fbx.meta
-*.controller.meta
+#.meta
+
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
