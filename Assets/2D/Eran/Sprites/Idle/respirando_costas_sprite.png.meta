@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 2e7e925274033c947b6f5e5afbf0af4d
-timeCreated: 1443127246
+timeCreated: 1444230129
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -60,8 +60,8 @@ TextureImporter:
         y: 0
         width: 115
         height: 130
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .424670398, y: .472928435}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: respirando_costas_sprite_1
       rect:
@@ -70,8 +70,8 @@ TextureImporter:
         y: 0
         width: 115
         height: 130
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .422316432, y: .439609587}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: respirando_costas_sprite_2
       rect:
@@ -80,8 +80,8 @@ TextureImporter:
         y: 0
         width: 115
         height: 130
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .427024513, y: .425032556}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: respirando_costas_sprite_3
       rect:
@@ -90,8 +90,8 @@ TextureImporter:
         y: 0
         width: 115
         height: 130
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .427024513, y: .450021744}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

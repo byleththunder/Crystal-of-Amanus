@@ -38,7 +38,7 @@ public class Fire : Projectile {
                 CancelInvoke("Fade");
                 Invoke("Fade", Time);
             }
-            Damage = (Pool.Personagem.Ataque * 100) / 100;
+            Damage = (Pool.Personagem.AtaqueAtual * 100) / 100;
             Reflect = false;
         }
        

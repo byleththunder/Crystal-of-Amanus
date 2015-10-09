@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 
+[AddComponentMenu("Scripts/VisualScripts/Habilidades")]
 public class VHabilidades : MonoBehaviour {
 
     public Transform Area_My;
@@ -60,7 +61,6 @@ public class VHabilidades : MonoBehaviour {
                 Slots[i].sprite = SK.SkillInformation(j).NameImg;
                 SK.AddSkillToSlot(i, SK.SkillInformation(j));
                 Selecionaveis[j].GetComponent<VCHabilidade>().IsSeletec = false;
-                print("Moveu = "+ j);
                 break;
             }
         }

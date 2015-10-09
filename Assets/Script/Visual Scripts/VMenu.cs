@@ -2,10 +2,11 @@
 using UnityEngine.UI;
 using System.Collections;
 using TeamUtility.IO;
-
+[AddComponentMenu("Scripts/VisualScripts/Menu", 0)]
 public class VMenu : MonoBehaviour {
     public GameObject Menu,Escape;
     LayerMask Tudo;
+    bool OpenWindow = false;
 	// Use this for initialization
 	void Start () {
         Tudo = Camera.main.cullingMask;
@@ -13,7 +14,7 @@ public class VMenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if(InputManager.GetButtonDown("Start"))
+	    if(InputManager.GetButtonDown("Start") && !OpenWindow && !Escape.activeInHierarchy)
         {
             if(Menu.activeInHierarchy == false)
             {
@@ -30,7 +31,7 @@ public class VMenu : MonoBehaviour {
             
 
         }
-        if (InputManager.GetButtonDown("Select"))
+        if (InputManager.GetButtonDown("Select") && !OpenWindow && !Menu.activeInHierarchy)
         {
             if (Escape.activeInHierarchy == false)
             {
@@ -51,5 +52,9 @@ public class VMenu : MonoBehaviour {
     {
         Escape.SetActive(false);
         Time.timeScale = 1;
+    }
+    public void IsWindowOpen(bool awnser)
+    {
+        OpenWindow = awnser;
     }
 }

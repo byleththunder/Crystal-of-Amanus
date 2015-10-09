@@ -1,22 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+[AddComponentMenu("Scripts/TargetScript/CharacterScript/Characters")]
 public class Character : Target {
     
     //Variaveis
+    [HideInInspector]
     public Item[] Equipamentos = new Item[2];
+    [Header("Velocidade de movimento do personagem")]
+    [Range(1,10)]
     public float Speed;
     protected float moveX;
     protected float moveZ;
+    [Header("Altura do Pulo do Personagem")]
+    [Range(1, 10)]
     public float moveY;
     protected bool attack;
     protected bool notJump = true;
+    [HideInInspector]
     public GameStates.CharacterState EstadoDoJogador = GameStates.CharacterState.Playing;
+    [HideInInspector]
     public Vector3 CheckPointPosition;
+    [HideInInspector]
     public Target Alvo;
+    [HideInInspector]
     public int Gold;
-    //Temporario - Esperando animação 2D de defesa
-    public GameObject Escudo;
+    
     //Métodos
     public Item Equipar(Item _Equipamento)
     {
@@ -33,16 +41,16 @@ public class Character : Target {
 
               break;
       }
-      AttEquipInfo();
+      AttEquipInfo(false);
       return _temp;
     }
-    public void AttEquipInfo()
+    public void AttEquipInfo(bool sobreescrever)
     {
         for (int i = 0; i < Equipamentos.Length; i++)
         {
             if (Equipamentos[i] != null)
             {
-                if (!Equipamentos[i].IsEquip)
+                if (!Equipamentos[i].IsEquip || sobreescrever)
                 {
                     Ataque += Equipamentos[i].Ataque;
                     Vida += Equipamentos[i].Vida;
@@ -76,12 +84,17 @@ public class Character : Target {
     {
         try
         {
-            HealOrDamage(other.GetComponentInParent<Monster>().Ataque, 0);
+            HealOrDamage(other.GetComponentInParent<Monster>().AtaqueAtual, 0);
         }
         catch
         {
             HealOrDamage(1, 0);
         }
+    }
+    protected override void UpdateStatus()
+    {
+        base.UpdateStatus();
+        AttEquipInfo(true);
     }
     
 }

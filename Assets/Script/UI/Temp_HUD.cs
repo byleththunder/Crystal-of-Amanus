@@ -43,14 +43,18 @@ public class Temp_HUD : MonoBehaviour
         if (Personagem != null)
         {
 
-            float _Vida = (float)Personagem.Vida / (float)Personagem.VidaTotal;
-            float _Amanus = (float)Personagem.Amanus / (float)Personagem.AmanusTotal;
+            float _Vida = (float)Personagem.VidaAtual / (float)Personagem.VidaTotal;
+            float _Amanus = (float)Personagem.AmanusAtual / (float)Personagem.AmanusTotal;
+            float _Exp = (float)Personagem.ExperienciaAtual / (float)Personagem.NextLevel;
             _Amanus = Mathf.Clamp(_Amanus, 0, 1);
             _Vida = Mathf.Clamp(_Vida, 0, 1);
+            _Exp = Mathf.Clamp(_Exp, 0, 1);
             X_Vida.fillAmount = _Vida;
             X_Amanus.fillAmount = _Amanus;
-            Vida.text = Personagem.Vida + " / " + Personagem.VidaTotal;
-            Amanus.text = Personagem.Amanus + " / " + Personagem.AmanusTotal;
+            X_EXP.fillAmount = _Exp;
+            Vida.text = Personagem.VidaAtual + " / " + Personagem.VidaTotal;
+            Amanus.text = Personagem.AmanusAtual + " / " + Personagem.AmanusTotal;
+
         }
         PonteiroMove();
         OrganizarCalendario();

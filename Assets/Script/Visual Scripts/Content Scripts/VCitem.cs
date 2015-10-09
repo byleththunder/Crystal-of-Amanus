@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
+[AddComponentMenu("Scripts/VisualScripts/Visual Contents/Item")]
 public class VCitem : Selectable
 {
     //Como a imagem do item vai estar por trás da imagem de seleção, vou ter que pegar a imagem do item pelo pai.

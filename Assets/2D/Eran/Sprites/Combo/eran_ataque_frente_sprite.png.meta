@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9effd833d439ce6499bc2fe4e4ee609c
-timeCreated: 1443562351
+timeCreated: 1444230016
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -80,8 +80,8 @@ TextureImporter:
         y: 1020
         width: 116
         height: 160
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .575087428, y: .360879511}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_frente_sprite_1
       rect:
@@ -90,8 +90,8 @@ TextureImporter:
         y: 1018
         width: 116
         height: 160
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .625145733, y: .354830921}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_frente_sprite_2
       rect:
@@ -100,8 +100,8 @@ TextureImporter:
         y: 1029
         width: 166
         height: 104
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .301776946, y: .276662976}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_frente_sprite_3
       rect:
@@ -110,8 +110,8 @@ TextureImporter:
         y: 1028
         width: 166
         height: 104
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .290117025, y: .258051932}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_frente_sprite_4
       rect:
@@ -120,8 +120,8 @@ TextureImporter:
         y: 836
         width: 166
         height: 104
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .284287095, y: .258051932}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_frente_sprite_5
       rect:
@@ -130,8 +130,8 @@ TextureImporter:
         y: 837
         width: 166
         height: 104
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .295946985, y: .267357469}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_frente_sprite_6
       rect:
@@ -140,8 +140,8 @@ TextureImporter:
         y: 835
         width: 166
         height: 104
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .295947164, y: .248745844}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_frente_sprite_7
       rect:
@@ -150,8 +150,8 @@ TextureImporter:
         y: 817
         width: 114
         height: 160
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .406616211, y: .360879898}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_frente_sprite_8
       rect:
@@ -160,8 +160,8 @@ TextureImporter:
         y: 628
         width: 114
         height: 160
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .42359522, y: .360879898}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_frente_sprite_9
       rect:
@@ -170,8 +170,8 @@ TextureImporter:
         y: 628
         width: 114
         height: 160
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .41510573, y: .360879898}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_frente_sprite_10
       rect:
@@ -180,8 +180,8 @@ TextureImporter:
         y: 646
         width: 167
         height: 104
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .70283097, y: .248746425}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_frente_sprite_11
       rect:
@@ -190,8 +190,8 @@ TextureImporter:
         y: 637
         width: 167
         height: 104
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .702831149, y: .239440337}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_frente_sprite_12
       rect:
@@ -200,8 +200,8 @@ TextureImporter:
         y: 440
         width: 167
         height: 104
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .707818806, y: .234394372}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_frente_sprite_13
       rect:
@@ -210,8 +210,8 @@ TextureImporter:
         y: 434
         width: 167
         height: 104
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .707818687, y: .234394655}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_frente_sprite_14
       rect:
@@ -220,8 +220,8 @@ TextureImporter:
         y: 424
         width: 167
         height: 104
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .716301084, y: .248015478}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_frente_sprite_15
       rect:
@@ -231,7 +231,7 @@ TextureImporter:
         width: 110
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_frente_sprite_16
       rect:
@@ -240,8 +240,8 @@ TextureImporter:
         y: 233
         width: 110
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .55794996, y: .4280653}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_frente_sprite_17
       rect:
@@ -250,8 +250,8 @@ TextureImporter:
         y: 238
         width: 110
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .557950079, y: .428065062}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_frente_sprite_18
       rect:
@@ -260,8 +260,8 @@ TextureImporter:
         y: 205
         width: 84
         height: 191
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .525295436, y: .614956379}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_frente_sprite_19
       rect:
@@ -270,8 +270,8 @@ TextureImporter:
         y: 207
         width: 84
         height: 191
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .542160034, y: .614956379}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_frente_sprite_20
       rect:
@@ -280,8 +280,8 @@ TextureImporter:
         y: 5
         width: 84
         height: 191
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .531707048, y: .611555636}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_frente_sprite_21
       rect:
@@ -290,8 +290,8 @@ TextureImporter:
         y: 5
         width: 84
         height: 191
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .555486798, y: .615041733}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_frente_sprite_22
       rect:
@@ -300,8 +300,8 @@ TextureImporter:
         y: 6
         width: 84
         height: 191
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .547560573, y: .61852777}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_frente_sprite_23
       rect:
@@ -310,8 +310,8 @@ TextureImporter:
         y: 6
         width: 84
         height: 191
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .547560215, y: .611555576}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

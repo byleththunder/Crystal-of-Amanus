@@ -3,20 +3,45 @@ using System.Collections;
 using System;
 
 public enum TargetVision { Front, Back, Left, Right };
-[System.Serializable]
 
+[AddComponentMenu("Scripts/TargetScript/Target",0)]
 public class Target : MonoBehaviour
 {
     //Variaveis
+    [Range(1,100)]
+    public int Level = 1;
+    [Header("Nome do Personagem")]
     public string Nome;
-    public int Vida;
+    protected int Vida;
+    [Header("Vida maxíma no Level 1")]
     public int VidaTotal;
-    public int Amanus;
+    protected int Amanus;
+    [Header("Amanus maxíma no Level 1")]
     public int AmanusTotal;
-    public int Ataque;
+    protected int Ataque;
+    [Header("Ataque básico (sem valores adicionais) no Level 1")]
+    [Tooltip("Valores adicionais só vão existir em personagens, pois eles possuem equipamentos que podem aumentar os status (ATK,VP,AP)")]
+    public int AtaquePadrao;
+    protected int ExpPadrao;
+    protected int Exp;
+    [HideInInspector]
     public TargetVision visao;
+    [HideInInspector]
     public GameObject obj;
+    [HideInInspector]
     public Skill[] Habilidades;
+    [Header("Particula que da um Feedback quando o joggador passa de nivel")]
+    public ParticleSystem LvlUpAnim;
+    ///<summary "Propriedades">
+    ///Estou usando propriedades nessa classe somente para passar 
+    ///valores de variaveis que eu não quero que sejam alteradas diretamente.
+    ///</summary>
+    
+    public int VidaAtual { get { return Vida; } }
+    public int AmanusAtual { get { return Amanus; } }
+    public int AtaqueAtual { get { return Ataque; } }
+    public int ExperienciaAtual { get { return Exp; } }
+    public int NextLevel { get { return (int)(Mathf.Pow(5,Level)+Mathf.Log10(Level)); } }
     //Métodos
     public void HealOrDamage(int _vida, int _amanus)
     {
@@ -32,7 +57,38 @@ public class Target : MonoBehaviour
         }
         
     }
+    protected void LevelUp(int _exp)
+    {
+        Exp += _exp;
+       
+        if(Exp >= NextLevel)
+        {
+            Level++;
+            Exp = 0;
+            UpdateStatus();
+            if(LvlUpAnim!= null)
+            {
+                LvlUpAnim.emissionRate = 10;
+                Invoke("LvlUpAnimOff", 1);
+            }
+        }
+        
 
+    }
+    protected virtual void UpdateStatus()
+    {
+        VidaTotal = VidaTotal * Level;
+        Vida = VidaTotal;
+        AmanusTotal *= Level;
+        Amanus = AmanusTotal;
+        Ataque = AtaquePadrao * Level;
+    }
+    void LvlUpAnimOff()
+    {
+        LvlUpAnim.emissionRate = 0;
+    }
+    
+    
     
 
 

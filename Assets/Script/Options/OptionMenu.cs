@@ -38,8 +38,6 @@ public class OptionMenu : MonoBehaviour {
         {
            GameObject temp = (GameObject) Instantiate(bt_Prefab);
            temp.transform.SetParent(Painel.transform, false);
-           RectTransform rct = temp.GetComponent<RectTransform>();
-           rct.anchoredPosition -= new Vector2(0, rct.sizeDelta.y * (i-1));
            ResolutionContent reso = temp.GetComponent<ResolutionContent>();
            reso.Indice = i;
            reso.Nome.text = Screen.resolutions[i].width + " X " + Screen.resolutions[i].height;
@@ -47,7 +45,6 @@ public class OptionMenu : MonoBehaviour {
     }
     public void IsFullScreen(bool swtch)
     {
-        print(swtch);
         if (!Application.isPlaying) return;
         PlayerPrefs.SetString("FullScreen", swtch.ToString());
         FullScreen = swtch;

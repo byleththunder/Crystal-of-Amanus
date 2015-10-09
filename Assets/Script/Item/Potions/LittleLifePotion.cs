@@ -18,7 +18,7 @@ public class LittleLifePotion : Item {
      bool BeberPocao(Target alvo)
     {
         
-        if (alvo.Vida == alvo.VidaTotal)
+        if (alvo.VidaAtual == alvo.VidaTotal)
         {
             return false;
         }

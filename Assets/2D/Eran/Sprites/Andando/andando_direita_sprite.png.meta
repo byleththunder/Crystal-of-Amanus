@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: af25c1a287a04ff42813f831a293f61e
-timeCreated: 1443125450
+timeCreated: 1444230452
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -60,8 +60,8 @@ TextureImporter:
         y: 0
         width: 120
         height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .389359683, y: .495292008}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: andando_direita_sprite_1
       rect:
@@ -70,8 +70,8 @@ TextureImporter:
         y: 0
         width: 120
         height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .250470728, y: .504708171}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: andando_direita_sprite_2
       rect:
@@ -80,8 +80,8 @@ TextureImporter:
         y: 0
         width: 120
         height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .332862586, y: .429378688}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: andando_direita_sprite_3
       rect:
@@ -90,8 +90,8 @@ TextureImporter:
         y: 0
         width: 120
         height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .233992264, y: .492937952}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

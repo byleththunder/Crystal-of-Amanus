@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: fe1e49c9360d8dd4b976b1cc640f09b4
-timeCreated: 1443127287
+timeCreated: 1444230149
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -60,8 +60,8 @@ TextureImporter:
         y: 0
         width: 125
         height: 130
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .410546094, y: .436621755}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: respirando_direita_sprite_1
       rect:
@@ -70,8 +70,8 @@ TextureImporter:
         y: 0
         width: 125
         height: 130
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .410546154, y: .42756772}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: respirando_direita_sprite_2
       rect:
@@ -80,8 +80,8 @@ TextureImporter:
         y: 0
         width: 125
         height: 130
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .424670398, y: .418513715}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: respirando_direita_sprite_3
       rect:
@@ -90,8 +90,8 @@ TextureImporter:
         y: 0
         width: 125
         height: 130
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .417608142, y: .432094753}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: GoldCoin
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 425cd5093514e1741bf6858d81e002b3, type: 3}
   m_ShaderKeywords: _EMISSION _NORMALMAP
   m_LightmapFlags: 2
   m_CustomRenderQueue: -1
@@ -158,11 +158,15 @@ Material:
       data:
         first:
           name: _Metallic
-        second: .522000015
+        second: .712000012
       data:
         first:
           name: _InvFade
         second: 1
+      data:
+        first:
+          name: _Gloss
+        second: .850000024
     m_Colors:
       data:
         first:
@@ -171,7 +175,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: .768627524, g: .556862772, b: .160784319, a: 1}
       data:
         first:
           name: _SpecColor

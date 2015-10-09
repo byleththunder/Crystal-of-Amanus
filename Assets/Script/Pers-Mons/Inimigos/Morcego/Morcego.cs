@@ -26,6 +26,7 @@ public class Morcego : Monster
     // Use this for initialization
     void Start()
     {
+        UpdateStatus();
         poison = GetComponentInChildren<ParticleSystem>();
         anim = GetComponentInChildren<Animator>();
         PosIni = transform.position;
@@ -52,7 +53,7 @@ public class Morcego : Monster
         rdb.velocity = Velocidade;
         raio = new Ray(transform.position, ConvertVisao(visao) +  new Vector3(0,-0.5f,0));
         RaycastHit hit;
-        if (Physics.Raycast(raio, out hit, 5))
+        if (Physics.Raycast(raio, out hit, 2))
         {
             if (hit.collider.gameObject.tag == "Player")
             {
@@ -70,6 +71,7 @@ public class Morcego : Monster
                             Behavior = MorcegoBehavior.Rasante;
                             AfterAtk = transform.position;
                             TargetPos = hit.transform.position;
+                            atk = true;
                             break;
                     }
                     
@@ -83,6 +85,7 @@ public class Morcego : Monster
         if (Behavior == MorcegoBehavior.Idle)
         {
             Idle();
+            HitTeste = false;
         }
         else if (Behavior == MorcegoBehavior.Rasante)
         {
@@ -98,7 +101,7 @@ public class Morcego : Monster
     public void Razante()
     {
         //Debug.Log("Sem 2 ação...");
-        if (!atk)
+        if (atk)
         {
             #region X
             if (TargetPos.x > transform.position.x + 0.1f)
@@ -155,11 +158,11 @@ public class Morcego : Monster
                 Velocidade.y = 0;
             }
             #endregion
-            if(Check && CheckY)
+            if(Check && CheckY || HitTeste)
             {
                 Check = false;
                 CheckY = false;
-                atk = true;
+                atk = false;
             }
         }
         else
@@ -225,7 +228,7 @@ public class Morcego : Monster
                 Debug.Log("voltou");
                 Check = false;
                 CheckY = false;
-                atk = false;
+                
                 Behavior = MorcegoBehavior.Idle;
                 if(Horizontal)
                 {
@@ -240,6 +243,7 @@ public class Morcego : Monster
     }
     public void Cuspe()
     {
+        
         float angulo = Mathf.Atan2(transform.position.y,TargetPos.y) * Mathf.Rad2Deg;
         float angulx = Vector3.Angle(transform.position, TargetPos);
         poison.transform.localRotation = Quaternion.Euler(ConvertVisaoToAngle(visao)+ new Vector3(angulo,angulx,0));
@@ -365,12 +369,19 @@ public class Morcego : Monster
     }
     void OnCollisionEnter(Collision col)
     {
+        print(col.transform.name);
+        if(col.transform.tag == "Reflect")
+        {
+            HitTeste = true;
+            print("Escudo");
+            return; 
+        }
         if(col.gameObject.tag == "Player")
         {
-            if(!atk && cooldown)
+            if(atk)
             {
                 col.gameObject.GetComponent<Target>().HealOrDamage(Ataque, 0);
-                atk = true;
+                atk = false;
             }
         }
     }

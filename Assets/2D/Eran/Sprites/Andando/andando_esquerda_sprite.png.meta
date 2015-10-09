@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7c70d76f0af94d147a0e59d3b7eda7b5
-timeCreated: 1443125469
+timeCreated: 1444230487
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -60,8 +60,8 @@ TextureImporter:
         y: 0
         width: 140
         height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .661780357, y: .48091355}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: andando_esquerda_sprite_1
       rect:
@@ -70,8 +70,8 @@ TextureImporter:
         y: 0
         width: 140
         height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .661780357, y: .472430676}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: andando_esquerda_sprite_2
       rect:
@@ -80,8 +80,8 @@ TextureImporter:
         y: 0
         width: 140
         height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .639967322, y: .417292029}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: andando_esquerda_sprite_3
       rect:
@@ -90,8 +90,8 @@ TextureImporter:
         y: 0
         width: 140
         height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .672686756, y: .466068536}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

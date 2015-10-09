@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 3de9fead9d6e6cc419daee2799548a70
-timeCreated: 1443125501
+timeCreated: 1444230321
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -60,8 +60,8 @@ TextureImporter:
         y: 0
         width: 120
         height: 135
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .622410595, y: .39537558}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: andando_frente_sprite_1
       rect:
@@ -70,8 +70,8 @@ TextureImporter:
         y: 0
         width: 120
         height: 135
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .622410476, y: .382820666}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: andando_frente_sprite_2
       rect:
@@ -80,8 +80,8 @@ TextureImporter:
         y: 0
         width: 120
         height: 135
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .601224005, y: .393283069}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: andando_frente_sprite_3
       rect:
@@ -90,8 +90,8 @@ TextureImporter:
         y: 0
         width: 120
         height: 135
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .594161749, y: .393283069}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

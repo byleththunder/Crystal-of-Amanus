@@ -7,6 +7,7 @@ public class ResolutionContent : MonoBehaviour
     public Text Nome;
     public int Indice = 0;
     public Image sprt;
+    public string ScriptObjectName = string.Empty;
     // Use this for initialization
     void Start()
     {
@@ -21,7 +22,7 @@ public class ResolutionContent : MonoBehaviour
     }
     public void Click()
     {
-        GameObject.Find("BG").GetComponent<OptionMenu>().SelectResolution(Indice);
+        GameObject.Find(ScriptObjectName).GetComponent<OptionMenu>().SelectResolution(Indice);
     }
    
 }

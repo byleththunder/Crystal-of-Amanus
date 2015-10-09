@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Inventario : MonoBehaviour
 {
-
+    [Tooltip("Itens que estão no seu Inventário")]
     public static Inventario Mochila;
     public static string SaveInvent;
     //Item[] _mochila = new Item[12];

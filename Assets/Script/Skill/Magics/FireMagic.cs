@@ -24,7 +24,7 @@ public class FireMagic : Skill
         Alvo = SkillTarget.Other;
         Pers = GameObject.FindGameObjectWithTag("Player");
         Personagem = ((Target)Pers.GetComponent(typeof(Target)));
-        Dano = (Dano * 100) / Personagem.Ataque;
+        Dano = (Dano * 100) / Personagem.AtaqueAtual;
     }
 	// Update is called once per frame
 	void Update ()
@@ -38,7 +38,7 @@ public class FireMagic : Skill
 	{
         
 		if (!OnCoolDown) {
-			if (Personagem.Amanus >= 10) {
+			if (Personagem.AmanusAtual >= 10) {
                 Particle.transform.eulerAngles = ConvertVisionToEuler(Personagem.visao);
                 Particle.Emit(1);
 				if (Personagem != null) {

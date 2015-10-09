@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
+[AddComponentMenu("Scripts/VisualScripts/Visual Contents/Quests")]
 public class VCQuest :Selectable {
 
     Text Descricao;

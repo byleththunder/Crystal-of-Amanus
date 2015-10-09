@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 4b02061d31a9da1408e414eebcf315eb
-timeCreated: 1443562441
+timeCreated: 1444229678
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -80,8 +80,8 @@ TextureImporter:
         y: 950
         width: 134
         height: 136
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .641454279, y: .388500452}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_direita_sprite_1
       rect:
@@ -90,8 +90,8 @@ TextureImporter:
         y: 952
         width: 134
         height: 136
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .632024288, y: .388500452}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_direita_sprite_2
       rect:
@@ -100,8 +100,8 @@ TextureImporter:
         y: 930
         width: 151
         height: 176
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .525105238, y: .607698619}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_direita_sprite_3
       rect:
@@ -110,8 +110,8 @@ TextureImporter:
         y: 929
         width: 151
         height: 176
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .525106072, y: .614878595}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_direita_sprite_4
       rect:
@@ -120,8 +120,8 @@ TextureImporter:
         y: 745
         width: 151
         height: 176
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .550211549, y: .607698262}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_direita_sprite_5
       rect:
@@ -130,8 +130,8 @@ TextureImporter:
         y: 743
         width: 151
         height: 176
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .550211549, y: .614878237}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_direita_sprite_6
       rect:
@@ -140,8 +140,8 @@ TextureImporter:
         y: 745
         width: 172
         height: 176
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .463265359, y: .614878237}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_direita_sprite_7
       rect:
@@ -150,8 +150,8 @@ TextureImporter:
         y: 758
         width: 125
         height: 143
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .742622554, y: .438142359}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_direita_sprite_8
       rect:
@@ -160,8 +160,8 @@ TextureImporter:
         y: 571
         width: 125
         height: 143
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .712295175, y: .429305911}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_direita_sprite_9
       rect:
@@ -170,8 +170,8 @@ TextureImporter:
         y: 576
         width: 125
         height: 143
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .70218581, y: .393958449}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_direita_sprite_10
       rect:
@@ -180,8 +180,8 @@ TextureImporter:
         y: 571
         width: 245
         height: 145
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .623787284, y: .395421088}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_direita_sprite_11
       rect:
@@ -190,8 +190,8 @@ TextureImporter:
         y: 569
         width: 157
         height: 145
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .636829138, y: .404136091}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_direita_sprite_12
       rect:
@@ -200,8 +200,8 @@ TextureImporter:
         y: 388
         width: 157
         height: 145
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .65292716, y: .421566039}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_direita_sprite_13
       rect:
@@ -210,8 +210,8 @@ TextureImporter:
         y: 385
         width: 157
         height: 145
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .636829734, y: .395420879}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_direita_sprite_14
       rect:
@@ -220,8 +220,8 @@ TextureImporter:
         y: 387
         width: 157
         height: 145
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .660975754, y: .404135883}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_direita_sprite_15
       rect:
@@ -230,8 +230,8 @@ TextureImporter:
         y: 390
         width: 128
         height: 143
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .450638771, y: .430000007}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_direita_sprite_16
       rect:
@@ -240,8 +240,8 @@ TextureImporter:
         y: 210
         width: 118
         height: 143
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .457164258, y: .460000008}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_direita_sprite_17
       rect:
@@ -250,8 +250,8 @@ TextureImporter:
         y: 201
         width: 117
         height: 143
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .5108006, y: .449999988}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_direita_sprite_18
       rect:
@@ -260,8 +260,8 @@ TextureImporter:
         y: 199
         width: 231
         height: 128
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .248362094, y: .499999523}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_direita_sprite_19
       rect:
@@ -270,8 +270,8 @@ TextureImporter:
         y: 201
         width: 231
         height: 128
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .226480067, y: .470383167}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_direita_sprite_20
       rect:
@@ -280,8 +280,8 @@ TextureImporter:
         y: 19
         width: 231
         height: 128
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .237420917, y: .50987196}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_direita_sprite_21
       rect:
@@ -290,8 +290,8 @@ TextureImporter:
         y: 24
         width: 231
         height: 128
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .231950641, y: .539489329}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_direita_sprite_22
       rect:
@@ -300,8 +300,8 @@ TextureImporter:
         y: 33
         width: 231
         height: 128
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .237421215, y: .539489627}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_direita_sprite_23
       rect:
@@ -310,8 +310,8 @@ TextureImporter:
         y: 35
         width: 231
         height: 128
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .248361826, y: .519744337}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 132cd3dad27040f4a8c620b64c670fdd
-timeCreated: 1443562600
+timeCreated: 1444229852
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -80,8 +80,8 @@ TextureImporter:
         y: 951
         width: 134
         height: 137
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .330254406, y: .389314294}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_esquerda_sprite_1
       rect:
@@ -90,8 +90,8 @@ TextureImporter:
         y: 951
         width: 134
         height: 137
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .349114954, y: .389314294}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_esquerda_sprite_2
       rect:
@@ -100,8 +100,8 @@ TextureImporter:
         y: 928
         width: 145
         height: 179
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .526144922, y: .669428825}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_esquerda_sprite_3
       rect:
@@ -110,8 +110,8 @@ TextureImporter:
         y: 928
         width: 145
         height: 179
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .534859478, y: .655310273}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_esquerda_sprite_4
       rect:
@@ -120,8 +120,8 @@ TextureImporter:
         y: 744
         width: 145
         height: 179
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .534859419, y: .669429183}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_esquerda_sprite_5
       rect:
@@ -130,8 +130,8 @@ TextureImporter:
         y: 744
         width: 145
         height: 179
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .543574691, y: .676488757}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_esquerda_sprite_6
       rect:
@@ -140,8 +140,8 @@ TextureImporter:
         y: 744
         width: 188
         height: 179
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .647874892, y: .662369907}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_esquerda_sprite_7
       rect:
@@ -150,8 +150,8 @@ TextureImporter:
         y: 763
         width: 183
         height: 144
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .555241823, y: .385919362}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_esquerda_sprite_8
       rect:
@@ -160,8 +160,8 @@ TextureImporter:
         y: 584
         width: 195
         height: 144
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .564803004, y: .368368775}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_esquerda_sprite_9
       rect:
@@ -170,8 +170,8 @@ TextureImporter:
         y: 582
         width: 190
         height: 144
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .533254206, y: .37714386}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_esquerda_sprite_10
       rect:
@@ -180,8 +180,8 @@ TextureImporter:
         y: 569
         width: 179
         height: 142
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .337630123, y: .455504954}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_esquerda_sprite_11
       rect:
@@ -190,8 +190,8 @@ TextureImporter:
         y: 573
         width: 179
         height: 142
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .358808279, y: .437706739}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_esquerda_sprite_12
       rect:
@@ -200,8 +200,8 @@ TextureImporter:
         y: 396
         width: 179
         height: 142
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .351749301, y: .446605623}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_esquerda_sprite_13
       rect:
@@ -210,8 +210,8 @@ TextureImporter:
         y: 397
         width: 179
         height: 142
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .372928053, y: .437706739}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_esquerda_sprite_14
       rect:
@@ -220,8 +220,8 @@ TextureImporter:
         y: 393
         width: 179
         height: 142
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .372927874, y: .437706739}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_esquerda_sprite_15
       rect:
@@ -230,8 +230,8 @@ TextureImporter:
         y: 396
         width: 119
         height: 143
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .553094923, y: .430000007}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_esquerda_sprite_16
       rect:
@@ -240,8 +240,8 @@ TextureImporter:
         y: 204
         width: 141
         height: 143
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .625469685, y: .450694054}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_esquerda_sprite_17
       rect:
@@ -250,8 +250,8 @@ TextureImporter:
         y: 198
         width: 115
         height: 143
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .510988474, y: .460000008}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_esquerda_sprite_18
       rect:
@@ -260,8 +260,8 @@ TextureImporter:
         y: 211
         width: 232
         height: 128
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .761446714, y: .529616594}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_esquerda_sprite_19
       rect:
@@ -270,8 +270,8 @@ TextureImporter:
         y: 217
         width: 232
         height: 128
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .7560004, y: .500000238}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_esquerda_sprite_20
       rect:
@@ -280,8 +280,8 @@ TextureImporter:
         y: 25
         width: 232
         height: 128
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .761447132, y: .52961731}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_esquerda_sprite_21
       rect:
@@ -290,8 +290,8 @@ TextureImporter:
         y: 27
         width: 232
         height: 128
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .75600028, y: .529616654}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_esquerda_sprite_22
       rect:
@@ -300,8 +300,8 @@ TextureImporter:
         y: 35
         width: 232
         height: 128
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .761446714, y: .549361408}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_esquerda_sprite_23
       rect:
@@ -310,8 +310,8 @@ TextureImporter:
         y: 35
         width: 232
         height: 128
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .7560004, y: .549361408}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[AddComponentMenu("Scripts/VisualScripts/Quests")]
 public class VQuest : MonoBehaviour {
 
     public VCQuest Prefab;

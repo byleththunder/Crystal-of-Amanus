@@ -1,0 +1,99 @@
+fileFormatVersion: 2
+guid: ca7ae0838dd19f042b2cb55b640d996c
+timeCreated: 1444087103
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: eran_morrendo_sprite_0
+    21300002: eran_morrendo_sprite_1
+    21300004: eran_morrendo_sprite_2
+    21300006: eran_morrendo_sprite_3
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: eran_morrendo_sprite_0
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 4
+        width: 110
+        height: 121
+      alignment: 9
+      pivot: {x: .600154102, y: .363426208}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_morrendo_sprite_1
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 3
+        width: 112
+        height: 121
+      alignment: 9
+      pivot: {x: .62106514, y: .356422484}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_morrendo_sprite_2
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 7
+        width: 132
+        height: 113
+      alignment: 9
+      pivot: {x: .676553428, y: .353757322}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eran_morrendo_sprite_3
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 28
+        width: 163
+        height: 73
+      alignment: 9
+      pivot: {x: .739159703, y: .540631652}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

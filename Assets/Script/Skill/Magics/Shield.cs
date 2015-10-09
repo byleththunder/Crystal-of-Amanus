@@ -43,7 +43,7 @@ public class Shield : Skill {
             }
             else
             {
-                SetSheildPosition();
+                //SetSheildPosition();
             }
         }
 	}

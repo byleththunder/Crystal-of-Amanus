@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[AddComponentMenu("Scripts/VisualScripts/Inventário")]
 public class VInventario : MonoBehaviour {
 
     public VCitem Prefab;

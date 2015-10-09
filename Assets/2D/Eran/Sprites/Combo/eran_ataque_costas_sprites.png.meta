@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7f9668186beb0ba47a3580b19b902a6f
-timeCreated: 1443562209
+timeCreated: 1444226022
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -80,8 +80,8 @@ TextureImporter:
         y: 1031
         width: 136
         height: 133
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .299099833, y: .45891279}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_costas_sprites_1
       rect:
@@ -90,8 +90,8 @@ TextureImporter:
         y: 1028
         width: 141
         height: 133
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .306223989, y: .438370109}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_costas_sprites_2
       rect:
@@ -100,8 +100,8 @@ TextureImporter:
         y: 1030
         width: 136
         height: 144
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .710944891, y: .462051392}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_costas_sprites_3
       rect:
@@ -110,8 +110,8 @@ TextureImporter:
         y: 1029
         width: 136
         height: 144
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .741079867, y: .471538961}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_costas_sprites_4
       rect:
@@ -120,8 +120,8 @@ TextureImporter:
         y: 834
         width: 136
         height: 144
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .720990241, y: .481025696}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_costas_sprites_5
       rect:
@@ -130,8 +130,8 @@ TextureImporter:
         y: 839
         width: 136
         height: 144
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .741080105, y: .471538544}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_costas_sprites_6
       rect:
@@ -140,8 +140,8 @@ TextureImporter:
         y: 837
         width: 136
         height: 144
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .720990598, y: .490512848}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_costas_sprites_7
       rect:
@@ -150,8 +150,8 @@ TextureImporter:
         y: 841
         width: 141
         height: 133
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .674397767, y: .45891279}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_costas_sprites_8
       rect:
@@ -160,8 +160,8 @@ TextureImporter:
         y: 629
         width: 141
         height: 133
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .655021012, y: .479456395}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_costas_sprites_9
       rect:
@@ -170,8 +170,8 @@ TextureImporter:
         y: 633
         width: 141
         height: 133
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .684087455, y: .469184577}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_costas_sprites_10
       rect:
@@ -180,8 +180,8 @@ TextureImporter:
         y: 633
         width: 138
         height: 145
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .282212645, y: .518842578}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_costas_sprites_11
       rect:
@@ -190,8 +190,8 @@ TextureImporter:
         y: 631
         width: 153
         height: 145
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .330351382, y: .499999583}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_costas_sprites_12
       rect:
@@ -200,8 +200,8 @@ TextureImporter:
         y: 430
         width: 160
         height: 145
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .303620249, y: .499999791}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_costas_sprites_13
       rect:
@@ -210,8 +210,8 @@ TextureImporter:
         y: 431
         width: 159
         height: 145
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .31097737, y: .499999791}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_costas_sprites_14
       rect:
@@ -220,8 +220,8 @@ TextureImporter:
         y: 426
         width: 138
         height: 145
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .272313207, y: .499999374}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_costas_sprites_15
       rect:
@@ -230,8 +230,8 @@ TextureImporter:
         y: 437
         width: 142
         height: 129
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .317209154, y: .394099027}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_costas_sprites_16
       rect:
@@ -240,8 +240,8 @@ TextureImporter:
         y: 228
         width: 142
         height: 129
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .307588637, y: .415278703}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_costas_sprites_17
       rect:
@@ -250,8 +250,8 @@ TextureImporter:
         y: 230
         width: 142
         height: 129
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .307588488, y: .39409855}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_costas_sprites_18
       rect:
@@ -260,8 +260,8 @@ TextureImporter:
         y: 203
         width: 116
         height: 196
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .441115558, y: .332719445}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_costas_sprites_19
       rect:
@@ -270,8 +270,8 @@ TextureImporter:
         y: 203
         width: 87
         height: 196
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .578512251, y: .360599428}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_costas_sprites_20
       rect:
@@ -280,8 +280,8 @@ TextureImporter:
         y: 2
         width: 119
         height: 196
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .454079777, y: .360599756}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_costas_sprites_21
       rect:
@@ -290,8 +290,8 @@ TextureImporter:
         y: 2
         width: 108
         height: 196
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .462052226, y: .353629768}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_costas_sprites_22
       rect:
@@ -300,8 +300,8 @@ TextureImporter:
         y: 2
         width: 121
         height: 196
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .409678072, y: .353629768}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: eran_ataque_costas_sprites_23
       rect:
@@ -310,8 +310,8 @@ TextureImporter:
         y: 2
         width: 87
         height: 196
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .578513682, y: .353629321}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

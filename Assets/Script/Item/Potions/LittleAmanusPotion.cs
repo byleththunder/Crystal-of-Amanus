@@ -13,7 +13,7 @@ public class LittleAmanusPotion : Item {
     bool BeberPocao(Target alvo)
     {
 
-        if (alvo.Amanus == alvo.AmanusTotal)
+        if (alvo.AmanusAtual == alvo.AmanusTotal)
         {
             return false;
         }

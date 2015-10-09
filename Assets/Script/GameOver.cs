@@ -15,7 +15,7 @@ public class GameOver : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(Personagem.Vida <=0)
+        if(Personagem.VidaAtual <=0)
         {
             
             if(!FadeOver)
