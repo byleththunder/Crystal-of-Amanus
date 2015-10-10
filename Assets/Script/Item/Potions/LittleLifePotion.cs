@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[AddComponentMenu("Scripts/Item/Itens/Pocao/Pocao de Vida")]
 public class LittleLifePotion : Item {
 
     

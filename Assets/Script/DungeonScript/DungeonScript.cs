@@ -2,7 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[AddComponentMenu("Scripts/Dungeon Scripts/DungeonScript")]
 public class DungeonScript : MonoBehaviour {
+
+    /// <summary>
+    /// Nesse script que o calendário vai influenciar. A luz principal vai iluminar a cena com a cor do periodo do dia.
+    /// </summary>
 
     public List<Chest> Baus;
     //Controle de Dia - tarde - noite

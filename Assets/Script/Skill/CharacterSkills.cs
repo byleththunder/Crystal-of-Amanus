@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[AddComponentMenu("Scripts/Skill Script/Character Skill")]
 public class CharacterSkills : MonoBehaviour {
 
     public List<Skill> SkillsAvailable = new List<Skill>();

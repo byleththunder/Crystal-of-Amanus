@@ -1,9 +1,10 @@
 fileFormatVersion: 2
 guid: c9fb18c5d354a2040bc3864edb1571fe
-timeCreated: 1443814581
+timeCreated: 1444500085
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: BOX_Resolucao_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -37,7 +38,7 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -48,7 +49,17 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: BOX_Resolucao_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 6
+        width: 253
+        height: 57
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 2, y: 3, z: 2, w: 2}
   spritePackingTag: 
   userData: 
   assetBundleName: 

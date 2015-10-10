@@ -19,8 +19,9 @@ public class VCitem : Selectable
     //O indice vai me dizer exatamente qual item eu estou
     public int Indice = -1;
     string texto;
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         if (!Application.isPlaying) return;
         Personagem = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
         Img_Item = ImgPai.transform.FindChild("Item_Img").GetComponent<Image>();
@@ -28,6 +29,7 @@ public class VCitem : Selectable
         //Content > Area com mascara > Area >Box > Area_Inventario
         Descricao = gameObject.transform.parent.transform.parent.transform.parent.transform.parent.Find("Descricao").GetComponent<Text>();
         texto = "Descrição:\n\t" + inv.ItemInformations(Indice).Descricao;
+        
     }
 
     void Update()

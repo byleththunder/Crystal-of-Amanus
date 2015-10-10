@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
+[AddComponentMenu("Scripts/Save e Load/Save e Load Game")]
 public static class SaveLoad
 {
 

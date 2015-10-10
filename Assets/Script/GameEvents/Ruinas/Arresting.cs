@@ -2,8 +2,14 @@
 using UnityEngine.UI;
 using System.Collections;
 
+[AddComponentMenu("Scripts/Game Events/Ruinas/Cinematics/Arresting")]
 public class Arresting : MonoBehaviour
 {
+
+    /// <summary>
+    /// Nesse script acontece a cinematic. Quando o Eran vai entrar na sala com o tesouro, os guardas do rei chegam e pensam que ele é o ladrão que
+    /// roubou o tesouro do rei, por isso eles avançam e o prendem, enquanto a tela entra em fade.
+    /// </summary>
 
     public Guarda_Ruinas Capitan;
     public Guarda_Ruinas[] Guardas = new Guarda_Ruinas[1];

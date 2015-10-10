@@ -1,7 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[AddComponentMenu("Scripts/Interaction Script/Chest")]
 public class Chest : MonoBehaviour {
+
+    /// <summary>
+    /// Quando o jogador ataca o baú, ele abre e entrega o item.
+    /// </summary>
 
     public Animator anim;
     public Item loot;

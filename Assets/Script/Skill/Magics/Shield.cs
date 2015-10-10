@@ -1,103 +1,52 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Shield : Skill {
-    //Propriedades
-   
-    //Variaveis
-    float Timer = 0;
-    public GameObject Escudos;
-    bool On = false;
-    public Character Jogador;
-   
-    //----------
-	// Use this for initialization
-	void Start () {
-        Nome = "Escudos";
-        Descricao = "Invoca um escudos";
+[AddComponentMenu("Scripts/Skill Script/Skills/Escudo")]
+public class Shield : Skill
+{
+    
+    public GameObject Escudo;
+    bool Ativado = false;
+    // Inicializo as informações da habilidade
+    void Start()
+    {
+        Nome = "Escudo";
+        Descricao = "Uma bola de energia cobre o personagem";
         Alvo = SkillTarget.Other;
-        
+        Escudo = GameObject.FindGameObjectWithTag("Reflect");
+        Escudo.SetActive(false);
         CoolDown = 5f;
-        Jogador = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
-        Escudos = GameObject.FindGameObjectWithTag("Reflect");
-        if(Escudos != null)
-        {
-            Escudos.SetActive(false);
-        }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
-        if (Escudos != null)
-        {
-            if (!Escudos.activeInHierarchy && On)
-            {
-                Invoke("ResetCoolDown", CoolDown);
-                On = false;
-                OnCoolDown = true;
-            }
-            if (OnCoolDown)
-            {
-                Timer += Time.deltaTime;
-            }
-            else
-            {
-                //SetSheildPosition();
-            }
-        }
-	}
+    }
+    /// <summary "Como funciona?">
+    /// Verifico se eu consegui achar o escudo (escudo != null).
+    /// No UsarSkill, eu verifico se posso usar a habilidade, se sim, eu verifico se o escudo já está ativado, se estiver ativado eu desativo e coloco a habilidade em cooldown,
+    /// se o escudo não estiver ativado, eu ativo e começo a habilidade.
+    /// </summary>
+   
     public override void UsarSkill(Target target)
     {
         if (!OnCoolDown)
         {
-            if(!Escudos.activeInHierarchy)
+            if (Escudo.activeInHierarchy == false)
             {
-                Escudos.SetActive(true);
-                On = true;
-                Jogador.EstadoDoJogador = GameStates.CharacterState.Defense;
-            }else
-            {
-                Escudos.SetActive(false);
-                Jogador.EstadoDoJogador = GameStates.CharacterState.Playing;
-                OnCoolDown = true;
+                Escudo.SetActive(true);
+                Ativado = true;
             }
-            if (!Escudos.activeInHierarchy && On )
+            else
+            {
+                Escudo.SetActive(false);
+                Ativado = false;
+            }
+            if(Escudo.activeInHierarchy == false && Ativado)
             {
                 Invoke("ResetCoolDown", CoolDown);
+                OnCoolDown = true;
             }
-        }
-        else
-        {
-            print("Cooldown: " + (int)Timer);
-        }
-    }
-    void SetSheildPosition()
-    {
-        switch(Jogador.visao)
-        {
-            case TargetVision.Back:
-                Escudos.transform.localPosition = new Vector3(0, 0, 1);
-                Escudos.transform.localEulerAngles = new Vector3(0, 0, 0);
-                break;
-            case TargetVision.Front:
-                Escudos.transform.localPosition = new Vector3(0, 0, -1);
-                Escudos.transform.localEulerAngles = new Vector3(0, 180, 0);
-                break;
-            case TargetVision.Left:
-                Escudos.transform.localPosition = new Vector3(-1, 0, 0);
-                Escudos.transform.localEulerAngles = new Vector3(0, -90, 0);
-                break;
-            case TargetVision.Right:
-                Escudos.transform.localPosition = new Vector3(1, 0, 0);
-                Escudos.transform.localEulerAngles = new Vector3(0, 90, 0);
-                break;
         }
     }
     public override void ResetCoolDown()
     {
         OnCoolDown = false;
-        Timer = 0;
-        On = false;
+        Ativado = false;
     }
 }

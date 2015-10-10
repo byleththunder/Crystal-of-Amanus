@@ -2,10 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[AddComponentMenu("Scripts/Item/Inventario")]
 public class Inventario : MonoBehaviour
 {
+    /// <summary>
+    /// Mochila aonde guarda os itens.
+    /// </summary>
+
     [Tooltip("Itens que estão no seu Inventário")]
-    public static Inventario Mochila;
     public static string SaveInvent;
     //Item[] _mochila = new Item[12];
     List<Item> _mochila = new List<Item>();
@@ -16,12 +20,7 @@ public class Inventario : MonoBehaviour
     public int MochilaLenght { get { return _mochila.Count; } }
     public List<Item> MochilaRef { get { return _mochila; } }
     public List<int> QuantidadesRef { get { return Quantidades; } }
-    // Use this for initialization
-    void Awake()
-    {
-        Mochila = this;
-        // SaveLoad.Load();
-    }
+    
     void Start()
     {
         try
@@ -35,7 +34,6 @@ public class Inventario : MonoBehaviour
         }
         catch
         {
-            //Debug.LogError("invent é null");
         }
 
     }

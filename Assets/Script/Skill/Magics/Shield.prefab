@@ -36,19 +36,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 146692}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6c3769f9168e134db17168a116622b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 5341c259a278fb944a20b1c719fdd7bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Nome: 
-  Descricao: 
+  Nome: Escudo
+  Descricao: Uma esfera de energia cobre o personagem, protegendo-o dos ataques inimigos.
   Img: {fileID: 21300000, guid: 9e79491d5937bcb4f94040b817ddd076, type: 3}
   NameImg: {fileID: 21300000, guid: 29cb6bb6e053ae74b91c455c15ff6ceb, type: 3}
   Alvo: 0
   Dano: 0
-  CoolDown: 5
+  CoolDown: 0
   OnCoolDown: 0
-  Escudos: {fileID: 0}
-  Jogador: {fileID: 0}
+  Escudo: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

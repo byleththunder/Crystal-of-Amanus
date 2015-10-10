@@ -7,6 +7,8 @@
 /// 
 /// As a note, this is made as MonoBehaviour because we need Coroutines.
 /// </summary>
+
+[AddComponentMenu("Scripts/Singleton/Singleton")]
 public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T _instance;

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[AddComponentMenu("Scripts/Item/Itens/Equipamentos/Espadas/Espada Basica")]
 public class EspadaBasica : Item
 {
 

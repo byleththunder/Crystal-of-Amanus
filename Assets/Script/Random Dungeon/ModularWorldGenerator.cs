@@ -3,7 +3,9 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+
 public enum ModulesTypes { Quarto, Corredor, CorredorFechado, RespawnRoom, Curva };
+[AddComponentMenu("Scripts/Dungeon Generator/Module World Generator")]
 public class ModularWorldGenerator : MonoBehaviour
 {
     public Module[] Modules;
@@ -46,7 +48,6 @@ public class ModularWorldGenerator : MonoBehaviour
 
     private bool CheckWay(ModuleConnector lastconnector)
     {
-        Ray raio = new Ray(lastconnector.transform.position, lastconnector.transform.forward);
         RaycastHit hit;
         if (Physics.Raycast(lastconnector.transform.position, lastconnector.transform.forward, out hit, 1000f))
         {

@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TeamUtility.IO;
 
+[AddComponentMenu("Scripts/MessageBox/MessageScript")]
 public class MessageBox : Singleton<MessageBox>
 {
     protected MessageBox() { }
@@ -26,7 +27,6 @@ public class MessageBox : Singleton<MessageBox>
     //O timer faz com que as letras sejam impressas em um determinado tempo.
     float Timer = 0;
     //Awake - Vai encontrar o canvas e fazer a Messagebox ser filha dele.
-    Camera cam;
     Character pers;
     void Awake()
     {
@@ -36,7 +36,6 @@ public class MessageBox : Singleton<MessageBox>
     //Armazena a mensagem
     public void WriteMessage(string text)
     {
-        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         try { pers = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>(); }
         catch { Debug.LogWarning("Não tem nenhum player nessa cena."); }
         FinishiAll = false;
@@ -83,7 +82,6 @@ public class MessageBox : Singleton<MessageBox>
     }
     public void WriteMessage(string text, string name)
     {
-        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         try { pers = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>(); }
         catch { Debug.LogWarning("Não tem nenhum player nessa cena."); }
 

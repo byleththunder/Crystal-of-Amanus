@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[AddComponentMenu("Scripts/Particle Scripts/Destroy Particle After Stop")]
 public class DestroyParticleAfterStop : MonoBehaviour
 {
     ParticleSystem particle;

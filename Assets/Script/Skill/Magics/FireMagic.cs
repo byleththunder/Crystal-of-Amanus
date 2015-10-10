@@ -2,21 +2,18 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[AddComponentMenu("Scripts/Skill Script/Skills/Amanus Fire")]
 public class FireMagic : Skill
 {
-
+    ///<summary "Como Funciona?">
+    ///Quando eu clico para usar a habilidade, eu verifico para onde o personagem está olhando e emito uma particula na direção certa.
+    ///</summary>
 	
 	//Variaveis
 	public GameObject Pers;
     public ParticleSystem Particle;
-    List<Fire> FirePool = new List<Fire>();
-	float Timer = 0;
 	public Target Personagem;
-    int ID = 0;
-	// Use this for initialization
-	void Awake ()
-	{
-	}
+	//Métodos
     void Start()
     {
         Nome = "AmanusFire";
@@ -26,14 +23,6 @@ public class FireMagic : Skill
         Personagem = ((Target)Pers.GetComponent(typeof(Target)));
         Dano = (Dano * 100) / Personagem.AtaqueAtual;
     }
-	// Update is called once per frame
-	void Update ()
-	{
-		if (OnCoolDown) {
-			Timer += Time.deltaTime;
-		}
-	}
-	//Métodos
     public override void UsarSkill(Target target)
 	{
         
@@ -48,9 +37,7 @@ public class FireMagic : Skill
 				OnCoolDown = true;
 				Invoke ("ResetCoolDown", CoolDown);
 			}
-			} else {
-				print ("Cooldown: " + (int)Timer);
-			}
+			} 
 
 	}
 	Vector3 ConvertVisionToEuler(TargetVision v)
@@ -75,7 +62,6 @@ public class FireMagic : Skill
     public override void ResetCoolDown()
 	{
 		OnCoolDown = false;
-		Timer = 0;
 	}
     
 }

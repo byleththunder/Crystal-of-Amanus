@@ -5,11 +5,9 @@ using TeamUtility.IO;
 [AddComponentMenu("Scripts/VisualScripts/Menu", 0)]
 public class VMenu : MonoBehaviour {
     public GameObject Menu,Escape;
-    LayerMask Tudo;
     bool OpenWindow = false;
 	// Use this for initialization
 	void Start () {
-        Tudo = Camera.main.cullingMask;
 	}
 	
 	// Update is called once per frame
@@ -19,13 +17,11 @@ public class VMenu : MonoBehaviour {
             if(Menu.activeInHierarchy == false)
             {
                 Menu.SetActive(true);
-                //Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("HUD"));
                 Time.timeScale = 0;
                 
             }else
             {
                 Menu.SetActive(false);
-               // Camera.main.cullingMask = Tudo;
                 Time.timeScale = 1;
             }
             

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 
 
-
+[AddComponentMenu("Scripts/Quests/Quest Database")]
 public class DataBase_Quests : MonoBehaviour
 {
 

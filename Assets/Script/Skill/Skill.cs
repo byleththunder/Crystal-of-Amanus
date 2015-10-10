@@ -2,7 +2,9 @@
 using System.Collections;
 using UnityEngine.UI;
 
+
 public enum SkillTarget { Self, Other };
+[AddComponentMenu("Scripts/Skill Script/Skill")]
 public class Skill : MonoBehaviour {
     //Propriedades
     public string Nome;

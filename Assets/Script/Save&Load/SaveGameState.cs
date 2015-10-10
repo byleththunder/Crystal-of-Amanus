@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 
+[AddComponentMenu("Scripts/Save e Load/Save String")]
 public class SaveGameState : MonoBehaviour {
     /* Protocolo para salvar e carregar. 
      *Protocolo de Save

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[AddComponentMenu("Scripts/Dungeon Generator/Module")]
 public class Module : MonoBehaviour
 {
     public ModulesTypes[] Tipo = new ModulesTypes[1];

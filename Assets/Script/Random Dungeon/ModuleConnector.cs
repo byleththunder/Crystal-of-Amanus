@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-
+[AddComponentMenu("Scripts/Dungeon Generator/Module Conector")]
 public class ModuleConnector : MonoBehaviour
 {
 	public bool IsDefault;

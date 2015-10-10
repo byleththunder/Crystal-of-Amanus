@@ -1,6 +1,0 @@
-﻿Reduzindo a velocidade de x e y por 1.5 ||Distancia percorrida = 7.168185
-Reduzindo a velocidade de x e y por 2 	||Distancia percorrida = 5.421923
-Reduzindo a velocidade de x e y por 3 	||Distancia percorrida = 3.675672
-Reduzindo a velocidade de x e y por 4 	||Distancia percorrida = 2.80267
-Reduzindo a velocidade de x e y por 5 	||Distancia percorrida = 2.278878
-

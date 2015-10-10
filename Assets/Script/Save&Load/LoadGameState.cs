@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 
+[AddComponentMenu("Scripts/Save e Load/Load String")]
 public class LoadGameState : MonoBehaviour
 {
 
@@ -558,7 +559,6 @@ public class LoadGameState : MonoBehaviour
         System.Type genericclass = System.Type.GetType(typeof(T).ToString());
 
         List<T> _tempList = new List<T>();
-        List<object> _ObjList = new List<object>();
         //Int Indice da lista
         int indice = -1;
         //Leitura de protocolo

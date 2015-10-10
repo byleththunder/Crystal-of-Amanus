@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[AddComponentMenu("Scripts/Quests/Minhas Quest")]
 public class MyQuest : MonoBehaviour
 {
 

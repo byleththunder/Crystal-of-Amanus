@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
+[AddComponentMenu("Scripts/Loading/Loading Screen")]
 public class LoadingScreen : MonoBehaviour
 {
     public static string NextLevelName;

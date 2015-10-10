@@ -2,8 +2,15 @@
 using UnityEngine.UI;
 using System.Collections;
 
+[AddComponentMenu("Scripts/Dungeon Scripts/Inicio/Inicio Level")]
 public class InicioLevel : DungeonScript
 {
+
+    /// <summary>
+    /// É aqui que todo evento do inicio do jogo vai acontecer.
+    /// Quando a cena começar, o Fade(Painel no canvas) vai ter o alfa aumentado e em seguida vai começar a conversa entre
+    /// o Eran e o Damoh. Quando a conversa terminar, eu aumento o alfa do fade no máximo e troco de cena.
+    /// </summary>
 
     public Image painel;
     Color Fade;

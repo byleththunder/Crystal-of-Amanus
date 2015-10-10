@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[AddComponentMenu("Scripts/Quests/Quest")]
 [System.Serializable]
 public enum TiposDeQuests { Principal, Repetitiva, Sub };
 public enum ObjetivesType { Coleta = 0, Eliminacao = 1 };

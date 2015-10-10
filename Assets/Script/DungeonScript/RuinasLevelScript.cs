@@ -3,10 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-[AddComponentMenu("Scripts/Dungeon Scripts/Ruinas")]
+[AddComponentMenu("Scripts/Dungeon Scripts/Ruinas/Ruinas Level")]
 public class RuinasLevelScript : DungeonScript
 {
-    
+    /// <summary>
+    /// Esse script só vai controlar a iluminação da cena e salvar o estado dos baus, se estão abertos ou não.
+    /// A string Ruinas é aonde será salvo o estado dos baus.
+    /// </summary>
     public static string Ruinas = string.Empty;
     // Use this for initialization
     void Start()
@@ -27,7 +30,7 @@ public class RuinasLevelScript : DungeonScript
         }
         catch
         {
-            Debug.LogError("invent é null");
+            Debug.LogWarning("Retirar essa linha após implementar uma janela de Save e Load.");
         }
         //ChangeColorByStage();
 

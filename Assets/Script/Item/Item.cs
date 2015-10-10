@@ -2,9 +2,14 @@
 using System.Collections;
 using System;
 
-
+[AddComponentMenu("Scripts/Item/Item")]
 public class Item : MonoBehaviour
 {
+
+    ///<summary>
+    ///Classe base de itens
+    ///</summary>
+
     //CallBack
     public Func<Target, bool> MetodoItem;
     //Enum

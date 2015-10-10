@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[AddComponentMenu("Scripts/NPC Scripts/Guarda Real - Ruinas")]
 public class Guarda_Ruinas : MonoBehaviour
 {
 
