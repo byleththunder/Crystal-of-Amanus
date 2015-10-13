@@ -10,18 +10,20 @@ public class ModularWorldGenerator : MonoBehaviour
 {
     public Module[] Modules;
     public Module StartModule;
-    public Module EndModule;
+    public Module EndLineModule;
+    public Module FinalModule;
     public int Iterations = 5;
     public int countdown = 3;
     int indice = 0;
     void Start()
     {
-        StartCoroutine(Generate());
+        Generate();
     }
 
-    IEnumerator Generate()
+    void Generate()
     {
         var startModule = (Module)Instantiate(StartModule, transform.position, transform.rotation);
+        startModule.transform.SetParent(transform);
         var pendingExits = new List<ModuleConnector>(startModule.GetExits());
 
         for (int iteration = 0; iteration < Iterations; iteration++)
@@ -32,60 +34,48 @@ public class ModularWorldGenerator : MonoBehaviour
             {
                 indice++;
                 var newTag = SafeCourse(pendingExit.Tipos, pendingExit);
-                var newModulePrefab = (CheckWay(pendingExit) ? EndModule : (iteration + 1 == Iterations ? EndModule : GetRandomWithTag(Modules, newTag)));
+                var newModulePrefab = CheckWay(pendingExit, newTag, iteration);
                 var newModule = (Module)Instantiate(newModulePrefab);
+                newModule.transform.SetParent(transform);
                 newModule.name = newModule.name + " - " + indice;
                 var newModuleExits = newModule.GetExits();
                 var exitToMatch = newModuleExits.FirstOrDefault(x => x.IsDefault) ?? GetRandom(newModuleExits);
                 MatchExits(pendingExit, exitToMatch);
                 newExits.AddRange(newModuleExits.Where(e => e != exitToMatch));
-                yield return new WaitForSeconds(0.2f);
             }
 
             pendingExits = newExits;
         }
     }
 
-    private bool CheckWay(ModuleConnector lastconnector)
+    private Module CheckWay(ModuleConnector lastconnector, ModulesTypes _newTag, int _iteration)
     {
         RaycastHit hit;
-        if (Physics.Raycast(lastconnector.transform.position, lastconnector.transform.forward, out hit, 1000f))
-        {
-            Debug.Log("fIM DA LINHA = "+ indice + "Hit what? R: "+hit.collider.name);
-            Debug.DrawLine(lastconnector.transform.position, hit.point, Color.blue);
-            return true;
 
-        }
-        if (Physics.Raycast(lastconnector.transform.position, lastconnector.transform.forward+Vector3.right, out hit, 1000f))
+        if (Physics.Raycast(lastconnector.transform.position + new Vector3(0, 1, 0), lastconnector.transform.forward, out hit, 5f))
         {
-            Debug.Log("fIM DA LINHA = " + indice + "Hit what? R: " + hit.collider.name);
-            Debug.DrawLine(lastconnector.transform.position, hit.point, Color.red);
-            return true;
-        }
-        if (Physics.Raycast(lastconnector.transform.position, lastconnector.transform.forward + Vector3.left, out hit, 1000f))
-        {
-            Debug.Log("fIM DA LINHA = " + indice + "Hit what? R: " + hit.collider.name);
+            
             Debug.DrawLine(lastconnector.transform.position, hit.point, Color.green);
-            return true;
+            return EndLineModule;
         }
-        return false;
+
+        if (Physics.Raycast(lastconnector.transform.position + new Vector3(0, 1, 0), lastconnector.transform.forward, out hit, 20f))
+        {
+            //print("20f ---- " + hit.collider.transform.parent + " ----- " + hit.collider.name + " | " + lastconnector.name + " --- " + lastconnector.transform.parent.name);
+           Debug.DrawLine(lastconnector.transform.position, hit.point, Color.blue);
+            return FinalModule;
+        }
+        if (_iteration + 1 == Iterations)
+        {
+            return FinalModule;
+        }
+        return GetRandomWithTag(Modules, _newTag);
     }
     private ModulesTypes SafeCourse(ModulesTypes[] array, ModuleConnector lastconnector)
     {
 
-        ModulesTypes m = ModulesTypes.Corredor;
-        if(countdown==0)
-        {
-            Debug.Log("RAMDOM");
-            countdown = 1;
-            m = array[Random.Range(0, array.Length)];
-            
-
-            
-        }else
-        {
-            countdown--;
-        }
+        ModulesTypes m = array[Random.Range(0, array.Length)];
+        
         return m;
     }
     private void MatchExits(ModuleConnector oldExit, ModuleConnector newExit)

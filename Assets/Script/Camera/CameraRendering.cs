@@ -25,6 +25,17 @@ public class CameraRendering : MonoBehaviour
     }
     void Update()
     {
+        if (Personagem == null)
+        {
+            try
+            {
+                Personagem = GameObject.FindGameObjectWithTag("Player");
+            }
+            catch
+            {
+
+            }
+        }
 	    FollowCamera();
     }
 	void FollowCamera()

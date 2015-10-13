@@ -71,13 +71,19 @@ public class Eran2 : Character
 
         if (Alvo)
         {
-            if (!VidaMonstro.activeInHierarchy)
-                VidaMonstro.SetActive(true);
-            ShowMonsterLife();
+            if (VidaMonstro != null)
+            {
+                if (!VidaMonstro.activeInHierarchy)
+                    VidaMonstro.SetActive(true);
+                ShowMonsterLife();
+            }
         }else
         {
-            if (VidaMonstro.activeInHierarchy)
-                VidaMonstro.SetActive(false);
+            if (VidaMonstro != null)
+            {
+                if (VidaMonstro.activeInHierarchy)
+                    VidaMonstro.SetActive(false);
+            }
         }
         if (IsRecover)
         {

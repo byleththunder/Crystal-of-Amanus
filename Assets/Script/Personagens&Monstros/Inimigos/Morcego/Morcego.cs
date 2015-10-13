@@ -26,7 +26,9 @@ public class Morcego : Monster
     // Use this for initialization
     void Start()
     {
+        Level = 2;
         UpdateStatus();
+        ExpEarn = 4;
         poison = GetComponentInChildren<ParticleSystem>();
         anim = GetComponentInChildren<Animator>();
         PosIni = transform.position;
@@ -47,9 +49,9 @@ public class Morcego : Monster
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        
+        DamageCheck();
         rdb.velocity = Velocidade;
         raio = new Ray(transform.position, ConvertVisao(visao) +  new Vector3(0,-0.5f,0));
         RaycastHit hit;

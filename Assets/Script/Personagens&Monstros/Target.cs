@@ -41,7 +41,7 @@ public class Target : MonoBehaviour
     public int AmanusAtual { get { return Amanus; } }
     public int AtaqueAtual { get { return Ataque; } }
     public int ExperienciaAtual { get { return Exp; } }
-    public int NextLevel { get { return (int)(Mathf.Pow(5,Level)+Mathf.Log10(Level)); } }
+    public int NextLevel { get { return (Level == 1? 100:((int)(NextLevel+(NextLevel*0.1)))); } }
     //Métodos
     public void HealOrDamage(int _vida, int _amanus)
     {
@@ -60,7 +60,7 @@ public class Target : MonoBehaviour
     protected void LevelUp(int _exp)
     {
         Exp += _exp;
-       
+      
         if(Exp >= NextLevel)
         {
             Level++;

@@ -17,11 +17,10 @@ public class Monster : Target
     {
 
     }
-    void DamageCheck()
+    protected void DamageCheck()
     {
         if (Vida <= 0)
         {
-            ExpEarn = GameObject.FindObjectOfType<Character>().NextLevel / (5 * GameObject.FindObjectOfType<Character>().Level);
             print(ExpEarn);
             GameObject.FindGameObjectWithTag("Player").SendMessage("ChecarQuestMonstros", this);
             GameObject.FindGameObjectWithTag("Player").SendMessage("LevelUp", ExpEarn);
