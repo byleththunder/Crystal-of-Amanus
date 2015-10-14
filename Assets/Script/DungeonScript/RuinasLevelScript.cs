@@ -14,6 +14,7 @@ public class RuinasLevelScript : DungeonScript
     // Use this for initialization
     void Start()
     {
+        Calendar.IncreaseDay(11);
         GameObject[] _obj = GameObject.FindGameObjectsWithTag("Chest");
         for (int i = 0; i < _obj.Length; i++)
         {

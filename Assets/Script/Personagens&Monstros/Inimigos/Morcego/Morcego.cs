@@ -371,7 +371,6 @@ public class Morcego : Monster
     }
     void OnCollisionEnter(Collision col)
     {
-        print(col.transform.name);
         if(col.transform.tag == "Reflect")
         {
             HitTeste = true;

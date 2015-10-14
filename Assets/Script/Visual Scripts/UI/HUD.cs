@@ -24,7 +24,7 @@ public class HUD : MonoBehaviour
     //Ponteiro [65,0,-65]
     public RectTransform Ponteiro;
     // Calendario
-    
+
     // Use this for initialization
     void Start()
     {
@@ -63,7 +63,7 @@ public class HUD : MonoBehaviour
     }
     void PonteiroMove()
     {
-        switch(Calendar.ActualStage)
+        switch (Calendar.ActualStage)
         {
             case Calendar.StageOfTheDay.Manha:
                 Ponteiro.localEulerAngles = (new Vector3(0, 0, 65));
@@ -78,7 +78,9 @@ public class HUD : MonoBehaviour
     }
     void OrganizarCalendario()
     {
-        Dia.sprite = IntegerToImage(Calendar.ActualDay);
+
+
+        Dia.sprite = IntegerToImage((Calendar.ActualDay%Calendar.TotalDaysInAWeek));
         Mes.sprite = IntegerToImage(Calendar.ActualMounth);
         Semana.sprite = SemanaToImage(Calendar.ActualWeek);
         Ico.sprite = StageToImage(Calendar.ActualStage);
@@ -87,7 +89,7 @@ public class HUD : MonoBehaviour
     Sprite IntegerToImage(int i)
     {
         Sprite img = null;
-        switch(i)
+        switch (i)
         {
             case 1:
                 img = Numeros[0];
@@ -157,12 +159,12 @@ public class HUD : MonoBehaviour
             case Calendar.StageOfTheDay.Noite:
                 img = Stages[2];
                 break;
-            
+
             default:
                 break;
 
         }
         return img;
     }
-    
+
 }
