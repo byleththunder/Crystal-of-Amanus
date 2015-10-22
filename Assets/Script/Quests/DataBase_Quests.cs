@@ -24,6 +24,22 @@ public class DataBase_Quests : MonoBehaviour
     {
 
     }
+    public static List<Quest> PreencherLista(List<Quest> _temp)
+    {
+        if(_temp.Count == 0)
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                _temp.Add(new Quest());
+                _temp[i].GerarQuestAleatória();
+            }
+        }else
+        {
+            _temp.Add(new Quest());
+            _temp[_temp.Count - 1].GerarQuestAleatória();
+        }
+        return _temp;
+    }
     public static List<Quest> OrganizarLista()
     {
         for (int i = 0; i < 6; i++)

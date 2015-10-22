@@ -15,11 +15,11 @@ public class EspadaBasica : Item
     }
     bool Equipar(Target alvo)
     {
-        Character player = alvo.obj.GetComponent<Character>();
+        Character player = alvo.GetComponent<Character>();
         Item _temp = player.Equipar(this);
         if (_temp != null)
         {
-            Inventario inv = alvo.obj.GetComponent<Inventario>();
+            Inventario inv = alvo.GetComponent<Inventario>();
             inv.PickItem(_temp, 1);
         }
         return true;

@@ -13,6 +13,7 @@ public class Chest : MonoBehaviour {
     public int quantidade = 1;
     public bool Open = false;
     public SpriteRenderer Imagens;
+    public bool FoiAberto = false; //Quero saber se o jogador realmente abriu ou já estava aberto.
 	// Use this for initialization
 	void Start () {
         Imagens = GetComponentInChildren<SpriteRenderer>();
@@ -26,6 +27,7 @@ public class Chest : MonoBehaviour {
         {
             anim.SetFloat("speed", 1f);
         }
+        AlertMessage.PrefabPath = "Alert_Prefab";
 	}
 	void Update()
     {
@@ -33,6 +35,7 @@ public class Chest : MonoBehaviour {
         {
             anim.SetFloat("speed", 1f);
         }
+        
     }
     void OnTriggerStay(Collider col)
     {
@@ -49,7 +52,8 @@ public class Chest : MonoBehaviour {
                         {
                             Open = true;
                             col.gameObject.GetComponent<Inventario>().PickItem(loot, quantidade);
-                            //MessageBox.Instance.WriteMessage(loot.Nome + " x"+quantidade);
+                            FoiAberto = true;
+                            
                         }
                     }
                 }

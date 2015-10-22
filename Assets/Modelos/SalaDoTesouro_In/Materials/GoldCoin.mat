@@ -9,7 +9,7 @@ Material:
   m_Name: GoldCoin
   m_Shader: {fileID: 4800000, guid: 425cd5093514e1741bf6858d81e002b3, type: 3}
   m_ShaderKeywords: _EMISSION _NORMALMAP
-  m_LightmapFlags: 2
+  m_LightmapFlags: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
@@ -26,8 +26,8 @@ Material:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 2800000, guid: 26a96c8b41480b045a2dbdf66a61202d, type: 3}
-          m_Scale: {x: 1, y: 1}
+          m_Texture: {fileID: 2800000, guid: 19d46fcb155547f42a2752e478f17627, type: 3}
+          m_Scale: {x: 4, y: 4}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -158,7 +158,7 @@ Material:
       data:
         first:
           name: _Metallic
-        second: .712000012
+        second: 0
       data:
         first:
           name: _InvFade
@@ -166,7 +166,7 @@ Material:
       data:
         first:
           name: _Gloss
-        second: .850000024
+        second: 1
     m_Colors:
       data:
         first:
@@ -175,7 +175,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .768627524, g: .556862772, b: .160784319, a: 1}
+        second: {r: .889705896, g: .796999991, b: .340999991, a: 1}
       data:
         first:
           name: _SpecColor

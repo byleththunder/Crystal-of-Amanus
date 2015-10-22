@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine.UI;
 
+
 [AddComponentMenu("Scripts/Personagens e Monstros/Personagens Sripts/Personagens/Eran")]
 public class Eran2 : Character
 {
@@ -16,7 +17,6 @@ public class Eran2 : Character
     Rigidbody rgd;
     bool OnTheFloor = false;
     bool IsRecover = false;
-    bool left = false;
     //Velocidade da Fisica
     [HideInInspector]
     public Vector3 velocity;
@@ -34,32 +34,78 @@ public class Eran2 : Character
     bool ShowDamage = false;
     [Header("Painel ou Image que mostra vida do monstro")]
     public GameObject VidaMonstro;
-    
+
     List<Vector3> posDamage = new List<Vector3>();
     //
     public Eran2()
     {
-        ExpPadrao = 5;
         Nome = "Eran Airikina";
         AtaquePadrao = 10;
-        VidaTotal = 100;
+        if (!LoadInfo())
+        {
+            VidaTotal = 100;
+            AmanusTotal = 100;
+            Gold = 0;
+            UpdateStatus();
+        }
         Vida = VidaTotal;
-        AmanusTotal = 100;
         Amanus = AmanusTotal;
         EstadoDoJogador = GameStates.CharacterState.Playing;
-        Gold = 10000;
-        UpdateStatus();
 
 
+    }
+    public bool LoadInfo()
+    {
+        if (Game.current != null)
+        {
+            //Vou verificar se esse é um novo jogo.
+            if (Game.current.Player_Pos != null)
+            {
+                //Se não for um novo jogo, eu vou carregar as configurações anteriores.
+                transform.position = Game.current.Player_Pos;
+                Level = Game.current.Player_Level;
+                VidaTotal = Game.current.Player_Vida;
+                AmanusTotal = Game.current.Player_Amanus;
+                Ataque = Game.current.Player_Ataque;
+                Exp = Game.current.Player_Exp;
+                Gold = Game.current.Player_Argento;
+                Equipamentos[0] = ResourceFind.FindItem(Game.current.Player_Equipamentos[0]);
+                Equipamentos[1] = ResourceFind.FindItem(Game.current.Player_Equipamentos[1]);
+                return true;
+            }
+        }
+        return false;
+    }
+    public void SaveInfo()
+    {
+        if (Game.current != null)
+        {
+
+            //Se não for um novo jogo, eu vou carregar as configurações anteriores.
+            Game.current.Player_Pos = transform.position;
+            Game.current.Player_Level = Level;
+            Game.current.Player_Vida = VidaTotal;
+            Game.current.Player_Amanus = AmanusTotal;
+            Game.current.Player_Ataque = Ataque;
+            Game.current.Player_Exp = Exp;
+            Game.current.Player_Argento = Gold;
+            Game.current.Player_Equipamentos[0] = Equipamentos[0].name;
+            Game.current.Player_Equipamentos[1] = Equipamentos[1].name;
+        }
     }
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        obj = this.gameObject;
     }
     void Start()
     {
+        try
+        {
+            CheckPointPosition = GameObject.Find("InitialPosition").transform.position;
+        }catch
+        {
 
+        }
         rgd = GetComponent<Rigidbody>();
         rgd.freezeRotation = true;
         visao = TargetVision.Front;
@@ -77,7 +123,8 @@ public class Eran2 : Character
                     VidaMonstro.SetActive(true);
                 ShowMonsterLife();
             }
-        }else
+        }
+        else
         {
             if (VidaMonstro != null)
             {
@@ -125,7 +172,7 @@ public class Eran2 : Character
                 anim.SetFloat("SpeedX", Mathf.Abs(moveX));
 
             }
-            
+
             rgd.velocity = velocity;
 
         }
@@ -137,8 +184,8 @@ public class Eran2 : Character
     }
     void FixedUpdate()
     {
-        velocity.y = Mathf.Lerp(velocity.y, -1f, Time.deltaTime*2f );
-        if(IsJump && OnTheFloor)
+        velocity.y = Mathf.Lerp(velocity.y, -5f, Time.deltaTime * 2f);
+        if (IsJump && OnTheFloor)
         {
             anim.SetBool("Jump", true);
             velocity.y = moveY;
@@ -147,6 +194,7 @@ public class Eran2 : Character
             OnTheFloor = false;
             IsJump = false;
         }
+        SaveInfo();
     }
     public override void Movement()
     {
@@ -216,7 +264,7 @@ public class Eran2 : Character
     }
     IEnumerator JumpWait()
     {
-        velocity = new Vector3(0, velocity.y, 0);
+        //velocity = new Vector3(0, velocity.y, 0);
         yield return new WaitForSeconds(0.1f);
         velocity = new Vector3(moveX * Speed / Reducao, velocity.y, moveZ * Speed / Reducao);
         wait = false;
@@ -225,7 +273,7 @@ public class Eran2 : Character
     {
         if (InputManager.GetButtonDown("Action") && !attack)
         {
-            switch(visao)
+            switch (visao)
             {
                 case TargetVision.Back:
                     AttackRange.center = new Vector3(0, 0, 1);
@@ -252,14 +300,6 @@ public class Eran2 : Character
         yield return new WaitForSeconds(0.4f);
         attack = false;
     }
-    public Vector3 Flip()
-    {
-        left = !left;
-        Vector3 leftScale = transform.localScale;
-        leftScale.x *= -1;
-        transform.localScale = leftScale;
-        return leftScale;
-    }
     void CheckRecoverAmanusAuto()
     {
         if (Amanus < AmanusTotal)
@@ -267,10 +307,9 @@ public class Eran2 : Character
             IsRecover = true;
         }
     }
-
     void OnTriggerStay(Collider col)
     {
-      
+
 
         if (col.gameObject.tag == "Monsters")
         {
@@ -301,10 +340,13 @@ public class Eran2 : Character
         }
 
     }
-
     void OnCollisionEnter(Collision col)
     {
-
+        if(col.collider.tag == "CheckPoint")
+        {
+            CheckPointPosition = col.transform.position;
+            col.gameObject.SetActive(false);
+        }
         if (col.gameObject.tag == "Restart")
         {
             transform.position = CheckPointPosition;
@@ -323,7 +365,6 @@ public class Eran2 : Character
         }
 
     }
-
     void OnGUI()
     {
 
@@ -355,7 +396,6 @@ public class Eran2 : Character
         }
         ShowDamage = false;
     }
-
     public override void DeathState()
     {
         rgd.isKinematic = true;
@@ -367,6 +407,14 @@ public class Eran2 : Character
         EstadoDoJogador = GameStates.CharacterState.Playing;
         rgd.isKinematic = false;
         anim.SetTrigger("Death");
+    }
+    public override void HealOrDamage(int _vida, int _amanus)
+    {
+        base.HealOrDamage(_vida, _amanus);
+        if (_vida > 0)
+        {
+            anim.SetTrigger("Dano");
+        }
     }
     void ShowMonsterLife()
     {

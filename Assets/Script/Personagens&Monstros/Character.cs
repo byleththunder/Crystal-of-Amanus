@@ -25,8 +25,9 @@ public class Character : Target {
     public Target Alvo;
     [HideInInspector]
     public int Gold;
-    
+    public long Divida = 100000000;
     //Métodos
+    
     public Item Equipar(Item _Equipamento)
     {
         Item _temp = null;
@@ -86,11 +87,14 @@ public class Character : Target {
         try
         {
             HealOrDamage(other.GetComponentInParent<Monster>().AtaqueAtual, 0);
+            
         }
         catch
         {
-            HealOrDamage(1, 0);
+            HealOrDamage(5, 0);
+            print("Dano Padrão");
         }
+        print(other.transform.parent.name);
     }
     protected override void UpdateStatus()
     {

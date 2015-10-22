@@ -19,6 +19,7 @@ TagManager:
   - Shop
   - Chest
   - Destruivel
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
@@ -36,7 +37,7 @@ TagManager:
   - Menu
   - HUD
   - Fragmentos
-  - 
+  - Points
   - 
   - 
   - 

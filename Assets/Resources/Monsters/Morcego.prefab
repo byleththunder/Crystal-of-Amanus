@@ -75,8 +75,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .125335321, y: .364093482, z: -.452062339}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: .0670460016, y: .287999988, z: -.487087011}
+  m_LocalScale: {x: .0050907922, y: .0814526826, z: .0050907922}
   m_Children:
   - {fileID: 426558}
   - {fileID: 416438}
@@ -180,8 +180,6 @@ MonoBehaviour:
   AmanusTotal: 0
   AtaquePadrao: 0
   visao: 0
-  obj: {fileID: 0}
-  Habilidades: []
   LvlUpAnim: {fileID: 0}
   anim: {fileID: 0}
   Morte: {fileID: 185530, guid: 5739df4192616a146b304a531e7d4876, type: 2}
@@ -200,11 +198,11 @@ Projector:
   m_Enabled: 1
   serializedVersion: 2
   m_NearClipPlane: .100000001
-  m_FarClipPlane: 50
+  m_FarClipPlane: 2
   m_FieldOfView: 55.4700012
   m_AspectRatio: 1
-  m_Orthographic: 0
-  m_OrthographicSize: 2
+  m_Orthographic: 1
+  m_OrthographicSize: .5
   m_Material: {fileID: 2100000, guid: e30ff3588e719f34bbf0c66f22d97487, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2

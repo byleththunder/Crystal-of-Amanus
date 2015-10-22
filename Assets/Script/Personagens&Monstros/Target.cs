@@ -22,14 +22,9 @@ public class Target : MonoBehaviour
     [Header("Ataque básico (sem valores adicionais) no Level 1")]
     [Tooltip("Valores adicionais só vão existir em personagens, pois eles possuem equipamentos que podem aumentar os status (ATK,VP,AP)")]
     public int AtaquePadrao;
-    protected int ExpPadrao;
     protected int Exp;
     [HideInInspector]
     public TargetVision visao;
-    [HideInInspector]
-    public GameObject obj;
-    [HideInInspector]
-    public Skill[] Habilidades;
     [Header("Particula que da um Feedback quando o joggador passa de nivel")]
     public ParticleSystem LvlUpAnim;
     ///<summary "Propriedades">
@@ -43,7 +38,7 @@ public class Target : MonoBehaviour
     public int ExperienciaAtual { get { return Exp; } }
     public int NextLevel { get { return (Level == 1? 100:((int)(NextLevel+(NextLevel*0.1)))); } }
     //Métodos
-    public void HealOrDamage(int _vida, int _amanus)
+    public virtual void HealOrDamage(int _vida, int _amanus)
     {
         Vida -= _vida;
         if (Vida < 0)

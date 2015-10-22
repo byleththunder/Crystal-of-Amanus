@@ -58,14 +58,19 @@ public class MessageBox : Singleton<MessageBox>
             Nome.text = string.Empty;
             Texto.text = string.Empty;
         }
-        int NumLinhas = ((int)(Texto.GetComponent<RectTransform>().sizeDelta.y / Texto.fontSize)) - 1;
+        int NumLinhas = ((int)(Texto.GetComponent<RectTransform>().sizeDelta.y / Texto.fontSize));
         int PalaporLinha = ((int)(Texto.GetComponent<RectTransform>().sizeDelta.x / Texto.fontSize));
         int _indicetemp = 0;
+        int paltotal = (int)((PalaporLinha * 1.9f) * NumLinhas);
+        if (paltotal == 0)
+        {
+            paltotal *= 5;
+        }
         mensagens.Add(string.Empty);
         Nomes.Add(string.Empty);
         for (int i = 0; i < text.Length; i++)
         {
-            if (i > (NumLinhas * PalaporLinha) * (_indicetemp + 1) && text[i] == ' ')
+            if (i > paltotal * (_indicetemp + 1) && text[i] == ' ')
             {
                 _indicetemp++;
                 mensagens.Add(string.Empty);
@@ -83,37 +88,28 @@ public class MessageBox : Singleton<MessageBox>
     public void WriteMessage(string text, string name)
     {
         try { pers = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>(); }
-        catch { Debug.LogWarning("Não tem nenhum player nessa cena."); }
+        catch { //Debug.LogWarning("Não tem nenhum player nessa cena."); 
+        }
 
         FinishiAll = false;
         if (mensagens.Count == 0) { Finish = false; indice = 0; }
         if (!painel)
         {
             painel = gameObject;
-            var temp = GetComponentsInChildren<Text>();
-            for (int i = 0; i < temp.Length; i++)
-            {
-                if (temp[i].name == "Texto")
-                {
-                    Texto = temp[i];
-                }
-                if (temp[i].name == "Nome")
-                {
-                    Nome = temp[i];
-                }
-            }
+            Texto = painel.transform.FindChild("Texto").GetComponent<Text>();
+            Nome = painel.transform.FindChild("Nome").GetComponent<Text>();
+           
             Nome.text = string.Empty;
             Texto.text = string.Empty;
         }
-        float NumLinhas = ((int)(Texto.GetComponent<RectTransform>().sizeDelta.y / Texto.fontSize));
-        float PalaporLinha = ((int)(Texto.GetComponent<RectTransform>().sizeDelta.x / Texto.fontSize));
+        float NumLinhas = (((int)Texto.GetComponent<RectTransform>().sizeDelta.y / Texto.fontSize));
+        float PalaporLinha = (((int)Texto.GetComponent<RectTransform>().sizeDelta.x / Texto.fontSize));
         int _indicetemp = 0;
-        int paltotal = (int)(NumLinhas * PalaporLinha);
+        int paltotal = (int)((PalaporLinha*1.9f)*NumLinhas);
         if (paltotal == 0)
         {
             paltotal *= 5;
         }
-        print(paltotal);
         mensagens.Add(string.Empty);
         Nomes.Add(name);
         for (int i = 0; i < text.Length; i++)
@@ -146,7 +142,7 @@ public class MessageBox : Singleton<MessageBox>
                     Nomes.RemoveAt(0);
                     Finish = false;
                     Timer = 0;
-                    Show();
+                    Invoke("Show", 0.1f);
                 }
             }
             else
@@ -184,9 +180,9 @@ public class MessageBox : Singleton<MessageBox>
         {
             if (indice < mensagens[0].Length)
             {
-
                 Timer += (Time.deltaTime*2);
-                if (InputManager.GetButtonDown("Action") && !Finish && indice > 0)
+               
+                if (InputManager.GetButtonDown("Action") || Input.GetMouseButtonDown(1) && !Finish && indice > 0 )
                 {
                     if (Nomes[0] == string.Empty)
                     {

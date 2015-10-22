@@ -33,7 +33,7 @@ public class ModularWorldGenerator : MonoBehaviour
             foreach (var pendingExit in pendingExits)
             {
                 indice++;
-                var newTag = SafeCourse(pendingExit.Tipos, pendingExit);
+                var newTag = GetRandom(pendingExit.Tipos);
                 var newModulePrefab = CheckWay(pendingExit, newTag, iteration);
                 var newModule = (Module)Instantiate(newModulePrefab);
                 newModule.transform.SetParent(transform);
@@ -48,11 +48,23 @@ public class ModularWorldGenerator : MonoBehaviour
         }
     }
 
+    //Essa classe eu que criei.
     private Module CheckWay(ModuleConnector lastconnector, ModulesTypes _newTag, int _iteration)
     {
         RaycastHit hit;
-
-        if (Physics.Raycast(lastconnector.transform.position + new Vector3(0, 1, 0), lastconnector.transform.forward, out hit, 5f))
+        //Para saber se eu devo colocar um objeto vázio entre caminhos ou fechar a passagem, eu disparo um raio 1m acima do ModuleConnector para que o raio detecte as paredes
+        //Se eu colocar o raio na mesma altura do ModuleConnector, o raio ultrapassa o Quad(Chão), fazendo com que não se detecte nada. Por que as distancias 5f e 20f?
+        //5f é a distancia minima para detectar se existe uma sala na frente do corredor. 20f é uma distancia segura, que impede que salas e corredores se colidam.
+        //obs.: Quando se atinge o limite de iterações, eu fecho as passagens
+        /*6|
+         *5|
+         *4|
+         *3|                         
+         *2|                        _____
+         *1|---------------->(Raio) |___| (Parede)
+         *o-------------------------------(Quad)
+         * */
+        if (Physics.Raycast(lastconnector.transform.position + new Vector3(0, 1, 0), lastconnector.transform.forward - new Vector3(0,1,0), out hit, 5f))
         {
             
             Debug.DrawLine(lastconnector.transform.position, hit.point, Color.green);
@@ -61,8 +73,7 @@ public class ModularWorldGenerator : MonoBehaviour
 
         if (Physics.Raycast(lastconnector.transform.position + new Vector3(0, 1, 0), lastconnector.transform.forward, out hit, 20f))
         {
-            //print("20f ---- " + hit.collider.transform.parent + " ----- " + hit.collider.name + " | " + lastconnector.name + " --- " + lastconnector.transform.parent.name);
-           Debug.DrawLine(lastconnector.transform.position, hit.point, Color.blue);
+            Debug.DrawLine(lastconnector.transform.position, hit.point, Color.blue);
             return FinalModule;
         }
         if (_iteration + 1 == Iterations)
@@ -71,13 +82,11 @@ public class ModularWorldGenerator : MonoBehaviour
         }
         return GetRandomWithTag(Modules, _newTag);
     }
-    private ModulesTypes SafeCourse(ModulesTypes[] array, ModuleConnector lastconnector)
-    {
-
-        ModulesTypes m = array[Random.Range(0, array.Length)];
-        
-        return m;
-    }
+   
+    /*Isso pertence ao script original, é a parte que eu necessitava. Nesse método
+     *se pega a referencia da posição do modulo antigo para que o novo se conecte a ele na posição e rotação certa. Além de juntar o module, se junta todo o prefab da sala 
+     *ou corredor.
+    */
     private void MatchExits(ModuleConnector oldExit, ModuleConnector newExit)
     {
         var newModule = newExit.transform.parent;
