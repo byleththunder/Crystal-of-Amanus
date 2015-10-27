@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 925ec469054a6374cac96e2021d5826f
-timeCreated: 1443436484
+timeCreated: 1445805335
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -60,8 +60,8 @@ TextureImporter:
         y: 0
         width: 110
         height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .438794732, y: .418000638}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: guarda_resp_espada_costas_1
       rect:
@@ -70,8 +70,8 @@ TextureImporter:
         y: 0
         width: 110
         height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .438794702, y: .418000609}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: guarda_resp_espada_costas_2
       rect:
@@ -80,8 +80,8 @@ TextureImporter:
         y: 0
         width: 110
         height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .438794702, y: .418000609}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: guarda_resp_espada_costas_3
       rect:
@@ -90,8 +90,8 @@ TextureImporter:
         y: 0
         width: 110
         height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .438794702, y: .418000609}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

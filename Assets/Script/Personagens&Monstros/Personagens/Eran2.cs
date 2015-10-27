@@ -41,13 +41,14 @@ public class Eran2 : Character
     {
         Nome = "Eran Airikina";
         AtaquePadrao = 10;
-        if (!LoadInfo())
-        {
-            VidaTotal = 100;
-            AmanusTotal = 100;
-            Gold = 0;
-            UpdateStatus();
-        }
+        //if (!LoadInfo())
+        //{
+            
+        //}
+        VidaTotal = 100;
+        AmanusTotal = 100;
+        Gold = 0;
+        UpdateStatus();
         Vida = VidaTotal;
         Amanus = AmanusTotal;
         EstadoDoJogador = GameStates.CharacterState.Playing;
@@ -89,20 +90,23 @@ public class Eran2 : Character
             Game.current.Player_Ataque = Ataque;
             Game.current.Player_Exp = Exp;
             Game.current.Player_Argento = Gold;
-            Game.current.Player_Equipamentos[0] = Equipamentos[0].name;
-            Game.current.Player_Equipamentos[1] = Equipamentos[1].name;
+            if (Equipamentos[0] != null)
+                Game.current.Player_Equipamentos[0] = Equipamentos[0].name;
+            if (Equipamentos[1] != null)
+                Game.current.Player_Equipamentos[1] = Equipamentos[1].name;
         }
     }
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
     void Start()
     {
         try
         {
             CheckPointPosition = GameObject.Find("InitialPosition").transform.position;
-        }catch
+        }
+        catch
         {
 
         }
@@ -178,7 +182,6 @@ public class Eran2 : Character
         }
         else
         {
-            anim.SetTrigger("Idle");
             rgd.velocity = Vector3.zero;
         }
     }
@@ -255,6 +258,16 @@ public class Eran2 : Character
     }
     public override bool Jump()
     {
+        //RaycastHit hit;
+        //if (Physics.Raycast(transform.position, Vector3.down, out hit, 1f))
+        //{
+        //    if (InputManager.GetButtonDown("Jump"))
+        //    {
+        //        IsJump = true;
+        //        return true;
+        //    }
+        //}
+
         if (OnTheFloor && InputManager.GetButtonDown("Jump") && !IsJump)
         {
             IsJump = true;
@@ -340,9 +353,16 @@ public class Eran2 : Character
         }
 
     }
+    void OnTriggerExit(Collider col)
+    {
+        if (col.gameObject.tag == "Monsters")
+        {
+            Alvo = null;
+        }
+    }
     void OnCollisionEnter(Collision col)
     {
-        if(col.collider.tag == "CheckPoint")
+        if (col.collider.tag == "CheckPoint")
         {
             CheckPointPosition = col.transform.position;
             col.gameObject.SetActive(false);

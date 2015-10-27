@@ -39,6 +39,7 @@ public class Rato : Monster {
 	void Update () {
         rdb.velocity = Velocidade;
         Idle();
+        DamageCheck();
 	}
     public void Idle()
     {

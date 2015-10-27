@@ -93,11 +93,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 182962}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6c3769f9168e134db17168a116622b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 5341c259a278fb944a20b1c719fdd7bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Escudos: {fileID: 0}
-  Jogador: {fileID: 0}
+  Nome: Escudo
+  Descricao: Uma esfera de energia cobre o personagem, protegendo-o dos ataques inimigos.
+  Img: {fileID: 21300000, guid: 9e79491d5937bcb4f94040b817ddd076, type: 3}
+  NameImg: {fileID: 21300000, guid: 29cb6bb6e053ae74b91c455c15ff6ceb, type: 3}
+  Alvo: 0
+  Dano: 0
+  CoolDown: 0
+  OnCoolDown: 0
+  Escudo: {fileID: 0}
 --- !u!114 &11469988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -109,8 +116,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c01c44202e8a1e45b04e374badea9b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Nome: 
+  Descricao: 
+  Img: {fileID: 0}
+  NameImg: {fileID: 0}
+  Alvo: 0
+  Dano: 0
+  CoolDown: 0
+  OnCoolDown: 0
   Pers: {fileID: 0}
-  FirePrefab: {fileID: 11426762, guid: 0020611a3bcc8e84aba2900beebedd7d, type: 2}
+  Particle: {fileID: 0}
   Personagem: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
@@ -118,7 +133,25 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: Nome
+      value: Escudo
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Descricao
+      value: Uma esfera de energia cobre o personagem, protegendo-o dos ataques inimigos.
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Img
+      value: 
+      objectReference: {fileID: 21300000, guid: 9e79491d5937bcb4f94040b817ddd076,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: NameImg
+      value: 
+      objectReference: {fileID: 21300000, guid: 29cb6bb6e053ae74b91c455c15ff6ceb,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 102508}

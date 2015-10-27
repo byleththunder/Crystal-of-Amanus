@@ -33,6 +33,7 @@ public class MonsterRespawn : MonoBehaviour {
                 Infield[i] = (Monster)Instantiate(PrefabsMonster[Random.Range(0, NumberOfMonsters)]);
                 Infield[i].transform.SetParent(transform);
                 Infield[i].transform.position = new Vector3(transform.position.x + Random.Range(0, 5), transform.position.y, transform.position.z + Random.Range(0, 5));
+                Infield[i].transform.localScale = new Vector3(1, 1, 1);
             }
         }
     }

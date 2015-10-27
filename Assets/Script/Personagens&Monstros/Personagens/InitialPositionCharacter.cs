@@ -5,29 +5,28 @@ using System.Collections;
 public class InitialPositionCharacter : MonoBehaviour {
 
     public GameObject prefab;
-    public GameObject obj;
-    public Character player;
+    private GameObject Instancia;
+    private Character player;
 	// Use this for initialization
-	void Awake () {
-       obj = GameObject.FindGameObjectWithTag("Player");
-       if (obj != null)
+	void Start () {
+       Instancia = GameObject.FindGameObjectWithTag("Player");
+       
+       if (Instancia != null)
         {
-            obj.transform.position = transform.position;
+            Instancia.transform.position = transform.position;
             
         }else
         {
-          obj =(GameObject)Instantiate(prefab, transform.position,transform.rotation);
+            print("Nulo");
+          Instancia =(GameObject)Instantiate(prefab, transform.position,transform.rotation);
         }
-       player = obj.GetComponent<Character>();
+       player = Instancia.GetComponent<Character>();
        if (player != null)
        {
            player.CheckPointPosition = transform.position;
        }
 	}
-    void Update()
-    {
-       
-    }
+    
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

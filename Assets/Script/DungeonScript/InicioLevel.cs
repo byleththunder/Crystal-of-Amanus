@@ -16,7 +16,7 @@ public class InicioLevel : DungeonScript
     Color Fade;
     float timer = 0;
     bool comecou = false;
-    GameObject obj;
+    GameObject BoxDeMensagem;
     // Use this for initialization
     void Start()
     {
@@ -32,7 +32,7 @@ public class InicioLevel : DungeonScript
     {
         if (comecou)
         {
-            if (!obj.activeInHierarchy)
+            if (!BoxDeMensagem.activeInHierarchy)
             {
                 if (Fade.a < 1)
                 {
@@ -58,16 +58,16 @@ public class InicioLevel : DungeonScript
     void Conversa()
     {
         
-        MessageBox.Instance.WriteMessage("Ainda faltam alguns dias para chegarmos ao Reino de Cernuno.", "Mercante");
-        MessageBox.Instance.WriteMessage("Essa não é uma rota comercial muito conhecida – por que você está fazendo esse caminho?", "Mercante");
-        MessageBox.Instance.WriteMessage("Ouvi histórias sobre um tesouro perdido do rei. Uma diligência real levava fortunas em dois baús, quando foi atacada por monstros.", "Guerreiro");
-        MessageBox.Instance.WriteMessage("Os soldados fugiram e os monstros levaram tudo da carruagem...", "Guerreiro");
-        MessageBox.Instance.WriteMessage("Deixa-me adivinhar: o tesouro está perto de Cernuno e você quer encontra-lo? Para fazer riqueza rápida?", "Mercante");
+        MessageBox.Instance.WriteMessage("Ainda faltam alguns dias para chegarmos ao Reino de Cernuno.", "Mercador");
+        MessageBox.Instance.WriteMessage("Essa não é uma rota comercial muito conhecida – por que você está fazendo esse caminho?", "Mercador");
+        MessageBox.Instance.WriteMessage("Ouvi histórias sobre um tesouro perdido do rei. Uma diligência real levava fortunas em duas carruagens quando foi atacada por monstros.", "Guerreiro");
+        MessageBox.Instance.WriteMessage("Os soldados fugiram e os monstros levaram tudo das carruagens...", "Guerreiro");
+        MessageBox.Instance.WriteMessage("Deixa-me adivinhar: o tesouro está perto de Cernuno e você quer encontra-lo? Para fazer riqueza rápida?", "Mercador");
         MessageBox.Instance.WriteMessage("Não só pela riqueza. Também quero conquistar uma parte do mundo para mim, ouvir os bardos cantarem sobre meu nome em aventuras.", "Guerreiro");
-        MessageBox.Instance.WriteMessage("Hahaha! Você diz coisas engraçadas para alguém que anda apenas com uma espada. Por qual nome devo atender vossa alteza?", "Mercante");
+        MessageBox.Instance.WriteMessage("Hahaha! Você diz coisas engraçadas para alguém que anda apenas com uma espada. Por qual nome devo atender vossa alteza?", "Mercador");
         MessageBox.Instance.WriteMessage("Meu nome é Eran.", "Eran");
         MessageBox.Instance.WriteMessage("Vou me lembrar do seu nome, mercenário. Talvez eu também consiga aproveitar um pouco da sua fortuna! Sou Damoh, o mercador viajante.", "Damoh");
-        obj = MessageBox.Instance.gameObject;
+        BoxDeMensagem = MessageBox.Instance.gameObject;
         comecou = true;
     }
     void Mundanca()

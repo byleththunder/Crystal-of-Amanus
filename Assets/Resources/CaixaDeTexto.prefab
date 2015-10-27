@@ -30,6 +30,7 @@ GameObject:
   - 222: {fileID: 22220808}
   - 114: {fileID: 11457468}
   - 114: {fileID: 11420088}
+  - 114: {fileID: 11446606}
   m_Layer: 5
   m_Name: CaixaDeTexto
   m_TagString: Mensagens
@@ -47,7 +48,6 @@ GameObject:
   - 224: {fileID: 22498536}
   - 222: {fileID: 22296988}
   - 114: {fileID: 11489846}
-  - 114: {fileID: 11423950}
   - 114: {fileID: 11438636}
   m_Layer: 5
   m_Name: Nome
@@ -68,19 +68,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
---- !u!114 &11423950
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 147654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1741964061, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 0
-  m_VerticalFit: 2
 --- !u!114 &11438636
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -95,6 +82,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: .5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &11446606
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1254083943, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 1
+  m_AspectRatio: 5.19702816
 --- !u!114 &11457468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,10 +146,10 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 8d070c54397eaf541919b68032c2f60a, type: 3}
     m_FontSize: 12
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 3
+    m_BestFit: 1
+    m_MinSize: 12
+    m_MaxSize: 16
+    m_Alignment: 6
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -173,14 +173,14 @@ MonoBehaviour:
     m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 14
-    m_MaxSize: 16
+    m_MinSize: 16
+    m_MaxSize: 18
     m_Alignment: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: fskhahlshlasljLJALSHLFHASHLS
 --- !u!114 &11497038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -230,7 +230,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: .783749998, y: .215556189}
   m_AnchoredPosition: {x: -.5, y: -.5}
-  m_SizeDelta: {x: -1, y: -1}
+  m_SizeDelta: {x: -1, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22426864
 RectTransform:
@@ -244,10 +244,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22416264}
   m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -.800000012, y: -8.5}
-  m_SizeDelta: {x: 585.799988, y: 44.9000015}
+  m_AnchorMin: {x: .0370000005, y: .190000013}
+  m_AnchorMax: {x: .95351249, y: .61639607}
+  m_AnchoredPosition: {x: 1, y: 1.5}
+  m_SizeDelta: {x: 0, y: 1}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22498536
 RectTransform:
@@ -261,10 +261,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22416264}
   m_RootOrder: 1
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -243, y: 27.3999996}
-  m_SizeDelta: {x: 93.4000015, y: 0}
+  m_AnchorMin: {x: .0329999998, y: .674000025}
+  m_AnchorMax: {x: .182000011, y: .773514628}
+  m_AnchoredPosition: {x: -.100000024, y: .5}
+  m_SizeDelta: {x: -.200000048, y: -.700000763}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
 Prefab:
@@ -320,6 +320,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_FontData.m_BestFit
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_FontData.m_MinSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_FontData.m_MaxSize
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

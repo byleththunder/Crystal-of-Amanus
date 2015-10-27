@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 55ac7c06ef6a4f44598d9b2f41e48b37
-timeCreated: 1443436446
+timeCreated: 1445806153
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -60,8 +60,8 @@ TextureImporter:
         y: 0
         width: 110
         height: 130
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .51647836, y: .432275832}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: guarda_resp_direita_1
       rect:
@@ -70,8 +70,8 @@ TextureImporter:
         y: 0
         width: 110
         height: 130
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .544726968, y: .43426773}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: guarda_resp_direita_2
       rect:
@@ -80,8 +80,8 @@ TextureImporter:
         y: 0
         width: 110
         height: 130
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .516478419, y: .432275802}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: guarda_resp_direita_3
       rect:
@@ -90,8 +90,8 @@ TextureImporter:
         y: 0
         width: 110
         height: 130
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .516478419, y: .432275802}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

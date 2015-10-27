@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 490376}
   - 212: {fileID: 21258070}
   - 95: {fileID: 9515100}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rato_sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 493956}
   - 119: {fileID: 11973066}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: BlobShadowProjector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,12 +41,12 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 418348}
-  - 65: {fileID: 6562790}
   - 54: {fileID: 5494916}
   - 114: {fileID: 11495306}
-  m_Layer: 0
+  - 136: {fileID: 13680376}
+  m_Layer: 11
   m_Name: Rato
-  m_TagString: Untagged
+  m_TagString: Monsters
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,18 +104,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &6562790
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 189100}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: .460000008, y: .310000002, z: .699999988}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &9515100
 Animator:
   serializedVersion: 3
@@ -145,18 +133,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Level: 1
-  Nome: 
-  VidaTotal: 0
+  Nome: Rato
+  VidaTotal: 50
   AmanusTotal: 0
-  AtaquePadrao: 0
+  AtaquePadrao: 1
   visao: 0
   LvlUpAnim: {fileID: 0}
   anim: {fileID: 0}
-  Morte: {fileID: 0}
+  Morte: {fileID: 185530, guid: 5739df4192616a146b304a531e7d4876, type: 2}
   HitTeste: 0
   rdb: {fileID: 0}
   Horizontal: 1
-  distance: 2
+  distance: 1
 --- !u!119 &11973066
 Projector:
   m_ObjectHideFlags: 1
@@ -175,6 +163,19 @@ Projector:
   m_IgnoreLayers:
     serializedVersion: 2
     m_Bits: 0
+--- !u!136 &13680376
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189100}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: .5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: .219999999, z: 0}
 --- !u!212 &21258070
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -57,6 +57,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                         }
                         else
                         {
+                            
                             GameObject singleton = Instantiate(Resources.Load<GameObject>(PrefabPath));
                             _instance = singleton.AddComponent<T>();
                             singleton.name = "(singleton) " + typeof(T).ToString();

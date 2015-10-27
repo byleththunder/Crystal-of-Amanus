@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityStandardAssets.Utility;
 
 [AddComponentMenu("Scripts/MapaMundi/Destination")]
 public class Destination : MonoBehaviour {
 
     public string LevelName;
-    WaypointProgressTracker Pivot;
+    CharacterPivot Pivot;
+    NavMeshAgent Nav;
 	// Use this for initialization
 	void Start () {
-        Pivot = GameObject.Find("Pivot").GetComponent<WaypointProgressTracker>();
+        Pivot = GameObject.Find("Pivot").GetComponent<CharacterPivot>();
+        Nav = GameObject.Find("nAV").GetComponent<NavMeshAgent>();
+
 	}
 	
 	// Update is called once per frame
@@ -18,17 +20,15 @@ public class Destination : MonoBehaviour {
 	}
     void OnMouseDown()
     {
-
-        Pivot.target = transform;
-        //if (!Pivot.IsMoving() && Pivot.Destino == new Vector3(transform.position.x, 0, transform.position.z))
-        //{
-        //    if (!string.IsNullOrEmpty(LevelName))
-        //    {
-        //        LoadingScreen.NextLevelName = LevelName;
-        //        Application.LoadLevel("LoadingScene");
-        //    }
-        //    Debug.Log("Mudando de cena");
-        //}
-        //Pivot.Destino = new Vector3(transform.position.x, 0, transform.position.z);
+        if (Nav.destination == transform.position)
+        {
+            if (!string.IsNullOrEmpty(LevelName))
+            {
+                LoadingScreen.NextLevelName = LevelName;
+                Application.LoadLevel("LoadingScene");
+            }
+            Debug.Log("Mudando de cena");
+        }
+        Nav.SetDestination(transform.position);
     }
 }

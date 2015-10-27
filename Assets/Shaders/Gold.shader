@@ -1,7 +1,7 @@
 // Shader created with Shader Forge v1.18 
 // Shader Forge (c) Neat Corporation / Joachim Holmer - http://www.acegikmo.com/shaderforge/
 // Note: Manually altering this data may prevent you from opening it in Shader Forge
-/*SF_DATA;ver:1.18;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,lico:1,lgpr:1,limd:3,spmd:1,trmd:0,grmd:1,uamb:True,mssp:True,bkdf:True,hqlp:False,rprd:True,enco:False,rmgx:True,rpth:1,hqsc:True,nrmq:1,nrsp:2,vomd:0,spxs:False,tesm:0,culm:0,bsrc:0,bdst:1,dpts:2,wrdp:False,dith:0,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:True,qofs:0,qpre:3,rntp:2,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False;n:type:ShaderForge.SFN_Final,id:2865,x:32717,y:32720,varname:node_2865,prsc:2|diff-6343-OUT,spec-358-OUT,gloss-1813-OUT,normal-5964-RGB,emission-8133-OUT,lwrap-5408-RGB,amdfl-5408-RGB,amspl-5408-RGB,alpha-7736-A;n:type:ShaderForge.SFN_Multiply,id:6343,x:32106,y:32707,varname:node_6343,prsc:2|A-7736-RGB,B-6665-RGB;n:type:ShaderForge.SFN_Color,id:6665,x:31921,y:32805,ptovrint:False,ptlb:Color,ptin:_Color,varname:_Color,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0.9034483,c2:1,c3:0,c4:1;n:type:ShaderForge.SFN_Tex2d,id:7736,x:31921,y:32620,ptovrint:True,ptlb:Base Color,ptin:_MainTex,varname:_MainTex,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:fd695244fa1cf3d439a90e0f8840e616,ntxv:3,isnm:False;n:type:ShaderForge.SFN_Tex2d,id:5964,x:32117,y:32969,ptovrint:True,ptlb:Normal Map,ptin:_BumpMap,varname:_BumpMap,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:26a96c8b41480b045a2dbdf66a61202d,ntxv:3,isnm:True;n:type:ShaderForge.SFN_Slider,id:358,x:32250,y:32777,ptovrint:False,ptlb:Metallic,ptin:_Metallic,varname:node_358,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:1,max:1;n:type:ShaderForge.SFN_Slider,id:1813,x:32250,y:32882,ptovrint:False,ptlb:Gloss,ptin:_Gloss,varname:_Metallic_copy,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:1,max:1;n:type:ShaderForge.SFN_AmbientLight,id:5408,x:32362,y:32983,varname:node_5408,prsc:2;n:type:ShaderForge.SFN_ValueProperty,id:3083,x:32297,y:32650,ptovrint:False,ptlb:e_3083083,ptin:_e_3083083,varname:node_3083,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,v1:0.2;n:type:ShaderForge.SFN_Multiply,id:8133,x:32480,y:32524,varname:node_8133,prsc:2|A-7736-RGB,B-3083-OUT;proporder:5964-6665-7736-358-1813-3083;pass:END;sub:END;*/
+/*SF_DATA;ver:1.18;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,lico:1,lgpr:1,limd:3,spmd:1,trmd:0,grmd:1,uamb:True,mssp:True,bkdf:True,hqlp:False,rprd:True,enco:False,rmgx:True,rpth:1,hqsc:True,nrmq:1,nrsp:2,vomd:0,spxs:False,tesm:0,culm:0,bsrc:0,bdst:1,dpts:2,wrdp:False,dith:0,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:True,qofs:0,qpre:3,rntp:2,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False;n:type:ShaderForge.SFN_Final,id:2865,x:32717,y:32720,varname:node_2865,prsc:2|diff-6343-OUT,spec-358-OUT,gloss-1813-OUT,normal-5964-RGB,emission-8133-OUT,lwrap-5408-RGB,amdfl-5408-RGB,amspl-5408-RGB,alpha-7736-A;n:type:ShaderForge.SFN_Multiply,id:6343,x:32106,y:32707,varname:node_6343,prsc:2|A-7736-RGB,B-6665-RGB;n:type:ShaderForge.SFN_Color,id:6665,x:31921,y:32805,ptovrint:False,ptlb:Color,ptin:_Color,varname:_Color,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0.9034483,c2:1,c3:0,c4:1;n:type:ShaderForge.SFN_Tex2d,id:7736,x:31921,y:32620,ptovrint:True,ptlb:Base Color,ptin:_MainTex,varname:_MainTex,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:fd695244fa1cf3d439a90e0f8840e616,ntxv:3,isnm:False;n:type:ShaderForge.SFN_Tex2d,id:5964,x:32117,y:32969,ptovrint:True,ptlb:Normal Map,ptin:_BumpMap,varname:_BumpMap,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:26a96c8b41480b045a2dbdf66a61202d,ntxv:3,isnm:True;n:type:ShaderForge.SFN_Slider,id:358,x:32250,y:32777,ptovrint:False,ptlb:Metallic,ptin:_Metallic,varname:node_358,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:1,max:1;n:type:ShaderForge.SFN_Slider,id:1813,x:32250,y:32882,ptovrint:False,ptlb:Gloss,ptin:_Gloss,varname:_Metallic_copy,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:1,max:1;n:type:ShaderForge.SFN_AmbientLight,id:5408,x:32362,y:32983,varname:node_5408,prsc:2;n:type:ShaderForge.SFN_ValueProperty,id:3083,x:32297,y:32650,ptovrint:False,ptlb:Emission,ptin:_Emission,varname:node_3083,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,v1:0.2;n:type:ShaderForge.SFN_Multiply,id:8133,x:32480,y:32524,varname:node_8133,prsc:2|A-7736-RGB,B-3083-OUT;proporder:5964-6665-7736-358-1813-3083;pass:END;sub:END;*/
 
 Shader "Shader Forge/Gold" {
     Properties {
@@ -10,7 +10,7 @@ Shader "Shader Forge/Gold" {
         _MainTex ("Base Color", 2D) = "bump" {}
         _Metallic ("Metallic", Range(0, 1)) = 1
         _Gloss ("Gloss", Range(0, 1)) = 1
-        _e_3083083 ("e_3083083", Float ) = 0.2
+        _Emission ("Emission", Float ) = 0.2
     }
     SubShader {
         Tags {
@@ -49,7 +49,7 @@ Shader "Shader Forge/Gold" {
             uniform sampler2D _BumpMap; uniform float4 _BumpMap_ST;
             uniform float _Metallic;
             uniform float _Gloss;
-            uniform float _e_3083083;
+            uniform float _Emission;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
@@ -151,12 +151,12 @@ Shader "Shader Forge/Gold" {
                 indirectDiffuse += UNITY_LIGHTMODEL_AMBIENT.rgb; // Diffuse Ambient Light
                 indirectDiffuse += gi.indirect.diffuse;
 ////// Emissive:
-                float3 emissive = (_MainTex_var.rgb*_e_3083083);
+                float3 emissive = (_MainTex_var.rgb*_Emission);
 /// Final Color:
                 outDiffuse = half4( diffuseColor, 1 );
                 outSpecSmoothness = half4( specularColor, gloss );
                 outNormal = half4( normalDirection * 0.5 + 0.5, 1 );
-                outEmission = half4( (_MainTex_var.rgb*_e_3083083), 1 );
+                outEmission = half4( (_MainTex_var.rgb*_Emission), 1 );
                 outEmission.rgb += indirectSpecular;
                 outEmission.rgb += indirectDiffuse * diffuseColor;
                 #ifndef UNITY_HDR_ON
@@ -194,7 +194,7 @@ Shader "Shader Forge/Gold" {
             uniform sampler2D _BumpMap; uniform float4 _BumpMap_ST;
             uniform float _Metallic;
             uniform float _Gloss;
-            uniform float _e_3083083;
+            uniform float _Emission;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
@@ -320,7 +320,7 @@ Shader "Shader Forge/Gold" {
                 indirectDiffuse += gi.indirect.diffuse;
                 float3 diffuse = (directDiffuse + indirectDiffuse) * diffuseColor;
 ////// Emissive:
-                float3 emissive = (_MainTex_var.rgb*_e_3083083);
+                float3 emissive = (_MainTex_var.rgb*_Emission);
 /// Final Color:
                 float3 finalColor = diffuse + specular + emissive;
                 fixed4 finalRGBA = fixed4(finalColor,_MainTex_var.a);
@@ -360,7 +360,7 @@ Shader "Shader Forge/Gold" {
             uniform sampler2D _BumpMap; uniform float4 _BumpMap_ST;
             uniform float _Metallic;
             uniform float _Gloss;
-            uniform float _e_3083083;
+            uniform float _Emission;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
@@ -474,7 +474,7 @@ Shader "Shader Forge/Gold" {
             uniform sampler2D _MainTex; uniform float4 _MainTex_ST;
             uniform float _Metallic;
             uniform float _Gloss;
-            uniform float _e_3083083;
+            uniform float _Emission;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float2 texcoord0 : TEXCOORD0;
@@ -504,7 +504,7 @@ Shader "Shader Forge/Gold" {
                 UNITY_INITIALIZE_OUTPUT( UnityMetaInput, o );
                 
                 float4 _MainTex_var = tex2D(_MainTex,TRANSFORM_TEX(i.uv0, _MainTex));
-                o.Emission = (_MainTex_var.rgb*_e_3083083);
+                o.Emission = (_MainTex_var.rgb*_Emission);
                 
                 float3 diffColor = (_MainTex_var.rgb*_Color.rgb);
                 float specularMonochrome;

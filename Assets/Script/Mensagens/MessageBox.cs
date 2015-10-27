@@ -28,10 +28,30 @@ public class MessageBox : Singleton<MessageBox>
     float Timer = 0;
     //Awake - Vai encontrar o canvas e fazer a Messagebox ser filha dele.
     Character pers;
+    //Prefab do Canvas aonde o message box vai ficar. Estou criando outro canvas para não ter perigo de destruir ele no load.
+    
     void Awake()
     {
-        GameObject canvas = GameObject.Find("Canvas");
-        gameObject.transform.SetParent(canvas.transform, false);
+        if (GameObject.Find("Canva (Singletone)") == null)
+        {
+            GameObject Canva = new GameObject();
+            Canva.name = "Canva (Singletone)";
+            var temp_C = Canva.AddComponent<Canvas>();
+            var temp_CS = Canva.AddComponent<CanvasScaler>();
+            Canva.AddComponent<GraphicRaycaster>();
+            temp_C.renderMode = RenderMode.ScreenSpaceOverlay;
+            temp_CS.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            temp_CS.referenceResolution = new Vector2(720, 1024);
+            temp_CS.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
+            temp_CS.matchWidthOrHeight = 0.5f;
+            Canva.transform.position = new Vector3(1, 1, -1);
+            gameObject.transform.SetParent(Canva.transform, false);
+            DontDestroyOnLoad(Canva);
+        }else
+        {
+            gameObject.transform.SetParent(GameObject.Find("Canva (Singletone)").transform, false);
+        }
+        
     }
     //Armazena a mensagem
     public void WriteMessage(string text)
@@ -66,23 +86,9 @@ public class MessageBox : Singleton<MessageBox>
         {
             paltotal *= 5;
         }
-        mensagens.Add(string.Empty);
+        mensagens.Add(text);
         Nomes.Add(string.Empty);
-        for (int i = 0; i < text.Length; i++)
-        {
-            if (i > paltotal * (_indicetemp + 1) && text[i] == ' ')
-            {
-                _indicetemp++;
-                mensagens.Add(string.Empty);
-                Nomes.Add(string.Empty);
-                i++;
-            }
-            mensagens[mensagens.Count - 1] += text[i];
-        }
-
-
-
-
+        GameStates.IsAWindowOpen = true;
         Show();
     }
     public void WriteMessage(string text, string name)
@@ -110,20 +116,10 @@ public class MessageBox : Singleton<MessageBox>
         {
             paltotal *= 5;
         }
-        mensagens.Add(string.Empty);
+        mensagens.Add(text);
         Nomes.Add(name);
-        for (int i = 0; i < text.Length; i++)
-        {
-            if (i > paltotal * (_indicetemp + 1) && text[i] == ' ')
-            {
-                _indicetemp++;
-                mensagens.Add(string.Empty);
-                Nomes.Add(name);
-                i++;
-            }
-            mensagens[mensagens.Count - 1] += text[i];
-        }
 
+        GameStates.IsAWindowOpen = true;
 
 
         Show();
@@ -167,6 +163,7 @@ public class MessageBox : Singleton<MessageBox>
         if (FinishiAll && painel.activeInHierarchy)
         {
             painel.SetActive(false);
+            GameStates.IsAWindowOpen = true;
         }
 
     }

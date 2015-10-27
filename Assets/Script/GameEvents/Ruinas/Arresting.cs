@@ -38,7 +38,7 @@ public class Arresting : MonoBehaviour
                 Iniciar = true;
                 IsTalking = true;
                 MessageBox.Instance.WriteMessage("Mas... Quem são vocês!?", "Eran");
-                MessageBox.Instance.WriteMessage("Então foi você quem roubou os tesouros reais de nosso rei! Soldados, prendam-no!", "Capitão");
+                MessageBox.Instance.WriteMessage("Então foi você quem roubou os tesouros de nosso rei! Soldados, prendam-no!", "Capitão");
             }
             if (IsTalking)
             {
@@ -60,7 +60,9 @@ public class Arresting : MonoBehaviour
                 }
                 else
                 {
-                    Application.Quit();
+                    LoadingScreen.NextLevelName = "Tribunal";
+                    Application.LoadLevel("LoadingScene");
+
                 }
                 Fade.color = FadeColor;
             }

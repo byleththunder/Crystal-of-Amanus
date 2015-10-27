@@ -6,28 +6,30 @@ public class CharacterPivot : MonoBehaviour
 {
     public Animator anim;
     public Vector3 Destino;
-    public Rigidbody rgb;
     Vector3 velocidades;
-    float vel = 2;
+    float vel = 3.5f;
     bool moveX = false;
     bool moving = false;
+    [SerializeField]
+    private NavMeshAgent Navegador;
     // Use this for initialization
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        anim.SetFloat("Speed", Mathf.Abs(rgb.velocity.z));
-        anim.SetFloat("SpeedX",  Mathf.Abs(rgb.velocity.x));
-        if (Destino != transform.position && Destino != Vector3.zero)
+        transform.position = Navegador.transform.position;
+        anim.SetFloat("Speed", Mathf.Abs(velocidades.z));
+        anim.SetFloat("SpeedX", Mathf.Abs(velocidades.x));
+        if (Navegador.velocity != Vector3.zero)
         {
             moving = true;
             Move();
         }
-        if(rgb.velocity == Vector3.zero)
+        if (Navegador.velocity == Vector3.zero)
         {
             moving = false;
             anim.SetTrigger("Down");
@@ -35,17 +37,22 @@ public class CharacterPivot : MonoBehaviour
     }
     void Move()
     {
-        rgb.velocity = velocidades;
+        
         #region X
-        if (Destino.x > transform.position.x+0.1f)
+        if (Navegador.transform.eulerAngles.y > 0 && Navegador.transform.eulerAngles.y<=90)
         {
-            moveX = true;
+            anim.ResetTrigger("Up");
+            anim.ResetTrigger("Down");
+            anim.ResetTrigger("Left");
             anim.SetTrigger("Right");
             velocidades.x = vel;
         }
-        else if (Destino.x < transform.position.x-0.1f)
+        else if (Navegador.transform.eulerAngles.y > 180 && Navegador.transform.eulerAngles.y <= 270)
         {
             moveX = true;
+            anim.ResetTrigger("Up");
+            anim.ResetTrigger("Down");
+            anim.ResetTrigger("Right");
             anim.SetTrigger("Left");
             velocidades.x = -vel;
         }
@@ -56,18 +63,24 @@ public class CharacterPivot : MonoBehaviour
         }
         #endregion
         #region Z
-        if (Destino.z > transform.position.z+0.1f)
+        if ( (Navegador.transform.eulerAngles.y > 270 && Navegador.transform.eulerAngles.y <= 360) || Navegador.transform.eulerAngles.y ==0)
         {
             if (!moveX)
             {
+                anim.ResetTrigger("Right");
+                anim.ResetTrigger("Down");
+                anim.ResetTrigger("Left");
                 anim.SetTrigger("Up");
             }
             velocidades.z = vel;
         }
-        else if (Destino.z < transform.position.z-0.1f)
+        else if (Navegador.transform.eulerAngles.y > 90 && Navegador.transform.eulerAngles.y <= 180)
         {
             if (!moveX)
             {
+                anim.ResetTrigger("Up");
+                anim.ResetTrigger("Right");
+                anim.ResetTrigger("Left");
                 anim.SetTrigger("Down");
             }
             velocidades.z = -vel;

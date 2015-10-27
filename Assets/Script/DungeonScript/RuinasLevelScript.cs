@@ -58,6 +58,10 @@ public class RuinasLevelScript : DungeonScript
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().HealOrDamage(100, 0);
+        }
         Save();
     }
     public override void Save()
