@@ -86,7 +86,7 @@ public class CourtRoom : MonoBehaviour
     void Mundanca()
     {
 
-        if (Fade.a < 0.5f)
+        if (Fade.a < 0.2f)
         {
             timer += Time.deltaTime;
             if (timer > 0.1f)

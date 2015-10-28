@@ -192,8 +192,6 @@ public class Eran2 : Character
         {
             anim.SetBool("Jump", true);
             velocity.y = moveY;
-            wait = true;
-            StartCoroutine(JumpWait());
             OnTheFloor = false;
             IsJump = false;
         }
@@ -275,13 +273,7 @@ public class Eran2 : Character
         }
         return false;
     }
-    IEnumerator JumpWait()
-    {
-        //velocity = new Vector3(0, velocity.y, 0);
-        yield return new WaitForSeconds(0.1f);
-        velocity = new Vector3(moveX * Speed / Reducao, velocity.y, moveZ * Speed / Reducao);
-        wait = false;
-    }
+   
     public override void Attack()
     {
         if (InputManager.GetButtonDown("Action") && !attack)

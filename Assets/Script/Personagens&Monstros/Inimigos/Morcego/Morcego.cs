@@ -21,6 +21,7 @@ public class Morcego : Monster
     bool CheckY = false;
     bool XZ = false;
     float vel = 0;
+    bool voltar = false;
     //Cuspe
     public ParticleSystem poison;
     // Use this for initialization
@@ -73,6 +74,7 @@ public class Morcego : Monster
                             Behavior = MorcegoBehavior.Rasante;
                             AfterAtk = transform.position;
                             TargetPos = hit.transform.position;
+                            Invoke("ComeBack", 1f);
                             atk = true;
                             break;
                     }
@@ -160,8 +162,10 @@ public class Morcego : Monster
                 Velocidade.y = 0;
             }
             #endregion
-            if(Check && CheckY || HitTeste)
+            if(Check && CheckY || HitTeste || voltar)
             {
+                HitTeste = false;   
+                voltar = false;
                 Check = false;
                 CheckY = false;
                 atk = false;
@@ -321,6 +325,10 @@ public class Morcego : Monster
         
         cooldown = false;
     }
+    void ComeBack()
+    {
+        voltar = true;
+    }
     Vector3 ConvertVisao(TargetVision v)
     {
         Vector3 _temp = Vector3.zero;
@@ -371,12 +379,8 @@ public class Morcego : Monster
     }
     void OnCollisionEnter(Collision col)
     {
-        if(col.transform.tag == "Reflect")
-        {
-            HitTeste = true;
-            print("Escudo");
-            return; 
-        }
+        HitTeste = true;
+            
         if(col.gameObject.tag == "Player")
         {
             if(atk)

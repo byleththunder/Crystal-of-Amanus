@@ -78,6 +78,7 @@ public class UISkill : MonoBehaviour
         {
             if (SlotSkill[IndiceUniversal] != null)
             {
+
                 if (Personagem.EstadoDoJogador != GameStates.CharacterState.Defense)
                 {
                     if (SlotSkill[IndiceUniversal].Alvo == SkillTarget.Self)

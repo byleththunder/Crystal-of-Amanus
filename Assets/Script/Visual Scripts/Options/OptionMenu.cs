@@ -14,6 +14,7 @@ public class OptionMenu : MonoBehaviour {
     
 	// Use this for initialization
 	void Start () {
+        PlayerPrefs.SetString("FullScreen", FullScreen.ToString());
         if (PlayerPrefs.HasKey("FullScreen")) FullScreen = (PlayerPrefs.GetString("FullScreen") == "true"?true:false);
         if (PlayerPrefs.HasKey("ScreenWidth") && PlayerPrefs.HasKey("ScreenHeight")) { Screen.SetResolution(PlayerPrefs.GetInt("ScreenWidth"), PlayerPrefs.GetInt("ScreenHeight"), FullScreen); }
         else { Screen.SetResolution(1024, 768, FullScreen); }

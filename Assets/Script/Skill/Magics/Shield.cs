@@ -4,7 +4,7 @@ using System.Collections;
 [AddComponentMenu("Scripts/Skill Script/Skills/Escudo")]
 public class Shield : Skill
 {
-    
+    public GameObject Personagem;
     public GameObject Escudo;
     bool Ativado = false;
     // Inicializo as informações da habilidade
@@ -14,6 +14,7 @@ public class Shield : Skill
         Descricao = "Uma bola de energia cobre o personagem";
         Alvo = SkillTarget.Other;
         Escudo = GameObject.FindGameObjectWithTag("Reflect");
+        Personagem = GameObject.FindGameObjectWithTag("Player").transform.FindChild("Eran2Sprites").gameObject;
         Escudo.SetActive(false);
         CoolDown = 5f;
     }
@@ -27,6 +28,7 @@ public class Shield : Skill
     {
         if (!OnCoolDown)
         {
+            Personagem.GetComponent<Animator>().SetTrigger("Magic");
             if (Escudo.activeInHierarchy == false)
             {
                 Escudo.SetActive(true);

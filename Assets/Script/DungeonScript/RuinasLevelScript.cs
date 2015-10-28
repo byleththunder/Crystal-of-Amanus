@@ -11,10 +11,18 @@ public class RuinasLevelScript : DungeonScript
     /// A string Ruinas é aonde será salvo o estado dos baus.
     /// </summary>
     public static string Ruinas = string.Empty;
+    public GameObject CenaIni;
+    public GameObject Personagem;
+    public GameObject Camera;
+    Animator animIni;
+    public bool wait = true;
     // Use this for initialization
     void Start()
     {
-        Calendar.IncreaseDay(11);
+        //Invoke("FimEspera", 1f);
+        animIni = CenaIni.GetComponent<Animator>();
+        Camera.GetComponent<CameraRendering>().enabled = false;
+        Personagem.GetComponent<Character>().EstadoDoJogador = GameStates.CharacterState.DontMove;
         GameObject[] _obj = GameObject.FindGameObjectsWithTag("Chest");
         for (int i = 0; i < _obj.Length; i++)
         {
@@ -56,11 +64,23 @@ public class RuinasLevelScript : DungeonScript
 
     }
     // Update is called once per frame
+    void FimEspera()
+    {
+        wait = false;
+    }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.H))
+        if (CenaIni != null)
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().HealOrDamage(100, 0);
+            if (!wait)
+            {
+                
+                    CenaIni.transform.DetachChildren();
+                    CenaIni.SetActive(false);
+                    Camera.GetComponent<CameraRendering>().enabled = true;
+                    Personagem.GetComponent<Character>().EstadoDoJogador = GameStates.CharacterState.Playing;
+                
+            }
         }
         Save();
     }

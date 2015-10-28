@@ -36,7 +36,7 @@ public class Target : MonoBehaviour
     public int AmanusAtual { get { return Amanus; } }
     public int AtaqueAtual { get { return Ataque; } }
     public int ExperienciaAtual { get { return Exp; } }
-    public int NextLevel { get { return (Level == 1? 100:((int)(NextLevel+(NextLevel*0.1)))); } }
+    public int NextLevel { get { return (Level == 1? 100:((int)(NextLevel+(NextLevel*0.1)+ Mathf.Log10(Level)))); } }
     //Métodos
     public virtual void HealOrDamage(int _vida, int _amanus)
     {

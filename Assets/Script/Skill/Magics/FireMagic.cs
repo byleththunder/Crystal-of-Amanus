@@ -28,6 +28,7 @@ public class FireMagic : Skill
         
 		if (!OnCoolDown) {
 			if (Personagem.AmanusAtual >= 10) {
+                Personagem.transform.FindChild("Eran2Sprites").GetComponent<Animator>().SetTrigger("Magic");
                 Particle.transform.eulerAngles = ConvertVisionToEuler(Personagem.visao);
                 Particle.Emit(1);
 				if (Personagem != null) {
