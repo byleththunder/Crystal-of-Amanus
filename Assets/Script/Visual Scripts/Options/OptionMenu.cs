@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using System.Collections;
 
 [AddComponentMenu("Scripts/VisualScripts/Options")]
@@ -11,7 +12,7 @@ public class OptionMenu : MonoBehaviour {
     public Text QualityText;
     public Toggle[] TG = new Toggle[2];
     public Slider[] SD = new Slider[2];
-    
+    public AudioMixer Master;
 	// Use this for initialization
 	void Start () {
         PlayerPrefs.SetString("FullScreen", FullScreen.ToString());
@@ -20,8 +21,8 @@ public class OptionMenu : MonoBehaviour {
         else { Screen.SetResolution(1024, 768, FullScreen); }
         if (PlayerPrefs.HasKey("QualityLevel")) { QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("QualityLevel")); }
         QualityText.text = QualitySettings.names[QualitySettings.GetQualityLevel()];
-        if (PlayerPrefs.HasKey("VolumeBGM")) { SD[0].value = PlayerPrefs.GetInt("VolumeBGM"); }
-        if (PlayerPrefs.HasKey("VolumeSE")) { SD[1].value = PlayerPrefs.GetInt("VolumeSE"); }
+        if (PlayerPrefs.HasKey("VolumeBGM")) { SD[0].value = PlayerPrefs.GetFloat("VolumeBGM"); }
+        if (PlayerPrefs.HasKey("VolumeSE")) { SD[1].value = PlayerPrefs.GetFloat("VolumeSE"); }
         TG[0].isOn = FullScreen;
         TG[1].isOn = !FullScreen;
         CreateBt();
@@ -66,15 +67,17 @@ public class OptionMenu : MonoBehaviour {
         QualityText.text = QualitySettings.names[QualitySettings.GetQualityLevel()];
         PlayerPrefs.SetInt("QualityLevel", QualitySettings.GetQualityLevel());
     }
-    public void VolumeBGM(int i)
+    public void VolumeBGM(float i)
     {
         if (!Application.isPlaying) return;
-        PlayerPrefs.SetInt("VolumeBGM", i);
+        Master.SetFloat("BGMVol", i);
+        PlayerPrefs.SetFloat("VolumeBGM", i);
     }
-    public void VolumeSE(int i)
+    public void VolumeSE(float i)
     {
         if (!Application.isPlaying) return;
-        PlayerPrefs.SetInt("VolumeSE", i);
+        Master.SetFloat("SEVol", i);
+        PlayerPrefs.SetFloat("VolumeSE", i);
     }
     public void DecreaseQuality()
     {

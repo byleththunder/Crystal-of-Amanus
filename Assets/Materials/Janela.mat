@@ -7,8 +7,8 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Janela
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
+  m_Shader: {fileID: 4800000, guid: 44b54c59129572f469a949a22bc08cd0, type: 3}
+  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _COLOR_ON
   m_LightmapFlags: 5
   m_CustomRenderQueue: 3000
   stringTagMap:
@@ -79,6 +79,20 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Emission
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _ToonShade
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -103,7 +117,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 1
+        second: 0
       data:
         first:
           name: _BumpScale
@@ -128,6 +142,50 @@ Material:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _TintColor
+        second: 1
+      data:
+        first:
+          name: _Outline
+        second: .00999999978
+      data:
+        first:
+          name: _Cull
+        second: 2
+      data:
+        first:
+          name: _Outl
+        second: 0
+      data:
+        first:
+          name: _DetailTex
+        second: 0
+      data:
+        first:
+          name: _VertexColor
+        second: 0
+      data:
+        first:
+          name: _Brightness
+        second: 1
+      data:
+        first:
+          name: _DS
+        second: 0
+      data:
+        first:
+          name: _Asym
+        second: 0
+      data:
+        first:
+          name: _Trans
+        second: 0
+      data:
+        first:
+          name: _TrOp
+        second: 0
     m_Colors:
       data:
         first:
@@ -137,3 +195,11 @@ Material:
         first:
           name: _Color
         second: {r: .896146059, g: .882352948, b: 1, a: 1}
+      data:
+        first:
+          name: _OutlineColor
+        second: {r: .5, g: .5, b: .5, a: 1}
+      data:
+        first:
+          name: _Asymmetry
+        second: {r: 0, g: .25, b: .5, a: 0}

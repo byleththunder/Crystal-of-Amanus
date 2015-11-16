@@ -3,6 +3,8 @@ Shader "Toon/Lit" {
 		_Color ("Main Color", Color) = (0.5,0.5,0.5,1)
 		_MainTex ("Base (RGB)", 2D) = "white" {}
 		_Ramp ("Toon Ramp (RGB)", 2D) = "gray" {} 
+		_EmitColor ("Emission Color", Color) = (0,0,0,1)
+		_Emit ("Emissivo (RGB)", 2D) = "white" {}
 	}
 
 	SubShader {
@@ -17,6 +19,7 @@ sampler2D _Ramp;
 // custom lighting function that uses a texture ramp based
 // on angle between light direction and normal
 #pragma lighting ToonRamp exclude_path:prepass
+#pragma shader_feature _EMISSION
 inline half4 LightingToonRamp (SurfaceOutput s, half3 lightDir, half atten)
 {
 	#ifndef USING_DIRECTIONAL_LIGHT
@@ -35,15 +38,20 @@ inline half4 LightingToonRamp (SurfaceOutput s, half3 lightDir, half atten)
 
 sampler2D _MainTex;
 float4 _Color;
-
+sampler2D _Emit;
+float4 _EmitColor;
 struct Input {
 	float2 uv_MainTex : TEXCOORD0;
 };
 
 void surf (Input IN, inout SurfaceOutput o) {
 	half4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
+	half4 e = tex2D(_Emit, IN.uv_MainTex);
 	o.Albedo = c.rgb;
 	o.Alpha = c.a;
+	float4 Cor = (0,0,1,1);
+	o.Emission = e.rgb * _EmitColor * (sin(_Time.w)+1);
+
 }
 ENDCG
 

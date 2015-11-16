@@ -23,6 +23,7 @@ public class RuinasLevelScript : DungeonScript
         animIni = CenaIni.GetComponent<Animator>();
         Camera.GetComponent<CameraRendering>().enabled = false;
         Personagem.GetComponent<Character>().EstadoDoJogador = GameStates.CharacterState.DontMove;
+       
         GameObject[] _obj = GameObject.FindGameObjectsWithTag("Chest");
         for (int i = 0; i < _obj.Length; i++)
         {
@@ -72,13 +73,14 @@ public class RuinasLevelScript : DungeonScript
     {
         if (CenaIni != null)
         {
-            if (!wait)
+            if (!wait && CenaIni.active)
             {
                 
                     CenaIni.transform.DetachChildren();
                     CenaIni.SetActive(false);
                     Camera.GetComponent<CameraRendering>().enabled = true;
                     Personagem.GetComponent<Character>().EstadoDoJogador = GameStates.CharacterState.Playing;
+                    Personagem.GetComponent<Character>().visao = TargetVision.Back;
                 
             }
         }

@@ -345,8 +345,8 @@ InputManager:
     m_Name: ScrollSkill
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: e
-    positiveButton: q
+    negativeButton: 
+    positiveButton: 
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -354,6 +354,6 @@ InputManager:
     sensitivity: 1000
     snap: 1
     invert: 0
-    type: 0
-    axis: 0
+    type: 2
+    axis: 2
     joyNum: 0

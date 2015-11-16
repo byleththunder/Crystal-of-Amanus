@@ -27,6 +27,14 @@ public class Monster : Target
             if (Morte)
             {
                 Instantiate(Morte, transform.position, transform.rotation);
+                try
+                {
+                    GameObject.Find("DeathAudio").GetComponent<AudioSource>().Play();
+                }
+                catch
+                {
+                    Debug.LogWarning("Não existe DeathAudio na cena");
+                }
             }
             Destroy(gameObject);
         }

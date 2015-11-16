@@ -72,7 +72,7 @@ Material:
       data:
         first:
           name: _ReflDistort
-        second: 1.17999995
+        second: .930000007
       data:
         first:
           name: _RefrDistort

@@ -44,6 +44,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+  - m_Name: AnimSpeed
+    m_Type: 1
+    m_DefaultFloat: 1
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -56,7 +62,7 @@ AnimatorController:
     m_DefaultWeight: 0
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
 --- !u!206 &20631418
 BlendTree:
   m_ObjectHideFlags: 1
@@ -504,12 +510,12 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_SpeedParameterActive: 0
+  m_SpeedParameterActive: 1
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_Motion: {fileID: 20631418}
   m_Tag: 
-  m_SpeedParameter: Vel
+  m_SpeedParameter: AnimSpeed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
 --- !u!1102 &110274242
@@ -530,12 +536,12 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_SpeedParameterActive: 0
+  m_SpeedParameterActive: 1
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_Motion: {fileID: 20697392}
   m_Tag: 
-  m_SpeedParameter: Vel
+  m_SpeedParameter: AnimSpeed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
 --- !u!1102 &110288260
@@ -556,12 +562,12 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_SpeedParameterActive: 0
+  m_SpeedParameterActive: 1
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_Motion: {fileID: 20665086}
   m_Tag: 
-  m_SpeedParameter: Vel
+  m_SpeedParameter: AnimSpeed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
 --- !u!1102 &110293984
@@ -582,12 +588,12 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_SpeedParameterActive: 0
+  m_SpeedParameterActive: 1
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_Motion: {fileID: 20683498}
   m_Tag: 
-  m_SpeedParameter: Vel
+  m_SpeedParameter: AnimSpeed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
 --- !u!1107 &110738490
@@ -687,19 +693,19 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions:
     data:
-      first: {fileID: 110769742}
-      second: []
-    data:
-      first: {fileID: 110760044}
-      second: []
-    data:
-      first: {fileID: 110738490}
+      first: {fileID: 110784604}
       second: []
     data:
       first: {fileID: 110798144}
       second: []
     data:
-      first: {fileID: 110784604}
+      first: {fileID: 110738490}
+      second: []
+    data:
+      first: {fileID: 110760044}
+      second: []
+    data:
+      first: {fileID: 110769742}
       second: []
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -48, y: 204, z: 0}

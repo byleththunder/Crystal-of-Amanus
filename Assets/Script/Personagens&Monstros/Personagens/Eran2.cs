@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using TeamUtility.IO;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine.UI;
@@ -9,6 +8,10 @@ using UnityEngine.UI;
 [AddComponentMenu("Scripts/Personagens e Monstros/Personagens Sripts/Personagens/Eran")]
 public class Eran2 : Character
 {
+    [Space(.5f)]
+    [Header("Eran")]
+    [Space(.5f)]
+
     [HideInInspector]
     public static string Player;
     //Variaveis
@@ -169,8 +172,8 @@ public class Eran2 : Character
                 else if (!wait) { velocity = new Vector3(moveX * Speed / Reducao, velocity.y, moveZ * Speed / Reducao); }
 
 
-                moveX = InputManager.GetAxis("Horizontal");
-                moveZ = InputManager.GetAxis("Vertical");
+                moveX = GameInput.GetAxis(InputsName.Horizontal);//InputManager.GetAxis("Horizontal");
+                moveZ = GameInput.GetAxis(InputsName.Vertical);//InputManager.GetAxis("Vertical");
 
                 anim.SetFloat("Speed", Mathf.Abs(moveZ));
                 anim.SetFloat("SpeedX", Mathf.Abs(moveX));
@@ -183,6 +186,8 @@ public class Eran2 : Character
         else
         {
             rgd.velocity = Vector3.zero;
+            anim.SetFloat("Speed", 0);
+            anim.SetFloat("SpeedX", 0);
         }
     }
     void FixedUpdate()
@@ -200,7 +205,7 @@ public class Eran2 : Character
     public override void Movement()
     {
 
-        if (InputManager.GetAxisRaw("Vertical") == -1)
+        if (GameInput.GetAxisRaw(InputsName.Vertical) == -1)
         {
             if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Down"))
             {
@@ -213,7 +218,7 @@ public class Eran2 : Character
                 visao = TargetVision.Front;
             }
         }
-        else if (InputManager.GetAxisRaw("Vertical") == 1)
+        else if (GameInput.GetAxisRaw(InputsName.Vertical) == 1)
         {
             if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Up"))
             {
@@ -226,7 +231,7 @@ public class Eran2 : Character
                 visao = TargetVision.Back;
             }
         }
-        else if (InputManager.GetAxisRaw("Horizontal") == -1)
+        else if (GameInput.GetAxisRaw(InputsName.Horizontal) == -1)
         {
             if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Left"))
             {
@@ -239,7 +244,7 @@ public class Eran2 : Character
                 visao = TargetVision.Left;
             }
         }
-        else if (InputManager.GetAxisRaw("Horizontal") == 1)
+        else if (GameInput.GetAxisRaw(InputsName.Horizontal) == 1)
         {
             if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Right"))
             {
@@ -266,7 +271,7 @@ public class Eran2 : Character
         //    }
         //}
 
-        if (OnTheFloor && InputManager.GetButtonDown("Jump") && !IsJump)
+        if (OnTheFloor && GameInput.GetKeyDown(InputsName.Jump) && !IsJump)
         {
             IsJump = true;
             return true;
@@ -276,8 +281,9 @@ public class Eran2 : Character
    
     public override void Attack()
     {
-        if (InputManager.GetButtonDown("Action") && !attack)
+        if (GameInput.GetKeyDown(InputsName.Action) && !attack)
         {
+           // SoundEffects[0].Play();
             switch (visao)
             {
                 case TargetVision.Back:
@@ -297,12 +303,14 @@ public class Eran2 : Character
             moveZ = 0;
             anim.SetTrigger("Attack");
             attack = true;
+            DamageAttk = true;
             StartCoroutine(Wait());
         }
     }
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(0.4f);
+        DamageAttk = false;
         attack = false;
     }
     void CheckRecoverAmanusAuto()
@@ -322,7 +330,7 @@ public class Eran2 : Character
             {
                 Alvo = col.gameObject.GetComponent<Target>();
             }
-            if (attack)
+            if (DamageAttk)
             {
                 col.gameObject.GetComponent<Target>().HealOrDamage(Ataque, 0);
                 try
@@ -333,7 +341,7 @@ public class Eran2 : Character
                 {
 
                 }
-                attack = false;
+                DamageAttk = false;
                 ShowDamage = true;
                 if (Alvo != null)
                 {
@@ -385,6 +393,7 @@ public class Eran2 : Character
 
             for (int i = 0; i < posDamage.Count; i++)
             {
+                GUI.skin.label.fontSize = 16;
                 posDamage[i] = new Vector3(posDamage[i].x, posDamage[i].y - 1, posDamage[i].z);
                 GUI.Label(new Rect(posDamage[i].x, posDamage[i].y, Screen.width / 5, Screen.height / 5), "-" + Ataque.ToString());
                 if (!IsInvoking("DesaparecerDano"))
@@ -432,7 +441,7 @@ public class Eran2 : Character
     {
         float _life = (float)Alvo.VidaAtual / (float)Alvo.VidaTotal;
         _life = Mathf.Clamp(_life, 0, 1);
-        VidaMonstro.GetComponentInChildren<Image>().fillAmount = _life;
+        VidaMonstro.transform.FindChild("barra").GetComponent<Image>().fillAmount = _life;
         VidaMonstro.GetComponentInChildren<Text>().text = Alvo.Nome + "\t" + Alvo.VidaAtual + " / " + Alvo.VidaTotal;
     }
 }

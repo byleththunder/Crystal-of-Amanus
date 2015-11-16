@@ -47,7 +47,7 @@ Material:
         first:
           name: _OcclusionMap
         second:
-          m_Texture: {fileID: 2800000, guid: 9c1d8c7f7cc1ddd429929a84e483e59f, type: 3}
+          m_Texture: {fileID: 2800000, guid: e117c9473dc2fbe4fa5474cbd399ad2d, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -110,7 +110,7 @@ Material:
       data:
         first:
           name: _OcclusionStrength
-        second: .25
+        second: .788999975
       data:
         first:
           name: _DetailNormalMapScale

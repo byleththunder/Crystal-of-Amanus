@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using TeamUtility.IO;
 [AddComponentMenu("Scripts/VisualScripts/Menu", 0)]
 public class VMenu : MonoBehaviour {
     public GameObject Menu,Escape;
@@ -15,7 +14,7 @@ public class VMenu : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-	    if(InputManager.GetButtonDown("Start")  && !Escape.activeInHierarchy)
+	    if(GameInput.GetKeyDown(InputsName.Start)  && !Escape.activeInHierarchy)
         {
             if (Menu.activeInHierarchy == false && !GameStates.IsAWindowOpen)
             {
@@ -32,7 +31,7 @@ public class VMenu : MonoBehaviour {
             
 
         }
-        if (InputManager.GetButtonDown("Select")  && !Menu.activeInHierarchy)
+        if (GameInput.GetKeyDown(InputsName.Select)  && !Menu.activeInHierarchy)
         {
             if (Escape.activeInHierarchy == false && !GameStates.IsAWindowOpen)
             {

@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityStandardAssets.ImageEffects;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 [AddComponentMenu("Scripts/Game Events/Game Over")]
-public class GameOver : MonoBehaviour {
+public class GameOver : MonoBehaviour
+{
 
     /// <summary>
     /// Quando o personagem morre (vida = 0), a tela entra em grayscale e a animação começa.
@@ -14,37 +18,39 @@ public class GameOver : MonoBehaviour {
     Character Personagem;
     Grayscale Fade;
     public GameObject Painel;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         Fade = GetComponent<Grayscale>();
         Personagem = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if(Personagem.VidaAtual <=0)
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Personagem.VidaAtual <= 0)
         {
-            
-            if(!FadeOver)
+
+            if (!FadeOver)
             {
                 Personagem.EstadoDoJogador = GameStates.CharacterState.DontMove;
                 Fade.effectAmount += 0.01f;
-                if(Fade.effectAmount>0.9f)
+                if (Fade.effectAmount > 0.9f)
                 {
                     FadeOver = true;
                 }
             }
             else
             {
-                if(Painel.activeInHierarchy == false)
+                if (Painel.activeInHierarchy == false)
                 {
                     Personagem.DeathState();
                     Painel.SetActive(true);
                 }
             }
         }
-	
-	}
+
+    }
     public void Retry()
     {
         Personagem.ReviveState();
@@ -54,6 +60,10 @@ public class GameOver : MonoBehaviour {
     }
     public void Sair()
     {
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#else
         Application.Quit();
+#endif
     }
 }

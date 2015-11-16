@@ -2,7 +2,6 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-using TeamUtility.IO;
 
 [AddComponentMenu("Scripts/MessageBox/MessageScript")]
 public class MessageBox : Singleton<MessageBox>
@@ -54,6 +53,7 @@ public class MessageBox : Singleton<MessageBox>
         
     }
     //Armazena a mensagem
+
     public void WriteMessage(string text)
     {
         try { pers = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>(); }
@@ -94,7 +94,7 @@ public class MessageBox : Singleton<MessageBox>
     public void WriteMessage(string text, string name)
     {
         try { pers = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>(); }
-        catch { //Debug.LogWarning("Não tem nenhum player nessa cena."); 
+        catch { Debug.LogWarning("Não tem nenhum player nessa cena."); 
         }
 
         FinishiAll = false;
@@ -130,7 +130,7 @@ public class MessageBox : Singleton<MessageBox>
         {
             if (mensagens.Count > 0)
             {
-                if (InputManager.GetButtonDown("Action"))
+                if (GameInput.GetKeyDown(InputsName.Action))
                 {
                     indice = 0;
                     Texto.text = string.Empty;
@@ -143,7 +143,10 @@ public class MessageBox : Singleton<MessageBox>
             }
             else
             {
-                painel.SetActive(false);
+                //GameStates.IsAWindowOpen = false;
+                //if (pers)
+                //   pers.EstadoDoJogador = GameStates.CharacterState.Playing; 
+                //painel.SetActive(false);
             }
         }
         else
@@ -156,30 +159,44 @@ public class MessageBox : Singleton<MessageBox>
         if (mensagens.Count == 0)
         {
             FinishiAll = true;
-            if (pers)
-                if (pers.EstadoDoJogador == GameStates.CharacterState.DontMove) { pers.EstadoDoJogador = GameStates.CharacterState.Playing; }
+            
 
         }
         if (FinishiAll && painel.activeInHierarchy)
         {
+            
+            GameStates.IsAWindowOpen = false;
+            if (pers)
+            {
+                pers.EstadoDoJogador = GameStates.CharacterState.Playing;
+                print("Saiu");
+            }
             painel.SetActive(false);
-            GameStates.IsAWindowOpen = true;
+            if(IsInvoking("Show"))
+            {
+                CancelInvoke("Show");
+            }
+           
         }
+       
 
     }
     //Escreve a mensagem na tela.
     void Show()
     {
         if (pers)
+        {
             if (pers.EstadoDoJogador == GameStates.CharacterState.Playing) { pers.EstadoDoJogador = GameStates.CharacterState.DontMove; }
+            print("Entrou");
+        }
 
         if (mensagens.Count > 0)
         {
             if (indice < mensagens[0].Length)
             {
                 Timer += (Time.deltaTime*2);
-               
-                if (InputManager.GetButtonDown("Action") || Input.GetMouseButtonDown(1) && !Finish && indice > 0 )
+
+                if (GameInput.GetKeyDown(InputsName.Action) || Input.GetMouseButtonDown(1) && !Finish && indice > 0)
                 {
                     if (Nomes[0] == string.Empty)
                     {

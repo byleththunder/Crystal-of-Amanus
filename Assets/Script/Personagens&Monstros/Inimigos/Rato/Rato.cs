@@ -5,6 +5,7 @@ using System.Collections;
 public class Rato : Monster {
     enum RatoBehavior { Idle, Tackle };
     public Rigidbody rdb;
+    public GameObject BlobShadow;
     Vector3 Velocidade;
     public bool Horizontal = true;
     Vector3 PosIni;
@@ -24,12 +25,14 @@ public class Rato : Monster {
         if (Horizontal)
         {
             visao = TargetVision.Left;
+            BlobShadow.transform.localEulerAngles = new Vector3(90, 90, 0);
             anim.SetTrigger("Right");
             Velocidade.x = 1;
         }
         else
         {
             visao = TargetVision.Back;
+            BlobShadow.transform.localEulerAngles = new Vector3(90, 0, 0);
             anim.SetTrigger("Up");
             Velocidade.z = 1;
         }

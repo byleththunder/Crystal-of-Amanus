@@ -53,8 +53,6 @@ public class CourtRoom : MonoBehaviour
                          Continua.color = TextFade;
                     }
                     
-                    //LoadingScreen.NextLevelName = "Falansterio";
-                    //Application.LoadLevel("LoadingScene");
                 }
             }
         }

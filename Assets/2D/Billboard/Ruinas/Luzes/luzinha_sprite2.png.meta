@@ -1,0 +1,187 @@
+fileFormatVersion: 2
+guid: 6004671bf1cebda4880b55b97ac404d3
+timeCreated: 1447068029
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: luzinha_sprite2_0
+    21300002: luzinha_sprite2_1
+    21300004: luzinha_sprite2_2
+    21300006: luzinha_sprite2_3
+    21300008: luzinha_sprite2_4
+    21300010: luzinha_sprite2_5
+    21300012: luzinha_sprite2_6
+    21300014: luzinha_sprite2_7
+    21300016: luzinha_sprite2_8
+    21300018: luzinha_sprite2_9
+    21300020: luzinha_sprite2_10
+    21300022: luzinha_sprite2_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: luzinha_sprite2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 260
+        width: 130
+        height: 130
+      alignment: 9
+      pivot: {x: .462616771, y: .507938325}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: luzinha_sprite2_1
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 260
+        width: 130
+        height: 130
+      alignment: 9
+      pivot: {x: .45615387, y: .521538615}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: luzinha_sprite2_2
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 260
+        width: 130
+        height: 130
+      alignment: 9
+      pivot: {x: .472307652, y: .520000041}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: luzinha_sprite2_3
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 260
+        width: 130
+        height: 130
+      alignment: 9
+      pivot: {x: .456153989, y: .522307873}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: luzinha_sprite2_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 130
+        width: 130
+        height: 130
+      alignment: 9
+      pivot: {x: .462823719, y: .506347179}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: luzinha_sprite2_5
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 130
+        width: 130
+        height: 130
+      alignment: 9
+      pivot: {x: .456476539, y: .511787653}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: luzinha_sprite2_6
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 130
+        width: 130
+        height: 130
+      alignment: 9
+      pivot: {x: .471891195, y: .519948304}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: luzinha_sprite2_7
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 130
+        width: 130
+        height: 130
+      alignment: 9
+      pivot: {x: .47914499, y: .512694359}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: luzinha_sprite2_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 130
+        height: 130
+      alignment: 9
+      pivot: {x: .448461562, y: .518461585}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: luzinha_sprite2_9
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 0
+        width: 130
+        height: 130
+      alignment: 9
+      pivot: {x: .454615444, y: .519230843}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: luzinha_sprite2_10
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 0
+        width: 130
+        height: 130
+      alignment: 9
+      pivot: {x: .463846296, y: .513076961}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: luzinha_sprite2_11
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 0
+        width: 130
+        height: 130
+      alignment: 9
+      pivot: {x: .455384701, y: .519230843}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -7,6 +7,8 @@ public enum TargetVision { Front, Back, Left, Right };
 [AddComponentMenu("Scripts/Personagens e Monstros/Target",0)]
 public class Target : MonoBehaviour
 {
+    [Header("Target")]
+    [Space(.5f)]
     //Variaveis
     [Range(1,100)]
     public int Level = 1;
@@ -38,6 +40,11 @@ public class Target : MonoBehaviour
     public int ExperienciaAtual { get { return Exp; } }
     public int NextLevel { get { return (Level == 1? 100:((int)(NextLevel+(NextLevel*0.1)+ Mathf.Log10(Level)))); } }
     //Métodos
+    /// <summary>
+    /// Esse método cuida da vida e do amanus do alvo. Com ele você pode causar dano e curar os atributos
+    /// </summary>
+    /// <param name="_vida">Caso o valor for negativo, a vida será curada, caso contrario, será reconhecido como dano</param>
+    /// <param name="_amanus">Caso o valor for negativo, o amanus será curado, caso contrario, será reconhecido como um gasto de uma habilidade</param>
     public virtual void HealOrDamage(int _vida, int _amanus)
     {
         Vida -= _vida;
@@ -52,6 +59,10 @@ public class Target : MonoBehaviour
         }
         
     }
+    /// <summary>
+    /// Esse método verifica se o jogador já foi capaz de adquirir a experiencia necessária para avançar para o proximo nivel.
+    /// </summary>
+    /// <param name="_exp">Exp adquirido</param>
     protected void LevelUp(int _exp)
     {
         Exp += _exp;
@@ -70,6 +81,9 @@ public class Target : MonoBehaviour
         
 
     }
+    /// <summary>
+    /// Esse método atualiza os atributos.
+    /// </summary>
     protected virtual void UpdateStatus()
     {
         VidaTotal = VidaTotal * Level;
@@ -78,6 +92,9 @@ public class Target : MonoBehaviour
         Amanus = AmanusTotal;
         Ataque = AtaquePadrao * Level;
     }
+    /// <summary>
+    /// Esse método para a particula de emitir.
+    /// </summary>
     void LvlUpAnimOff()
     {
         LvlUpAnim.emissionRate = 0;

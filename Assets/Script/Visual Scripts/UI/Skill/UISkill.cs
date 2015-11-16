@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using TeamUtility.IO;
 
 [AddComponentMenu("Scripts/User Interface/Skills")]
 public class UISkill : MonoBehaviour
@@ -35,7 +34,7 @@ public class UISkill : MonoBehaviour
             AddItensSlots();
             
         }
-        if (InputManager.GetAxisRaw("ScrollSkill") == 0)
+        if (GameInput.GetAxisRaw(InputsName.Scroll) == 0)
         {
             press = false;
         }
@@ -60,21 +59,21 @@ public class UISkill : MonoBehaviour
             SkillImg.sprite = null;
         }
         //Cima
-        if (InputManager.GetAxisRaw("ScrollSkill") == 1 && !press)
+        if (GameInput.GetAxisRaw(InputsName.Scroll) == 1 && !press)
         {
             IndiceUniversal = (IndiceUniversal + 1) % SlotSkill.Length;
             OrganizarTextos();
             press = true;
         }
         //Baixo
-        if (InputManager.GetAxisRaw("ScrollSkill") == -1 && !press)
+        if (GameInput.GetAxisRaw(InputsName.Scroll) == -1 && !press)
         {
             IndiceUniversal = IndiceUniversal == 0 ? SlotSkill.Length - 1 : IndiceUniversal - 1;
             OrganizarTextos();
             press = true;
         }
         //Usar
-        if (InputManager.GetButtonDown("Magic"))
+        if (GameInput.GetKeyDown(InputsName.Magic))
         {
             if (SlotSkill[IndiceUniversal] != null)
             {

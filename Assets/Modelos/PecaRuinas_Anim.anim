@@ -17,19 +17,24 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: -79.5100021, y: 3, z: -69.4199982}
-        inSlope: {x: 0, y: 0, z: 4.47999573}
-        outSlope: {x: 0, y: 0, z: 4.47999573}
+        value: {x: -46.5999985, y: 4.05621052, z: -66.5}
+        inSlope: {x: 0, y: 0, z: 1.60000002}
+        outSlope: {x: 0, y: 0, z: 1.60000002}
         tangentMode: 0
-      - time: 1
-        value: {x: -79.5100021, y: 3, z: -64.9400024}
-        inSlope: {x: 0, y: 0, z: -.037966013}
-        outSlope: {x: 0, y: 0, z: -.037966013}
+      - time: 2.5
+        value: {x: -46.5999985, y: 4.05621052, z: -62.5}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
-      - time: 1.98333335
-        value: {x: -79.5100021, y: 3, z: -69.4199982}
-        inSlope: {x: 0, y: 0, z: -4.55592775}
-        outSlope: {x: 0, y: 0, z: -4.55592775}
+      - time: 5
+        value: {x: -46.5999985, y: 4.05621052, z: -66.5}
+        inSlope: {x: 0, y: 0, z: -.800000012}
+        outSlope: {x: 0, y: 0, z: -.800000012}
+        tangentMode: 0
+      - time: 5.75
+        value: {x: -46.5999985, y: 4.05621052, z: -66.5}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -37,7 +42,7 @@ AnimationClip:
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []
-  m_SampleRate: 60
+  m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -54,7 +59,7 @@ AnimationClip:
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: 1.98333335
+    m_StopTime: 5.75
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -73,17 +78,22 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: -79.5100021
+        value: -46.5999985
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 1
-        value: -79.5100021
+      - time: 2.5
+        value: -46.5999985
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 1.98333335
-        value: -79.5100021
+      - time: 5
+        value: -46.5999985
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 5.75
+        value: -46.5999985
         inSlope: 0
         outSlope: 0
         tangentMode: 10
@@ -97,17 +107,22 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 3
+        value: 4.05621052
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 1
-        value: 3
+      - time: 2.5
+        value: 4.05621052
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 1.98333335
-        value: 3
+      - time: 5
+        value: 4.05621052
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      - time: 5.75
+        value: 4.05621052
         inSlope: 0
         outSlope: 0
         tangentMode: 10
@@ -121,19 +136,24 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: -69.4199982
-        inSlope: 4.47999573
-        outSlope: 4.47999573
+        value: -66.5
+        inSlope: 1.60000002
+        outSlope: 1.60000002
         tangentMode: 10
-      - time: 1
-        value: -64.9400024
-        inSlope: -.037966013
-        outSlope: -.037966013
+      - time: 2.5
+        value: -62.5
+        inSlope: 0
+        outSlope: 0
         tangentMode: 10
-      - time: 1.98333335
-        value: -69.4199982
-        inSlope: -4.55592775
-        outSlope: -4.55592775
+      - time: 5
+        value: -66.5
+        inSlope: -.800000012
+        outSlope: -.800000012
+        tangentMode: 10
+      - time: 5.75
+        value: -66.5
+        inSlope: 0
+        outSlope: 0
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
