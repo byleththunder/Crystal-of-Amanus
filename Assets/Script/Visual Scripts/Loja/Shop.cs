@@ -43,10 +43,10 @@ public class Shop : MonoBehaviour
             _contatemp += Produtos[i].Preco * Quantidades[i];
         }
         ContaTotal = _contatemp;
-        Conta.text = "Total: " + ContaTotal + " G";
+        Conta.text = "Total: " + ContaTotal + " Ag";
         if(Personagem)
         {
-            CharGold.text = "Gold: " + Personagem.Gold + " G";
+            CharGold.text = "Prata: " + Personagem.Gold + " Ag";
         }
     }
     public void Comprar()
@@ -108,7 +108,7 @@ public class Shop : MonoBehaviour
         {
             GameObject _temp = (GameObject)Instantiate(Prefab);
             RectTransform _transform = _temp.GetComponent<RectTransform>();
-            _temp.transform.SetParent(Painel_Itens.transform.parent, false);
+            _temp.transform.SetParent(Painel_Itens.transform, false);
             if (i > 0)
             {
                 _transform.anchoredPosition = new Vector2((-.5f), (-1.5f) * (i *30));

@@ -35,13 +35,13 @@ public class Vendedor : MonoBehaviour
             {
                 per = col.gameObject.GetComponent<Character>();
             }
-            if (Input.GetKeyDown(KeyCode.B))
+            if (GameInput.GetKeyDown(InputsName.Action))
             {
                 if (Loja)
                 {
-                    print("Abrir");
                     ligar = !ligar;
                     Loja.SetActive(ligar);
+
                 }
             }
         }

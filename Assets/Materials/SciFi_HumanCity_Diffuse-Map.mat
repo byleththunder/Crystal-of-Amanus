@@ -80,16 +80,16 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _ToonShade
+          name: _Emission
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: 051821290b3686a48b6bf8ba6f653a08, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _Emission
+          name: _ToonShade
         second:
-          m_Texture: {fileID: 2800000, guid: 051821290b3686a48b6bf8ba6f653a08, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -103,7 +103,7 @@ Material:
         first:
           name: _Emit
         second:
-          m_Texture: {fileID: 2800000, guid: 051821290b3686a48b6bf8ba6f653a08, type: 3}
+          m_Texture: {fileID: 2800000, guid: bd3c5e66c2118934fb3843cc9693ccb8, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -126,6 +126,10 @@ Material:
         first:
           name: _Cutoff
         second: .5
+      data:
+        first:
+          name: _TintColor
+        second: 0
       data:
         first:
           name: _Parallax
@@ -177,10 +181,6 @@ Material:
       data:
         first:
           name: _Outl
-        second: 0
-      data:
-        first:
-          name: _TintColor
         second: 0
       data:
         first:

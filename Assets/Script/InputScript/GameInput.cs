@@ -30,17 +30,27 @@ public class GameInput : MonoBehaviour
     private static float _SensiHorizontal = 0.05f;
     private static float _SensiVertical = 0.05f;
     private static float _SensiScroll = 0.05f;
-    //Diferente do input manager normal, eu estou usando os controles como base, para saber o que o jogador apertou independente da tecla.
+    
+    /// <summary>
+    /// Diferente do input manager normal, eu estou usando os controles como base, para saber o que o jogador apertou independente da tecla.
+    /// </summary>
+    /// <param name="name">Qual o botão</param>
+    /// <returns>Se você apertou ou não</returns>
     public static bool GetKeyDown(InputsName name)
     {
-        if (Input.GetKeyDown(ConvertInputToKey(name)))
+        if (Input.GetKeyDown(ConvertInputToKey(name))|| Input.GetButtonDown(name.ToString()))
         {
             return true;
         }
         return false;
     }
 
-    //Apartir do enum, eu devolvo a key.
+    
+    /// <summary>
+    /// Apartir do enum, eu devolvo a key.
+    /// </summary>
+    /// <param name="name">Qual o botão</param>
+    /// <returns>Devolve uma Key</returns>
     private static KeyCode ConvertInputToKey(InputsName name)
     {
 
@@ -61,7 +71,12 @@ public class GameInput : MonoBehaviour
         return KeyCode.End;
     }
 
-    //Se um Axis foi pressionado, ele método avisa
+   
+    /// <summary>
+    /// Se um Axis foi pressionado, ele método avisa
+    /// </summary>
+    /// <param name="name">Qual eixo</param>
+    /// <returns>Se apertou ou não</returns>
     public static bool GetAxisDown(InputsName name)
     {
         if (name == InputsName.Horizontal)
@@ -74,6 +89,11 @@ public class GameInput : MonoBehaviour
             {
                 return true;
             }
+            if(Input.GetAxisRaw("Horizontal")==1 || Input.GetAxisRaw("Horizontal")==1)
+            {
+                print("H");
+                return true;
+            }
         }
         if (name == InputsName.Vertical)
         {
@@ -82,6 +102,10 @@ public class GameInput : MonoBehaviour
                 return true;
             }
             if (Input.GetKeyDown(_VerticalDown))
+            {
+                return true;
+            }
+            if (Input.GetButtonDown("Vertical"))
             {
                 return true;
             }
@@ -96,9 +120,19 @@ public class GameInput : MonoBehaviour
             {
                 return true;
             }
+            if (Input.GetButtonDown("Scroll"))
+            {
+                return true;
+            }
         }
         return false;
     }
+
+    /// <summary>
+    /// Me passa qual sentido bruto(-1,0,1) que estou do eixo estou direcionando ou apertando
+    /// </summary>
+    /// <param name="name">Qual eixo</param>
+    /// <returns>Devolve o sentido</returns>
     public static float GetAxisRaw(InputsName name)
     {
         if (name == InputsName.Horizontal)
@@ -111,6 +145,10 @@ public class GameInput : MonoBehaviour
             {
                 return 1;
             }
+            if (Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1)
+            {
+                return Input.GetAxisRaw("Horizontal");
+            }
         }
         if (name == InputsName.Vertical)
         {
@@ -121,6 +159,10 @@ public class GameInput : MonoBehaviour
             if (Input.GetKey(_VerticalDown))
             {
                 return -1;
+            }
+            if (Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
+            {
+                return Input.GetAxisRaw("Vertical");
             }
         }
         if (name == InputsName.Scroll)
@@ -133,10 +175,18 @@ public class GameInput : MonoBehaviour
             {
                 return -1;
             }
+            if (Input.GetAxisRaw("Scroll") == 1 || Input.GetAxisRaw("Scroll") == -1)
+            {
+                return Input.GetAxisRaw("Scroll");
+            }
         }
         return 0;
     }
-    //Dependendo o botão que o jogador pressionar, vou retornar -1,0 ou 1
+    /// <summary>
+    /// Dependendo o botão que o jogador pressionar, vou retornar -1,0 ou 1
+    /// </summary>
+    /// <param name="name">Qual o eixo</param>
+    /// <returns>Devolve a variação entre os eixos</returns>
     public static float GetAxis(InputsName name)
     {
         float _temp = 0;
@@ -155,7 +205,11 @@ public class GameInput : MonoBehaviour
         }
         return _temp;
     }
-
+    /// <summary>
+    /// Muda a tecla
+    /// </summary>
+    /// <param name="name">Qual tecla?</param>
+    /// <returns>Devolve verdadeiro se conseguiu, falso se não conseguiu</returns>
     public static bool ChangeKey(InputsName name)
     {
         KeyCode k = KeyCode.A;
@@ -202,6 +256,12 @@ public class GameInput : MonoBehaviour
         }
         return false;
     }
+    /// <summary>
+    /// Muda a tecla/botão do eixo
+    /// </summary>
+    /// <param name="name">Qual o eixo</param>
+    /// <param name="negative">Sentido negativo ou positivo?</param>
+    /// <returns>Devolve verdadeiro se conseguiu, falso se não conseguiu</returns>
     public static bool ChangeAxis(InputsName name, bool negative)
     {
         KeyCode k = KeyCode.A;
@@ -270,6 +330,10 @@ public class GameInput : MonoBehaviour
         }
         return false;
     }
+    /// <summary>
+    /// Devolve a tecla pressionada
+    /// </summary>
+    /// <returns>Tecla pressionada</returns>
     private static KeyCode KeyPress()
     {
         foreach (KeyCode k in System.Enum.GetValues(typeof(KeyCode)))
@@ -282,7 +346,11 @@ public class GameInput : MonoBehaviour
         }
         return KeyCode.A;//tecla padrão
     }
-
+    /// <summary>
+    /// Muda o botão, caso você já tenha uma botão com a mesma tecla, você inverte.
+    /// </summary>
+    /// <param name="pos">Dentro do array de botões, aonde ele está?</param>
+    /// <param name="bt">Qual a tecla?</param>
     private static void ChangeBt(int pos, KeyCode bt)
     {
         try
@@ -329,10 +397,21 @@ public class GameInput : MonoBehaviour
 
         }
     }
+    /// <summary>
+    /// Qual o nome da tecla?
+    /// </summary>
+    /// <param name="name">Qual o botão?</param>
+    /// <returns>Retorna o nome</returns>
     public static string GetKeyName(InputsName name)
     {
         return ConvertInputToKey(name).ToString();
     }
+    /// <summary>
+    /// Qual o nome da tecla?
+    /// </summary>
+    /// <param name="name">Qual o eixo?</param>
+    /// <param name="negative">Sentido negativo ou positivo?</param>
+    /// <returns>Retorna o nome</returns>
     public static string GetAxisName(InputsName name, bool negative)
     {
         string _temp = string.Empty;
@@ -391,10 +470,19 @@ public class GameInput : MonoBehaviour
         {
             _Horizontal += _SensiHorizontal;
             _Horizontal = Mathf.Clamp(_Horizontal, -1f, 1f);
+        }else if(Input.GetAxisRaw("Horizontal") == 1)
+        {
+            _Horizontal += _SensiHorizontal;
+            _Horizontal = Mathf.Clamp(_Horizontal, -1f, 1f);
+        }
+        else if (Input.GetAxisRaw("Horizontal") == -1)
+        {
+            _Horizontal -= _SensiHorizontal;
+            _Horizontal = Mathf.Clamp(_Horizontal, -1f, 1f);
         }
         else
         {
-            _Horizontal = Mathf.Lerp(_Horizontal, 0, Time.deltaTime*5);
+            _Horizontal = 0;//Mathf.Lerp(_Horizontal, 0, Time.deltaTime*5);
         }
         #endregion
         #region Vertical
@@ -408,9 +496,19 @@ public class GameInput : MonoBehaviour
             _Vertical -= _SensiVertical;
             _Vertical = Mathf.Clamp(_Vertical, -1f, 1f);
         }
+        else if (Input.GetAxisRaw("Vertical")==1)
+        {
+            _Vertical += _SensiVertical;
+            _Vertical = Mathf.Clamp(_Vertical, -1f, 1f);
+        }
+        else if (Input.GetAxisRaw("Vertical") == -1)
+        {
+            _Vertical -= _SensiVertical;
+            _Vertical = Mathf.Clamp(_Vertical, -1f, 1f);
+        }
         else
         {
-            _Vertical = Mathf.Lerp(_Vertical, 0, Time.deltaTime*5);
+            _Vertical = 0;//Mathf.Lerp(_Vertical, 0, Time.deltaTime*5);
         }
         #endregion
         #region Scroll
@@ -420,6 +518,16 @@ public class GameInput : MonoBehaviour
             _Scroll = Mathf.Clamp(_Scroll, -1f, 1f);
         }
         else if (Input.GetKey(_ScrollDown))
+        {
+            _Scroll -= _SensiScroll;
+            _Scroll = Mathf.Clamp(_Scroll, -1, 1);
+        }
+        else if (Input.GetAxisRaw("Scroll")==1)
+        {
+            _Scroll += _SensiScroll;
+            _Scroll = Mathf.Clamp(_Scroll, -1f, 1f);
+        }
+        else if (Input.GetAxisRaw("Scroll") == -1)
         {
             _Scroll -= _SensiScroll;
             _Scroll = Mathf.Clamp(_Scroll, -1, 1);

@@ -5,6 +5,7 @@ Shader "Toon/Basic Outline" {
 		_Outline ("Outline width", Range (.002, 0.03)) = .005
 		_MainTex ("Base (RGB)", 2D) = "white" { }
 		_ToonShade ("ToonShader Cubemap(RGB)", CUBE) = "" { }
+		_Swit ("Switch", Range(0,1)) = 1
 	}
 	
 	CGINCLUDE

@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: BOX
-  m_Shader: {fileID: 4800000, guid: 44b54c59129572f469a949a22bc08cd0, type: 3}
+  m_Shader: {fileID: 4800000, guid: 9ce107479d11178d11005b9844295342, type: 3}
   m_ShaderKeywords: _TEX_ON
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
@@ -143,12 +143,20 @@ Material:
         second: 0
       data:
         first:
-          name: _Outl
-        second: 0
+          name: _Cull
+        second: 2
       data:
         first:
           name: _DetailTex
         second: 1
+      data:
+        first:
+          name: _Outline
+        second: 10
+      data:
+        first:
+          name: _Outl
+        second: 0
       data:
         first:
           name: _TintColor
@@ -167,14 +175,6 @@ Material:
         second: 0
       data:
         first:
-          name: _Cull
-        second: 2
-      data:
-        first:
-          name: _Outline
-        second: .00999999978
-      data:
-        first:
           name: _Asym
         second: 0
       data:
@@ -184,6 +184,10 @@ Material:
       data:
         first:
           name: _TrOp
+        second: 0
+      data:
+        first:
+          name: _Swit
         second: 0
     m_Colors:
       data:
@@ -197,7 +201,7 @@ Material:
       data:
         first:
           name: _OutlineColor
-        second: {r: .5, g: .5, b: .5, a: 1}
+        second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
           name: _Asymmetry

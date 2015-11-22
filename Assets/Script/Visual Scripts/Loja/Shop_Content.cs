@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 [AddComponentMenu("Scripts/VisualScripts/Loja/Shop Content")]
 public class Shop_Content : MonoBehaviour
@@ -9,9 +10,10 @@ public class Shop_Content : MonoBehaviour
     Sprite Sprite;
     public Image Imagem;
     public Text Nome, Quantidade;
-
+    public EventTrigger eventos;
     public Shop Loja;
     public int indiceDoItem = 0;
+    Text descricao;
     // Use this for initialization
     void Start()
     {
@@ -22,7 +24,12 @@ public class Shop_Content : MonoBehaviour
             Quantidade.text = "0";
             Sprite = Loja.Produtos[indiceDoItem].Img;
             Imagem.sprite = Sprite;
+            descricao = GameObject.Find("Descricao_Painel").GetComponent<Text>();
         }
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerEnter;
+        entry.callback.AddListener((eventData) => { Descricao(); });
+        eventos.triggers.Add(entry);
 
     }
 
@@ -59,5 +66,6 @@ public class Shop_Content : MonoBehaviour
         if (Loja)
             Loja.ItemSelect = indiceDoItem;
     }
+    
 
 }
