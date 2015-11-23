@@ -1,12 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 [AddComponentMenu("Scripts/Loja/Vendedor")]
 public class Vendedor : MonoBehaviour
 {
 
-    public GameObject Loja;
+    public Canvas Loja;
     bool ligar = false;
     Character per;
+    public EventSystem evento;
+    [Header("Primeiro botão a ser selecionado")]
+    public GameObject Botao;
     // Use this for initialization
     void Start()
     {
@@ -18,7 +22,7 @@ public class Vendedor : MonoBehaviour
     {
         if (per)
         {
-            if(Loja.activeInHierarchy)
+            if(Loja.enabled)
             {
                 per.EstadoDoJogador = GameStates.CharacterState.DontMove;
             }else
@@ -39,9 +43,11 @@ public class Vendedor : MonoBehaviour
             {
                 if (Loja)
                 {
-                    ligar = !ligar;
-                    Loja.SetActive(ligar);
-
+                    if (!Loja.enabled)
+                    {
+                        Loja.enabled = true;
+                        evento.SetSelectedGameObject(Botao);
+                    }
                 }
             }
         }

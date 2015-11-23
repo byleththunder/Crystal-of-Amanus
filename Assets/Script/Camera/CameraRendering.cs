@@ -70,6 +70,11 @@ public class CameraRendering : MonoBehaviour
             indice = 2;
             Camera.main.orthographic = true;
         }
+		
+		Zoom[0] = Zoom1;
+        Zoom[1] = Zoom2;
+        Zoom[2] = Zoom3;
+		
         ActualZoom = Vector3.Lerp(ActualZoom, Zoom[indice], Time.deltaTime * 3);
 	    FollowCamera();
     }

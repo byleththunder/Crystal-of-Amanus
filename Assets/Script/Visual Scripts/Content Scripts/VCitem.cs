@@ -67,11 +67,11 @@ public class VCitem : Selectable
         if (i == Item.TipoDeItem.Equipamento)
         {
 
-            GameObject.Find("Canvas").transform.FindChild("Menu").transform.FindChild("Area_Informacao").gameObject.SetActive(true);
-            GameObject.Find("Canvas").transform.FindChild("Menu").transform.FindChild("Area_Habilidades").gameObject.SetActive(false);
-            GameObject.Find("Canvas").transform.FindChild("Menu").transform.FindChild("Area_Inventario").gameObject.SetActive(false);
-            GameObject.Find("Canvas").transform.FindChild("Menu").transform.FindChild("Area_Quest").gameObject.SetActive(false);
-            GameObject.Find("Canvas").transform.FindChild("Menu").transform.FindChild("Area_Mapa").gameObject.SetActive(false);
+            GameObject.Find("Menu(Canvas)").transform.FindChild("Menu").transform.FindChild("Area_Informacao").gameObject.SetActive(true);
+            GameObject.Find("Menu(Canvas)").transform.FindChild("Menu").transform.FindChild("Area_Habilidades").gameObject.SetActive(false);
+            GameObject.Find("Menu(Canvas)").transform.FindChild("Menu").transform.FindChild("Area_Inventario").gameObject.SetActive(false);
+            GameObject.Find("Menu(Canvas)").transform.FindChild("Menu").transform.FindChild("Area_Quest").gameObject.SetActive(false);
+            GameObject.Find("Menu(Canvas)").transform.FindChild("Menu").transform.FindChild("Area_Mapa").gameObject.SetActive(false);
 
         }
         

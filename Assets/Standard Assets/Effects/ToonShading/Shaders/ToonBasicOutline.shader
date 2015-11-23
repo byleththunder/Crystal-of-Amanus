@@ -5,7 +5,8 @@ Shader "Toon/Basic Outline" {
 		_Outline ("Outline width", Range (.002, 0.03)) = .005
 		_MainTex ("Base (RGB)", 2D) = "white" { }
 		_ToonShade ("ToonShader Cubemap(RGB)", CUBE) = "" { }
-		_Swit ("Switch", Range(0,1)) = 1
+		_Swt ("Switch",Range(0,1)) = 0
+		_Desl ("Deslocamento", Range(0,10)) = 0
 	}
 	
 	CGINCLUDE
@@ -24,15 +25,21 @@ Shader "Toon/Basic Outline" {
 	
 	uniform float _Outline;
 	uniform float4 _OutlineColor;
-	
+	float _Swt;
+	float _Desl;
 	v2f vert(appdata v) {
 		v2f o;
-		o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+		float4 Vout = v.vertex;
+		if(_Swt == 1)
+		{
+		Vout = v.vertex + float4(v.normal.x,v.normal.y,v.normal.z,0)-sin(_Time.y)-1;
+		}
+		o.pos = mul(UNITY_MATRIX_MVP, Vout);
 
 		float3 norm   = normalize(mul ((float3x3)UNITY_MATRIX_IT_MV, v.normal));
 		float2 offset = TransformViewToProjection(norm.xy);
 
-		o.pos.xy += offset  * _Outline;
+		o.pos.xy += offset * _Outline;
 		o.color = _OutlineColor;
 		UNITY_TRANSFER_FOG(o,o.pos);
 		return o;

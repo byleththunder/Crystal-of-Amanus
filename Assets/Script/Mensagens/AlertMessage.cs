@@ -18,8 +18,26 @@ public class AlertMessage : Singleton<AlertMessage>
     float cont = 0;
     void Awake()
     {
-        GameObject canvas = GameObject.Find("Canvas");
-        gameObject.transform.SetParent(canvas.transform, false);
+        if (GameObject.Find("Canva (Singletone)") == null)
+        {
+            GameObject Canva = new GameObject();
+            Canva.name = "Canva (Singletone)";
+            var temp_C = Canva.AddComponent<Canvas>();
+            var temp_CS = Canva.AddComponent<CanvasScaler>();
+            Canva.AddComponent<GraphicRaycaster>();
+            temp_C.renderMode = RenderMode.ScreenSpaceOverlay;
+            temp_CS.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            temp_CS.referenceResolution = new Vector2(720, 1024);
+            temp_CS.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
+            temp_CS.matchWidthOrHeight = 0.5f;
+            Canva.transform.position = new Vector3(1, 1, -1);
+            gameObject.transform.SetParent(Canva.transform, false);
+            DontDestroyOnLoad(Canva);
+        }
+        else
+        {
+            gameObject.transform.SetParent(GameObject.Find("Canva (Singletone)").transform, false);
+        }
     }
     public void ShowAlert(Item iten, int quantidade)
     {

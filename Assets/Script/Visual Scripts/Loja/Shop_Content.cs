@@ -17,7 +17,7 @@ public class Shop_Content : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Loja = GameObject.FindGameObjectWithTag("Shop").GetComponent<Shop>();
+        //Loja = GameObject.FindGameObjectWithTag("Shop").GetComponent<Shop>();
         if (Loja)
         {
             Nome.text = Loja.Produtos[indiceDoItem].Nome + "\tPreço: " + Loja.Produtos[indiceDoItem].Preco;

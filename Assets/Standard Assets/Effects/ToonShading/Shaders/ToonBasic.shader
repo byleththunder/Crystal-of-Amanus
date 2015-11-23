@@ -3,6 +3,8 @@ Shader "Toon/Basic" {
 		_Color ("Main Color", Color) = (.5,.5,.5,1)
 		_MainTex ("Base (RGB)", 2D) = "white" {}
 		_ToonShade ("ToonShader Cubemap(RGB)", CUBE) = "" { }
+		_Swt ("Switch",Range(0,1)) = 0
+		_Desl ("Deslocamento", Range(0,10)) = 0
 	}
 
 
@@ -23,7 +25,8 @@ Shader "Toon/Basic" {
 			samplerCUBE _ToonShade;
 			float4 _MainTex_ST;
 			float4 _Color;
-
+			float _Swt;
+			float _Desl;
 			struct appdata {
 				float4 vertex : POSITION;
 				float2 texcoord : TEXCOORD0;
@@ -40,7 +43,12 @@ Shader "Toon/Basic" {
 			v2f vert (appdata v)
 			{
 				v2f o;
-				o.pos = mul (UNITY_MATRIX_MVP, v.vertex);
+				float4 Vout = v.vertex;
+				if(_Swt == 1)
+				{
+				Vout = v.vertex + float4(v.normal.x,v.normal.y,v.normal.z,0)-sin(_Time.y)-1;
+				}
+				o.pos = mul (UNITY_MATRIX_MVP, Vout);
 				o.texcoord = TRANSFORM_TEX(v.texcoord, _MainTex);
 				o.cubenormal = mul (UNITY_MATRIX_MV, float4(v.normal,0));
 				UNITY_TRANSFER_FOG(o,o.pos);

@@ -7,14 +7,14 @@ public class AnimaIniRuinas : StateMachineBehaviour
     public Animator Eran;
     float speed = 1.5f;
     public RuinasLevelScript Script;
-    GameObject Cav; //Canvas
+    CanvasGroup Cav; //Canvas
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Eran = GameObject.FindGameObjectWithTag("Player").transform.FindChild("Eran2Sprites").GetComponent<Animator>();
         Script = GameObject.Find("DungeonScript").GetComponent<RuinasLevelScript>();
-        Cav = GameObject.Find("Canvas");
-        Cav.SetActive(false);
+        Cav = GameObject.Find("HUD(Canvas)").GetComponent<CanvasGroup>();
+        Cav.alpha = 0;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -29,7 +29,7 @@ public class AnimaIniRuinas : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Cav.SetActive(true);
+        Cav.alpha = 1;
         Script.wait = false;
 
         Debug.Log("Saiu");

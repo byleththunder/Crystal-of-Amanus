@@ -390,4 +390,8 @@ public class Morcego : Monster
             }
         }
     }
+    private static float Azimuth(Vector3 vector)
+    {
+        return Vector3.Angle(Vector3.forward, vector) * Mathf.Sign(vector.x);
+    }
 }

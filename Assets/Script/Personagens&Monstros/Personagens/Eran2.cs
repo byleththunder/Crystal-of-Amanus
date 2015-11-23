@@ -323,7 +323,14 @@ public class Eran2 : Character
     void OnTriggerStay(Collider col)
     {
 
-
+        if (col.gameObject.tag == "Destruivel")
+        {
+            if (DamageAttk)
+            {
+                col.gameObject.SendMessage("ExplosionObject");
+                DamageAttk = false;
+            }
+        }
         if (col.gameObject.tag == "Monsters")
         {
             if (Alvo == null)

@@ -17,7 +17,13 @@ public class VHabilidades : MonoBehaviour {
 	void Start () {
         Personagem = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
         SK = Personagem.GetComponent<CharacterSkills>();
-        
+        for(int i = 0; i < SK.Slots.Length; i++)
+        {
+            if (SK.Slots[i] != null)
+            {
+                Slots[i].sprite = SK.Slots[i].NameImg;
+            }
+        }
 	}
 	
 	// Update is called once per frame

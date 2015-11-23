@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
 [AddComponentMenu("Scripts/VisualScripts/Loja/Shop")]
 public class Shop : MonoBehaviour
@@ -17,6 +18,7 @@ public class Shop : MonoBehaviour
     //Ui Components
     public Text Descricao, Conta, CharGold;
     public GameObject Painel_Itens;
+    
     // Use this for initialization
     void Start()
     {
@@ -118,6 +120,7 @@ public class Shop : MonoBehaviour
                 _transform.anchoredPosition = new Vector2((-.5f), (-1.5f) * (i +1));
             }
             _temp.GetComponent<Shop_Content>().indiceDoItem = i;
+            _temp.GetComponent<Shop_Content>().Loja = this;
         }
     }
 }

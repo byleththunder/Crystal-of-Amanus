@@ -10,7 +10,6 @@ GameObject:
   - 224: {fileID: 22469532}
   - 222: {fileID: 22202510}
   - 114: {fileID: 11464024}
-  - 114: {fileID: 11464690}
   m_Layer: 5
   m_Name: Alert_Prefab
   m_TagString: Untagged
@@ -150,19 +149,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11464690
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72d2ff4065ccc08438380fd737e2a6e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Img: {fileID: 11416928}
-  texto: {fileID: 11412302}
 --- !u!222 &22202510
 CanvasRenderer:
   m_ObjectHideFlags: 1

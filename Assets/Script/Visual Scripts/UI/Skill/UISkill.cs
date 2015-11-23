@@ -9,7 +9,7 @@ public class UISkill : MonoBehaviour
     public Image[] Imagens = new Image[4];
     public Image SkillImg;
     public GameObject[] _Slots = new GameObject[4];
-    public RectTransform Seletor;
+    public RectTransform[] Seletor = new RectTransform[4];
     Skill[] SlotSkill = new Skill[4];
     Item[] SlotsItem = new Item[4];
     int IndiceUniversal = 0;
@@ -126,38 +126,51 @@ public class UISkill : MonoBehaviour
     }
     void OrganizarTextos()
     {
-        Paineis[IndiceUniversal].anchoredPosition = Seletor.anchoredPosition;
+        Paineis[IndiceUniversal].anchoredPosition = Seletor[0].anchoredPosition;
+        Paineis[0].GetComponent<LayoutElement>().minWidth = 148;
+        Paineis[0].GetComponent<LayoutElement>().minHeight = 15;
         if (SlotSkill[IndiceUniversal] != null || SlotsItem[IndiceUniversal] != null)
             Imagens[IndiceUniversal].color = new Color(Imagens[IndiceUniversal].color.r, Imagens[IndiceUniversal].color.g, Imagens[IndiceUniversal].color.b, 1);
         for (int i = 0; i < SlotSkill.Length; i++)
         {
             if (IndiceUniversal + 1 >= SlotSkill.Length && i == 0)
             {
-                Paineis[0].anchoredPosition = new Vector2(Seletor.anchoredPosition.x, Seletor.sizeDelta.y * -1);
+                Paineis[0].anchoredPosition = Seletor[1].anchoredPosition;
+                Paineis[0].GetComponent<LayoutElement>().minWidth = 100;
+                Paineis[0].GetComponent<LayoutElement>().minHeight = 15;
+
                 if (SlotSkill[0] != null || SlotsItem[0] != null)
                     Imagens[0].color = new Color(Imagens[0].color.r, Imagens[0].color.g, Imagens[0].color.b, 0.3f);
             }
             else if (i == IndiceUniversal + 1)
             {
-                Paineis[IndiceUniversal + 1].anchoredPosition = new Vector2(Seletor.anchoredPosition.x, Seletor.sizeDelta.y * -1);
+                Paineis[IndiceUniversal + 1].anchoredPosition = Seletor[1].anchoredPosition;
+                Paineis[IndiceUniversal + 1].GetComponent<LayoutElement>().minWidth = 100;
+                Paineis[IndiceUniversal + 1].GetComponent<LayoutElement>().minHeight = 13;
                 if (SlotSkill[IndiceUniversal + 1] != null || SlotsItem[IndiceUniversal + 1] != null)
                     Imagens[IndiceUniversal + 1].color = new Color(Imagens[IndiceUniversal + 1].color.r, Imagens[IndiceUniversal + 1].color.g, Imagens[IndiceUniversal + 1].color.b, 0.3f);
             }
             else if (IndiceUniversal - 1 < 0 && i == SlotSkill.Length - 1)
             {
-                Paineis[SlotSkill.Length - 1].anchoredPosition = new Vector2(Seletor.anchoredPosition.x, Seletor.sizeDelta.y * 1);
+                Paineis[SlotSkill.Length - 1].anchoredPosition = Seletor[2].anchoredPosition;
+                Paineis[SlotSkill.Length - 1].GetComponent<LayoutElement>().minWidth = 100;
+                Paineis[SlotSkill.Length - 1].GetComponent<LayoutElement>().minHeight = 13;
                 if (SlotSkill[SlotSkill.Length - 1] != null || SlotsItem[SlotSkill.Length - 1] != null)
                     Imagens[SlotSkill.Length - 1].color = new Color(Imagens[SlotSkill.Length - 1].color.r, Imagens[SlotSkill.Length - 1].color.g, Imagens[SlotSkill.Length - 1].color.b, 0.3f);
             }
             else if (i == IndiceUniversal - 1)
             {
-                Paineis[IndiceUniversal - 1].anchoredPosition = new Vector2(Seletor.anchoredPosition.x, Seletor.sizeDelta.y * 1);
+                Paineis[IndiceUniversal - 1].anchoredPosition = Seletor[2].anchoredPosition;
+                Paineis[IndiceUniversal - 1].GetComponent<LayoutElement>().minWidth = 100;
+                Paineis[IndiceUniversal - 1].GetComponent<LayoutElement>().minHeight = 13;
                 if (SlotSkill[IndiceUniversal - 1] != null || SlotsItem[IndiceUniversal - 1] != null)
                     Imagens[IndiceUniversal - 1].color = new Color(Imagens[IndiceUniversal - 1].color.r, Imagens[IndiceUniversal - 1].color.g, Imagens[IndiceUniversal - 1].color.b, 0.3f);
             }
             else if (i != IndiceUniversal)
             {
-                Paineis[i].anchoredPosition = new Vector2(Seletor.anchoredPosition.x, Seletor.sizeDelta.y * 2);
+                Paineis[i].anchoredPosition = Seletor[3].anchoredPosition;
+                Paineis[i].GetComponent<LayoutElement>().minWidth = 100;
+                Paineis[i].GetComponent<LayoutElement>().minHeight = 13;
                 if (SlotSkill[i] != null || SlotsItem[i] != null)
                     Imagens[i].color = new Color(Imagens[i].color.r, Imagens[i].color.g, Imagens[i].color.b, 0.3f);
             }

@@ -52,23 +52,21 @@ public class GeradorAleatorioDeFases : MonoBehaviour
             //
         }
     }
-    #region Apagar - Essa parte não é minha.
+   
     void MatchExits(Transform ExtremidadeAntiga, Transform ExtremidadeNova)
     {
         Transform PaiDaExtremidade = ExtremidadeNova.parent;
         Vector3 forwardVectorToMatch = -ExtremidadeAntiga.forward;
        float correctiveRotation = Azimuth(forwardVectorToMatch) - Azimuth(ExtremidadeNova.forward);
         PaiDaExtremidade.RotateAround(ExtremidadeNova.position, Vector3.up, correctiveRotation);
-        //PaiDaExtremidade.rotation = Quaternion.Euler(ExtremidadeAntiga.localEulerAngles + new Vector3(0, 90 * Mathf.Sign(-ExtremidadeAntiga.forward.x), 0));
         Vector3 correctiveTranslation = ExtremidadeAntiga.position - ExtremidadeNova.position;
         PaiDaExtremidade.transform.position += correctiveTranslation;
     }
     private static float Azimuth(Vector3 vector)
     {
-        print(Vector3.Angle(Vector3.forward, vector));
         return Vector3.Angle(Vector3.forward, vector) * Mathf.Sign(vector.x);
     }
-    #endregion
+    
 
     
     Sala ChecarCaminho(Transform Extremidade, int indice)

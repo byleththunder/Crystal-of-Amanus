@@ -152,7 +152,7 @@ Material:
       data:
         first:
           name: _Outline
-        second: 10
+        second: .0281000007
       data:
         first:
           name: _Outl

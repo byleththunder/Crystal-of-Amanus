@@ -15,15 +15,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &131274
+--- !u!1 &105476
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 453010}
-  - 114: {fileID: 11469988}
+  - 4: {fileID: 448210}
+  - 114: {fileID: 11409528}
   m_Layer: 0
   m_Name: Fogo
   m_TagString: FireMagic
@@ -31,15 +31,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &182962
+--- !u!1 &150780
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 422508}
-  - 114: {fileID: 11446210}
+  - 4: {fileID: 483442}
+  - 114: {fileID: 11485026}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
@@ -57,40 +57,62 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 453010}
-  - {fileID: 422508}
+  - {fileID: 448210}
+  - {fileID: 483442}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!4 &422508
+--- !u!4 &448210
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 182962}
+  m_GameObject: {fileID: 105476}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 402066}
+  m_RootOrder: 0
+--- !u!4 &483442
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 402066}
   m_RootOrder: 1
---- !u!4 &453010
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 131274}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 402066}
-  m_RootOrder: 0
---- !u!114 &11446210
+--- !u!114 &11409528
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 182962}
+  m_GameObject: {fileID: 105476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c01c44202e8a1e45b04e374badea9b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Nome: 
+  Descricao: 
+  Img: {fileID: 21300000, guid: 9e79491d5937bcb4f94040b817ddd076, type: 3}
+  NameImg: {fileID: 21300000, guid: 8c8ac4cecad8ed748a01fcc5bc5a7154, type: 3}
+  Alvo: 0
+  Dano: 10
+  CoolDown: 0
+  OnCoolDown: 0
+  Pers: {fileID: 0}
+  Particle: {fileID: 0}
+  Personagem: {fileID: 0}
+--- !u!114 &11485026
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150780}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5341c259a278fb944a20b1c719fdd7bf, type: 3}
@@ -104,29 +126,8 @@ MonoBehaviour:
   Dano: 0
   CoolDown: 0
   OnCoolDown: 0
-  Escudo: {fileID: 0}
---- !u!114 &11469988
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 131274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c01c44202e8a1e45b04e374badea9b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nome: 
-  Descricao: 
-  Img: {fileID: 0}
-  NameImg: {fileID: 0}
-  Alvo: 0
-  Dano: 0
-  CoolDown: 0
-  OnCoolDown: 0
-  Pers: {fileID: 0}
-  Particle: {fileID: 0}
   Personagem: {fileID: 0}
+  Escudo: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
