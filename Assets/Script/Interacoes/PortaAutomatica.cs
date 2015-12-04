@@ -11,20 +11,34 @@ public class PortaAutomatica : MonoBehaviour
 
     public Animator anim;
     
+    void Start()
+    {
+
+    }
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.CompareTag("Player"))
-        {
-            anim.ResetTrigger("Close");
-            anim.SetTrigger("Open");
-        }
+        
+            if (col.gameObject.CompareTag("Player"))
+            {
+                if (anim != null)
+                {
+                    //anim.ResetTrigger("Close");
+                    anim.SetTrigger("Open");
+                }
+            }
+        
     }
     void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.CompareTag("Player"))
-        {
-            anim.ResetTrigger("Close");
-            anim.SetTrigger("Close");
-        }
+       
+            if (col.gameObject.CompareTag("Player"))
+            {
+                if (anim != null)
+                {
+                    //anim.ResetTrigger("Open");
+                    anim.SetTrigger("Close");
+                }
+            }
+        
     }
 }

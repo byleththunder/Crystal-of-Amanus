@@ -78,6 +78,14 @@ public class RuinasLevelScript : DungeonScript
                 
                     CenaIni.transform.DetachChildren();
                     CenaIni.SetActive(false);
+                    try
+                    {
+                       // GameObject.Find("Help(Canvas)").SetActive(true);
+                    }
+                    catch
+                    {
+
+                    }
                     Camera.GetComponent<CameraRendering>().enabled = true;
                     Personagem.GetComponent<Character>().EstadoDoJogador = GameStates.CharacterState.Playing;
                     Personagem.GetComponent<Character>().visao = TargetVision.Back;

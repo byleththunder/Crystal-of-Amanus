@@ -6,6 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Cenas/Introducao.unity
+  - enabled: 1
     path: Assets/Cenas/TitleScreen.unity
   - enabled: 1
     path: Assets/Cenas/LoadingScene.unity
@@ -19,3 +21,7 @@ EditorBuildSettings:
     path: Assets/Cenas/Falansterio.unity
   - enabled: 1
     path: Assets/Cenas/DungeonAleatoria.unity
+  - enabled: 1
+    path: Assets/Cenas/PalacioDePedras.unity
+  - enabled: 1
+    path: Assets/Cenas/DamohShop.unity

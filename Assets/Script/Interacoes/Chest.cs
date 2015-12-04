@@ -14,11 +14,21 @@ public class Chest : MonoBehaviour {
     public bool Open = false;
     public SpriteRenderer Imagens;
     public bool FoiAberto = false; //Quero saber se o jogador realmente abriu ou já estava aberto.
+    public bool Dinheiro = false;
+    public int Quantia = 0;
+    public Sprite spr;
 	// Use this for initialization
 	void Start () {
         Imagens = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        Imagens.sprite = loot.Img;
+        if (Dinheiro)
+        {
+            Imagens.sprite = spr;
+        }
+        else
+        {
+            Imagens.sprite = loot.Img;
+        }
         if (!Open)
         {
             anim.SetFloat("speed", 0f);
@@ -51,7 +61,13 @@ public class Chest : MonoBehaviour {
                         if (loot)
                         {
                             Open = true;
-                            col.gameObject.GetComponent<Inventario>().PickItem(loot, quantidade);
+                            if (Dinheiro == false)
+                            {
+                                col.gameObject.GetComponent<Inventario>().PickItem(loot, quantidade);
+                            }else
+                            {
+                                col.gameObject.GetComponent<Character>().Gold += Quantia;
+                            }
                             FoiAberto = true;
                             
                         }

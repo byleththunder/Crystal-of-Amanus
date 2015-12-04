@@ -2,11 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 
+
 [AddComponentMenu("Scripts/Quests/Quest")]
-[System.Serializable]
+
 public enum TiposDeQuests { Principal, Repetitiva, Sub };
 public enum ObjetivesType { Coleta = 0, Eliminacao = 1 };
-
+[System.Serializable]
 public class Quest
 {
     //Padrão
@@ -15,8 +16,8 @@ public class Quest
     public ObjetivesType Objetivo;
     public bool IsComplete = false;
     public bool Repete = false;
-    public Item[] ItensColetaveis;
-    public Monster[] Monstros;
+    public string[] ItensColetaveis;
+    public string[] Monstros;
     public int[] Quantidades;
     public int RecompensaEmDinheiro = 0;
     //Principal
@@ -49,19 +50,19 @@ public class Quest
                 {
                     if (Quantidades[i] > 0)
                     {
-                        Descricao += string.Format("\t- {0} x{1}", ItensColetaveis[i].Nome, Quantidades[i].ToString());
+                        Descricao += string.Format("\t- {0} x{1}", ItensColetaveis[i], Quantidades[i].ToString());
                     }else
                     {
-                        Descricao += string.Format("\t- {0} OK", ItensColetaveis[i].Nome);
+                        Descricao += string.Format("\t- {0} OK", ItensColetaveis[i]);
                     }
                 }else
                 {
                     if (Quantidades[i] > 0)
                     {
-                        Descricao += string.Format("\t- {0} x{1}", Monstros[i].Nome, Quantidades[i].ToString());
+                        Descricao += string.Format("\t- {0} x{1}", Monstros[i], Quantidades[i].ToString());
                     }else
                     {
-                        Descricao += string.Format("\t- {0} Ok", Monstros[i].Nome);
+                        Descricao += string.Format("\t- {0} Ok", Monstros[i]);
                     }
                 }
             }
@@ -71,11 +72,11 @@ public class Quest
             {
                 if (Objetivo == ObjetivesType.Coleta)
                 {
-                    Descricao += string.Format("\t- {0} OK", ItensColetaveis[i].Nome);
+                    Descricao += string.Format("\t- {0} OK", ItensColetaveis[i]);
                 }
                 else
                 {
-                    Descricao += string.Format("\t- {0} Ok", Monstros[i].Nome);
+                    Descricao += string.Format("\t- {0} Ok", Monstros[i]);
                 }
             }
         }
@@ -89,13 +90,14 @@ public class Quest
         Objetivo = ObjetivesType.Coleta;
         IsComplete = false;
         //Peguei todos os itens já criados como prefabs
-        Item[] ItensExistentes = Resources.LoadAll<Item>("ItemPrefabs");
-        //Debug.Log("ItensExistentes na pasta: " + ItensExistentes.Length);
+        Item _ItensExistentes = ResourceFind.FindItem("Poção de Vida (Menor)");
+        Item[] ItensExistentes = new Item[3] { _ItensExistentes, _ItensExistentes, _ItensExistentes };//System.Array.FindAll(_ItensExistentes, x => x.Tipo == Item.TipoDeItem.Potion);
+        Debug.Log("ItensExistentes na pasta: " + ItensExistentes.Length);
         if (ItensExistentes.Length > 0)
         {
             //Sortiei quantos itens terão que ser coletados
-            ItensColetaveis = new Item[Random.Range(1, 3)];
-            Quantidades = new int[ItensColetaveis.Length];
+            ItensColetaveis = new string[1];
+            Quantidades = new int[1];
             #region selecionando itens
             for (int i = 0; i < ItensColetaveis.Length; i++)
             {
@@ -105,7 +107,7 @@ public class Quest
                 if (i == 0)
                 {
 
-                    ItensColetaveis[i] = _item;
+                    ItensColetaveis[i] = _item.Nome;
                     ItensExistentes[indice] = null;
                     Quantidades[i] = Random.Range(1, 5);
                 }
@@ -117,11 +119,11 @@ public class Quest
                         indice = Random.Range(0, ItensExistentes.Length);
                         _item = ItensExistentes[indice];
                     }
-                    ItensColetaveis[i] = _item;
+                    ItensColetaveis[i] = _item.Nome;
                     ItensExistentes[indice] = null;
                     Quantidades[i] = Random.Range(1, 5);
                 }
-                Descricao += string.Format("\n\t- {0} x{1}", ItensColetaveis[i].Nome, Quantidades[i].ToString());
+                Descricao += string.Format("\n\t- {0} x{1}", ItensColetaveis[i], Quantidades[i].ToString());
             }
             #endregion
             RecompensaEmDinheiro = 100;
@@ -141,7 +143,7 @@ public class Quest
         //Sortiei quantos itens terão que ser coletados
         if (MonstrosExistentes.Length > 0)
         {
-            Monstros = new Monster[Random.Range(1, MonstrosExistentes.Length)];
+            Monstros = new string[Random.Range(1, MonstrosExistentes.Length)];
             Quantidades = new int[Monstros.Length];
             #region selecionando Monstros
             for (int i = 0; i < Monstros.Length; i++)
@@ -152,7 +154,7 @@ public class Quest
                 if (i == 0)
                 {
 
-                    Monstros[i] = _monster;
+                    Monstros[i] = _monster.Nome;
                     MonstrosExistentes[indice] = null;
                     Quantidades[i] = Random.Range(1, 5);
                 }
@@ -164,11 +166,11 @@ public class Quest
                         indice = Random.Range(0, MonstrosExistentes.Length);
                         _monster = MonstrosExistentes[indice];
                     }
-                    Monstros[i] = _monster;
+                    Monstros[i] = _monster.Nome;
                     MonstrosExistentes[indice] = null;
                     Quantidades[i] = Random.Range(1, 5);
                 }
-                Descricao += string.Format("\n\t- {0} x{1}", Monstros[i].Nome, Quantidades[i].ToString());
+                Descricao += string.Format("\n\t- {0} x{1}", Monstros[i], Quantidades[i].ToString());
             }
             #endregion
             RecompensaEmDinheiro = 100;

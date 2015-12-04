@@ -15,7 +15,15 @@ public class FastTravel : MonoBehaviour {
 
     public void Travel(string name)
     {
+        Calendar.IncreaseDay(1);
         LoadingScreen.NextLevelName = name;
         Application.LoadLevel("LoadingScene");
+        GameStates.IsAWindowOpen = false;
+
+    }
+    public void Sair()
+    {
+        GameStates.IsAWindowOpen = false;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().EstadoDoJogador = GameStates.CharacterState.Playing;
     }
 }

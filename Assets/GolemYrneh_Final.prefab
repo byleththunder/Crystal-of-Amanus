@@ -174,6 +174,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 434872}
   - 137: {fileID: 13780610}
+  - 136: {fileID: 13660034}
   m_Layer: 0
   m_Name: Golem
   m_TagString: Untagged
@@ -699,6 +700,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 451576}
+  - 136: {fileID: 13672442}
   m_Layer: 0
   m_Name: DEF-upper_arm_01_R
   m_TagString: Untagged
@@ -819,6 +821,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 415552}
+  - 136: {fileID: 13644082}
   m_Layer: 0
   m_Name: DEF-upper_arm_01_L
   m_TagString: Untagged
@@ -1915,13 +1918,16 @@ GameObject:
   m_Component:
   - 4: {fileID: 476482}
   - 95: {fileID: 9520834}
+  - 54: {fileID: 5402502}
+  - 195: {fileID: 19586516}
+  - 114: {fileID: 11414676}
   m_Layer: 0
   m_Name: GolemYrneh_Final
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_TagString: Monsters
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &188664
 GameObject:
   m_ObjectHideFlags: 1
@@ -3775,9 +3781,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187998}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.66082382, y: 3.45000005, z: -4.66617966}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106709}
+  m_LocalPosition: {x: 12.1800003, y: 3.24799991, z: -136.050323}
+  m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
   m_Children:
   - {fileID: 434872}
   - {fileID: 406336}
@@ -4229,6 +4235,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 440374}
   m_RootOrder: 0
+--- !u!54 &5402502
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187998}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!95 &9520834
 Animator:
   serializedVersion: 3
@@ -4238,7 +4259,7 @@ Animator:
   m_GameObject: {fileID: 187998}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 12eb903e00a8e2b40805a0996d385f85, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7c31f3bc31b92bb4e9ac86165e108b03, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4246,6 +4267,69 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11414676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58e7f121cee03f243935c3ec119f2080, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Level: 1
+  Nome: Golem
+  VidaTotal: 100
+  AmanusTotal: 100
+  AtaquePadrao: 10
+  visao: 0
+  LvlUpAnim: {fileID: 0}
+  anim: {fileID: 9520834}
+  Morte: {fileID: 0}
+  HitTeste: 0
+  nav: {fileID: 19586516}
+  Player: {fileID: 0}
+  Hunting: 1
+--- !u!136 &13644082
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135632}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: .610000014
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: -3.03999996, y: 0, z: 0}
+--- !u!136 &13660034
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105066}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.27999997
+  m_Height: 6.82000017
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &13672442
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128948}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: .610000014
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: -3.03999996, y: 0, z: 0}
 --- !u!137 &13780610
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -4359,6 +4443,26 @@ SkinnedMeshRenderer:
     m_Center: {x: 1.68742085, y: -.123336792, z: 2.46442819}
     m_Extent: {x: 3.37087202, y: 1.19829917, z: 2.97842622}
   m_DirtyAABB: 0
+--- !u!195 &19586516
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187998}
+  m_Enabled: 1
+  m_Radius: 2.76999998
+  m_Speed: 1
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 3
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 6.23999977
+  m_BaseOffset: 3.30999994
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

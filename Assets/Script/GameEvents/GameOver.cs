@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityStandardAssets.ImageEffects;
+using UnityEngine.EventSystems;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -18,11 +19,17 @@ public class GameOver : MonoBehaviour
     Character Personagem;
     Grayscale Fade;
     public GameObject Painel;
+    public EventSystem evento;
+    public GameObject FirstButton;
     // Use this for initialization
     void Start()
     {
         Fade = GetComponent<Grayscale>();
         Personagem = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
+        evento = GameObject.Find("EventSystem").GetComponent<EventSystem>();
+        if (FirstButton == null)
+            FirstButton = Painel.transform.FindChild("Continua_bt").gameObject;
+
     }
 
     // Update is called once per frame
@@ -30,7 +37,13 @@ public class GameOver : MonoBehaviour
     {
         if (Personagem.VidaAtual <= 0)
         {
-
+            if (evento != null)
+            {
+                if(FirstButton!= null)
+                {
+                    evento.SetSelectedGameObject(FirstButton);
+                }
+            }
             if (!FadeOver)
             {
                 Personagem.EstadoDoJogador = GameStates.CharacterState.DontMove;

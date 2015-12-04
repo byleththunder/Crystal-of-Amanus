@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: WoodFine0020_L2
-  m_Shader: {fileID: 4800000, guid: 44b54c59129572f469a949a22bc08cd0, type: 3}
+  m_Shader: {fileID: 4800000, guid: 9ce107479d11178d11005b9844295342, type: 3}
   m_ShaderKeywords: _COLOR_ON _TEX_ON
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
@@ -184,6 +184,14 @@ Material:
       data:
         first:
           name: _TrOp
+        second: 0
+      data:
+        first:
+          name: _Swt
+        second: 0
+      data:
+        first:
+          name: _Desl
         second: 0
     m_Colors:
       data:

@@ -42,16 +42,18 @@ public class CourtRoom : MonoBehaviour
                 }
                 else
                 {
-                    if(Continua.color.a <1f)
-                    {
-                         timer += Time.deltaTime;
-                         if (timer > 0.1f)
-                         {
-                             timer = 0;
-                             TextFade.a += 0.05f;
-                         }
-                         Continua.color = TextFade;
-                    }
+                    //if(Continua.color.a <1f)
+                    //{
+                    //     timer += Time.deltaTime;
+                    //     if (timer > 0.1f)
+                    //     {
+                    //         timer = 0;
+                    //         TextFade.a += 0.05f;
+                    //     }
+                    //     Continua.color = TextFade;
+                    //}
+                    LoadingScreen.NextLevelName = "Falansterio";
+                    Application.LoadLevel("LoadingScene");
                     
                 }
             }

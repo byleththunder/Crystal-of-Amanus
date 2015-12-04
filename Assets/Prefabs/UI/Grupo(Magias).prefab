@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nome: Escudo
   Descricao: Uma esfera de energia cobre o personagem, protegendo-o dos ataques inimigos.
-  Img: {fileID: 21300000, guid: 9e79491d5937bcb4f94040b817ddd076, type: 3}
+  Img: {fileID: 21300000, guid: 5f4ba10e8490a1d40b16af0e98b2bb55, type: 3}
   NameImg: {fileID: 21300000, guid: 29cb6bb6e053ae74b91c455c15ff6ceb, type: 3}
   Alvo: 0
   Dano: 0

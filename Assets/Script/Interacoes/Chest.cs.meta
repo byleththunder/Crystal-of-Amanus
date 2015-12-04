@@ -1,10 +1,14 @@
 fileFormatVersion: 2
 guid: 9ebefdca38b8ac942a3d3a23674edd30
-timeCreated: 1441569424
+timeCreated: 1448836931
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - anim: {instanceID: 0}
+  - loot: {instanceID: 0}
+  - Imagens: {instanceID: 0}
+  - spr: {fileID: 21300000, guid: 12ff8329658e3664bbc2d765120963d9, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

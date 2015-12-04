@@ -8,11 +8,11 @@ public class Golem : Monster {
     private NavMeshAgent nav;
 
     public GameObject Player;
-
+    public ParticleSystem Rochas;
     public bool Hunting = true;
     bool RageAttck = false;
     bool Attack = false;
-
+    
     int VidaPercent = 100;
 	// Use this for initialization
 	void Start () {
@@ -25,10 +25,12 @@ public class Golem : Monster {
             Debug.LogWarning("O Golem não achou o personagem no método Start");
         }
         Vida = VidaTotal;
+        Ataque = 2;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
         VidaPercent = (VidaAtual * 100) / VidaTotal;
         VidaPercent = Mathf.Clamp(VidaPercent, 0, 100);
         anim.SetInteger("Vida", VidaPercent);
@@ -60,6 +62,7 @@ public class Golem : Monster {
                         Invoke("Chase", 10f);
                         Attack = true;
                         anim.SetTrigger("Combo1");
+                       
                     }
                 }
             }
@@ -75,10 +78,28 @@ public class Golem : Monster {
         DamageCheck();
 
 	}
-
+    void OnCollisionEnter(Collision col)
+    {
+        if(col.gameObject.CompareTag("Player"))
+        {
+            if(Attack)
+            {
+                print("Dano");
+                col.gameObject.GetComponent<Target>().HealOrDamage(Ataque, 0);
+            }
+        }
+    }
     void Chase()
     {
         Hunting = true;
         Attack = false;
+        Invoke("Atacar", 2f);
+    }
+    void Atacar()
+    {
+        Hunting = false;
+        Invoke("Chase", 10f);
+        Attack = true;
+        anim.SetTrigger("Combo1");
     }
 }

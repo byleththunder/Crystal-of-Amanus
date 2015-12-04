@@ -22,6 +22,8 @@ public class VCQuest_Nevena : Selectable,IDeselectHandler,ISelectHandler {
         try
         {
             npc = GameObject.Find("Nevena").GetComponent<Nevena_NPC>();
+            Ico = System.Array.Find<Image>(gameObject.transform.GetComponentsInChildren<Image>(), x => x.name == "Ico_Quest");
+            Nome = transform.GetComponentInChildren<Text>();
             Nome.text = npc.GetQuestInfo(Indice).Nome;
             if (npc.GetQuestInfo(Indice).Tipo == TiposDeQuests.Principal)
             {
@@ -36,6 +38,11 @@ public class VCQuest_Nevena : Selectable,IDeselectHandler,ISelectHandler {
             Debug.LogError("Não foi possivél inicializar o Quest Content da NPC Nevena");
         }
 
+    }
+
+    public void Descricao()
+    {
+        npc.Descricao.text = npc.GetQuestInfo(Indice).Descricao;
     }
 
     public override void OnSelect(BaseEventData eventData)

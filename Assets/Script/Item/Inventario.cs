@@ -20,26 +20,21 @@ public class Inventario : MonoBehaviour
     public int MochilaLenght { get { return _mochila.Count; } }
     public List<Item> MochilaRef { get { return _mochila; } }
     public List<int> QuantidadesRef { get { return Quantidades; } }
-    
+
     void Start()
     {
-        try
+        if (Game.current != null)
         {
-            if (!string.IsNullOrEmpty(Game.current.Invent))
+            if (Game.current.ItensArmazenado.Count > 0)
             {
-                Inventario.SaveInvent = Game.current.Invent;
                 Load();
-                print(MochilaLenght);
             }
         }
-        catch
-        {
-        }
-
     }
     void LateUpdate()
     {
         ChecarMochila();
+        Save();
     }
 
     ///<summary "Visual Content Item Behavior">
@@ -79,6 +74,7 @@ public class Inventario : MonoBehaviour
                 }
             }
         }
+        Save();
         return HasItem;
     }
     public int ComprimentoDaMochila()
@@ -91,8 +87,8 @@ public class Inventario : MonoBehaviour
      --------------------------------------------------------------------------------*/
     public void PickItem(Item item, int Quantidade)
     {
-        
-        for (int i = 0; i < MochilaLenght; i++)
+
+        for (int i = 0; i < _mochila.Count; i++)
         {
             if (_mochila[i] == item)
             {
@@ -125,10 +121,25 @@ public class Inventario : MonoBehaviour
                     _mochila.RemoveAt(i);
                     Quantidades.RemoveAt(i);
                 }
+                Save();
                 return true;
             }
         }
         return false;
+    }
+    public bool DiscartItem(int i)
+    {
+        if (Quantidades[i] > 1)
+        {
+            Quantidades[i]--;
+        }
+        else
+        {
+            _mochila.RemoveAt(i);
+            Quantidades.RemoveAt(i);
+        }
+        Save();
+        return true;
     }
     public string[] ItensNames()
     {
@@ -157,35 +168,44 @@ public class Inventario : MonoBehaviour
             }
         }
     }
-
+    public int ProcurarItem(string nome)
+    {
+        for (int i = 0; i < _mochila.Count; i++)
+        {
+            if (_mochila[i].Nome == nome)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
     /// <summary"Save & Load Methods">
     /// Salvo em formato de string as informações importantes dessa classe e mando para a classe Game.
     /// O Load pega a string na classe Game e converte para Members.
     /// </summary>
     public void Save()
     {
-        string _temp = string.Empty;
-        _temp += SaveGameState.IniciarSave();
-        _temp += SaveGameState.SalvarLista<Item>(_mochila, "Itens", new string[1] { "Nome" }, true);
-        _temp += SaveGameState.SalvarLista<int>(Quantidades, "Quantidades");
-        _temp += SaveGameState.FinalizarSave();
-        SaveInvent = _temp;
-        //PlayerPrefs.SetString("Inventario" + indice, _temp);
-    }
-    public bool Load()
-    {
-        if (!string.IsNullOrEmpty(SaveInvent))
+        if (Game.current != null)
         {
-            List<string> _Itens = LoadGameState.LoadStringList(SaveInvent, "Itens");
-            for (int i = 0; i < _Itens.Count; i++)
+            for (int i = 0; i < _mochila.Count; i++)
             {
-                _mochila.Add(ResourceFind.FindItem(_Itens[i]));
+                if(!Game.current.ItensArmazenado.Exists(x => x ==_mochila[i].Nome ))
+                {
+                    Game.current.ItensArmazenado.Add(_mochila[i].Nome);
+                }
             }
-            Quantidades = LoadGameState.LoadIntList(SaveInvent, "Quantidades");
-            print("Mochila lenght = " + _mochila[0].Nome);
-            return true;
+            Game.current.QuantidadeDeItens = Quantidades;
         }
-        return false;
+    }
+    public void Load()
+    {
+
+        for (int i = 0; i < Game.current.ItensArmazenado.Count; i++)
+        {
+            _mochila.Add(ResourceFind.FindItem(Game.current.ItensArmazenado[i]));
+            Quantidades.Add(Game.current.QuantidadeDeItens[i]);
+        }
+
     }
 
 }

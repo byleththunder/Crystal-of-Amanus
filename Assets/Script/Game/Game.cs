@@ -12,8 +12,14 @@ public class Game {
 
     public static Game current;
     public string Player;
-    public string Invent;
+    //Inventario
+    public List<string> ItensArmazenado = new List<string>();
+    public List<int> QuantidadeDeItens = new List<int>();
+    //
     public List<Quest> Quests;
+    public List<Quest> MinhasQuests;
+    public List<Quest> Nevena = new List<Quest>();
+    public string[] Skills = new string[4];
     public string RuinaDungeon;
     public string LastPlace;
     #region Eran
@@ -25,7 +31,9 @@ public class Game {
      * Experiencia
      * Equipamentos[2]
      */
-    public  Vector3 Player_Pos;
+    public  float Player_Posx;
+    public float Player_Posy;
+    public float Player_Posz;
     public  int Player_Level;
     public  int Player_Argento;
     public  int Player_Vida;
@@ -33,6 +41,8 @@ public class Game {
     public  int Player_Ataque;
     public  int Player_Exp;
     public  string[] Player_Equipamentos = new string[2];
+    public long Player_Divida;
+    public bool begin = false;
     #endregion
     #region Dungeon - Ruinas
     /* Variaveis para salvar
@@ -48,10 +58,11 @@ public class Game {
         #region Eran_Initialize
         
         #endregion
-        Invent = Inventario.SaveInvent;
+       
         Quests = DataBase_Quests.Lista;
         RuinaDungeon = RuinasLevelScript.Ruinas;
         LastPlace = LoadingScreen.NextLevelName;
+        begin = true;
         current = this;
     }
     

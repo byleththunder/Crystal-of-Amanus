@@ -4,13 +4,11 @@ using System.Collections;
 public class EfeitoAtaque : StateMachineBehaviour {
 
     public ParticleSystem CrescentEffect;
-    
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         try
         {
-            GameObject.Find("AttackSEffect").GetComponent<AudioSource>().Play();
             CrescentEffect = GameObject.Find("CrescentMoon").GetComponent<ParticleSystem>();
             switch (GameObject.FindObjectOfType<Character>().visao)
             {

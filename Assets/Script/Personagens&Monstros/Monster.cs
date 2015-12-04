@@ -21,7 +21,7 @@ public class Monster : Target
     {
         if (Vida <= 0)
         {
-            print(ExpEarn);
+            ExpEarn = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().NextLevel/30;
             GameObject.FindGameObjectWithTag("Player").SendMessage("ChecarQuestMonstros", this);
             GameObject.FindGameObjectWithTag("Player").SendMessage("LevelUp", ExpEarn);
             if (Morte)

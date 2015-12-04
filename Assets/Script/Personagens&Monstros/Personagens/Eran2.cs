@@ -43,18 +43,9 @@ public class Eran2 : Character
     public Eran2()
     {
         Nome = "Eran Airikina";
-        AtaquePadrao = 10;
-        //if (!LoadInfo())
-        //{
-            
-        //}
-        VidaTotal = 100;
-        AmanusTotal = 100;
-        Gold = 0;
-        UpdateStatus();
-        Vida = VidaTotal;
-        Amanus = AmanusTotal;
-        EstadoDoJogador = GameStates.CharacterState.Playing;
+
+        
+        
 
 
     }
@@ -63,16 +54,17 @@ public class Eran2 : Character
         if (Game.current != null)
         {
             //Vou verificar se esse é um novo jogo.
-            if (Game.current.Player_Pos != null)
+            if (Game.current.begin == true)
             {
                 //Se não for um novo jogo, eu vou carregar as configurações anteriores.
-                transform.position = Game.current.Player_Pos;
-                Level = Game.current.Player_Level;
-                VidaTotal = Game.current.Player_Vida;
-                AmanusTotal = Game.current.Player_Amanus;
-                Ataque = Game.current.Player_Ataque;
+                //gameObject.transform.position = new Vector3(Game.current.Player_Posx, Game.current.Player_Posy, Game.current.Player_Posz);
+                if (Game.current.Player_Level == 0)
+                    Level = 1;
+                else
+                    Level = Game.current.Player_Level;
                 Exp = Game.current.Player_Exp;
                 Gold = Game.current.Player_Argento;
+                //Divida = Game.current.Player_Divida;
                 Equipamentos[0] = ResourceFind.FindItem(Game.current.Player_Equipamentos[0]);
                 Equipamentos[1] = ResourceFind.FindItem(Game.current.Player_Equipamentos[1]);
                 return true;
@@ -86,13 +78,13 @@ public class Eran2 : Character
         {
 
             //Se não for um novo jogo, eu vou carregar as configurações anteriores.
-            Game.current.Player_Pos = transform.position;
+            Game.current.Player_Posx = transform.position.x;
+            Game.current.Player_Posy = transform.position.y;
+            Game.current.Player_Posz = transform.position.z;
             Game.current.Player_Level = Level;
-            Game.current.Player_Vida = VidaTotal;
-            Game.current.Player_Amanus = AmanusTotal;
-            Game.current.Player_Ataque = Ataque;
             Game.current.Player_Exp = Exp;
             Game.current.Player_Argento = Gold;
+           // Game.current.Player_Divida = Divida;
             if (Equipamentos[0] != null)
                 Game.current.Player_Equipamentos[0] = Equipamentos[0].name;
             if (Equipamentos[1] != null)
@@ -102,6 +94,24 @@ public class Eran2 : Character
     void Awake()
     {
         //DontDestroyOnLoad(gameObject);
+        Divida = 100000;
+        if (!LoadInfo())
+        {
+            Gold = 0;
+        }
+        VidaTotal = 100;
+        AmanusTotal = 100;
+        AtaquePadrao = 10;
+        if (Level == 0)
+            Level = 1;
+        UpdateStatus();
+        if (VidaTotal == 0)
+        {
+            VidaTotal = 100;
+        }
+        Vida = VidaTotal;
+        Amanus = AmanusTotal;
+        EstadoDoJogador = GameStates.CharacterState.Playing;
     }
     void Start()
     {
@@ -278,12 +288,12 @@ public class Eran2 : Character
         }
         return false;
     }
-   
+
     public override void Attack()
     {
         if (GameInput.GetKeyDown(InputsName.Action) && !attack)
         {
-           // SoundEffects[0].Play();
+           
             switch (visao)
             {
                 case TargetVision.Back:
@@ -323,14 +333,14 @@ public class Eran2 : Character
     void OnTriggerStay(Collider col)
     {
 
-        if (col.gameObject.tag == "Destruivel")
-        {
-            if (DamageAttk)
-            {
-                col.gameObject.SendMessage("ExplosionObject");
-                DamageAttk = false;
-            }
-        }
+        //if (col.gameObject.tag == "Destruivel")
+        //{
+        //    if (DamageAttk)
+        //    {
+        //        col.gameObject.SendMessage("ExplosionObject");
+        //        DamageAttk = false;
+        //    }
+        //}
         if (col.gameObject.tag == "Monsters")
         {
             if (Alvo == null)

@@ -25,18 +25,21 @@ public class ButtonAction : MonoBehaviour
     //Quando clidado em Load Game eu carrego os jogos anteriores e coloco eles na tela para serem selecionados.
     public void LoadGame()
     {
-        SaveLoad.Load();
-        if (SaveLoad.savedGames.Count == 0) return;
-        LoadGameScreen.SetActive(true);
-        if (!IsDone)
+        try
         {
-            for (int i = 0; i < SaveLoad.savedGames.Count; i++)
-            {
-                VCLoad _temp = (VCLoad)Instantiate(Prefab);
-                _temp.transform.SetParent(Painel.transform, false);
-                _temp.id = i;
-            }
-            IsDone = true;
+            SaveLoad.Load();
         }
+        catch
+        {
+            return;
+        }
+        
+        if (SaveLoad.savedGames.Count == 0) return;
+        LoadingScreen.NextLevelName = Game.current.LastPlace;
+        Application.LoadLevel("LoadingScene");
+    }
+    public void Sair()
+    {
+        Application.Quit();
     }
 }

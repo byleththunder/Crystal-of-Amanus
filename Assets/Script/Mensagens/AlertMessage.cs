@@ -52,7 +52,7 @@ public class AlertMessage : Singleton<AlertMessage>
         GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().EstadoDoJogador = GameStates.CharacterState.DontMove;
         Time.timeScale = 0;
     }
-    public void ShowAlert(int Ag)
+    public void ShowAlert(int Ag, Sprite spr)
     {
         if (Painel == null)
         {
@@ -60,6 +60,7 @@ public class AlertMessage : Singleton<AlertMessage>
             Img = Painel.transform.FindChild("Image").GetComponent<Image>();
             texto = Painel.transform.FindChild("Text").GetComponent<Text>();
         }
+        Img.sprite = spr;
         texto.text = "Adquiriu " + Ag + " Ag";
         //Img.sprite = null; //Adicionar imagem de moedas de prata.
         GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().EstadoDoJogador = GameStates.CharacterState.DontMove;

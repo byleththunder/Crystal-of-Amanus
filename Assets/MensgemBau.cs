@@ -19,7 +19,14 @@ public class MensgemBau : StateMachineBehaviour {
         Chest bau = animator.gameObject.GetComponent<Chest>();
         if(bau.FoiAberto)
         {
-            AlertMessage.Instance.ShowAlert(bau.loot, bau.quantidade);
+            if (bau.Dinheiro)
+            {
+                AlertMessage.Instance.ShowAlert(bau.Quantia,bau.spr);
+            }
+            else
+            {
+                AlertMessage.Instance.ShowAlert(bau.loot, bau.quantidade);
+            }
             bau.FoiAberto = false;
         }
     }

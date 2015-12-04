@@ -152,7 +152,7 @@ Material:
       data:
         first:
           name: _Outline
-        second: .0299999993
+        second: .0379999988
       data:
         first:
           name: _Outl
@@ -189,6 +189,14 @@ Material:
         first:
           name: _Swit
         second: 1
+      data:
+        first:
+          name: _Swt
+        second: 0
+      data:
+        first:
+          name: _Desl
+        second: 0
     m_Colors:
       data:
         first:

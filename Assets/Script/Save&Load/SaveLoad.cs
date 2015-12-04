@@ -13,13 +13,23 @@ public static class SaveLoad
     public static string Arquivo = "Crystal of Amanus.sav";
     public static void Save()
     {
-        Game.current = new Game();
         //Load();
+        if (savedGames.Count == 0)
+        {
+            savedGames.Add(Game.current);
+            Game.current = new Game();
+        }
+        else
+        {
+            savedGames[0] = Game.current;
+            //Debug.Log(Game.current.MinhasQuests.Count);
+        }
+        
         if (!Directory.Exists(Pasta))
         {
             Directory.CreateDirectory(Pasta);
         }
-        savedGames.Add(Game.current);
+        
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Pasta+Arquivo);
         bf.Serialize(file, SaveLoad.savedGames);
@@ -38,13 +48,12 @@ public static class SaveLoad
             FileStream file = File.Open(Pasta+Arquivo, FileMode.Open);
             SaveLoad.savedGames = (List<Game>)bf.Deserialize(file);
             file.Close();
-            Debug.Log(savedGames.Count);
-            Debug.Log(savedGames[0].Invent);
+            
             Game.current = savedGames[0];
         }
         else
         {
-            Debug.LogError("Não existe Save");
+            //Debug.LogError("Não existe Save");
         }
     }
 }

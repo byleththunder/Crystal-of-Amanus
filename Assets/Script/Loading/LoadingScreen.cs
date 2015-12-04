@@ -6,44 +6,46 @@ using UnityEngine.UI;
 public class LoadingScreen : MonoBehaviour
 {
     public static string NextLevelName;
-    public Image Barra;
+    public Text Dica;
     AsyncOperation Op;
-    public Image Circle;
-    float girar;
-    public float TimeDelay;
+   
     // Use this for initialization
     void Start()
     {
+        try
+        {
+            if (Game.current != null)
+            {
+                Game.current.LastPlace = NextLevelName;
+            }
+            SaveLoad.Save();
+        }catch
+        {
+
+        }
         Op = Application.LoadLevelAsync(NextLevelName);
         //Op = Application.LoadLevelAdditiveAsync(NextLevelName);
-        Op.allowSceneActivation = false;
+        Op.allowSceneActivation = true;
+        if (NextLevelName == "DungeonAleatoria")
+        {
+            Dica.text = "Dica: Quando quiser sair da Masmorra Aleatória, basta ir em diração a uma chama azul.";
+        }else
+        {
+            Dica.text = "Dica: Aperte F1 para acessar a janela de comandos.";
+        }
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        Barra.fillAmount = Op.progress;
-        girar = ((girar + 1) % 100);
-        Circle.fillAmount = girar / 100;
-        if (Op.progress >=0.9f)
+        
+        if (Op.isDone)
         {
-            //Op.allowSceneActivation = true;
-            if (!IsInvoking("ChangeStage"))
-            {
-                Invoke("ChangeStage", 1.5f);
-            }
+            Destroy(gameObject);
         }
     }
-    void ChangeStage()
-    {
-        Op.allowSceneActivation = true;
-        Destroy(gameObject);
-    }
-    float CalcularPos(float percent, float PosMax)
-    {
-
-        float x = ((PosMax * percent)) - PosMax;
-        return x;
-    }
+    
+    
 }

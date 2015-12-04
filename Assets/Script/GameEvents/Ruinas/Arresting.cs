@@ -20,11 +20,13 @@ public class Arresting : MonoBehaviour
     public Image Fade;
     Color FadeColor;
     bool trigger = false;
+    public AudioSource cinematic;
     // Use this for initialization
     void Start()
     {
         MessageBox.PrefabPath = "CaixaDeTexto";
         cam = Camera.main.GetComponent<Animator>();
+        
         FadeColor = Fade.color;
     }
 
@@ -60,6 +62,7 @@ public class Arresting : MonoBehaviour
                 }
                 else
                 {
+                    Calendar.IncreaseDay(3);
                     LoadingScreen.NextLevelName = "Tribunal";
                     Application.LoadLevel("LoadingScene");
 
@@ -72,6 +75,8 @@ public class Arresting : MonoBehaviour
     {
         if(!trigger)
         {
+            Camera.main.GetComponent<AudioSource>().mute = true;
+            cinematic.Play();
             Capitan.gameObject.SetActive(true);
             cam.enabled = true;
             cam.SetTrigger("Guardas");

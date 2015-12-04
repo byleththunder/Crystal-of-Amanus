@@ -13,7 +13,8 @@ public class Shield : Skill
         Nome = "Escudo";
         Descricao = "Uma bola de energia cobre o personagem";
         Alvo = SkillTarget.Other;
-        Escudo = GameObject.FindGameObjectWithTag("Reflect");
+        if (Escudo == null)
+            Escudo = GameObject.FindGameObjectWithTag("Reflect");
         Personagem = GameObject.FindGameObjectWithTag("Player").transform.FindChild("Eran2Sprites").gameObject;
         Escudo.SetActive(false);
         CoolDown = 5f;
@@ -23,7 +24,7 @@ public class Shield : Skill
     /// No UsarSkill, eu verifico se posso usar a habilidade, se sim, eu verifico se o escudo já está ativado, se estiver ativado eu desativo e coloco a habilidade em cooldown,
     /// se o escudo não estiver ativado, eu ativo e começo a habilidade.
     /// </summary>
-   
+
     public override void UsarSkill(Target target)
     {
         if (!OnCoolDown)
@@ -33,13 +34,15 @@ public class Shield : Skill
             {
                 Escudo.SetActive(true);
                 Ativado = true;
+                Invoke("Desativar", 2f);
             }
             else
             {
                 Escudo.SetActive(false);
                 Ativado = false;
+                CancelInvoke("Desativar");
             }
-            if(Escudo.activeInHierarchy == false && Ativado)
+            if (Escudo.activeInHierarchy == false && Ativado)
             {
                 Invoke("ResetCoolDown", CoolDown);
                 OnCoolDown = true;
@@ -50,5 +53,15 @@ public class Shield : Skill
     {
         OnCoolDown = false;
         Ativado = false;
+    }
+    void Desativar()
+    {
+        Escudo.SetActive(false);
+        Ativado = false;
+        if (Escudo.activeInHierarchy == false && Ativado)
+        {
+            Invoke("ResetCoolDown", CoolDown);
+            OnCoolDown = true;
+        }
     }
 }

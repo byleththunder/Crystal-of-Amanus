@@ -10,8 +10,7 @@ public class Character : Target {
     [Header("Character")]
     [Space(.5f)]
 
-    [Header("Efeitos Sonoros")]
-    public List<AudioSource> SoundEffects = new List<AudioSource>();
+   
     [Space(0.5f)]
     [HideInInspector]
     public Item[] Equipamentos = new Item[2];
@@ -122,14 +121,14 @@ public class Character : Target {
         try
         {
             HealOrDamage(other.GetComponentInParent<Monster>().AtaqueAtual, 0);
-            
+            print(Vida);
         }
         catch
         {
             HealOrDamage(5, 0);
             print("Dano Padrão");
         }
-        print(other.transform.parent.name);
+        //print(other.transform.parent.name);
     }
     protected override void UpdateStatus()
     {

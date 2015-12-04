@@ -126,9 +126,7 @@ public class UISkill : MonoBehaviour
     }
     void OrganizarTextos()
     {
-        Paineis[IndiceUniversal].anchoredPosition = Seletor[0].anchoredPosition;
-        Paineis[0].GetComponent<LayoutElement>().minWidth = 148;
-        Paineis[0].GetComponent<LayoutElement>().minHeight = 15;
+       
         if (SlotSkill[IndiceUniversal] != null || SlotsItem[IndiceUniversal] != null)
             Imagens[IndiceUniversal].color = new Color(Imagens[IndiceUniversal].color.r, Imagens[IndiceUniversal].color.g, Imagens[IndiceUniversal].color.b, 1);
         for (int i = 0; i < SlotSkill.Length; i++)
@@ -175,8 +173,9 @@ public class UISkill : MonoBehaviour
                     Imagens[i].color = new Color(Imagens[i].color.r, Imagens[i].color.g, Imagens[i].color.b, 0.3f);
             }
         }
-
-
+        Paineis[IndiceUniversal].anchoredPosition = Seletor[0].anchoredPosition;
+        Paineis[IndiceUniversal].GetComponent<LayoutElement>().minWidth = 148;
+        Paineis[IndiceUniversal].GetComponent<LayoutElement>().minHeight = 25;
 
     }
     void AtualizarSlotInfo()

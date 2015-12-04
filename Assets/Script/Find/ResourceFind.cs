@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [AddComponentMenu("Scripts/Find/Resouce")]
 public class ResourceFind : MonoBehaviour {
@@ -13,8 +14,8 @@ public class ResourceFind : MonoBehaviour {
     public static Item FindItem(string name)
     {
         Item[] ItensExistentes = Resources.LoadAll<Item>("ItemPrefabs");
-        Item _temp = (Item)(new object());
-        foreach(Item iten in ItensExistentes)
+        Item _temp = new Item();
+        foreach (Item iten in ItensExistentes)
         {
             if(iten.Nome == name)
             {

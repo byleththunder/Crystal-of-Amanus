@@ -7,12 +7,32 @@ public class MyQuest : MonoBehaviour
 {
 
     List<Quest> _Quests = new List<Quest>();
-
+    bool segunranca = false;
     void Start()
     {
-        _Quests = DataBase_Quests.OrganizarLista();
+        if (Game.current != null)
+        {
+            if (Game.current.MinhasQuests != null)
+            {
+                _Quests = Game.current.MinhasQuests;
+               
+            }
+            print(_Quests.Count);
+        }
+        
     }
-
+    void Update()
+    {
+        if (Game.current != null )
+        {
+            Game.current.MinhasQuests = _Quests;
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                print(Game.current.MinhasQuests.Count);
+            }
+        }
+        
+    }
     public int QuestsComprimento()
     {
         return _Quests.Count;
@@ -34,13 +54,13 @@ public class MyQuest : MonoBehaviour
             {
                 for (int j = 0; j < _Quests[i].Monstros.Length; j++)
                 {
-                   
-                    if (_Quests[i].Monstros[j].Nome == mon.Nome)
+
+                    if (_Quests[i].Monstros[j] == mon.Nome)
                     {
                         if (_Quests[i].Quantidades[j] > 0)
                         {
                             _Quests[i].Quantidades[j]--;
-                            
+
                         }
                         _Quests[i].AtualizarDescricao();
                         break;
@@ -59,14 +79,14 @@ public class MyQuest : MonoBehaviour
             {
                 for (int j = 0; j < _Quests[i].ItensColetaveis.Length; j++)
                 {
-                    if (_Quests[i].ItensColetaveis[j].Nome == iten.Nome)
+                    if (_Quests[i].ItensColetaveis[j] == iten.Nome)
                     {
                         if (_Quests[i].Quantidades[j] > 0)
                         {
                             _Quests[i].Quantidades[j] -= quantidade;
                             if (_Quests[i].Quantidades[j] < 0)
                                 _Quests[i].Quantidades[j] = 0;
-                            
+
                         }
                         _Quests[i].AtualizarDescricao();
                         break;
@@ -78,7 +98,7 @@ public class MyQuest : MonoBehaviour
     }
     public void ChecarQuestsCompletadas()
     {
-       
+
         for (int i = 0; i < _Quests.Count; i++)
         {
             if (!_Quests[i].IsComplete)
@@ -89,13 +109,35 @@ public class MyQuest : MonoBehaviour
                     {
                         break;
                     }
-                   if( i == _Quests.Count-1)
-                   {
-                       _Quests[i].IsComplete = true;
-                   }
+                    if (i == _Quests.Count - 1)
+                    {
+                        _Quests[i].IsComplete = true;
+                    }
                 }
-                
+
             }
         }
+    }
+    public bool VerificarQuestExistente(Quest q)
+    {
+        foreach (Quest _q in _Quests)
+        {
+            if (_q == q)
+            {
+                return true;
+            }
+
+        }
+
+        return false;
+    }
+    public List<Quest> TodasQuestCompletas()
+    {
+        return _Quests.FindAll(x => x.IsComplete);
+    }
+    public void RemoverQuest(Quest q)
+    {
+        int indice = _Quests.FindIndex(x => x == q);
+        _Quests.RemoveAt(indice);
     }
 }

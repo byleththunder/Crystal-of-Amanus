@@ -47,6 +47,7 @@ public class Target : MonoBehaviour
     /// <param name="_amanus">Caso o valor for negativo, o amanus será curado, caso contrario, será reconhecido como um gasto de uma habilidade</param>
     public virtual void HealOrDamage(int _vida, int _amanus)
     {
+        print(_vida);
         Vida -= _vida;
         if (Vida < 0)
         {
