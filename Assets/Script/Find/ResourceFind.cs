@@ -13,7 +13,7 @@ public class ResourceFind : MonoBehaviour {
 
     public static Item FindItem(string name)
     {
-        Item[] ItensExistentes = Resources.LoadAll<Item>("ItemPrefabs");
+        Item[] ItensExistentes = Resources.LoadAll<Item>("Itens");
         Item _temp = new Item();
         foreach (Item iten in ItensExistentes)
         {

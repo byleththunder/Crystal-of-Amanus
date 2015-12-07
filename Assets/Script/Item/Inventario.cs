@@ -25,7 +25,7 @@ public class Inventario : MonoBehaviour
     {
         if (Game.current != null)
         {
-            if (Game.current.ItensArmazenado.Count > 0)
+            if (Game.current.Itens.Count > 0)
             {
                 Load();
             }
@@ -60,6 +60,7 @@ public class Inventario : MonoBehaviour
         {
             if (_mochila[i] == _iten)
             {
+                Debug.Log(_mochila[i].MetodoItem(alvo));
                 if (_mochila[i].MetodoItem(alvo))
                 {
                     Quantidades[i]--;
@@ -187,24 +188,27 @@ public class Inventario : MonoBehaviour
     {
         if (Game.current != null)
         {
-            for (int i = 0; i < _mochila.Count; i++)
-            {
-                if(!Game.current.ItensArmazenado.Exists(x => x ==_mochila[i].Nome ))
-                {
-                    Game.current.ItensArmazenado.Add(_mochila[i].Nome);
-                }
-            }
+            //for (int i = 0; i < _mochila.Count; i++)
+            //{
+            //    if(!Game.current.ItensArmazenado.Exists(x => x ==_mochila[i].Nome ))
+            //    {
+            //        Game.current.ItensArmazenado.Add(_mochila[i].Nome);
+            //    }
+            //}
+            Game.current.Itens = _mochila;
+            print(Game.current.Itens.Count);
             Game.current.QuantidadeDeItens = Quantidades;
         }
     }
     public void Load()
     {
-
-        for (int i = 0; i < Game.current.ItensArmazenado.Count; i++)
-        {
-            _mochila.Add(ResourceFind.FindItem(Game.current.ItensArmazenado[i]));
-            Quantidades.Add(Game.current.QuantidadeDeItens[i]);
-        }
+        Quantidades = Game.current.QuantidadeDeItens;
+        _mochila = Game.current.Itens;
+        //for (int i = 0; i < Game.current.ItensArmazenado.Count; i++)
+        //{
+        //    _mochila.Add(ResourceFind.FindItem(Game.current.ItensArmazenado[i]));
+        //    Quantidades.Add(Game.current.QuantidadeDeItens[i]);
+        //}
 
     }
 

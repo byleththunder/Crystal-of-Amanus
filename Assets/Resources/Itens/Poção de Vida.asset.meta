@@ -1,6 +1,8 @@
 fileFormatVersion: 2
-guid: 40b94973a19e7d84fba1bf1bc4817c52
-timeCreated: 1448321143
+guid: 6e7f82f963d4e804586a89565e6656d6
+labels:
+- Weapon
+timeCreated: 1449496435
 licenseType: Free
 NativeFormatImporter:
   userData: 

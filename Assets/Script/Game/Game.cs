@@ -15,6 +15,7 @@ public class Game {
     //Inventario
     public List<string> ItensArmazenado = new List<string>();
     public List<int> QuantidadeDeItens = new List<int>();
+    public List<Item> Itens = new List<Item>();
     //
     public List<Quest> Quests;
     public List<Quest> MinhasQuests;

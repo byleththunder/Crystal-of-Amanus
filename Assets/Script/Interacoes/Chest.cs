@@ -27,6 +27,7 @@ public class Chest : MonoBehaviour {
         }
         else
         {
+            Debug.Log(Imagens == null);
             Imagens.sprite = loot.Img;
         }
         if (!Open)

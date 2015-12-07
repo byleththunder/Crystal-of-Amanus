@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443118083ed3ec849abba9e279372612, type: 3}
+  m_Name: "Po\xE7\xE3o de Vida"
+  m_EditorClassIdentifier: 
+  Ataque: 0
+  Defesa: 0
+  Vida: 10
+  Amanus: 0
+  Tipo: 1
+  TipoDeEquipamentos: 0
+  Nome: "Po\xE7\xE3o de Vida"
+  Descricao: "Essa po\xE7\xE3o recupera 10% da sua vida"
+  Img: {fileID: 21300000, guid: 327f76949bba20b458ca108c2fd3604d, type: 3}
+  NameImg: {fileID: 21300000, guid: ba38ca3f01a26a94dbfcc13f5f158baf, type: 3}
+  IsEquip: 0
+  Preco: 10
